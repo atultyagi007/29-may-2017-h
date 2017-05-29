@@ -1,0 +1,7 @@
+<ConfigurationRequest>
+	<DiscoveredDeviceConfiguration>
+		<chassisCredentialId>$chassis_cred_ref</chassisCredentialId>
+		<serverCredentialId>$server_cred_ref</serverCredentialId>
+		<iomCredentialId>$iom_switch_cred_ref</iomCredentialId>
+	</DiscoveredDeviceConfiguration>
+</ConfigurationRequest>

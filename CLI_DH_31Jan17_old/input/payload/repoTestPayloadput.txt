@@ -1,0 +1,6 @@
+<OSRepository>
+<imageType>$imageType</imageType>
+<name>$name</name>
+<sourcePath>$sourcePath</sourcePath>
+<state></state>
+</OSRepository>

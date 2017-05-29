@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DiscoveryRequest>
+	<discoveryRequestList>
+		<DiscoverIPRangeDeviceRequest>
+			<deviceStartIp>$start_ip</deviceStartIp>
+			<deviceEndIp>$end_ip</deviceEndIp>
+			<unmanaged>manage_in_asm</unmanaged> 
+			<deviceVCenterCredRef>$default_vcenter_cred_ref</deviceVCenterCredRef>			
+			<bDiscoverDevicesInChassis>false</bDiscoverDevicesInChassis>
+		</DiscoverIPRangeDeviceRequest>
+	</discoveryRequestList>
+</DiscoveryRequest>

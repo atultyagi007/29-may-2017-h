@@ -1,0 +1,25 @@
+
+
+<parameters>
+	<id>uplinks</id>
+	<value>$uplinkValues</value>
+	<type>STRING</type>
+	<required>true</required>
+	<requiredAtDeployment>false</requiredAtDeployment>
+	<hideFromTemplate>false</hideFromTemplate>
+	<readOnly>false</readOnly>
+	<generated>false</generated>
+	<infoIcon>false</infoIcon>
+</parameters>
+
+<parameters>
+	<id>$uplinkId</id>
+	<value>$UpLinkIDValue</value>
+	<type>STRING</type>
+	<required>true</required>
+	<requiredAtDeployment>false</requiredAtDeployment>
+	<hideFromTemplate>false</hideFromTemplate>
+	<readOnly>false</readOnly>
+	<generated>false</generated>
+	<infoIcon>false</infoIcon>
+</parameters>

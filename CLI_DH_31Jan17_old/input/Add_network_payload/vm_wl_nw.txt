@@ -1,0 +1,12 @@
+<networks>
+<id>$WorkloadID</id>
+<name>Workload</name>
+<description>Workload</description>
+<type>PUBLIC_LAN</type>
+<vlanId>$VlanIdWl</vlanId>
+<static>false</static>
+</networks>
+<options>
+<value>$WorkloadID</value>
+<name>Workload</name>
+</options>

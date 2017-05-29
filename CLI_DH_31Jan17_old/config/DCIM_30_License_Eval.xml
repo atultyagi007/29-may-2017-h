@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!--Copyright (c) 2010-2012 Dell Inc. All Rights Reserved.-->
+<lns:LicenseClass xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:lns="http://www.dell.com/2012/software/licensing">
+  <lns:LicenseData>
+    <lns:Schema lns:Vendor="Dell" lns:ID="DCIM" lns:SchemaVersion="3.0"/>
+    <lns:TransferableLicense>true</lns:TransferableLicense>
+    <lns:UTCdateSold>2012-09-19T11:38:42Z</lns:UTCdateSold>
+      <lns:ProductDescription>
+      <lns:lang_en>Dell Dynamic Systems Manager</lns:lang_en>
+      <lns:lang_es>Dell Dynamic Systems Manager</lns:lang_es>
+      <lns:lang_fr>Dell Dynamic Systems Manager</lns:lang_fr>
+      <lns:lang_de>Dell Dynamic Systems Manager</lns:lang_de>
+      <lns:lang_it>Dell Dynamic Systems Manager</lns:lang_it>
+      <lns:lang_ja>Dell Dynamic Systems Manager</lns:lang_ja>
+      <lns:lang_zh>Dell Dynamic Systems Manager</lns:lang_zh>
+    </lns:ProductDescription>
+    <lns:LicenseTerm>
+      <lns:Evaluation lns:Duration="P23D" lns:Capacity="30"/>
+    </lns:LicenseTerm>
+    <lns:Restrictions>
+      <lns:Generation>01G</lns:Generation>
+    </lns:Restrictions>
+    <lns:Feature lns:ID="1" lns:Description="Dell Dynamic Systems Manager node enablement for Blades" lns:Enabled="true"/>
+   </lns:LicenseData>
+<dsig:Signature xmlns:dsig="http://www.w3.org/2000/09/xmldsig#">
+<dsig:SignedInfo>
+<dsig:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+<dsig:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+<dsig:Reference URI="">
+<dsig:Transforms>
+<dsig:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+</dsig:Transforms>
+<dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+<dsig:DigestValue>9MivK98ybGZLe7tH6SNEEH9IYYE=</dsig:DigestValue>
+</dsig:Reference>
+</dsig:SignedInfo>
+<dsig:SignatureValue>PeDdHsGrqtUvEJ7406IAulVXlGeaCFuVnfLFXTTqQ0R91nN4K6gQ95zIUEG+zmey
+9ZrW1tnGlFvGXUT0/GgHmNTNogecRWf8L16oKYkQeQEJMw8LyVKwCcqzR/hqEUwX
+yzC2UoNulQbDzRHAazSZUiy4eEHFuEkzMo0KHjc3+r9jHUYC/zgwXqlt9k8erG+y
+25s43rlMYJcvkMTukYPLwEY1kFEjIqs4/eCDMJocQMCqFMvOkD1hFvn5q2JS4Nj3
+fVl8inuuEyrId/r86tlfhJMQGqC3oA6vpF2TXtr8NvB4aBosjiVL3jDFXF7pY62t
+CQ9+ZhQi0VdY+MC3afPPcA==</dsig:SignatureValue>
+<dsig:KeyInfo>
+<dsig:X509Data>
+<dsig:X509Certificate>MIIDTjCCAjagAwIBAgIBATANBgkqhkiG9w0BAQUFADBRMRMwEQYDVQQKEwpEZWxs
+LCBJbmMuMSEwHwYDVQQLExhFbWJlZGRlZCBMaWNlbnNlIE1hbmFnZXIxFzAVBgNV
+BAMTDkNBIENlcnRpZmljYXRlMB4XDTEwMDEwMTAwMDAwMFoXDTM1MTIzMTIzNTk1
+OVowVjETMBEGA1UEChMKRGVsbCwgSW5jLjEhMB8GA1UECxMYRW1iZWRkZWQgTGlj
+ZW5zZSBNYW5hZ2VyMRwwGgYDVQQDExNTaWduaW5nIENlcnRpZmljYXRlMIIBIjAN
+BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqbRo2DZtkjxl5YtqD5ePYdzrWbkU
+YQJwVaWYe1tE7ZAdou5TLTsjPnaa1cLcPTexn+cq8YjukIVwkwJP7yJ5GkrYGUnf
+0Q6unWWgwcgTStlpflz31e8AbxXqNYZEFvEktojYS0kAfiYES+H02GUU5PtV7B9Y
+BbtZEowU2DPuqRGG1FF8mAsp1vojcbQGx+nS2Of47oQJRrJlh28COXyf2w/+IRAz
+RmeYin+9pisfrT9fmlUtxa7sAAV/KZFRx8ED31YiktXgI/u/PNnHlchiCMaL6pzA
+HMBf115O7A2y6IZ9sXUHvH8V9QnDkWT1XHMn8GCW8HXOA5zA232OxiaRmQIDAQAB
+oywwKjAJBgNVHRMEAjAAMB0GA1UdDgQWBBQAoZ7yMjDHMAFtmmmO/zyz3BJ6hjAN
+BgkqhkiG9w0BAQUFAAOCAQEAHHgoOg57S+lAEejahdBE1HMwe6BF3b9bzUMCynn9
+7buXa3cnRFO3H3674WKU6nBjv4nkT3qMyXwgi7MvXcu69msK4eM6QA8XeC7G1rD+
+2bb/ENR9R9Zo0BWLym/ij8uUA/BzX8hnbzWxN82+FMdY9WD4fJAJwJ5ZPEbU1Vfy
+7wOWosHgDPXjeAhlhkxDQi6vlRTJdfED6tBY7iGD4AQXfzrHzAZpZlIvKbM2c54B
+65wMSlqfEWMBDhT5qcwGCq82hmi7/sCtu9Z20g2s9F0fp4XlGX8L7l0hCa46zjay
+37GffYsScEDFg/DmkIpcXnGzyx8l1msLzpj8Gt4zHhPlgA==</dsig:X509Certificate>
+</dsig:X509Data>
+</dsig:KeyInfo>
+</dsig:Signature></lns:LicenseClass>

@@ -1,0 +1,17 @@
+<ConfigurationRequest>
+	<configuration>
+		<chassisCredentialId>$credId_Chassis</chassisCredentialId>
+		<chassisNetworkIdentity>
+			<addressingMode>Existing</addressingMode>
+		</chassisNetworkIdentity>
+		<iomCredentialId>$credId_Switch</iomCredentialId>
+		<iomNetworkIdentity>
+			<addressingMode>Dhcp</addressingMode>	
+		</iomNetworkIdentity>
+		<serverCredentialId>$ServerCredId</serverCredentialId>
+		<serverNetworkIdentity>
+			<addressingMode>Existing</addressingMode>	
+		</serverNetworkIdentity>
+	</configuration>
+	<devices>$deviceRefId</devices>
+</ConfigurationRequest>

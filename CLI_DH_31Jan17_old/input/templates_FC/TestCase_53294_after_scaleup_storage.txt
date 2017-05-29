@@ -1,0 +1,223 @@
+<components>
+<id>DDD3A669-85B3-4D37-B10A-032052Bwc23q</id>
+<componentID>component4</componentID>
+<name>Compellent 2</name>
+<type>STORAGE</type>
+
+
+<relatedComponents>
+<entry>
+<key>FAD8F0B4-B5D0-46B1-9055-9AE99F423E4E</key>
+<value>Server</value>
+</entry>
+</relatedComponents>
+
+
+
+<resources>
+<id>asm::volume::compellent</id>
+<displayName>Compellent Storage Settings</displayName>
+
+<parameters>
+<id>asm_guid</id>
+<value>$StorageRefId</value>
+<type>ENUMERATED</type>
+<displayName>Target Compellent</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+<parameters>
+<id>title</id>
+<value>$new$</value>
+<type>ENUMERATED</type>
+<displayName>Storage Volume Name</displayName>
+<required>true</required>
+<requiredAtDeployment>true</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+<parameters>
+<id>$new$title</id>
+<value>$Volume_2</value>
+<type>STRING</type>
+<displayName>New Volume Name</displayName>
+<required>false</required>
+<requiredAtDeployment>true</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+
+<parameters>
+<id>size</id>
+<value>$Volume2_size</value>
+<type>STRING</type>
+<displayName>Storage Size e.g 100GB</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+<parameters>
+<id>boot</id>
+<value>false</value>
+<type>BOOLEAN</type>
+<displayName>Boot Volume</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+
+<parameters>
+<id>volumefolder</id>
+<value/>
+<type>STRING</type>
+<displayName>Volume Folder</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+
+<parameters>
+<id>purge</id>
+<value>yes</value>
+<type>ENUMERATED</type>
+<displayName>Purge Volume</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+
+<parameters>
+<id>volume_notes</id>
+<value/>
+<type>STRING</type>
+<displayName>Volume Notes</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+
+<parameters>
+<id>replayprofile</id>
+<value/>
+<type>STRING</type>
+<displayName>Replay Profile</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+
+<parameters>
+<id>storageprofile</id>
+<value/>
+<type>STRING</type>
+<displayName>Storage Profile Name</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+
+<parameters>
+<id>server_notes</id>
+<value/>
+<type>STRING</type>
+<displayName>Server Notes</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+<parameters>
+<id>operatingsystem</id>
+<value>VMware ESX 5.5</value>
+<type>ENUMERATED</type>
+<displayName>Operating System Name</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+
+<parameters>
+<id>wwn</id>
+<value/>
+<type>STRING</type>
+<displayName>Server WWN Values</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+
+
+<parameters>
+<id>porttype</id>
+<value>FibreChannel</value>
+<type>ENUMERATED</type>
+<displayName>Port Type</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+
+<parameters>
+<id>force</id>
+<value>false</value>
+<type>BOOLEAN</type>
+<displayName>Force Map</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+<parameters>
+<id>readonly</id>
+<value>false</value>
+<type>BOOLEAN</type>
+<displayName>Map Read Only</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+<parameters>
+<id>singlepath</id>
+<value>false</value>
+<type>BOOLEAN</type>
+<displayName>Single Path Map</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+<parameters>
+<id>configuresan</id>
+<value>true</value>
+<type>BOOLEAN</type>
+<displayName>Configure SAN Switch</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+<parameters>
+<id>ensure</id>
+<value>present</value>
+<type>STRING</type>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>true</hideFromTemplate>
+</parameters>
+
+</resources>
+
+</components>

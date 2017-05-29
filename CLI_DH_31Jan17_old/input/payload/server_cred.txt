@@ -1,0 +1,7 @@
+<asmCredential>
+		<serverCredential>
+			<label>$labelname</label>
+			<username>$username</username>
+			<password>$password</password>
+		</serverCredential>
+	</asmCredential>

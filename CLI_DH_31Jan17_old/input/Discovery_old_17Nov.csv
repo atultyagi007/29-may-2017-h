@@ -1,0 +1,19 @@
+SNo,Type,START_IP,END_IP,CredentialName,ChassisServerCre,ChassisSwitchCre
+1,CHASSIS,172.31.60.238,172.31.60.238,Dell chassis default,Dell server default,Dell switch default
+2,CHASSIS,172.31.60.12,172.31.60.12,Dell chassis default,Dell server default,Dell switch default
+3,CHASSIS,172.31.60.13,172.31.60.13,Dell chassis default,Dell server default,Dell switch default
+4,STORAGE,172.31.32.108,172.31.32.108,StorageEQL,,
+5,STORAGE,172.31.32.109,172.31.32.109,Compellent,,
+6,STORAGE,172.31.32.117,172.31.32.117,StorageCompellent,,
+7,VCENTER,172.31.32.195,172.31.32.195,autoVCenter,,
+8,SCVMM,172.31.62.3,172.31.62.4,SCVMM12345,,
+9,SWITCH,172.31.60.89,172.31.60.90,autoBrocade,,
+10,SWITCH,172.31.63.101,172.31.63.102,autoBrocade,,
+11,SWITCH,172.31.63.34,172.31.63.35,autoBrocade,,
+12,SWITCH,172.31.63.48,172.31.63.49,autoSwitch,,
+13,SWITCH,172.31.63.68,172.31.63.69,autoSwitch,,
+14,SERVER,172.31.61.192,172.31.61.194,autoServer,,
+15,SERVER,172.31.61.108,172.31.61.108,autoServer,,
+16,SERVER,172.31.61.170,172.31.61.170,autoServer,,
+17,SWITCH,172.31.63.94,172.31.61.95,autoSwitch,,
+18,SWITCH,172.31.63.80,172.31.63.81,autoSwitch,,

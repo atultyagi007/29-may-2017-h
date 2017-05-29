@@ -1,0 +1,103 @@
+<parameters>
+	<id>chassis_name</id>
+	<value>$chassisName</value>
+	<type>STRING</type>
+	<required>true</required>
+	<requiredAtDeployment>false</requiredAtDeployment>
+	<hideFromTemplate>false</hideFromTemplate>
+	<readOnly>false</readOnly>
+	<generated>false</generated>
+	<infoIcon>false</infoIcon>
+	<maxLength>256</maxLength>
+	<step>1</step>
+</parameters>
+<parameters>
+	<id>dns_name</id>
+	<value>$dnsName</value>
+	<type>STRING</type>
+	<required>true</required>
+	<requiredAtDeployment>false</requiredAtDeployment>
+	<hideFromTemplate>false</hideFromTemplate>
+	<readOnly>false</readOnly>
+	<generated>false</generated>
+	<infoIcon>false</infoIcon>
+	<maxLength>256</maxLength>
+	<step>1</step>
+</parameters>
+<parameters>
+	<id>power_cap</id>
+	<value>0.0</value>
+	<type>STRING</type>
+	<required>true</required>
+	<requiredAtDeployment>false</requiredAtDeployment>
+	<hideFromTemplate>false</hideFromTemplate>
+	<readOnly>false</readOnly>
+	<generated>false</generated>
+	<infoIcon>false</infoIcon>
+	<maxLength>256</maxLength>
+	<step>1</step>
+</parameters>
+<parameters>
+	<id>power_cap_type</id>
+	<type>STRING</type>
+	<required>true</required>
+	<requiredAtDeployment>false</requiredAtDeployment>
+	<hideFromTemplate>false</hideFromTemplate>
+	<readOnly>false</readOnly>
+	<generated>false</generated>
+	<infoIcon>false</infoIcon>
+	<maxLength>256</maxLength>
+	<step>1</step>
+</parameters>
+<parameters>
+	<id>datacenter</id>
+	<value>$datacenter</value>
+	<type>STRING</type>
+	<required>true</required>
+	<requiredAtDeployment>false</requiredAtDeployment>
+	<hideFromTemplate>false</hideFromTemplate>
+	<readOnly>false</readOnly>
+	<generated>false</generated>
+	<infoIcon>false</infoIcon>
+	<maxLength>256</maxLength>
+	<step>1</step>
+</parameters>
+<parameters>
+	<id>aisle</id>
+	<value>$aisle</value>
+	<type>STRING</type>
+	<required>true</required>
+	<requiredAtDeployment>false</requiredAtDeployment>
+	<hideFromTemplate>false</hideFromTemplate>
+	<readOnly>false</readOnly>
+	<generated>false</generated>
+	<infoIcon>false</infoIcon>
+	<maxLength>256</maxLength>
+	<step>1</step>
+</parameters>
+<parameters>
+	<id>rack</id>
+	<value>$Rack</value>
+	<type>STRING</type>
+	<required>true</required>
+	<requiredAtDeployment>false</requiredAtDeployment>
+	<hideFromTemplate>false</hideFromTemplate>
+	<readOnly>false</readOnly>
+	<generated>false</generated>
+	<infoIcon>false</infoIcon>
+	<maxLength>256</maxLength>
+	<step>1</step>
+</parameters>
+<parameters>
+	<id>rackslot</id>
+	<value>$Slot</value>
+	<type>STRING</type>
+	<required>true</required>
+	<requiredAtDeployment>false</requiredAtDeployment>
+	<hideFromTemplate>false</hideFromTemplate>
+	<readOnly>false</readOnly>
+	<generated>false</generated>
+	<infoIcon>false</infoIcon>
+	<maxLength>256</maxLength>
+	<step>1</step>
+</parameters>

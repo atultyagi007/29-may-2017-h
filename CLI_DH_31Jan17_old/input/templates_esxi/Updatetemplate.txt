@@ -1,0 +1,12 @@
+<ServiceTemplate>
+    <templateName>TestCase_Template_test_hcl</templateName>
+    <category>Automation</category>
+    <enableApps>false</enableApps>
+    <enableCluster>false</enableCluster>
+    <enableServer>false</enableServer>
+    <enableStorage>false</enableStorage>
+    <enableVMs>false</enableVMs>
+    <allUsersAllowed>false</allUsersAllowed>
+    <manageFirmware>false</manageFirmware>
+    <useDefaultCatalog>false</useDefaultCatalog>
+</ServiceTemplate>

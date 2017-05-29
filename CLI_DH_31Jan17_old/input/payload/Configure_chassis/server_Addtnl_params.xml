@@ -1,0 +1,13 @@
+<parameters>
+	<id>dns_name</id>
+	<value>$server_dns_name</value>
+	<type>STRING</type>
+	<required>true</required>
+	<requiredAtDeployment>false</requiredAtDeployment>
+	<hideFromTemplate>false</hideFromTemplate>
+	<readOnly>false</readOnly>
+	<generated>false</generated>
+	<infoIcon>false</infoIcon>
+	<maxLength>256</maxLength>
+	<step>1</step>
+</parameters>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ActiveDirectoryConfiguration name="ad_name" isDefault="false" status="active" createdBy="login_user">
+<link href="" rel="self" title="ad_name"/>
+<connectionSetting hostName="ad_host" port="ad_port" protocol="plain" bindDn="ad_binddn" method="simple" password="ad_password"/>
+<filterSetting filterSettingType="objectClass=*" baseDn="CN=users,DC=ad_domain,DC=ad_de,DC=net"/>
+<attributeMapping userId="samAccountName" email="mail" lastName="ad_lastname" firstName="ad_firstname"/>
+</ActiveDirectoryConfiguration>

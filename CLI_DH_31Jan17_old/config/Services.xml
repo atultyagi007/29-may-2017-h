@@ -1,0 +1,79 @@
+<urls>
+	<url name="AddOnModule" uri = "/AsmManager/addOnModule"/>
+	<url name="DiscoveryResultList" uri = "/AsmManager/DiscoveryRequest/discoveryresult"/>
+	<url name="Configure" uri="/AsmManager/Configure/configure"/>
+	<url name="Discovery" uri="/AsmManager/DiscoveryRequest"/>
+	<url name="ChassisListDiscovery" uri="/AsmManager/DiscoveryRequest/chassislist"/>
+	<url name="ChassisRADiscovery" uri="/AsmManager/ChassisDiscoveryRequest"/>
+	<url name="ChassisConfigureProcess" uri="/AsmManager/Configure/process"/>
+	<url name="ChassisConfigureDiscover" uri="/AsmManager/Configure/discover"/>
+	<url name="Credential" uri = "/AsmManager/credential"/>
+	<url name="ManagedDevicepuppet" uri = "/AsmManager/ManagedDevice/puppet"/>
+	<url name="ManagedDevice" uri = "/AsmManager/ManagedDevice"/>
+	<url name="ExportManagedDevice" uri = "/AsmManager/ManagedDevice/export/csv"/>
+	<url name="CountManagedDevice" uri = "/AsmManagerManagedDevice/count"/>
+	<url name="ManagedDeviceWcomp" uri = "/AsmManager/ManagedDevice/withcompliance"/>
+	<url name = "Network" uri = "/VirtualServices/Network"/>
+	<url name = "ExportNetwork" uri = "/VirtualServices/Network/export/csv"/>
+	<url name="Timezone" uri = "/alcm/timezone"/>
+	<url name="AllTimezone" uri = "/alcm/timezone/all"/>
+	<url name="NTP" uri = "/alcm/ntp"/>
+	<url name="login" uri = "/AsmManager/authenticate"/>
+	<url name="proxy" uri = "/alcm/proxy"/>
+	<url name="proxyTest" uri = "/alcm/proxy/test"/>
+	<url name="Wizard" uri = "/alcm/wizardStatus"/>
+	<url name="ServerCred" uri = "/AsmManager/credential"/>
+	<url name="Template" uri = "/AsmManager/ServiceTemplate"/>
+	<url name="ExportTemplate" uri = "/AsmManager/ServiceTemplate/export?encPassword=dell1234 and useEncPwdFromBackup=true"/>
+	<url name="DeleteUserFromTemplate" uri = "/AsmManager/ServiceTemplate/users?userId="/>
+	<url name="ExportcsvTemplate" uri = "/AsmManager/ServiceTemplate/export/csv"/>
+	<url name="TemplatePutByTemId" uri = "/AsmManager/ServiceTemplate/components/template"/>
+	<url name="TemplatePutByserviceId" uri = "/AsmManager/ServiceTemplate/components/service"/>
+	<url name="TemplateByDeviceId" uri = "/AsmManager/ServiceTemplate/device"/>
+	<url name="ServerPool" uri = "/AsmManager/DeviceGroup"/>
+	<url name="Deploy" uri = "/AsmManager/Deployment"/>
+	<url name="MigrateServer" uri = "/AsmManager/Deployment/migrateServer"/>
+	<url name="BFSMigrateServer" uri = "/AsmManager/Deployment/migrate"/>
+	<url name="DeleteUserFromService" uri = "/AsmManager/Deployment/users?userId="/>
+	<url name="AvlServerForTemp" uri = "/AsmManager/Deployment/filter/1"/>
+	<url name="ExportDeployment" uri = "/AsmManager/Deployment/export/csv"/>
+	<url name="DeploymentByDeviceid" uri = "/AsmManager/Deployment/device"/>
+	<url name="NetworkListByServerid" uri = "/AsmManager/Deployment/serverNetworking"/>
+	<url name="DeployListByNWId" uri = "/AsmManager/Deployment/network"/>
+	<url name="User" uri = "/AsmManager/user"/>
+	<url name="DirectoryService" uri = "/SecurityManager/activedirectory"/>
+	<url name="ValidateAD" uri = "/SecurityManager/activedirectory/validate"/>
+	<url name="osRepository" uri = "/AsmManager/osRepository"/>
+	<url name="osRepositorysync" uri = "/AsmManager/osRepository/sync"/>
+	<url name="osRepositoryconnection" uri = "/AsmManager/osRepository/connection"/>
+	<url name="FirmwareRepository" uri = "/AsmManager/firmwareRepository"/>
+	<url name="FirmwareRepositoryCon" uri = "/AsmManager/firmwareRepository/connection"/>
+	<url name="FWRepoSoftwareComponent" uri = "/AsmManager/firmwareRepository/softwarecomponent"/>
+	<url name="FWRepoSoftwareBundle" uri = "/AsmManager/firmwareRepository/softwarebundle"/>
+	<url name="Chassis" uri = "/AsmManager/Chassis"/>
+	<url name="Chassisiomip" uri = "/AsmManager/Chassis/iom/ip"/>
+	<url name="Server" uri = "/AsmManager/Server"/>
+	<url name="ServerByServiceTag" uri = "/AsmManager/Server/serviceTag"/>
+	<url name="compliance" uri = "/AsmManager/FirmwareRepository/compliance"/>
+    <url name="updateFirmware" uri = "/AsmManager/ManagedDevice/firmware"/>
+    <url name="DHCP" uri = "/alcm/dhcp"/>
+    <url name="JobStatus" uri="/JRAF/jobhistory/executiontree?jobName="/>
+    <url name="backupNowWithSettings" uri = "/alcm/database/backupNowWithSettings"/>
+    <url name="backupSettings" uri = "/alcm/database/backupSettings"/>
+    <url name="backupSchedule" uri = "/alcm/database/backupSchedule"/>
+    <url name="restore" uri = "/alcm/database/restore"/>
+    <url name="reboot" uri = "/alcm/appliance/reboot"/>
+    <url name="GetManagedDevice" uri = "/AsmManager/ManagedDevice?limit=300"/>
+    <url name="VCenter" uri = "/AsmManager/VCenter"/>
+    <url name="softwareBundleFirmware" uri = "/AsmManager/softwareBundleFirmware"/>
+    <url name="License" uri = "/alcm/license"/>
+    <url name="DirectoryService" uri = "/AsmManager/ActiveDirectoryConfiguration"/>
+    <url name="ActiveDirectoryUser" uri = "/AsmManager/ActiveDirectoryUser"/>
+    <url name="ValidateAD" uri = "/AsmManager/activedirectory/validate"/>
+    
+	
+	
+    
+    
+    
+</urls>

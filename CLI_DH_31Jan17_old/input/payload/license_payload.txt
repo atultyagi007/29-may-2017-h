@@ -1,0 +1,48 @@
+<uploadLicenseRequest>
+<content>
+<![CDATA[
+<!--Copyright (c) 2010-2012 Dell Inc. All Rights Reserved.-->
+<lns:LicenseClass xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:lns="http://www.dell.com/2012/software/licensing">
+  <lns:LicenseData>
+    <lns:Schema lns:Vendor="Dell" lns:ID="DCIM" lns:SchemaVersion="3.0"/>
+    <lns:TransferableLicense>true</lns:TransferableLicense>
+    <lns:UTCdateSold>2013-12-13T11:36:25Z</lns:UTCdateSold>
+    <lns:ProductDescription>
+      <lns:lang_en>Dell Active System Manager</lns:lang_en>
+      <lns:lang_es>Dell Active System Manager</lns:lang_es>
+      <lns:lang_fr>Dell Active System Manager</lns:lang_fr>
+      <lns:lang_de>Dell Active System Manager</lns:lang_de>
+      <lns:lang_it>Dell Active System Manager</lns:lang_it>
+      <lns:lang_ja>Dell Active System Manager</lns:lang_ja>
+      <lns:lang_zh>Dell Active System Manager</lns:lang_zh>
+    </lns:ProductDescription>
+    <lns:LicenseTerm>
+      <lns:Perpetual lns:Capacity="500"/>
+    </lns:LicenseTerm>
+    <lns:Restrictions>
+      <lns:Generation>01G</lns:Generation>
+    </lns:Restrictions>
+    <lns:Feature lns:ID="1" lns:Description="Dell Active System Manager node enablement for Blades" lns:Enabled="true"/>
+   </lns:LicenseData>
+<dsig:Signature xmlns:dsig="http://www.w3.org/2000/09/xmldsig#">
+<dsig:SignedInfo>
+<dsig:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+<dsig:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+<dsig:Reference URI="">
+<dsig:Transforms>
+<dsig:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+</dsig:Transforms>
+<dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+<dsig:DigestValue>4y0VfsWRxpwil5rjs7ylw9Xa0uw=</dsig:DigestValue>
+</dsig:Reference>
+</dsig:SignedInfo>
+<dsig:SignatureValue>$key</dsig:SignatureValue>
+<dsig:KeyInfo>
+<dsig:X509Data>
+<dsig:X509Certificate>$certi</dsig:X509Certificate>
+</dsig:X509Data>
+</dsig:KeyInfo>
+</dsig:Signature></lns:LicenseClass>
+]]>
+</content>
+</uploadLicenseRequest>

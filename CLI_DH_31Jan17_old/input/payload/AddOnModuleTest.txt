@@ -1,0 +1,3 @@
+<AddOnModule>
+	<uploadUrl>$uploadUrl</uploadUrl>
+</AddOnModule>

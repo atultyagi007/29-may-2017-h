@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<ServiceTemplate>
+<templateName>$TemplateName</templateName>
+<templateDescription />
+	<draft>false</draft>
+	<createdDate />
+	<createdBy />
+	<updatedDate />
+	<updatedBy />
+
+<components>
+		<id />
+		<componentID />
+		<name>Server 1</name>
+		<type>SERVER</type>
+		<relatedComponents>
+			<entry>
+				<key />
+				<value />
+			</entry>
+		</relatedComponents>
+
+<resources>
+<id>asm::idrac</id>
+   
+   <displayName>Hardware Settings</displayName>
+
+<parameters>
+<id>target_boot_device</id>
+<value>$target_boot_device_value</value>
+<type>ENUMERATED</type>
+<displayName>Target Boot Device</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+<parameters>
+<id>system_profile</id>
+<value>PerfOptimized</value>
+<type>ENUMERATED</type>
+<displayName>System Profile</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+
+</parameters>
+
+<parameters>
+<id>user_usb_ports</id>
+<value>AllOn</value>
+<type>ENUMERATED</type>
+<displayName>User Accessible USB Ports</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+<parameters>
+<id>number_core_processors</id>
+<value>All</value>
+<type>ENUMERATED</type>
+<displayName>Number of Core Processors</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+<parameters>
+<id>virtualization_technology</id>
+<value>true</value>
+<type>BOOLEAN</type>
+<displayName>Processor Virtualization Technology</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+<parameters>
+<id>logical_processor</id>
+<value>true</value>
+<type>BOOLEAN</type>
+<displayName>Logical Processors</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+<parameters>
+<id>memory_node_interleave</id>
+<value>true</value>
+<type>BOOLEAN</type>
+<displayName>Memory Node Interleaving</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+<parameters>
+<id>execute_disable</id>
+<value>true</value>
+<type>BOOLEAN</type>
+<displayName>Execute Disable</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+
+<parameters>
+                          <id>server_pool</id>
+                          <value>-1</value>
+<type>ENUMERATED</type>
+<displayName>Server Pool</displayName>
+<required>true</required>
+<requiredAtDeployment>true</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+</parameters>
+</resources>
+<resources>
+
+
+<id>asm::server</id>
+<displayName>OS Settings</displayName>
+
+
+
+<parameters>
+<id>os_host_name</id>
+<type>STRING</type>
+<displayName>Host Name</displayName>
+<required>true</required>
+<requiredAtDeployment>true</requiredAtDeployment>
+<hideFromTemplate>true</hideFromTemplate>
+<dependencyTarget>target_boot_device</dependencyTarget>
+<dependencyValue>HD,SD</dependencyValue>
+</parameters>
+
+
+<parameters>
+
+<id>os_image_type</id>
+<value>hyperv</value>
+<type>ENUMERATED</type>
+<displayName>OS Image Type</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+
+<dependencyTarget>target_boot_device</dependencyTarget>
+<dependencyValue>SD,HD</dependencyValue>
+
+</parameters>
+
+<parameters>
+<id>razor_image</id>
+<value>$OSImage_value</value>
+<type>ENUMERATED</type>
+<displayName>OS Image</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+
+<dependencyTarget>target_boot_device</dependencyTarget>
+<dependencyValue>SD,HD</dependencyValue>
+
+</parameters>
+
+
+<parameters>
+<id>os_image_version</id>
+<value>$os_image_version</value>
+<type>ENUMERATED</type>
+<displayName>OS Image Version</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+
+<dependencyTarget>os_image_type</dependencyTarget>
+<dependencyValue>windows2008,windows2012,hyperv</dependencyValue>
+
+</parameters>
+
+<parameters>
+<id>admin_password</id>
+                           <value>$Adminpassword</value>
+<type>PASSWORD</type>
+<displayName>Administrator password</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+
+<dependencyTarget>target_boot_device</dependencyTarget>
+<dependencyValue>SD,HD</dependencyValue>
+
+</parameters>
+
+
+<parameters>
+<id>admin_confirm_password</id>
+                          <value>$AdminConfirmPassword</value>
+<type>PASSWORD</type>
+<displayName>Confirm administrator password</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+
+<dependencyTarget>target_boot_device</dependencyTarget>
+<dependencyValue>SD,HD</dependencyValue>
+</parameters>
+
+<parameters>
+<id>product_key</id>
+<value>$product_key</value>
+<type>STRING</type>
+<displayName>Product Key</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+
+<dependencyTarget>os_image_type</dependencyTarget>
+<dependencyValue>hyperv,windows2008,windows2012</dependencyValue>
+</parameters>
+
+<parameters>
+<id>timezone</id>
+<value>Central Standard Time</value>
+<type>ENUMERATED</type>
+<displayName>Timezone</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+
+<dependencyTarget>os_image_type</dependencyTarget>
+<dependencyValue>hyperv</dependencyValue>
+
+</parameters>
+
+<parameters>
+<id>ntp</id>
+<value>$ntp</value>
+<type>STRING</type>
+<displayName>NTP Server</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+
+<dependencyTarget>os_image_type</dependencyTarget>
+<dependencyValue>hyperv</dependencyValue>
+</parameters>
+
+<parameters>
+<id>language</id>
+<value>en-US</value>
+<type>ENUMERATED</type>
+<displayName>Language</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+
+<dependencyTarget>os_image_type</dependencyTarget>
+<dependencyValue>hyperv</dependencyValue>
+
+</parameters>
+
+<parameters>
+<id>keyboard</id>
+<value>00000409</value>
+<type>ENUMERATED</type>
+<displayName>Keyboard</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+
+<dependencyTarget>os_image_type</dependencyTarget>
+<dependencyValue>hyperv</dependencyValue>
+</parameters>
+
+<parameters>
+<id>domain_name</id>
+<value>$domain_name</value>
+<type>STRING</type>
+<displayName>Domain Name</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+
+<dependencyTarget>os_image_type</dependencyTarget>
+<dependencyValue>hyperv</dependencyValue>
+</parameters>
+
+<parameters>
+<id>fqdn</id>
+<value>$fqdn</value>
+<type>STRING</type>
+<displayName>FQ Domain Name</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+
+<dependencyTarget>os_image_type</dependencyTarget>
+<dependencyValue>hyperv</dependencyValue>
+</parameters>
+
+<parameters>
+<id>domain_admin_user</id>
+<value>hypervuser</value>
+<type>STRING</type>
+<displayName>Domain Admin Username</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<dependencyTarget>os_image_type</dependencyTarget>
+<dependencyValue>hyperv</dependencyValue>
+</parameters>
+
+<parameters>
+<id>domain_admin_password</id>
+					<value>$DomainAdminPsswd</value>
+<type>PASSWORD</type>
+<displayName>Domain Admin Password</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+
+<dependencyTarget>os_image_type</dependencyTarget>
+<dependencyValue>hyperv</dependencyValue>
+</parameters>
+
+<parameters>
+<id>domain_admin_password_confirm</id>
+										<value>$Domainconfirm</value>
+<type>PASSWORD</type>
+<displayName>Domain Admin Password Confirm</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+
+<dependencyTarget>os_image_type</dependencyTarget>
+<dependencyValue>hyperv</dependencyValue>
+</parameters>
+
+
+</resources>
+
+<resources>
+<id>asm::esxiscsiconfig</id>
+<displayName>Network Settings</displayName>
+<parameters>
+
+<id>identity_pool</id>
+<value>-1</value>
+<type>ENUMERATED</type>
+<displayName>Identity Pool</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+
+</parameters>
+<parameters>
+<id>network_configuration</id>
+<value>{"id":"65858f2b-3b61-44b2-9928-14c401ab4e78","fabrics":[{"id":"e74c07cc-068a-4fdd-ade4-e5628f24aeaa","name":"Fabric A","interfaces":[{"id":"35a9b7e0-bafc-4403-b7f5-efedfd2bd0f5","name":"Port 1","partitions":[{"id":"8772fe42-1978-4f0f-8175-0ffa67aeb430","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"59a15d1b-e338-4ea5-970f-bd175b2ec14c","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"d12a6a90-73c3-4ec5-a8c0-fd27dea9df43","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"7e380d87-56b3-4704-b7f7-f543a8c1f28f","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"e970cb66-57bd-4bf3-aec9-a8ffed4ee384","name":"Port 2","partitions":[{"id":"50a694ab-5953-476e-b45a-53008e1a5476","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"3912657b-3dbe-41e0-b4d5-ad4cb5129c05","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"b441abe5-2880-417b-9119-29c8825f20c7","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"f11603df-ee66-4eed-926c-25c4905a8f6e","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"3e7192f8-d656-48bb-988f-4c2d4749d77d","name":"Port 3","partitions":[{"id":"1b9af39b-0cf8-427b-b671-5b67bd5c4e32","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"7768355a-7e05-40c5-b1d6-ea8aba1ec96d","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"2d3bcc79-b467-44da-824b-73c2a8089199","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"a4b1c159-fe6d-458d-a992-91c2a9ecfb3c","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"16738031-1867-4b7d-8f0f-94c12cd77449","name":"Port 4","partitions":[{"id":"aa870828-35f2-4434-87e0-86463a223873","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"c56c9ea6-7468-4182-ad19-98f57ccc2f95","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"b91df055-3233-419c-9504-8f9249e0f4f8","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"eac6c21f-174b-4166-b984-b0c5509ca18e","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true}],"enabled":true,"redundancy":true,"nictype":"2","usedforfc":false},{"id":"f778cdd0-571d-4720-8be9-327ba236801d","name":"Fabric B","interfaces":[{"id":"7d9ab8bb-cefc-4bb5-9c19-f73dc9a8bbab","name":"Port 1","partitions":[{"id":"c5cc6cb6-4272-4c2a-866d-bc9cfc9ba1d1","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"6f3af8a0-b335-4488-9db5-dc2e7921b55a","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"465fd6a1-c430-4c08-955b-6b6172ba27b3","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"e3e6a3d9-0683-4623-bc5e-93ae7c95ba32","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"12889cb2-36ee-482f-b1e5-435c85cc8d75","name":"Port 2","partitions":[{"id":"a60df2ff-8e2d-4987-b2eb-5ba50b8b486f","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"947ac71c-4f57-4a19-b2a4-121c8296a517","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"d68b4e69-a0e4-4379-858e-0367047bd464","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"00dcd4f6-38df-4d97-ba1d-d6e58c4a293c","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"89401d39-9039-48e5-b575-6c89275a9bfc","name":"Port 3","partitions":[{"id":"d8a2a636-1051-409a-b4a4-bb295f7237b3","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"e1fd541c-65b1-4961-8f94-bebb12361bf7","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"20b1d200-7560-4639-b2dc-ca9c43704123","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"5d959575-136a-4d23-83ee-10727b8ea527","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"259bff26-69b0-4303-b798-bcf20033aae3","name":"Port 4","partitions":[{"id":"a05ad6ba-e24a-4f22-a66e-14a81be9f321","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"0b5f0375-9376-4dac-8197-132a09f77c80","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"f29fa1c1-1d66-4e11-92a0-16c2ce710746","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"908460e3-e0fa-413d-a55e-47e5af2cc165","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true}],"enabled":false,"redundancy":false,"nictype":"2","usedforfc":false},{"id":"afdd3730-9ec0-495f-a779-03db220ecbfc","name":"Fabric C","interfaces":[{"id":"979bc3fb-d791-4352-93de-6ab092e84be8","name":"Port 1","partitions":[{"id":"56e30d4f-a56e-4bcd-8e91-bd20e6d131a2","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"366b690b-f926-4590-aae6-f0108914dfe3","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"749a6421-eca0-4cd7-9006-62bff08fcc2c","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"a16d7607-cbee-428a-91c5-03715800c5e1","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"a2d6a7f0-3e81-4626-8b5c-9a68eec20da7","name":"Port 2","partitions":[{"id":"729047b8-d868-46bb-9357-3ed1ad222f92","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"29208785-0f98-40f4-9b12-fa69e5ea3fee","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"d9bd2979-f3e8-4568-a6b3-a099bb268903","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"456c33b7-82fe-46cd-b2f9-9d857edee51d","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"40592916-8948-46d8-8441-8eb0f67437ca","name":"Port 3","partitions":[{"id":"b3875d37-bbff-4007-945d-e123b8e47145","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"715dd3aa-bed1-424d-912b-a44a85cb7fca","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"8ca7fce5-e40e-4bcd-b926-cd2ea60b97c1","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"ab41c867-cf4b-4734-9fe6-bf3a10cba7c5","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"ce17aa94-29d5-49bc-a16c-1a6b640158a9","name":"Port 4","partitions":[{"id":"b3b09800-8444-4770-baa7-795d6325ea7d","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"5b32671a-c7a1-46cd-b483-a23693952028","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"a5b51905-f7cd-482a-8ce3-92705f8f9d74","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"a3184456-0167-44c1-af5c-01d42be6f180","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true}],"enabled":false,"redundancy":false,"nictype":"2","usedforfc":false}],"servertype":"rack","interfaces":[{"id":"70e8cad3-d45a-4b7c-9500-24aeeefc9b58","name":"Interface","interfaces":[{"id":"9977e62c-2fc0-4c02-9357-1b0e01b653be","name":"Port 1","partitions":[{"id":"afd7d550-dec9-43a1-b796-789128c83617","name":"1","networks":["$Workload", "$PXE", "$HypervisorManagement", "$VMotion", "$ClusterPrivate","$ISCSI"],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"c5bb28d7-dbd1-4d9e-83ed-c916d61c008a","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"97571218-bcba-4cef-b381-2ea73e72cffe","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"e8efe41f-7c00-465c-a87c-382d6a9f5852","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":false},{"id":"1707dd0b-7400-4572-85a1-873854301ff6","name":"Port 2","partitions":[{"id":"0cce2e64-fa59-4006-85ef-8e19b1137f2e","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"4dda41a5-b91b-4b3a-b860-dd4eda164c13","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"e790dc8c-9e86-43b5-bc1d-4ce0a814cd00","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"dfd6402a-1283-4676-bdce-6577d8f7a242","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":false},{"id":"604f5d13-034b-460b-a5d8-2a6e928de5db","name":"Port 3","partitions":[{"id":"32f85c38-ff2a-4f1f-a97a-c973489b6bba","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"e0f7b17b-1a9b-432a-925f-2614cba23808","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"e5000328-0f96-4709-b93d-f40f3f383a5a","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"8770d121-f1a0-4473-b8ad-156a09937fdd","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":false},{"id":"173ecd9e-d04d-421e-bcea-286218a9d5f8","name":"Port 4","partitions":[{"id":"ffc27266-c39b-4868-a7c1-4f94154bb466","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"0dd7f38e-d5ea-4eb1-900e-1f8cbe3a5128","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"c03be511-747b-46dd-a411-ace5a585e958","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"bac277e3-9500-4cfc-9168-00a996f34b5e","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":false}],"enabled":true,"redundancy":false,"nictype":"2","usedforfc":false}],"teams":[],"vswitches":[]}</value>
+<type>NETWORKCONFIGURATION</type>
+<displayName>Network Config</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment><hideFromTemplate>false</hideFromTemplate><min>0</min><max>0</max></parameters>
+
+		</resources>
+
+
+</components>
+
+<category>Default Templates</category>
+<enableApps>false</enableApps>
+<enableCluster>true</enableCluster>
+<enableServer>true</enableServer>
+<enableStorage>true</enableStorage>
+<enableVMs>false</enableVMs>
+</ServiceTemplate>

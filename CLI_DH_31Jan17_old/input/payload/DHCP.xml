@@ -1,0 +1,12 @@
+<dhcpSettings>
+	<enabled>$Enable</enabled>
+	<subnet>$Subnet</subnet>
+	<netmask>$Netmask</netmask>
+	<startingIpAddress>$StartIP</startingIpAddress>
+	<endingIpAddress>$EndIP</endingIpAddress>
+	<defaultLeaseTime>$DefaultLTime</defaultLeaseTime>
+	<maxLeaseTime>$MaxLTime</maxLeaseTime>
+	<dns>$DNS</dns>
+	<gateway>$Gateway</gateway>
+	<domain>$Domain</domain>
+</dhcpSettings>

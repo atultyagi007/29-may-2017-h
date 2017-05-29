@@ -1,0 +1,13 @@
+<SoftwareBundle>
+	<criticality>$criticality</criticality>
+	<description>$SoftBundleDesc</description>
+	<deviceModel>$switch_model</deviceModel>
+	<deviceType>Switch</deviceType>
+	<fwRepositoryId>$fwRepositoryId</fwRepositoryId>
+	<id></id>
+	<name>$name</name>
+	<userBundle>true</userBundle>
+	<userBundleHashMd5></userBundleHashMd5>
+	<userBundlePath>$bundle_Path</userBundlePath>
+	<version>$version</version>
+</SoftwareBundle>

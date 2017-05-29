@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<vmwbproperties>
+  <vmwbproject>
+    <property key="com.vmware.vide.core.vproj.projtype" value="com.vmware.vide.core.vproj.common"/>
+  </vmwbproject>
+</vmwbproperties>

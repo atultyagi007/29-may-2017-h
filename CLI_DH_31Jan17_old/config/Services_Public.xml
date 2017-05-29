@@ -1,0 +1,65 @@
+<urls>
+	<url name="Configure" uri=""/>
+	<url name="Discovery" uri="/Api/V1/DiscoveryRequest"/>
+	<url name="ChassisListDiscovery" uri="/Api/V1/DiscoveryRequest/chassislist"/>
+	<url name="ChassisRADiscovery" uri=""/>
+	<url name="ChassisConfigureProcess" uri=""/>
+	<url name="ChassisConfigureDiscover" uri=""/>
+	<url name="Credential" uri = "/Api/V1/Credential"/>
+	<url name="ManagedDevice" uri = "/Api/V1/ManagedDevice"/>
+	<url name="ExportManagedDevice" uri = "/Api/V1/ManagedDevice/export/csv"/>
+	<url name="CountManagedDevice" uri = "/Api/V1/ManagedDevice/count"/>
+	<url name="ManagedDeviceWcomp" uri = "/Api/V1/ManagedDevice/withcompliance"/>
+	<url name="ManagedDevicepuppet" uri = "/Api/V1/ManagedDevice/puppet"/>
+	<url name="GetManagedDevice" uri = "/Api/V1/ManagedDevice?limit=300"/>
+	<url name = "Network" uri = "/Api/V1/Network"/>
+	<url name = "ExportNetwork" uri = "/Api/V1/Network/export/csv"/>
+	<url name="Timezone" uri = "/Api/V1/Timezone"/>
+	<url name="AllTimezone" uri = "/Api/V1/Timezone/all"/>
+	<url name="NTP" uri = "/Api/V1/NTP"/>
+	<url name="login" uri = "/Api/V1/Authenticate"/>
+	<url name="proxy" uri = "/Api/V1/Proxy"/>
+	<url name="proxyTest" uri = "/Api/V1/Proxy/test"/>
+	<url name="Wizard" uri = "/Api/V1/WizardStatus"/>
+	<url name="ServerCred" uri = "/Api/V1/Credential"/>
+	<url name="Template" uri = "/Api/V1/ServiceTemplate"/>
+	<url name="ExportTemplate" uri = "/Api/V1/ServiceTemplate/export?encPassword=dell1234 and useEncPwdFromBackup=true"/>
+	<url name="DeleteUserFromTemplate" uri = "/Api/V1/ServiceTemplate/users?userId="/>
+	<url name="ExportcsvTemplate" uri = "/Api/V1/ServiceTemplate/export/csv"/>
+	<url name="TemplatePutByTemId" uri = "/Api/V1/ServiceTemplate/components/template"/>
+	<url name="TemplatePutByserviceId" uri = "/Api/V1/ServiceTemplate/components/service"/>
+	<url name="TemplateByDeviceId" uri = "/Api/V1/ServiceTemplate/device"/>
+	<url name="ServerPool" uri = "/Api/V1/DeviceGroup"/>
+	<url name="Deploy" uri = "/Api/V1/Deployment"/>
+	<url name="MigrateServer" uri = "/Api/V1/Deployment/migrateServer"/>
+	<url name="BFSMigrateServer" uri = "/Api/V1/Deployment/migrate"/>
+	<url name="DeleteUserFromService" uri = "/Api/V1/Deployment/users?userId="/>
+	<url name="AvlServerForTemp" uri = "/Api/V1/Deployment/filter/1"/>
+	<url name="ExportDeployment" uri = "/Api/V1/Deployment/export/csv"/>
+	<url name="DeploymentByDeviceid" uri = "/Api/V1/Deployment/device"/>
+	<url name="NetworkListByServerid" uri = "/Api/V1/Deployment/serverNetworking"/>
+	<url name="DeployListByNWId" uri = "/Api/V1/Deployment/network"/>
+	<url name="User" uri = "/Api/V1/User"/>
+	<url name="DirectoryService" uri = ""/>
+	<url name="ValidateAD" uri = ""/>
+	<url name="osRepository" uri = "/Api/V1/OSRepository"/>
+	<url name="osRepositorysync" uri = "/Api/V1/OSRepository/sync"/>
+	<url name="FirmwareRepository" uri = "/Api/V1/FirmwareRepository"/>
+	<url name="FirmwareRepositoryCon" uri = "/Api/V1/FirmwareRepository/connection"/>
+	<url name="FWRepoSoftwareComponent" uri = "/Api/V1/FirmwareRepository/softwarecomponent"/>
+	<url name="FWRepoSoftwareBundle" uri = "/Api/V1/FirmwareRepository/softwarebundle"/>
+	<url name="Chassis" uri = "/Api/V1/Chassis"/>
+	<url name="Chassisiomip" uri = "/Api/V1/Chassis/iom/ip"/>
+	<url name="Server" uri = "/Api/V1/Server"/>
+	<url name="ServerByServiceTag" uri = "/Api/V1/Server/serviceTag"/>
+	<url name="compliance" uri = "/Api/V1/FirmwareRepository/compliance"/>
+    <url name="updateFirmware" uri = "/Api/V1/ManagedDevice/firmware"/>
+    <url name="DHCP" uri = "/Api/V1/DHCP"/>
+    <url name="JobStatus" uri=""/>
+    <url name="backupNowWithSettings" uri = ""/>
+    <url name="backupSettings" uri = ""/>
+    <url name="backupSchedule" uri = ""/>
+    <url name="restore" uri = ""/>
+    <url name="reboot" uri = ""/>
+    
+</urls>

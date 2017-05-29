@@ -1,0 +1,5 @@
+SNo,Type,START_IP,END_IP,CredentialName,ChassisServerCre,ChassisSwitchCre
+1,CHASSIS,172.31.60.78,172.31.60.78,Dell chassis default,Dell server default,Dell switch default
+2,SERVER,172.31.60.87,172.31.60.87,Dell server default,,
+3,STORAGE,172.31.32.108,172.31.32.108,StorageEQL,,
+4,VCENTER,172.31.61.244,172.31.61.244,autoVCenter,,

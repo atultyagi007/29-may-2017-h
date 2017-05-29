@@ -1,0 +1,15 @@
+<networks>
+<id>$WorkloadID</id>
+<name>Workload</name>
+<description>WorkloadNetwork</description>
+<type>PUBLIC_LAN</type>
+<vlanId>$VlanIdWl</vlanId>
+<static>false</static>
+</networks>
+<networks>
+<id>$Add_network_1_id</id>
+<name>$nw_name</name>
+<type>PUBLIC_LAN</type>
+<vlanId>$nw_vlan_id</vlanId>
+<static>false</static>
+</networks>

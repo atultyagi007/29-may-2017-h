@@ -1,0 +1,3853 @@
+
+<ServiceTemplate>
+<templateName>TestCase_Import_Server_Template</templateName>
+<templateDescription>Deploy an Import Server </templateDescription>
+<draft>false</draft>
+
+###################################  SERVER #####################################
+
+
+
+<components>
+<id>FAD8F0B4-B5D0-46B1-9055-9AE99F423E4E</id>
+<componentID>component0</componentID>
+<name>Server</name>
+<type>SERVER</type>
+
+
+<teardown>false</teardown>
+
+<IP>$ImportReferenceServerIP</IP>
+
+<relatedComponents/>
+
+
+<resources>
+<id>asm::idrac</id>
+<displayName>Hardware Settings</displayName>
+
+<parameters>
+<id>target_boot_device</id>
+<value>$target_boot_device_value</value>
+<type>ENUMERATED</type>
+<displayName>Target Boot Device</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<options>
+<value/>
+<name>Select...</name>
+</options>
+<options>
+<value>NONE</value>
+<name>None</name>
+</options>
+<options>
+<value>SD</value>
+<name>SD Card</name>
+</options>
+<options>
+<value>HD</value>
+<name>Local Hard Drive</name>
+</options>
+<options>
+<value>iSCSI</value>
+<name>Boot From SAN (iSCSI)</name>
+</options>
+<options>
+<value>FC</value>
+<name>Boot From SAN (FC)</name>
+</options>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>raid_configuration</id>
+<value>
+{"raidtype":"basic","basicraidlevel":"raid1","enableglobalhotspares":false,"globalhotspares":0,"minimumssd":0,"virtualdisks":[]}
+</value>
+<type>RAIDCONFIGURATION</type>
+<displayName>RAID</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>target_boot_device</dependencyTarget>
+<dependencyValue>HD</dependencyValue>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+<parameters>
+<id>server_source</id>
+<value>$serversource</value>
+<type>ENUMERATED</type>
+<displayName>Server Source</displayName>
+<required>true</required>
+<requiredAtDeployment>true</requiredAtDeployment>
+<hideFromTemplate>true</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<options>
+<value>pool</value>
+<name>Server Pool</name>
+</options>
+<options>
+<value>manual</value>
+<name>Manual Entry</name>
+</options>
+<toolTip>Method for server selection</toolTip>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>server_pool</id>
+<value>$GlobalPool</value>
+<type>ENUMERATED</type>
+<displayName>Server Pool</displayName>
+<required>true</required>
+<requiredAtDeployment>true</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>server_source</dependencyTarget>
+<dependencyValue>pool</dependencyValue>
+<options>
+<value>-1</value>
+<name>Global</name>
+</options>
+<toolTip>
+Pool from which servers are selected during deployment
+</toolTip>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>server_select</id>
+<value>$ServerEntry</value>
+<type>ENUMERATED</type>
+<displayName>Choose Server</displayName>
+<required>true</required>
+<requiredAtDeployment>true</requiredAtDeployment>
+<hideFromTemplate>true</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>server_source</dependencyTarget>
+<dependencyValue>manual</dependencyValue>
+<toolTip>Select specific server from a drop-down list</toolTip>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>migrate_on_failure</id>
+<value>$migration</value>
+<type>BOOLEAN</type>
+<displayName>Migrate On Failure</displayName>
+<required>false</required>
+<requiredAtDeployment>true</requiredAtDeployment>
+<hideFromTemplate>true</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>server_source</dependencyTarget>
+<dependencyValue>pool</dependencyValue>
+<toolTip>Migrate deployment to another server if failed</toolTip>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>attempted_servers</id>
+<type>STRING</type>
+<displayName>Attempted Servers</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>true</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+<parameters>
+<id>ensure</id>
+<value>present</value>
+<type>STRING</type>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>true</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>config_xml</id>
+<value>$Configxml</value>
+<type>STRING</type>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>true</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+</resources>
+
+
+
+<resources>
+<id>asm::bios</id>
+<displayName>BIOS Settings</displayName>
+
+
+<parameters>
+<id>bios_configuration</id>
+<value>advanced</value>
+<type>BIOSCONFIGURATION</type>
+<displayName>BIOS Settings</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>SysProfile</id>
+<value>$SysProfile</value>
+<type>ENUMERATED</type>
+<displayName>System Profile</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>PerfPerWattOptimizedDapc</value>
+<name>Performance Per Watt (DAPC)</name>
+</options>
+<options>
+<value>PerfPerWattOptimizedOs</value>
+<name>Performance Per Watt (OS)</name>
+</options>
+<options>
+<value>PerfOptimized</value>
+<name>Performance</name>
+</options>
+<options>
+<value>DenseCfgOptimized</value>
+<name>Dense Configuration</name>
+</options>
+<options>
+<value>Custom</value>
+<name>Custom</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Profile Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>ProcPwrPerf</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>CPU Power Management</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>SysDbpm</value>
+<name>System DBPM (DAPC)</name>
+</options>
+<options>
+<value>MaxPerf</value>
+<name>Maximum Performance</name>
+</options>
+<options>
+<value>OsDbpm</value>
+<name>OS DBPM</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Profile Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>MemFrequency</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>Memory Frequency</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>MaxPerf</value>
+<name>Maximum Performance</name>
+</options>
+<options>
+<value>2133MHz</value>
+<name>2133MHz</name>
+</options>
+<options>
+<value>1866MHz</value>
+<name>1866MHz</name>
+</options>
+<options>
+<value>1600MHz</value>
+<name>1600MHz</name>
+</options>
+<options>
+<value>1333MHz</value>
+<name>1333MHz</name>
+</options>
+<options>
+<value>MaxReliability</value>
+<name>Maximum Reliability</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Profile Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>ProcTurboMode</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>Turbo Boost</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Profile Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>EnergyEfficientTurbo</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>Energy Efficient Turbo</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Profile Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>ProcC1E</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>C1E</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Profile Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+<parameters>
+<id>ProcCStates</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>C States</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Profile Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>CollaborativeCpuPerfCtrl</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>Collaborative CPU Performance Control</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Profile Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>MemPatrolScrub</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>Memory Patrol Scrub</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Extended</value>
+<name>Extended</name>
+</options>
+<options>
+<value>Standard</value>
+<name>Standard</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Profile Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>MemRefreshRate</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>Memory Refresh Rate</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>1x</value>
+<name>1x</name>
+</options>
+<options>
+<value>2x</value>
+<name>2x</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Profile Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>UncoreFrequency</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>Uncore Frequency</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>DynamicUFS</value>
+<name>Dynamic</name>
+</options>
+<options>
+<value>MaxUFS</value>
+<name>Maximum</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Profile Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>EnergyPerformanceBias</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>Energy Efficient Policy</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>MaxPower</value>
+<name>Performance</name>
+</options>
+<options>
+<value>BalancedPerformance</value>
+<name>Balanced Performance</name>
+</options>
+<options>
+<value>BalancedEfficiency</value>
+<name>Balanced Energy</name>
+</options>
+<options>
+<value>LowPower</value>
+<name>Energy Efficient</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Profile Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>Proc1TurboCoreNum</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>
+Number of Turbo Boost Enabled Cores for Processor 1
+</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>All</value>
+<name>All</name>
+</options>
+<options>
+<value>1</value>
+<name>1</name>
+</options>
+<options>
+<value>2</value>
+<name>2</name>
+</options>
+<options>
+<value>4</value>
+<name>4</name>
+</options>
+<options>
+<value>6</value>
+<name>6</name>
+</options>
+<options>
+<value>8</value>
+<name>8</name>
+</options>
+<options>
+<value>10</value>
+<name>10</name>
+</options>
+<options>
+<value>12</value>
+<name>12</name>
+</options>
+<options>
+<value>14</value>
+<name>14</name>
+</options>
+<options>
+<value>16</value>
+<name>16</name>
+</options>
+<options>
+<value>18</value>
+<name>18</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Profile Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>Proc2TurboCoreNum</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>
+Number of Turbo Boost Enabled Cores for Processor 2
+</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>All</value>
+<name>All</name>
+</options>
+<options>
+<value>1</value>
+<name>1</name>
+</options>
+<options>
+<value>2</value>
+<name>2</name>
+</options>
+<options>
+<value>4</value>
+<name>4</name>
+</options>
+<options>
+<value>6</value>
+<name>6</name>
+</options>
+<options>
+<value>8</value>
+<name>8</name>
+</options>
+<options>
+<value>10</value>
+<name>10</name>
+</options>
+<options>
+<value>12</value>
+<name>12</name>
+</options>
+<options>
+<value>14</value>
+<name>14</name>
+</options>
+<options>
+<value>16</value>
+<name>16</name>
+</options>
+<options>
+<value>18</value>
+<name>18</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Profile Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>MonitorMwait</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>Monitor/Mwait</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Profile Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+<parameters>
+<id>WorkloadProfile</id>
+<value>NotAvailable</value>
+<type>ENUMERATED</type>
+<displayName>Workload Profile</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>NotAvailable</value>
+<name>Not Available</name>
+</options>
+<options>
+<value>HpcProfile</value>
+<name>HPC Profile</name>
+</options>
+<options>
+<value>LowLatencyOptimizedProfile</value>
+<name>Low Latency Optimized Profile</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Profile Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>UsbPorts</id>
+<value>$UsbPorts</value>
+<type>ENUMERATED</type>
+<displayName>User Accessible USB Ports</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>AllOn</value>
+<name>All Ports On</name>
+</options>
+<options>
+<value>AllOff</value>
+<name>All Ports Off</name>
+</options>
+<options>
+<value>OnlyBackPortsOn</value>
+<name>Only Back Ports On</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Integrated Devices</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>Usb3Setting</id>
+<value>Disabled</value>
+<type>ENUMERATED</type>
+<displayName>USB 3.0 Setting</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Integrated Devices</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>InternalUsb</id>
+<value>On</value>
+<type>ENUMERATED</type>
+<displayName>Internal USB Port</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>On</value>
+<name>On</name>
+</options>
+<options>
+<value>Off</value>
+<name>Off</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Integrated Devices</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>IntegratedRaid</id>
+<value>Disabled</value>
+<type>ENUMERATED</type>
+<displayName>Integrated RAID Controller</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Integrated Devices</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>IntegratedNetwork1</id>
+<value>Enabled</value>
+<type>ENUMERATED</type>
+<displayName>Integrated Network Card 1</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>DisabledOs</value>
+<name>Disabled (OS)</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Integrated Devices</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>IoatEngine</id>
+<value>Disabled</value>
+<type>ENUMERATED</type>
+<displayName>I/OAT DMA Engine</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Integrated Devices</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>EmbVideo</id>
+<value>Enabled</value>
+<type>ENUMERATED</type>
+<displayName>Embedded Video Controller</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Integrated Devices</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>SriovGlobalEnable</id>
+<value>$SriovGlobal</value>
+<type>ENUMERATED</type>
+<displayName>SR-IOV Global Enable</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Integrated Devices</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>InternalSdCard</id>
+<value>On</value>
+<type>ENUMERATED</type>
+<displayName>Internal SD Card Port</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>On</value>
+<name>On</name>
+</options>
+<options>
+<value>Off</value>
+<name>Off</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Integrated Devices</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>InternalSdCardRedundancy</id>
+<value>Mirror</value>
+<type>ENUMERATED</type>
+<displayName>Internal SD Card Redundancy</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<options>
+<value>Mirror</value>
+<name>Mirror</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Integrated Devices</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>InternalSdCardPrimaryCard</id>
+<value>SdCard1</value>
+<type>ENUMERATED</type>
+<displayName>Internal SD Primary Card</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>SdCard1</value>
+<name>SD Card 1</name>
+</options>
+<options>
+<value>SdCard2</value>
+<name>SD Card 2</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Integrated Devices</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>OsWatchdogTimer</id>
+<value>Disabled</value>
+<type>ENUMERATED</type>
+<displayName>OS Watchdog Timer</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Integrated Devices</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>MmioAbove4Gb</id>
+<value>Enabled</value>
+<type>ENUMERATED</type>
+<displayName>Memory Mapped I/O above 4GB</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Integrated Devices</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>ProcCores</id>
+<value>All</value>
+<type>ENUMERATED</type>
+<displayName>Number of Cores per Processor</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>All</value>
+<name>All</name>
+</options>
+<options>
+<value>1</value>
+<name>1</name>
+</options>
+<options>
+<value>1</value>
+<name>2</name>
+</options>
+<options>
+<value>1</value>
+<name>4</name>
+</options>
+<options>
+<value>1</value>
+<name>6</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Processor Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>ProcVirtualization</id>
+<value>$VT</value>
+<type>ENUMERATED</type>
+<displayName>Virtualization Technology</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Processor Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+<parameters>
+<id>LogicalProc</id>
+<value>Enabled</value>
+<type>ENUMERATED</type>
+<displayName>Logical Processor</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Processor Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>ProcExecuteDisable</id>
+<value>Enabled</value>
+<type>ENUMERATED</type>
+<displayName>Execute Disable</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Processor Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>QpiSpeed</id>
+<value>$Qpispeed</value>
+<type>ENUMERATED</type>
+<displayName>QPI Speed</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>MaxDataRate</value>
+<name>Maximum data rate</name>
+</options>
+<options>
+<value>8GTps</value>
+<name>8.0 GT/s</name>
+</options>
+<options>
+<value>6GTps</value>
+<name>6.4 GT/s</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Processor Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>RtidSetting</id>
+<value>Disabled</value>
+<type>ENUMERATED</type>
+<displayName>Alternate RTID (Requestor Transaction ID) Setting</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Processor Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>ProcAts</id>
+<value>Enabled</value>
+<type>ENUMERATED</type>
+<displayName>Address Translation Services (ATS)</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Processor Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>ProcAdjCacheLine</id>
+<value>Enabled</value>
+<type>ENUMERATED</type>
+<displayName>Adjacent Cache Line Prefetch</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Processor Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>ProcHwPrefetcher</id>
+<value>Enabled</value>
+<type>ENUMERATED</type>
+<displayName>Hardware Prefetcher</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Processor Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>DcuStreamerPrefetcher</id>
+<value>Enabled</value>
+<type>ENUMERATED</type>
+<displayName>DCU Streamer Prefetcher</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Processor Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>DcuIpPrefetcher</id>
+<value>Enabled</value>
+<type>ENUMERATED</type>
+<displayName>DCU IP Prefetcher</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Processor Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>DynamicCoreAllocation</id>
+<value>Disabled</value>
+<type>ENUMERATED</type>
+<displayName>Logical Processor Idling</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Processor Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+
+
+<parameters>
+<id>ProcConfigTdp</id>
+<value>Nominal</value>
+<type>ENUMERATED</type>
+<displayName>Configurable TDP</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Nominal</value>
+<name>Nominal</name>
+</options>
+<options>
+<value>Level1</value>
+<name>Level 1</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Processor Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>ProcX2Apic</id>
+<value>Disabled</value>
+<type>ENUMERATED</type>
+<displayName>X2Apic Mode</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Processor Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>NodeInterleave</id>
+<value>Enabled</value>
+<type>ENUMERATED</type>
+<displayName>Node Interleaving</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Memory Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>MemTest</id>
+<value>Enabled</value>
+<type>ENUMERATED</type>
+<displayName>System Memory Testing</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Memory Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>MemOpMode</id>
+<value>$MemOpMode</value>
+<type>ENUMERATED</type>
+<displayName>Memory Operating Mode</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>OptimizerMode</value>
+<name>Optimizer Mode</name>
+</options>
+<options>
+<value>SpareMode</value>
+<name>Spare Mode</name>
+</options>
+<options>
+<value>MirrorMode</value>
+<name>Mirror Mode</name>
+</options>
+<options>
+<value>AdvEccMode</value>
+<name>Advanced ECC Mode</name>
+</options>
+<options>
+<value>SpareWithAdvEccMode</value>
+<name>Spare With Advanced ECC Mode</name>
+</options>
+<options>
+<value>FaultResilientMode</value>
+<name>Fault Resilient Mode</name>
+</options>
+<options>
+<value>NUMAFaultResilientMode</value>
+<name>NUMA Fault Resilient Mode</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Memory Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>SnoopMode</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>Snoop Mode</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>EarlySnoop</value>
+<name>Early Snoop</name>
+</options>
+<options>
+<value>HomeSnoop</value>
+<name>Home Snoop</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Memory Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>CorrEccSmi</id>
+<value>Enabled</value>
+<type>ENUMERATED</type>
+<displayName>Correctable Memory ECC SMI</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Memory Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>ensure</id>
+<value>present</value>
+<type>STRING</type>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>true</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<group>none</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>BootMode</id>
+<value>Bios</value>
+<type>ENUMERATED</type>
+<displayName>Boot Mode</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Bios</value>
+<name>BIOS</name>
+</options>
+<options>
+<value>Uefi</value>
+<name>UEFI</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Boot Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>BootSeqRetry</id>
+<value>Enabled</value>
+<type>ENUMERATED</type>
+<displayName>Boot Sequence Retry</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Boot Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>HddFailover</id>
+<value>Disabled</value>
+<type>ENUMERATED</type>
+<displayName>Hard-Disk Failover</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Boot Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>Slot1</id>
+<value>Enabled</value>
+<type>ENUMERATED</type>
+<displayName>Mezzanine Slot 1C</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<options>
+<value>BootDriverDisabled</value>
+<name>Boot Driver Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Mezzanine Slot Disablement</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>Slot2</id>
+<value>Enabled</value>
+<type>ENUMERATED</type>
+<displayName>Mezzanine Slot 2B</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<options>
+<value>BootDriverDisabled</value>
+<name>Boot Driver Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Mezzanine Slot Disablement</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>NumLock</id>
+<value>On</value>
+<type>ENUMERATED</type>
+<displayName>Keyboard NumLock</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>On</value>
+<name>On</name>
+</options>
+<options>
+<value>Off</value>
+<name>Off</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Miscellaneous Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>ErrPrompt</id>
+<value>Disabled</value>
+<type>ENUMERATED</type>
+<displayName>F1/F2 Prompt on Error</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>true</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Miscellaneous Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>ForceInt10</id>
+<value>Disabled</value>
+<type>ENUMERATED</type>
+<displayName>Load Legacy Video Option ROM</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Miscellaneous Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>InSystemCharacterization</id>
+<value>FastBoot</value>
+<type>ENUMERATED</type>
+<displayName>In-System Characterization</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<options>
+<value>FastBoot</value>
+<name>Enabled - No Reboot</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Miscellaneous Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>OneTimeBootMode</id>
+<value>Disabled</value>
+<type>ENUMERATED</type>
+<displayName>One-Time Boot Device List</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<options>
+<value>OneTimeBootSeq</value>
+<name>BIOS Boot Sequence Device</name>
+</options>
+<options>
+<value>OneTimeHddSeq</value>
+<name>BIOS Hard-Disk Drive Sequence Device</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>One-Time Boot</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>OneTimeBootSeqDev</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>BIOS Boot Sequence Device</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>NIC.Integrated.1-1-1</value>
+<name>
+Integrated NIC 1 Port 1 Partition 1: BRCM MBA Slot 0100 v7.10.5
+</name>
+</options>
+<options>
+<value>HardDisk.List.1-1</value>
+<name>Hard drive C:</name>
+</options>
+<options>
+<value>Unknown.Unknown.3-1</value>
+<name>Unknown Device: USB Floppy</name>
+</options>
+<options>
+<value>Unknown.Unknown.4-1</value>
+<name>Unknown Device: USB Optical device</name>
+</options>
+<options>
+<value>NIC.Integrated.1-2-1</value>
+<name>
+Integrated NIC 1 Port 2 Partition 1: BRCM MBA Slot 0101 v7.10.5
+</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>One-Time Boot</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>OneTimeHddSeqDev</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>BIOS Hard-Disk Drive Sequence Device</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Disk.SDInternal.1-1</value>
+<name>Internal SD: IDSDM</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>One-Time Boot</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>EmbSata</id>
+<value>AhciMode</value>
+<type>ENUMERATED</type>
+<displayName>Embedded SATA</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>AtaMode</value>
+<name>ATA Mode</name>
+</options>
+<options>
+<value>AhciMode</value>
+<name>AHCI Mode</name>
+</options>
+<options>
+<value>RaidMode</value>
+<name>RAID Mode</name>
+</options>
+<options>
+<value>Off</value>
+<name>Off</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>SATA Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>SecurityFreezeLock</id>
+<value>Enabled</value>
+<type>ENUMERATED</type>
+<displayName>Security Freeze Lock</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>SATA Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>WriteCache</id>
+<value>Disabled</value>
+<type>ENUMERATED</type>
+<displayName>Write Cache</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>SATA Settings</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+
+
+<parameters>
+<id>SataPortA</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>Port A</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Auto</value>
+<name>Auto</name>
+</options>
+<options>
+<value>Off</value>
+<name>Off</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>SATA Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+
+
+<parameters>
+<id>SataPortB</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>Port B</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Auto</value>
+<name>Auto</name>
+</options>
+<options>
+<value>Off</value>
+<name>Off</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>SATA Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>SataPortC</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>Port C</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Auto</value>
+<name>Auto</name>
+</options>
+<options>
+<value>Off</value>
+<name>Off</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>SATA Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+
+
+<parameters>
+<id>SataPortD</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>Port D</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Auto</value>
+<name>Auto</name>
+</options>
+<options>
+<value>Off</value>
+<name>Off</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>SATA Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>SataPortE</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>Port E</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Auto</value>
+<name>Auto</name>
+</options>
+<options>
+<value>Off</value>
+<name>Off</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>SATA Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>SataPortF</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>Port F</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Auto</value>
+<name>Auto</name>
+</options>
+<options>
+<value>Off</value>
+<name>Off</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>SATA Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>SataPortG</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>Port G</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Auto</value>
+<name>Auto</name>
+</options>
+<options>
+<value>Off</value>
+<name>Off</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>SATA Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>SataPortH</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>Port H</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Auto</value>
+<name>Auto</name>
+</options>
+<options>
+<value>Off</value>
+<name>Off</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>SATA Settings</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>SerialComm</id>
+<value>Off</value>
+<type>ENUMERATED</type>
+<displayName>Serial Communication</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>OnNoConRedir</value>
+<name>On without Console Redirection</name>
+</options>
+<options>
+<value>OnConRedir</value>
+<name>On with Console Redirection</name>
+</options>
+<options>
+<value>Off</value>
+<name>Off</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Serial Communication</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>SerialPortAddress</id>
+<value>Com1</value>
+<type>ENUMERATED</type>
+<displayName>Serial Port Address</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Com1</value>
+<name>COM1</name>
+</options>
+<options>
+<value>Com2</value>
+<name>COM2</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Serial Communication</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>ExtSerialConnector</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>External Serial Connector</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Serial1</value>
+<name>Serial Device 1</name>
+</options>
+<options>
+<value>Serial2</value>
+<name>Serial Device 2</name>
+</options>
+<options>
+<value>RemoteAccDevice</value>
+<name>Remote Access Device</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Serial Communication</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>FailSafeBaud</id>
+<value>115200</value>
+<type>ENUMERATED</type>
+<displayName>Failsafe Baud Rate</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>115200</value>
+<name>115200</name>
+</options>
+<options>
+<value>57600</value>
+<name>57600</name>
+</options>
+<options>
+<value>19200</value>
+<name>19200</name>
+</options>
+<options>
+<value>9600</value>
+<name>9600</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Serial Communication</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>ConTermType</id>
+<value>Ansi</value>
+<type>ENUMERATED</type>
+<displayName>Remote Terminal Type</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Vt100Vt220</value>
+<name>VT100/VT220</name>
+</options>
+<options>
+<value>Ansi</value>
+<name>ANSI</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Serial Communication</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>RedirAfterBoot</id>
+<value>Enabled</value>
+<type>ENUMERATED</type>
+<displayName>Redirection After Boot</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>Serial Communication</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>PasswordStatus</id>
+<value>Unlocked</value>
+<type>ENUMERATED</type>
+<displayName>Password Status</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Unlocked</value>
+<name>Unlocked</name>
+</options>
+<options>
+<value>Locked</value>
+<name>Locked</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Security</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>TpmSecurity</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>TPM Security</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Off</value>
+<name>Off</name>
+</options>
+<options>
+<value>OnPbm</value>
+<name>On with Pre-boot Measurements</name>
+</options>
+<options>
+<value>OnNoPbm</value>
+<name>On without Pre-boot Measurements</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Security</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>TpmCommand</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>TPM Command</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>None</value>
+<name>None</name>
+</options>
+<options>
+<value>Activate</value>
+<name>Activate</name>
+</options>
+<options>
+<value>Deactivate</value>
+<name>Deactivate</name>
+</options>
+<options>
+<value>Clear</value>
+<name>Clear</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Security</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>IntelTxt</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>Intel(R) TXT</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Off</value>
+<name>Off</name>
+</options>
+<options>
+<value>On</value>
+<name>On</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Security</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>PwrButton</id>
+<value>Enabled</value>
+<type>ENUMERATED</type>
+<displayName>Power Button</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Security</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>AcPwrRcvry</id>
+<value>Last</value>
+<type>ENUMERATED</type>
+<displayName>AC Power Recovery</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Last</value>
+<name>Last</name>
+</options>
+<options>
+<value>On</value>
+<name>On</name>
+</options>
+<options>
+<value>Off</value>
+<name>Off</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Security</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>AcPwrRcvryDelay</id>
+<value>Immediate</value>
+<type>ENUMERATED</type>
+<displayName>AC Power Recovery Delay</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Immediate</value>
+<name>Immediate</name>
+</options>
+<options>
+<value>Random</value>
+<name>Random</name>
+</options>
+<options>
+<value>User</value>
+<name>User Defined</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Security</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>UefiVariableAccess</id>
+<value>Standard</value>
+<type>ENUMERATED</type>
+<displayName>UEFI Variable Access</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Standard</value>
+<name>Standard</name>
+</options>
+<options>
+<value>Controlled</value>
+<name>Controlled</name>
+</options>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Security</group>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+
+<parameters>
+<id>SecureBoot</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>Secure Boot</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Enabled</value>
+<name>Enabled</name>
+</options>
+<options>
+<value>Disabled</value>
+<name>Disabled</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Security</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>SecureBootPolicy</id>
+<value>n/a</value>
+<type>ENUMERATED</type>
+<displayName>Secure Boot Policy</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>bios_configuration</dependencyTarget>
+<dependencyValue>advanced</dependencyValue>
+<options>
+<value>n/a</value>
+<name>Not Applicable</name>
+</options>
+<options>
+<value>Standard</value>
+<name>Standard</name>
+</options>
+<options>
+<value>Custom</value>
+<name>Custom</name>
+</options>
+<toolTip>
+This setting has other settings for which it is dependent
+</toolTip>
+<readOnly>false</readOnly>
+<generated>true</generated>
+<group>System Security</group>
+<infoIcon>true</infoIcon>
+</parameters>
+
+</resources>
+
+
+
+
+<resources>
+<id>asm::server</id>
+<displayName>OS Settings</displayName>
+
+
+<parameters>
+<id>generate_host_name</id>
+<value>true</value>
+<type>BOOLEAN</type>
+<displayName>Auto-generate Host Name</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>target_boot_device</dependencyTarget>
+<dependencyValue>HD,SD</dependencyValue>
+<toolTip>
+Use the Host Name Template field to auto-generate host names at deployment time. If not selected, a unique host name will be requested when the template is deployed.
+</toolTip>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>os_host_name_template</id>
+<value>server${num}</value>
+<type>STRING</type>
+<displayName>Host Name Template</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>generate_host_name</dependencyTarget>
+<dependencyValue>true</dependencyValue>
+<toolTip>
+Template used to generate host names at deployment time. Must contain variables that will produce a unique host name. Allowed variables are ${num} (an auto-generated unique number), ${service_tag}, ${model}, ${vendor} and ${dns} (ASM-assigned static IP will be resolved to hostname by DNS lookup).
+</toolTip>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>os_host_name</id>
+<type>STRING</type>
+<displayName>Host Name</displayName>
+<required>true</required>
+<requiredAtDeployment>true</requiredAtDeployment>
+<hideFromTemplate>true</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>generate_host_name</dependencyTarget>
+<dependencyValue>false</dependencyValue>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>os_image_type</id>
+<value>vmware_esxi</value>
+<type>ENUMERATED</type>
+<displayName>OS Image Type</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>true</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>target_boot_device</dependencyTarget>
+<dependencyValue>SD,HD</dependencyValue>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>razor_image</id>
+<value>$ESXIiamge</value>
+<type>ENUMERATED</type>
+<displayName>OS Image</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>target_boot_device</dependencyTarget>
+<dependencyValue>SD,HD</dependencyValue>
+<toolTip>Location of OS image installation files</toolTip>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>os_image_version</id>
+<value/>
+<type>ENUMERATED</type>
+<displayName>OS Image Version</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>os_image_type</dependencyTarget>
+<dependencyValue>windows2008,windows2012</dependencyValue>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+<parameters>
+<id>admin_password</id>
+<value>$Adminpassword</value>
+<type>PASSWORD</type>
+<displayName>Administrator password</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>target_boot_device</dependencyTarget>
+<dependencyValue>SD,HD</dependencyValue>
+<toolTip>OS administrator password set on the installed OS</toolTip>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+<parameters>
+<id>admin_confirm_password</id>
+<value>$AdminConfirmPassword</value>
+<type>PASSWORD</type>
+<displayName>Confirm administrator password</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>target_boot_device</dependencyTarget>
+<dependencyValue>SD,HD</dependencyValue>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>product_key</id>
+<type>STRING</type>
+<displayName>Product Key</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>os_image_type</dependencyTarget>
+<dependencyValue>windows2008,windows2012</dependencyValue>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>timezone</id>
+<value>Central Standard Time</value>
+<type>ENUMERATED</type>
+<displayName>Timezone</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>hyperv_install</dependencyTarget>
+<dependencyValue>true</dependencyValue>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+<parameters>
+<id>time_zone</id>
+<value>11</value>
+<type>ENUMERATED</type>
+<displayName>Timezone</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>os_image_type</dependencyTarget>
+<dependencyValue>redhat,redhat7</dependencyValue>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>ntp_server</id>
+<value>$ntpserver</value>
+<type>STRING</type>
+<displayName>NTP Server</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>os_image_type</dependencyTarget>
+<dependencyValue>vmware_esxi,redhat,redhat7</dependencyValue>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>language</id>
+<value>en-US</value>
+<type>ENUMERATED</type>
+<displayName>Language</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>hyperv_install</dependencyTarget>
+<dependencyValue>true</dependencyValue>
+<options>
+<value>en-US</value>
+<name>English (United States)</name>
+</options>
+<options>
+<value>de-DE</value>
+<name>German (Germany)</name>
+</options>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>keyboard</id>
+<value>00000409</value>
+<type>ENUMERATED</type>
+<displayName>Keyboard</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>hyperv_install</dependencyTarget>
+<dependencyValue>true</dependencyValue>
+<options>
+<value>00000409</value>
+<name>U.S. English</name>
+</options>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>domain_name</id>
+<type>STRING</type>
+<displayName>Domain Name</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>hyperv_install</dependencyTarget>
+<dependencyValue>true</dependencyValue>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>fqdn</id>
+<type>STRING</type>
+<displayName>FQ Domain Name</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>hyperv_install</dependencyTarget>
+<dependencyValue>true</dependencyValue>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>domain_admin_user</id>
+<type>STRING</type>
+<displayName>Domain Admin Username</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>hyperv_install</dependencyTarget>
+<dependencyValue>true</dependencyValue>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+<parameters>
+<id>domain_admin_password</id>
+<type>PASSWORD</type>
+<displayName>Domain Admin Password</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>hyperv_install</dependencyTarget>
+<dependencyValue>true</dependencyValue>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>domain_admin_password_confirm</id>
+<type>PASSWORD</type>
+<displayName>Domain Admin Password Confirm</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>hyperv_install</dependencyTarget>
+<dependencyValue>true</dependencyValue>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>esx_mem</id>
+<value>false</value>
+<type>ENUMERATED</type>
+<displayName>Install EqualLogic MEM</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>os_image_type</dependencyTarget>
+<dependencyValue>vmware_esxi</dependencyValue>
+<options>
+<value/>
+<name>Select...</name>
+</options>
+<options>
+<value>true</value>
+<name>True</name>
+</options>
+<options>
+<value>false</value>
+<name>False</name>
+</options>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>management_ip_source</id>
+<value>$managementIp</value>
+<type>ENUMERATED</type>
+<displayName>Management IP Source</displayName>
+<required>true</required>
+<requiredAtDeployment>true</requiredAtDeployment>
+<hideFromTemplate>true</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>os_image_type</dependencyTarget>
+<dependencyValue>hyperv_install,vmware_esxi</dependencyValue>
+<options>
+<value>automatic</value>
+<name>ASM Selected IP</name>
+</options>
+<options>
+<value>dns</value>
+<name>Hostname DNS Lookup</name>
+</options>
+<options>
+<value>manual</value>
+<name>Manual Entry</name>
+</options>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>static_management_ip</id>
+<type>STRING</type>
+<displayName>Management IP Address</displayName>
+<required>true</required>
+<requiredAtDeployment>true</requiredAtDeployment>
+<hideFromTemplate>true</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<dependencyTarget>management_ip_source</dependencyTarget>
+<dependencyValue>manual</dependencyValue>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+
+<parameters>
+<id>ensure</id>
+<value>present</value>
+<type>STRING</type>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>true</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+</resources>
+
+<resources>
+<id>asm::esxiscsiconfig</id>
+<displayName>Network Settings</displayName>
+
+<parameters>
+<id>network_configuration</id>
+<value>
+{"id":"A10F59D1-1905-470E-8D64-4E2DFCF7EB7A","servertype":"blade","fabrics":[{"id":"F04342EB-AE5F-4FC1-80B3-75116CF595AE","name":"Fabric A","redundancy":false,"enabled":true,"usedforfc":false,"nictype":"2","interfaces":[{"id":"D37E3C90-65D9-4DC9-945F-D786F3595FE0","name":"Port 1","partitioned":true,"partitions":[{"id":"7A9B4AC6-FDC7-4D93-AFC0-F465B494F18F","name":"1","networks":["$HypervisorManagement","$PXE"],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"042DF2A1-34D2-45F2-B1D9-2F6E6B547703","name":"2","networks":["$VMotion"],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"A99F2469-ECFD-4C40-B09A-02B421AC5895","name":"3","networks":["$Workload"],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"51AACCB6-6BB9-4EC2-84EB-42B6E8595B00","name":"4","networks":["$ISCSI"],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null}],"interfaces":null,"enabled":false,"redundancy":false,"usedforfc":false,"nictype":null},{"id":"CC35B5B7-C001-41B8-8643-1A57ECC1081E","name":"Port 2","partitioned":true,"partitions":[{"id":"AE23B72B-166D-4302-95C2-06BB0F2F8207","name":"1","networks":["$HypervisorManagement","$PXE"],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"F6E204FF-EC63-4A9C-A2FB-DBF52CFA7633","name":"2","networks":["$VMotion"],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"2FECCE04-D6D4-44BC-B35E-659310712F35","name":"3","networks":["$Workload"],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"4DCAF65D-4EF0-48E1-BA45-FD6288426DED","name":"4","networks":["$ISCSI"],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null}],"interfaces":null,"enabled":false,"redundancy":false,"usedforfc":false,"nictype":null},{"id":"1C40E825-EBF5-4F06-BE31-4B80D55AFEA2","name":"Port 3","partitioned":true,"partitions":[{"id":"F8D5149F-A1AB-40C7-A528-A5F3DC0E7B1C","name":"1","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"56865106-A75C-4DCF-8C3C-F64AB35BAE36","name":"2","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"C5BB2168-ABC6-46A3-999A-A316140748DF","name":"3","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"018175F1-5561-403C-BEEB-4C6762140A3E","name":"4","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null}],"interfaces":null,"enabled":false,"redundancy":false,"usedforfc":false,"nictype":null},{"id":"ADED6CDC-AC03-41D2-8964-584FEDF6FD9A","name":"Port 4","partitioned":true,"partitions":[{"id":"FD5EBF2F-456F-49B4-A511-2DBCC6B81DA3","name":"1","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"869A7335-CCB2-41A8-B8A4-2C967CB48DC7","name":"2","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"318C6B1A-C2F5-4E21-BF1C-BD37E2BAC214","name":"3","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"3E7B239C-0DBF-4523-9129-41F84CE9B64F","name":"4","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null}],"interfaces":null,"enabled":false,"redundancy":false,"usedforfc":false,"nictype":null}]},{"id":"787E00D5-DF09-4D55-BA7F-C92BFAD1734A","name":"Fabric B","redundancy":false,"enabled":false,"usedforfc":false,"nictype":"2","interfaces":[{"id":"BA05AEEB-BB89-42F0-9206-A56F319C2CD6","name":"Port 1","partitioned":true,"partitions":[{"id":"DC26ACAD-9B3F-464B-A78D-17891FF23707","name":"1","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"4C6D1951-AA56-4E8B-A35D-527A969DDF99","name":"2","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"6856D262-B933-45F7-9B9E-E41CF0E243FD","name":"3","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"8F2B07F7-4D35-4049-9C1B-2ECFFD3E364C","name":"4","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null}],"interfaces":null,"enabled":false,"redundancy":false,"usedforfc":false,"nictype":null},{"id":"91B0B480-E9D5-4E09-828F-3F96ABCB3632","name":"Port 2","partitioned":true,"partitions":[{"id":"189FFFCC-C3E3-44D4-BC65-0777C106EC53","name":"1","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"2F7E4C36-3D6C-4C65-9651-9934C0616EF6","name":"2","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"C0A92A8B-4DCF-4633-97CC-4834DA4907B7","name":"3","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"36BD1CE2-4D54-4CAD-AE2C-8C04D22DE176","name":"4","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null}],"interfaces":null,"enabled":false,"redundancy":false,"usedforfc":false,"nictype":null},{"id":"59F32847-2767-4871-943F-E468F15F7122","name":"Port 3","partitioned":true,"partitions":[{"id":"1C7E8F0D-7783-47DC-9114-A198428629D4","name":"1","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"C398BAD7-B616-452B-AD49-C745085DB3C5","name":"2","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"197708B2-3E4F-47E1-AE66-2D0E6AE716F1","name":"3","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"F94E8988-7741-4A62-BF77-ED1950E47B52","name":"4","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null}],"interfaces":null,"enabled":false,"redundancy":false,"usedforfc":false,"nictype":null},{"id":"691B07AC-BD9D-40EA-9D99-EB19D462D6D3","name":"Port 4","partitioned":true,"partitions":[{"id":"E7DCE2A7-1CD6-4B4E-8BF8-95B4A1FC098C","name":"1","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"FC449F46-E8BC-4C87-9F89-62E4318D9CAA","name":"2","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"8595CE60-F3FE-46F7-9842-E4B5829D2FB3","name":"3","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"73C75C5F-12DE-49A2-802D-1915CE3FAF8A","name":"4","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null}],"interfaces":null,"enabled":false,"redundancy":false,"usedforfc":false,"nictype":null}]},{"id":"1418DA16-1FB0-42BA-873B-9511018C344F","name":"Fabric C","redundancy":false,"enabled":false,"usedforfc":false,"nictype":"2","interfaces":[{"id":"24D5F7C4-72B5-40AC-87FA-3BBA5716826D","name":"Port 1","partitioned":true,"partitions":[{"id":"0A76EC02-B5FD-45B2-A316-EF84947AE4F0","name":"1","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"0EDEA11A-3AA7-43E2-BB45-E9B8BA7F3A0F","name":"2","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"CA9C665F-9AA5-47B5-A647-375D2393E852","name":"3","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"2FEBB475-7A59-49E8-9C0C-4C72247FBCB2","name":"4","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null}],"interfaces":null,"enabled":false,"redundancy":false,"usedforfc":false,"nictype":null},{"id":"761FA3D5-B435-48C1-BC5F-9875B11EF2E4","name":"Port 2","partitioned":true,"partitions":[{"id":"22357D67-C944-45D5-8E5C-1682782383FF","name":"1","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"03836407-9B4A-459F-807D-93404C33DD01","name":"2","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"4DD9196F-311B-49B9-B078-E53FFAA5A54E","name":"3","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"581359B2-E579-463F-A7ED-1655F4BF9E26","name":"4","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null}],"interfaces":null,"enabled":false,"redundancy":false,"usedforfc":false,"nictype":null},{"id":"0B1A2360-A9DF-4AF9-922F-5382C5CBAF60","name":"Port 3","partitioned":true,"partitions":[{"id":"45E65B3A-D1C4-4A90-A4DA-B036913D03ED","name":"1","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"E49BFD5F-FFAC-4B7E-9133-EDB68DD9B0A4","name":"2","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"A29AF483-858A-487A-BB70-CC3432C2DBF3","name":"3","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"4C377612-3751-4810-A5C6-B62C4614C256","name":"4","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null}],"interfaces":null,"enabled":false,"redundancy":false,"usedforfc":false,"nictype":null},{"id":"1DF31275-6E39-4669-B97D-EEA7A74252CD","name":"Port 4","partitioned":true,"partitions":[{"id":"95C69856-26B9-4B8A-A5BC-5B415B2642A3","name":"1","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"D223B123-CBE9-4B73-84A6-B5721167791A","name":"2","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"A0532E93-B04D-4715-BC5C-0C99255B92AA","name":"3","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null},{"id":"204E125C-4ECF-41CA-8B03-4F5B5F9DEF3A","name":"4","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null}],"interfaces":null,"enabled":false,"redundancy":false,"usedforfc":false,"nictype":null}]}],"interfaces":[]}
+</value>
+<type>NETWORKCONFIGURATION</type>
+<displayName>Network Config</displayName>
+<required>false</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+<parameters>
+<id>identity_pool</id>
+<value>-1</value>
+<type>ENUMERATED</type>
+<displayName>Identity Pool</displayName>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>false</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<options>
+<value>-1</value>
+<name>Global</name>
+</options>
+<toolTip>
+Pool from which virtual identities are selected during deployment
+</toolTip>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+<parameters>
+<id>ensure</id>
+<value>present</value>
+<type>STRING</type>
+<required>true</required>
+<requiredAtDeployment>false</requiredAtDeployment>
+<hideFromTemplate>true</hideFromTemplate>
+<min>0</min>
+<max>0</max>
+<readOnly>false</readOnly>
+<generated>false</generated>
+<infoIcon>false</infoIcon>
+</parameters>
+
+</resources>
+
+<manageFirmware>false</manageFirmware>
+
+</components>
+
+
+
+
+
+
+
+
+
+
+
+<category>Automation</category>
+<enableApps>false</enableApps>
+<enableCluster>true</enableCluster>
+<enableServer>true</enableServer>
+<enableStorage>true</enableStorage>
+<enableVMs>true</enableVMs>
+<allUsersAllowed>false</allUsersAllowed>
+</ServiceTemplate>

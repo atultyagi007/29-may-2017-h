@@ -1,0 +1,5 @@
+<ServiceTemplate>
+<templateName>TestCase_Template_Copy</templateName>
+<id>$tempId</id>
+<category>Automation</category>
+</ServiceTemplate>

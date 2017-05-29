@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scheduledBackupSettings>
+<backupHour>$backHour</backupHour>
+<backupMinute>$backupMin</backupMinute>
+<backupDaysOfWeek>$backUpDay</backupDaysOfWeek>
+</scheduledBackupSettings>

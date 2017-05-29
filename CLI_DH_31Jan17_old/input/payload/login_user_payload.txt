@@ -1,0 +1,6 @@
+<AuthenticateRequest>
+ <userName>$userName</userName>
+ <domain>$domain</domain>
+ <password>$password</password>
+ <role>$role</role>
+</AuthenticateRequest>

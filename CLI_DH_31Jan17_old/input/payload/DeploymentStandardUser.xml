@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Deployment>
+	<deploymentDescription>$deplyDesc</deploymentDescription>
+	<deploymentName>$DeplName</deploymentName>
+	 <createdBy>$userName</createdBy>
+	 <numberOfDeployments>$noOfDeploy</numberOfDeployments>
+	 <canScaleupServer>true</canScaleupServer>
+	 <canScaleupStorage>true</canScaleupStorage>
+	 <canScaleupVM>true</canScaleupVM> 
+	 <canScaleupCluster>true</canScaleupCluster> 
+	 <allUsersAllowed>false</allUsersAllowed>
+	 <assignedUsers>
+	 <userSeqId>$userSeqId</userSeqId>
+	 <userName>autostandard</userName>
+	 <domainName>ASMLOCAL</domainName>
+	 <enabled>true</enabled>
+	 <systemUser>false</systemUser>
+	 <role>standard</role>
+	 </assignedUsers>
+	 $scheduledTimestamp
+	$dynamic_ServiceTemplate
+</Deployment>

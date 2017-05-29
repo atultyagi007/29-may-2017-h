@@ -1,0 +1,5 @@
+<wizardStatus>
+ <isSetupCompleted>$Completed</isSetupCompleted>
+ <showGettingStarted>$Started</showGettingStarted>
+</wizardStatus>
+

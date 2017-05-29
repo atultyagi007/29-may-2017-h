@@ -1,0 +1,2029 @@
+<ServiceTemplate>
+<templateName>TestCase_TemplateBFS_ServerMigTest</templateName>
+	<templateDescription>Deploy 1 servers with ESXI </templateDescription>
+	<draft>false</draft>
+	
+	<components>
+		<id>1B7B79C7-3D6B-4D1A-A10A-ADF7B24BJ9Z6</id>
+		<componentID>component-equallogic-chap-1</componentID>
+		<name>EqualLogic</name>
+		<type>STORAGE</type>
+		<teardown>false</teardown>
+		<relatedComponents>
+			<entry>
+				<key>E997B5D9-2259-4B75-8DDC-962D14430C32Q</key>
+				<value>Server</value>
+			</entry>
+		</relatedComponents>
+		<associatedComponents>
+			<entry>
+				<key>E997B5D9-2259-4B75-8DDC-962D14430C32Q</key>
+				<value>
+					<entry>
+						<key>service_type</key>
+						<value>class</value>
+					</entry>
+					<entry>
+						<key>name</key>
+						<value>Server</value>
+					</entry>
+				</value>
+			</entry>
+		</associatedComponents>
+		<resources>
+			<id>asm::volume::equallogic</id>
+			<displayName>EqualLogic Storage Settings</displayName>
+			
+			<parameters>
+				<id>asm_guid</id>
+				<value>$StorageRefId</value>
+				<type>ENUMERATED</type>
+				<displayName>Target EqualLogic</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				
+				<toolTip>Device where volume will be created</toolTip>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>title</id>
+				<value>option_create_now</value>
+				<type>ENUMERATED</type>
+				<displayName>Storage Volume Name</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>volume_new</id>
+				<value>$Volume_1</value>
+				<type>STRING</type>
+				<displayName>New Volume Name</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>title</dependencyTarget>
+				<dependencyValue>option_create_now</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			
+			<parameters>
+				<id>poolname</id>
+				<value>default</value>
+				<type>STRING</type>
+				<displayName>Storage Pool</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>title</dependencyTarget>
+				<dependencyValue>option_create_now</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>size</id>
+				<value>100GB</value>
+				<type>STRING</type>
+				<displayName>Storage Size (e.g. 500MB, 1GB)</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>title</dependencyTarget>
+				<dependencyValue>option_create_now</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>thinprovision</id>
+				<value>enable</value>
+				<type>ENUMERATED</type>
+				<displayName>Thin Provisioning</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>title</dependencyTarget>
+				<dependencyValue>option_create_now</dependencyValue>
+				
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>snapreserve</id>
+				<value>100%</value>
+				<type>STRING</type>
+				<displayName>Snapshot Reserve %</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>title</dependencyTarget>
+				<dependencyValue>option_create_now</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>thinminreserve</id>
+				<value>10%</value>
+				<type>STRING</type>
+				<displayName>Thin Min Reserve %</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>thinprovision</dependencyTarget>
+				<dependencyValue>enable</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>thingrowthwarn</id>
+				<value>60%</value>
+				<type>STRING</type>
+				<displayName>Thin growth Warning %</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>thinprovision</dependencyTarget>
+				<dependencyValue>enable</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>thingrowthmax</id>
+				<value>100%</value>
+				<type>STRING</type>
+				<displayName>Thin growth Maximum %</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>thinprovision</dependencyTarget>
+				<dependencyValue>enable</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>thinwarnsoftthres</id>
+				<value>60%</value>
+				<type>STRING</type>
+				<displayName>Thin warning on threshold %</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>thinprovision</dependencyTarget>
+				<dependencyValue>enable</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>thinwarnhardthres</id>
+				<value>90%</value>
+				<type>STRING</type>
+				<displayName>Thin warning hard threshold %</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>thinprovision</dependencyTarget>
+				<dependencyValue>enable</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>multihostaccess</id>
+				<value>enable</value>
+				<type>ENUMERATED</type>
+				<displayName>Multi-Host Access of Volume</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>title</dependencyTarget>
+				<dependencyValue>option_create_now</dependencyValue>
+				
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>auth_type</id>
+				<value>iqnip</value>
+				<type>ENUMERATED</type>
+				<displayName>Authentication</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				
+				<toolTip>Authentication method for storage volume</toolTip>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>chap_user_name</id>
+				<value></value>
+				<type>STRING</type>
+				<displayName>Chap Username</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>auth_type</dependencyTarget>
+				<dependencyValue>chap</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>passwd</id>
+				<value></value>
+				<type>PASSWORD</type>
+				<displayName>Chap Secret</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>auth_type</dependencyTarget>
+				<dependencyValue>chap</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>iqnOrIP</id>
+				<value></value>
+				<type>TEXT</type>
+				<displayName>Initiator IQN or IP Addresses</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>auth_type</dependencyTarget>
+				<dependencyValue>iqnip</dependencyValue>
+				<toolTip>Comma separated list of IPs or IQNs</toolTip>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>ensure</id>
+				<value>present</value>
+				<type>STRING</type>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<group>none</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+		</resources>
+		<cloned>false</cloned>
+		<manageFirmware>false</manageFirmware>
+		<brownfield>false</brownfield>
+	</components>
+	
+	<components>
+		<id>E997B5D9-2259-4B75-8DDC-962D14430C32Q</id>
+		<componentID>component-server-1</componentID>
+		
+		<name>Server</name>
+		<type>SERVER</type>
+		<subType>HYPERVISOR</subType>
+		<teardown>false</teardown>
+		<relatedComponents>
+			<entry>
+				<key>1B7B79C7-3D6B-4D1A-A10A-ADF7B24BJ9Z6</key>
+				<value>EqualLogic</value>
+			</entry>
+		</relatedComponents>
+		<associatedComponents>
+			<entry>
+				<key>1B7B79C7-3D6B-4D1A-A10A-ADF7B24BJ9Z6</key>
+				<value>
+					<entry>
+						<key>service_type</key>
+						<value>class</value>
+					</entry>
+					<entry>
+						<key>name</key>
+						<value>EqualLogic</value>
+					</entry>
+				</value>
+			</entry>
+		</associatedComponents>
+		<resources>
+			<id>asm::server</id>
+			<displayName>OS Settings</displayName>
+			<parameters>
+				<id>generate_host_name</id>
+				<value>true</value>
+				<type>BOOLEAN</type>
+				<displayName>Auto-generate Host Name</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>target_boot_device</dependencyTarget>
+				<dependencyValue>HD,SD,SD_WITH_RAID_VSAN,SD_WITH_RAID,AHCI_VSAN
+				</dependencyValue>
+				<toolTip>Use the Host Name Template field to auto-generate host
+					names at deployment time. If not selected, a unique host name will
+					be requested when the template is deployed.</toolTip>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>os_host_name_template</id>
+				<value>server${num}</value>
+				<type>STRING</type>
+				<displayName>Host Name Template</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>generate_host_name</dependencyTarget>
+				<dependencyValue>true</dependencyValue>
+				<toolTip>Template used to generate host names at deployment time.
+					Must contain variables that will produce a unique host name.
+					Allowed variables are ${num} (an auto-generated unique number),
+					${service_tag}, ${model}, ${vendor} and ${dns} (ASM-assigned static
+					IP will be resolved to hostname by DNS lookup).</toolTip>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>os_host_name</id>
+				<type>STRING</type>
+				<displayName>Host Name</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<dependencyTarget>generate_host_name</dependencyTarget>
+				<dependencyValue>false</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>os_image_type</id>
+				<value>vmware_esxi</value>
+				<type>ENUMERATED</type>
+				<displayName>OS Image Type</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<dependencyTarget>target_boot_device</dependencyTarget>
+				<dependencyValue>SD,SD_WITH_RAID,SD_WITH_RAID_VSAN,HD,AHCI_VSAN
+				</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>razor_image</id>
+				<value>$ESXIiamge</value>
+				<type>ENUMERATED</type>
+				<displayName>OS Image</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>target_boot_device</dependencyTarget>
+				<dependencyValue>SD,SD_WITH_RAID,SD_WITH_RAID_VSAN,HD,AHCI_VSAN
+				</dependencyValue>
+				
+				<toolTip>Location of OS image installation files</toolTip>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>hyperv_install</id>
+				<value>false</value>
+				<type>BOOLEAN</type>
+				<displayName>Install HyperV</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>razor_image</dependencyTarget>
+				<dependencyValue>
+				</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>os_image_version</id>
+				<value></value>
+				<type>ENUMERATED</type>
+				<displayName>OS Image Version</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>razor_image</dependencyTarget>
+				<dependencyValue>winnonR2,winR2</dependencyValue>
+				
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>admin_password</id>
+				<value>$Adminpassword</value>
+				<type>PASSWORD</type>
+				<displayName>Administrator password</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>target_boot_device</dependencyTarget>
+				<dependencyValue>SD,SD_WITH_RAID,SD_WITH_RAID_VSAN,HD,AHCI_VSAN
+				</dependencyValue>
+				<toolTip>OS administrator password set on the installed OS</toolTip>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>admin_confirm_password</id>
+				<value>$AdminConfirmPassword</value>
+				<type>PASSWORD</type>
+				<displayName>Confirm administrator password</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>target_boot_device</dependencyTarget>
+				<dependencyValue>SD,SD_WITH_RAID,SD_WITH_RAID_VSAN,HD,AHCI_VSAN
+				</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>product_key</id>
+				<type>STRING</type>
+				<displayName>Product Key</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>razor_image</dependencyTarget>
+				<dependencyValue>
+				</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>timezone</id>
+				<value>Central Standard Time</value>
+				<type>ENUMERATED</type>
+				<displayName>Timezone</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>hyperv_install</dependencyTarget>
+				<dependencyValue>true</dependencyValue>
+				
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>ntp_server</id>
+				<value>$ntpserver</value>
+				<type>STRING</type>
+				<displayName>NTP Server</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>razor_image</dependencyTarget>
+				<dependencyValue>red7,esxi-5.1,esxi-5.5,esxi-6.0,esxi-6.5
+				</dependencyValue>
+				<toolTip>ESXi, Windows, and Linux services support multiple NTP
+					servers. NTP addresses must be separated by commas.</toolTip>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>language</id>
+				<value>en-US</value>
+				<type>ENUMERATED</type>
+				<displayName>Language</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>hyperv_install</dependencyTarget>
+				<dependencyValue>true</dependencyValue>
+				
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>keyboard</id>
+				<value>00000409</value>
+				<type>ENUMERATED</type>
+				<displayName>Keyboard</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>hyperv_install</dependencyTarget>
+				<dependencyValue>true</dependencyValue>
+				<options>
+					<value>00000409</value>
+					<name>U.S. English</name>
+					<attributes />
+				</options>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>domain_name</id>
+				<type>STRING</type>
+				<displayName>Domain Name</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>razor_image</dependencyTarget>
+				<dependencyValue>
+				</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>fqdn</id>
+				<type>STRING</type>
+				<displayName>FQ Domain Name</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>hyperv_install</dependencyTarget>
+				<dependencyValue>true</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>domain_admin_user</id>
+				<type>STRING</type>
+				<displayName>Domain Admin Username</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>razor_image</dependencyTarget>
+				<dependencyValue>
+				</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>domain_admin_password</id>
+				<value></value>
+				<type>PASSWORD</type>
+				<displayName>Domain Admin Password</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>razor_image</dependencyTarget>
+				<dependencyValue>
+				</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>domain_admin_password_confirm</id>
+				<value></value>
+				<type>PASSWORD</type>
+				<displayName>Domain Admin Password Confirm</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>razor_image</dependencyTarget>
+				<dependencyValue>
+				</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>iscsi_initiator</id>
+				<value>$iscsiinitiator</value>
+				<type>ENUMERATED</type>
+				<displayName>Select iSCSI Initiator</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>razor_image</dependencyTarget>
+				<dependencyValue>esxi-5.1,esxi-5.5,esxi-6.0,esxi-6.5
+				</dependencyValue>
+				
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>esx_mem</id>
+				<value>false</value>
+				<type>ENUMERATED</type>
+				<displayName>Install EqualLogic MEM</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>razor_image</dependencyTarget>
+				<dependencyValue>esxi-5.1,esxi-5.5,esxi-6.0,esxi-6.5
+				</dependencyValue>
+				
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>local_storage_vsan</id>
+				<value>false</value>
+				<type>BOOLEAN</type>
+				<displayName>Local storage for Vmware vSAN</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>razor_image</dependencyTarget>
+				<dependencyValue>esxi-5.1,esxi-5.5,esxi-6.0,esxi-6.5
+				</dependencyValue>
+				<toolTip>RAID controller will be put in the appropriate mode and
+					automatically configured based on VMware vSAN best practices.
+				</toolTip>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			
+			<parameters>
+				<id>ensure</id>
+				<value>present</value>
+				<type>STRING</type>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<group>none</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>ip_source</id>
+				<value>automatic</value>
+				<type>RADIO</type>
+				<displayName>IP Source</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<options>
+					<value>automatic</value>
+					<name>ASM Selected IP</name>
+					<attributes />
+				</options>
+				<options>
+					<value>manual</value>
+					<name>User Entered IP</name>
+					<attributes />
+				</options>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>static_ip_source:Hypervisor Management</id>
+				<value>automatic</value>
+				<type>ENUMERATED</type>
+				<displayName>Hypervisor Management IP Source</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>ip_source</dependencyTarget>
+				<dependencyValue>manual</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>static_ip_value:Hypervisor Management</id>
+				<type>STRING</type>
+				<displayName>Hypervisor Management IP Address</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>static_ip_source:Hypervisor Management
+				</dependencyTarget>
+				<dependencyValue>manual</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>static_ip_source:VMotion</id>
+				<value>automatic</value>
+				<type>ENUMERATED</type>
+				<displayName>VMotion IP Source</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>ip_source</dependencyTarget>
+				<dependencyValue>manual</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>static_ip_value:VMotion</id>
+				<type>STRING</type>
+				<displayName>VMotion IP Address</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>static_ip_source:VMotion</dependencyTarget>
+				<dependencyValue>manual</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>static_ip_source:ISCSI1 IP Partition 1</id>
+				<value>automatic</value>
+				<type>ENUMERATED</type>
+				<displayName>ISCSI1 IP Partition 1 IP Source</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>ip_source</dependencyTarget>
+				<dependencyValue>manual</dependencyValue>
+				<options>
+					<value>automatic</value>
+					<name>ASM Selected IP</name>
+					<attributes />
+				</options>
+				<options>
+					<value>manual</value>
+					<name>Manual Entry</name>
+					<attributes />
+				</options>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>static_ip_value:ISCSI1 IP Partition 1</id>
+				<type>STRING</type>
+				<displayName>ISCSI1 IP Partition 1 IP Address</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>static_ip_source:ISCSI1 IP Partition 1
+				</dependencyTarget>
+				<dependencyValue>manual</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>static_ip_source:ISCSI1 IP Partition 2</id>
+				<value>automatic</value>
+				<type>ENUMERATED</type>
+				<displayName>ISCSI1 IP Partition 2 IP Source</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>ip_source</dependencyTarget>
+				<dependencyValue>manual</dependencyValue>
+				<options>
+					<value>automatic</value>
+					<name>ASM Selected IP</name>
+					<attributes />
+				</options>
+				<options>
+					<value>manual</value>
+					<name>Manual Entry</name>
+					<attributes />
+				</options>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>static_ip_value:ISCSI1 IP Partition 2</id>
+				<type>STRING</type>
+				<displayName>ISCSI1 IP Partition 2 IP Address</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>static_ip_source:ISCSI1 IP Partition 2
+				</dependencyTarget>
+				<dependencyValue>manual</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+		</resources>
+		<resources>
+			<id>asm::idrac</id>
+			<displayName>Hardware Settings</displayName>
+			<parameters>
+				<id>target_boot_device</id>
+				<value>iSCSI</value>
+				<type>ENUMERATED</type>
+				<displayName>Target Boot Device</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>false</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>raid_configuration</id>
+				<value>{"raidtype":"basic","basicraidlevel":"raid1","virtualdisks":[],"enableglobalhotspares":false,"globalhotspares":0,"minimumssd":0,"enableglobalhotsparesexternal":false,"globalhotsparesexternal":0,"minimumssdexternal":0,"externalvirtualdisks":[]}
+				</value>
+				<type>RAIDCONFIGURATION</type>
+				<displayName>RAID</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>target_boot_device</dependencyTarget>
+				<dependencyValue>HD,SD_WITH_RAID,NONE_WITH_RAID</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>server_source</id>
+				<value>pool</value>
+				<type>ENUMERATED</type>
+				<displayName>Server Source</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<options>
+					<value>manual</value>
+					<name>Manual Entry</name>
+					<attributes />
+				</options>
+				<options>
+					<value>pool</value>
+					<name>Server Pool</name>
+					<attributes />
+				</options>
+				<toolTip>Method for server selection</toolTip>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>server_pool</id>
+				<value>$GlobalPool</value>
+				<type>ENUMERATED</type>
+				<displayName>Server Pool</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>server_source</dependencyTarget>
+				<dependencyValue>pool</dependencyValue>
+				<options>
+					<value>-1</value>
+					<name>Global</name>
+					<attributes />
+				</options>
+				<toolTip>Pool from which servers are selected during deployment
+				</toolTip>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>server_select</id>
+				<value></value>
+				<type>ENUMERATED</type>
+				<displayName>Choose Server</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<dependencyTarget>server_source</dependencyTarget>
+				<dependencyValue>manual</dependencyValue>
+				<toolTip>Select specific server from a drop-down list</toolTip>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>migrate_on_failure</id>
+				<value>true</value>
+				<type>BOOLEAN</type>
+				<displayName>Retry On Failure</displayName>
+				<required>false</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<dependencyTarget>server_source</dependencyTarget>
+				<dependencyValue>pool</dependencyValue>
+				<toolTip>If selected server fails, retry on another available server
+				</toolTip>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>attempted_servers</id>
+				<type>STRING</type>
+				<displayName>Attempted Servers</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>ensure</id>
+				<value>present</value>
+				<type>STRING</type>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<group>none</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+		</resources>
+		<resources>
+			<id>asm::bios</id>
+			<displayName>BIOS Settings</displayName>
+			<parameters>
+				<id>bios_configuration</id>
+				<value>basic</value>
+				<type>BIOSCONFIGURATION</type>
+				<displayName>BIOS Settings</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>SysProfile</id>
+				<value>PerfOptimized</value>
+				<type>ENUMERATED</type>
+				<displayName>System Profile</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>UsbPorts</id>
+				<value>AllOn</value>
+				<type>ENUMERATED</type>
+				<displayName>User Accessible USB Ports</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>ProcCores</id>
+				<value>All</value>
+				<type>ENUMERATED</type>
+				<displayName>Number of Cores per Processor</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>ProcVirtualization</id>
+				<value>Enabled</value>
+				<type>ENUMERATED</type>
+				<displayName>Virtualization Technology</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<options>
+					<value>Disabled</value>
+					<name>Disabled</name>
+					<attributes />
+				</options>
+				<options>
+					<value>Enabled</value>
+					<name>Enabled</name>
+					<attributes />
+				</options>
+				<options>
+					<value>n/a</value>
+					<name>Not Applicable</name>
+					<attributes />
+				</options>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>LogicalProc</id>
+				<value>Enabled</value>
+				<type>ENUMERATED</type>
+				<displayName>Logical Processor</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>ProcExecuteDisable</id>
+				<value>Enabled</value>
+				<type>ENUMERATED</type>
+				<displayName>Execute Disable</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<options>
+					<value>Disabled</value>
+					<name>Disabled</name>
+					<attributes />
+				</options>
+				<options>
+					<value>Enabled</value>
+					<name>Enabled</name>
+					<attributes />
+				</options>
+				<options>
+					<value>n/a</value>
+					<name>Not Applicable</name>
+					<attributes />
+				</options>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>NodeInterleave</id>
+				<value>Enabled</value>
+				<type>ENUMERATED</type>
+				<displayName>Node Interleaving</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<options>
+					<value>Disabled</value>
+					<name>Disabled</name>
+					<attributes />
+				</options>
+				<options>
+					<value>Enabled</value>
+					<name>Enabled</name>
+					<attributes />
+				</options>
+				<options>
+					<value>n/a</value>
+					<name>Not Applicable</name>
+					<attributes />
+				</options>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			
+			<parameters>
+				<id>ensure</id>
+				<value>present</value>
+				<type>STRING</type>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<group>none</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+		</resources>
+		
+		<resources>
+			<id>asm::esxiscsiconfig</id>
+			<displayName>Network Settings</displayName>
+			<parameters>
+				<id>network_configuration</id>
+				<value>{
+				"id":"60289224-C659-4753-BCDC-CF2D2B4560D9",
+				"servertype":null,
+				"fabrics":[],
+				"interfaces":[{
+				"id":"60A1E852-20EE-404E-88F3-8ACB70D64900",
+				"name":"Interface",
+				"redundancy":true,
+				"enabled":true,
+				"usedforfc":false,
+				"partitioned":false,
+				"nictype":"2x10Gb",
+				"interfaces":[{
+				"id":"6A68B201-9D77-4D4F-832D-75EE78116021",
+				"name":"Port 1",
+				"partitioned":false,
+				"partitions":[{
+				"id":"291372E7-E5D0-4C89-978C-8B260A1F146E",
+				"name":"1",
+				"networks":["$ISCSI"],
+				"networkObjects":null,
+				"minimum":0,
+				"maximum":100,
+				"lanMacAddress":null,
+				"iscsiMacAddress":null,
+				"iscsiIQN":null,
+				"wwnn":null,
+				"wwpn":null,
+				"port_no":0,
+				"partition_no":0,
+				"partition_index":0,
+				"fqdd":null
+				},{
+				"id":"A4F7D151-5CE2-441D-B777-E5C5435BEE74",
+				"name":"2",
+				"networks":[],
+				"networkObjects":null,
+				"minimum":0,
+				"maximum":100,
+				"lanMacAddress":null,
+				"iscsiMacAddress":null,
+				"iscsiIQN":null,
+				"wwnn":null,
+				"wwpn":null,
+				"port_no":0,
+				"partition_no":0,
+				"partition_index":0,
+				"fqdd":null
+				},{
+				"id":"8D57320B-B9ED-46CA-951D-6244588F035C",
+				"name":"3",
+				"networks":[],
+				"networkObjects":null,
+				"minimum":0,
+				"maximum":100,
+				"lanMacAddress":null,
+				"iscsiMacAddress":null,
+				"iscsiIQN":null,
+				"wwnn":null,
+				"wwpn":null,
+				"port_no":0,
+				"partition_no":0,
+				"partition_index":0,
+				"fqdd":null
+				},{
+				"id":"6388CAB8-EFD4-409B-91A2-F79351C80ADD",
+				"name":"4",
+				"networks":[],
+				"networkObjects":null,
+				"minimum":0,
+				"maximum":100,
+				"lanMacAddress":null,
+				"iscsiMacAddress":null,
+				"iscsiIQN":null,
+				"wwnn":null,
+				"wwpn":null,
+				"port_no":0,
+				"partition_no":0,
+				"partition_index":0,
+				"fqdd":null
+				}],
+				"enabled":false,
+				"redundancy":false,
+				"nictype":"2x10Gb",
+				"fqdd":null
+				},{
+				"id":"E9A1B11D-198F-471B-B1B4-5ADA9C008E17",
+				"name":"Port 2",
+				"partitioned":false,
+				"partitions":[{
+				"id":"0B6E8208-4D4F-4DC9-AB36-FDFB366A9C8B",
+				"name":"1",
+				"networks":[],
+				"networkObjects":null,
+				"minimum":0,
+				"maximum":100,
+				"lanMacAddress":null,
+				"iscsiMacAddress":null,
+				"iscsiIQN":null,
+				"wwnn":null,
+				"wwpn":null,
+				"port_no":0,
+				"partition_no":0,
+				"partition_index":0,
+				"fqdd":null
+				},{
+				"id":"BD344F32-0C89-4D3F-84CF-7FACFD91D561",
+				"name":"2",
+				"networks":[],
+				"networkObjects":null,
+				"minimum":0,
+				"maximum":100,
+				"lanMacAddress":null,
+				"iscsiMacAddress":null,
+				"iscsiIQN":null,
+				"wwnn":null,
+				"wwpn":null,
+				"port_no":0,
+				"partition_no":0,
+				"partition_index":0,
+				"fqdd":null
+				},{
+				"id":"A40C9CFF-405A-409B-95B4-419718FFA30D",
+				"name":"3",
+				"networks":[],
+				"networkObjects":null,
+				"minimum":0,
+				"maximum":100,
+				"lanMacAddress":null,
+				"iscsiMacAddress":null,
+				"iscsiIQN":null,
+				"wwnn":null,
+				"wwpn":null,
+				"port_no":0,
+				"partition_no":0,
+				"partition_index":0,
+				"fqdd":null
+				},{
+				"id":"D95334CE-37B8-4486-9CAA-02756DF5C359",
+				"name":"4",
+				"networks":[],
+				"networkObjects":null,
+				"minimum":0,
+				"maximum":100,
+				"lanMacAddress":null,
+				"iscsiMacAddress":null,
+				"iscsiIQN":null,
+				"wwnn":null,
+				"wwpn":null,
+				"port_no":0,
+				"partition_no":0,
+				"partition_index":0,
+				"fqdd":null
+				}],
+				"enabled":false,
+				"redundancy":false,
+				"nictype":null,
+				"fqdd":null
+				},{
+				"id":"83FE9039-FD29-4004-AE6F-DE9096F178AD",
+				"name":"Port 3",
+				"partitioned":false,
+				"partitions":[{
+				"id":"FB138A24-57C2-4537-8B80-38C4B2C12AF5",
+				"name":"1",
+				"networks":[],
+				"networkObjects":null,
+				"minimum":0,
+				"maximum":100,
+				"lanMacAddress":null,
+				"iscsiMacAddress":null,
+				"iscsiIQN":null,
+				"wwnn":null,
+				"wwpn":null,
+				"port_no":0,
+				"partition_no":0,
+				"partition_index":0,
+				"fqdd":null
+				},{
+				"id":"7919EA6D-BDE7-408B-997F-C519160AE654",
+				"name":"2",
+				"networks":[],
+				"networkObjects":null,
+				"minimum":0,
+				"maximum":100,
+				"lanMacAddress":null,
+				"iscsiMacAddress":null,
+				"iscsiIQN":null,
+				"wwnn":null,
+				"wwpn":null,
+				"port_no":0,
+				"partition_no":0,
+				"partition_index":0,
+				"fqdd":null
+				},{
+				"id":"AFEF4F09-A7AA-46EC-8317-7FEDD7B81970",
+				"name":"3",
+				"networks":[],
+				"networkObjects":null,
+				"minimum":0,
+				"maximum":100,
+				"lanMacAddress":null,
+				"iscsiMacAddress":null,
+				"iscsiIQN":null,
+				"wwnn":null,
+				"wwpn":null,
+				"port_no":0,
+				"partition_no":0,
+				"partition_index":0,
+				"fqdd":null
+				},{
+				"id":"2FF3AB91-26E3-48AA-A0F6-D2EBAF22779A",
+				"name":"4",
+				"networks":[],
+				"networkObjects":null,
+				"minimum":0,
+				"maximum":100,
+				"lanMacAddress":null,
+				"iscsiMacAddress":null,
+				"iscsiIQN":null,
+				"wwnn":null,
+				"wwpn":null,
+				"port_no":0,
+				"partition_no":0,
+				"partition_index":0,
+				"fqdd":null
+				}],
+				"enabled":false,
+				"redundancy":false,
+				"nictype":null,
+				"fqdd":null
+				},{
+				"id":"B808F087-1CA7-4132-92B5-BFB98A1AE556",
+				"name":"Port 4",
+				"partitioned":false,
+				"partitions":[{
+				"id":"E1CB1CE2-3588-4E2E-9786-5A7D93A289F3",
+				"name":"1",
+				"networks":[],
+				"networkObjects":null,
+				"minimum":0,
+				"maximum":100,
+				"lanMacAddress":null,
+				"iscsiMacAddress":null,
+				"iscsiIQN":null,
+				"wwnn":null,
+				"wwpn":null,
+				"port_no":0,
+				"partition_no":0,
+				"partition_index":0,
+				"fqdd":null
+				},{
+				"id":"17CCC30D-44F5-45BB-AAC8-CC45B1BE79F7",
+				"name":"2",
+				"networks":[],
+				"networkObjects":null,
+				"minimum":0,
+				"maximum":100,
+				"lanMacAddress":null,
+				"iscsiMacAddress":null,
+				"iscsiIQN":null,
+				"wwnn":null,
+				"wwpn":null,
+				"port_no":0,
+				"partition_no":0,
+				"partition_index":0,
+				"fqdd":null
+				},{
+				"id":"D80C8F13-63EE-4E32-A101-21B93006FCD0",
+				"name":"3",
+				"networks":[],
+				"networkObjects":null,
+				"minimum":0,"maximum":100,
+				"lanMacAddress":null,
+				"iscsiMacAddress":null,
+				"iscsiIQN":null,
+				"wwnn":null,
+				"wwpn":null,
+				"port_no":0,
+				"partition_no":0,
+				"partition_index":0,
+				"fqdd":null
+				},{
+				"id":"7288D968-B4CF-4B1E-BF9B-5F5322E2AA80",
+				"name":"4",
+				"networks":[],
+				"networkObjects":null,
+				"minimum":0,
+				"maximum":100,
+				"lanMacAddress":null,
+				"iscsiMacAddress":null,
+				"iscsiIQN":null,
+				"wwnn":null,
+				"wwpn":null,
+				"port_no":0,
+				"partition_no":0,
+				"partition_index":0,
+				"fqdd":null
+				}],
+				"enabled":false,
+				"redundancy":false,
+				"nictype":null,
+				"fqdd":null
+				}],
+				"fabrictype":"ethernet"
+				}]
+				}</value>
+				<type>NETWORKCONFIGURATION</type>
+				<displayName>Network Config</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<networkConfiguration>
+					<id>60289224-C659-4753-BCDC-CF2D2B4560D9</id>
+					<interfaces>
+						<id>60A1E852-20EE-404E-88F3-8ACB70D64900</id>
+						<name>Interface</name>
+						<redundancy>true</redundancy>
+						<enabled>true</enabled>
+						<usedforfc>false</usedforfc>
+						<partitioned>false</partitioned>
+						<nictype>2x10Gb</nictype>
+						<interfaces>
+							<id>6A68B201-9D77-4D4F-832D-75EE78116021</id>
+							<name>Port 1</name>
+							<partitioned>false</partitioned>
+							<partitions>
+								<id>291372E7-E5D0-4C89-978C-8B260A1F146E</id>
+								<name>1</name>
+								<networks>$ISCSI</networks>
+								<networkObjects>
+									$NetworkISCSI
+								</networkObjects>
+								<minimum>0</minimum>
+								<maximum>100</maximum>
+								<port_no>0</port_no>
+								<partition_no>0</partition_no>
+								<partition_index>0</partition_index>
+							</partitions>
+							<partitions>
+								<id>A4F7D151-5CE2-441D-B777-E5C5435BEE74</id>
+								<name>2</name>
+								<minimum>0</minimum>
+								<maximum>100</maximum>
+								<port_no>0</port_no>
+								<partition_no>0</partition_no>
+								<partition_index>0</partition_index>
+							</partitions>
+							<partitions>
+								<id>8D57320B-B9ED-46CA-951D-6244588F035C</id>
+								<name>3</name>
+								<minimum>0</minimum>
+								<maximum>100</maximum>
+								<port_no>0</port_no>
+								<partition_no>0</partition_no>
+								<partition_index>0</partition_index>
+							</partitions>
+							<partitions>
+								<id>6388CAB8-EFD4-409B-91A2-F79351C80ADD</id>
+								<name>4</name>
+								<minimum>0</minimum>
+								<maximum>100</maximum>
+								<port_no>0</port_no>
+								<partition_no>0</partition_no>
+								<partition_index>0</partition_index>
+							</partitions>
+							<enabled>false</enabled>
+							<redundancy>false</redundancy>
+							<nictype>2x10Gb</nictype>
+						</interfaces>
+						<interfaces>
+							<id>E9A1B11D-198F-471B-B1B4-5ADA9C008E17</id>
+							<name>Port 2</name>
+							<partitioned>false</partitioned>
+							<partitions>
+								<id>291372E7-E5D0-4C89-978C-8B260A1F146E</id>
+								<name>1</name>
+								<networks>$ISCSI</networks>
+								<networkObjects>
+									$NetworkISCSI
+								</networkObjects>
+								<minimum>0</minimum>
+								<maximum>100</maximum>
+								<port_no>0</port_no>
+								<partition_no>0</partition_no>
+								<partition_index>0</partition_index>
+							</partitions>
+							<partitions>
+								<id>A4F7D151-5CE2-441D-B777-E5C5435BEE74</id>
+								<name>2</name>
+								<minimum>0</minimum>
+								<maximum>100</maximum>
+								<port_no>0</port_no>
+								<partition_no>0</partition_no>
+								<partition_index>0</partition_index>
+							</partitions>
+							<partitions>
+								<id>8D57320B-B9ED-46CA-951D-6244588F035C</id>
+								<name>3</name>
+								<minimum>0</minimum>
+								<maximum>100</maximum>
+								<port_no>0</port_no>
+								<partition_no>0</partition_no>
+								<partition_index>0</partition_index>
+							</partitions>
+							<partitions>
+								<id>6388CAB8-EFD4-409B-91A2-F79351C80ADD</id>
+								<name>4</name>
+								<minimum>0</minimum>
+								<maximum>100</maximum>
+								<port_no>0</port_no>
+								<partition_no>0</partition_no>
+								<partition_index>0</partition_index>
+							</partitions>
+							<enabled>false</enabled>
+							<redundancy>false</redundancy>
+						</interfaces>
+						<interfaces>
+							<id>83FE9039-FD29-4004-AE6F-DE9096F178AD</id>
+							<name>Port 3</name>
+							<partitioned>false</partitioned>
+							<partitions>
+								<id>FB138A24-57C2-4537-8B80-38C4B2C12AF5</id>
+								<name>1</name>
+								<minimum>0</minimum>
+								<maximum>100</maximum>
+								<port_no>0</port_no>
+								<partition_no>0</partition_no>
+								<partition_index>0</partition_index>
+							</partitions>
+							<partitions>
+								<id>7919EA6D-BDE7-408B-997F-C519160AE654</id>
+								<name>2</name>
+								<minimum>0</minimum>
+								<maximum>100</maximum>
+								<port_no>0</port_no>
+								<partition_no>0</partition_no>
+								<partition_index>0</partition_index>
+							</partitions>
+							<partitions>
+								<id>AFEF4F09-A7AA-46EC-8317-7FEDD7B81970</id>
+								<name>3</name>
+								<minimum>0</minimum>
+								<maximum>100</maximum>
+								<port_no>0</port_no>
+								<partition_no>0</partition_no>
+								<partition_index>0</partition_index>
+							</partitions>
+							<partitions>
+								<id>2FF3AB91-26E3-48AA-A0F6-D2EBAF22779A</id>
+								<name>4</name>
+								<minimum>0</minimum>
+								<maximum>100</maximum>
+								<port_no>0</port_no>
+								<partition_no>0</partition_no>
+								<partition_index>0</partition_index>
+							</partitions>
+							<enabled>false</enabled>
+							<redundancy>false</redundancy>
+						</interfaces>
+						<interfaces>
+							<id>B808F087-1CA7-4132-92B5-BFB98A1AE556</id>
+							<name>Port 4</name>
+							<partitioned>false</partitioned>
+							<partitions>
+								<id>E1CB1CE2-3588-4E2E-9786-5A7D93A289F3</id>
+								<name>1</name>
+								<minimum>0</minimum>
+								<maximum>100</maximum>
+								<port_no>0</port_no>
+								<partition_no>0</partition_no>
+								<partition_index>0</partition_index>
+							</partitions>
+							<partitions>
+								<id>17CCC30D-44F5-45BB-AAC8-CC45B1BE79F7</id>
+								<name>2</name>
+								<minimum>0</minimum>
+								<maximum>100</maximum>
+								<port_no>0</port_no>
+								<partition_no>0</partition_no>
+								<partition_index>0</partition_index>
+							</partitions>
+							<partitions>
+								<id>D80C8F13-63EE-4E32-A101-21B93006FCD0</id>
+								<name>3</name>
+								<minimum>0</minimum>
+								<maximum>100</maximum>
+								<port_no>0</port_no>
+								<partition_no>0</partition_no>
+								<partition_index>0</partition_index>
+							</partitions>
+							<partitions>
+								<id>7288D968-B4CF-4B1E-BF9B-5F5322E2AA80</id>
+								<name>4</name>
+								<minimum>0</minimum>
+								<maximum>100</maximum>
+								<port_no>0</port_no>
+								<partition_no>0</partition_no>
+								<partition_index>0</partition_index>
+							</partitions>
+							<enabled>false</enabled>
+							<redundancy>false</redundancy>
+						</interfaces>
+						<fabrictype>ethernet</fabrictype>
+					</interfaces>
+				</networkConfiguration>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>default_gateway</id>
+				<value></value>
+				<type>STRING</type>
+				<displayName>Static Network Default Gateway</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>razor_image</dependencyTarget>
+				<dependencyValue>RHEL7.2,winNonR2</dependencyValue>
+				<options>
+					<value></value>
+					<name>Select...</name>
+					<attributes />
+				</options>
+				<options>
+					<value>dhcp_workload</value>
+					<name>DHCP / No Gateway</name>
+					<attributes />
+				</options>
+				<options>
+					<value>ff8080815bcd1356015bcd1a59120002</value>
+					<name>autoPublicLAN</name>
+					<attributes />
+				</options>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>mtu</id>
+				<value>1500</value>
+				<type>ENUMERATED</type>
+				<displayName>MTU size for bonded interfaces:</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>razor_image</dependencyTarget>
+				<dependencyValue>RHEL7.2</dependencyValue>
+				<options>
+					<value>1500</value>
+					<name>1500</name>
+					<attributes />
+				</options>
+				<options>
+					<value>9000</value>
+					<name>9000</name>
+					<attributes />
+				</options>
+				<toolTip>Allows the Maximum Transfer Unit (MTU) to be set in the
+					server Operating System. This will only take effect on bonded
+					interfaces.</toolTip>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>identity_pool</id>
+				<value>-1</value>
+				<type>ENUMERATED</type>
+				<displayName>Identity Pool</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<options>
+					<value>-1</value>
+					<name>Global</name>
+					<attributes />
+				</options>
+				<toolTip>Pool from which virtual identities are selected during
+					deployment</toolTip>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>ensure</id>
+				<value>present</value>
+				<type>STRING</type>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<group>none</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+		</resources>
+		
+		<cloned>false</cloned>
+		<manageFirmware>false</manageFirmware>
+		<brownfield>false</brownfield>
+	</components>
+	
+	<category>Automation</category>
+	<enableApps>false</enableApps>
+	<enableCluster>false</enableCluster>
+	<enableServer>false</enableServer>
+	<enableStorage>false</enableStorage>
+	<enableVMs>false</enableVMs>
+	<allUsersAllowed>false</allUsersAllowed>
+	<manageFirmware>false</manageFirmware>
+	<useDefaultCatalog>false</useDefaultCatalog>
+</ServiceTemplate>

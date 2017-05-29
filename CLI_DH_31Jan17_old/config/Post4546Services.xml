@@ -1,0 +1,29 @@
+<urls>
+	<url name="Configure" uri="/AsmManager/Configure/configure"/>
+	<url name="Discovery" uri="/AsmManager/DiscoveryRequest"/>
+	<url name="ChassisListDiscovery" uri="/AsmManager/DiscoveryRequest/chassislist"/>
+	<url name="ChassisRADiscovery" uri="/AsmManager/ChassisDiscoveryRequest"/>
+	<url name="ChassisConfigureProcess" uri="/AsmManager/Configure/process"/>
+	<url name="ChassisConfigureDiscover" uri="/AsmManager/Configure/discover"/>
+	<url name="Credential" uri = "/AsmManager/credential"/>
+	<url name="ManagedDevice" uri = "/AsmManager/ManagedDevice"/>
+	<url name = "Network" uri = "/VirtualServices/Network"/>
+	<url name="Timezone" uri = "/alcm/timezone"/>
+	<url name="NTP" uri = "/alcm/ntp"/>
+	<url name="login" uri = "/AsmManager/authenticate"/>
+	<url name="proxy" uri = "/alcm/proxy"/>
+	<url name="Wizard" uri = "/alcm/wizardStatus"/>
+	<url name="ServerCred" uri = "/AsmManager/credential"/>
+	<url name="Template" uri = "/AsmManager/ServiceTemplate"/>
+	<url name="ServerPool" uri = "/AsmManager/DeviceGroup"/>
+	<url name="Deploy" uri = "/AsmManager/Deployment"/>
+	<url name="User" uri = "/AsmManager/user"/>
+	<url name="DirectoryService" uri = "/SecurityManager/activedirectory"/>
+	<url name="ValidateAD" uri = "/SecurityManager/activedirectory/validate"/>
+	<url name="osRepository" uri = "/AsmManager/osRepository"/>
+	<url name="FirmwareRepository" uri = "/AsmManager/firmwareRepository"/>
+	<url name="Chassis" uri = "/AsmManager/Chassis"/>
+	<url name="compliance" uri = "/AsmManager/firmwareRepository/compliance"/>
+    <url name="updateFirmware" uri = "/AsmManager/ManagedDevice/firmware"/>
+    <url name="DHCP" uri = "/alcm/dhcp"/>
+</urls>

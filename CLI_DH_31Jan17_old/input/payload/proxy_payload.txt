@@ -1,0 +1,5 @@
+<proxySettings>
+	<enabled>$SetEnabledFlag</enabled>
+	<port>$SetPort</port>
+	<userCredentialEnabled>$SetUserFlag</userCredentialEnabled>
+</proxySettings>

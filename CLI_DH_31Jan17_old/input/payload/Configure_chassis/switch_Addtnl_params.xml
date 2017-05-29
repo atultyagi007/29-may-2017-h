@@ -1,0 +1,13 @@
+<parameters>
+	<id>hostname</id>
+	<value>$switch_host_name</value>
+	<type>STRING</type>
+	<required>true</required>
+	<requiredAtDeployment>false</requiredAtDeployment>
+	<hideFromTemplate>false</hideFromTemplate>
+	<readOnly>false</readOnly>
+	<generated>false</generated>
+	<infoIcon>false</infoIcon>
+	<maxLength>256</maxLength>
+	<step>1</step>
+</parameters>

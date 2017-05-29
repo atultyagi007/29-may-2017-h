@@ -1,0 +1,3 @@
+<timeZone>
+	<timeZoneId>$timeZoneId</timeZoneId>
+</timeZone>

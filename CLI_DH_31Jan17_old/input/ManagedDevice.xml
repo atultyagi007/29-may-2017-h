@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ManagedDevices>
+	<ManagedDevice>
+		<compliance>NONCOMPLIANT</compliance>
+		<complianceCheckDate>2017-02-24T00:00:36.947-06:00
+		</complianceCheckDate>
+		<credId>ff80808159bb79460159ca1e5abf004e</credId>
+		<deviceGroupList>
+			<DeviceGroup>
+				<groupSeqId>-1</groupSeqId>
+				<groupName>Global</groupName>
+				<createdBy>admin</createdBy>
+			</DeviceGroup>
+			<totalRecords>0</totalRecords>
+		</deviceGroupList>
+		<deviceType>equallogic</deviceType>
+		<discoverDeviceType>EQUALLOGIC</discoverDeviceType>
+		<discoveredDate>2017-02-10T03:56:29.241-06:00</discoveredDate>
+		<displayName>Bigfoot-RowG-Rack7-EQL6110-3</displayName>
+		<facts>{"certname":"equallogic-172.31.64.242","Collections":"{\n
+			\"Volume Collections\": \"0\",\n \"Custom Snapshot Collections\":
+			\"0\",\n \"Snapshot Collections\":
+			\"\"\n}","device_type":"script","Free Group Space":"1155765","General
+			Settings":"{\n \"Group Name\": \"Bigfoot-RowG-Rack7-EQL6110-3\",\n
+			\"IP Address\": \"172.31.71.92\",\n \"Location\":
+			\"default\"\n}","Group Disk Space":"{\n \"Snapshot Reserve\":
+			\"51450\",\n \"Replication Reserve\": \"0\",\n \"Delegated\":
+			\"0\",\n \"Free\": \"1155765\",\n \"Volume Reserve\":
+			\"156315\"\n}","Group
+			Name":"Bigfoot-RowG-Rack7-EQL6110-3","management_ip":"172.31.64.242","Management
+			IP":"172.31.64.242","Member Model":"{\n \"member03\":
+			\"PS6110\"\n}","Model":"EqualLogic","Snapshots":"0","SnapshotsInfo":"{\n
+			\"Online\": \"0\",\n \"In Use\":
+			\"0\"\n}","snmp_community_string":"[]","Status":"{\n \"member03\":
+			\"online\"\n}","Storage Pools":"{\n \"default\": {\n \"Members\":
+			\"1\",\n \"Total\": \"1.3TB\"\n }\n}","update_time":"2017-02-24
+			00:00:33 -0600","Version":"{\n \"member03\": \"V7.0.5
+			(R390599)\"\n}","Volume_IQN_Information":"{\n \"p\": {\n
+			\"TargetIscsiName\": \"e\",\n \"Size\": \"-\",\n \"Snapshots\":
+			\"c\",\n \"Status\": \"o\",\n \"Permission\": \"n\",\n \"TP\":
+			\"t\",\n \"Template\": \"r\"\n },\n \"P\": {\n \"TargetIscsiName\":
+			\"e\",\n \"Size\": \"r\",\n \"Snapshots\": \"f\",\n \"Status\":
+			\"S\",\n \"Permission\": \"c\",\n \"TP\": \"a\",\n \"Template\":
+			\"l\"\n },\n \"O\": {\n \"TargetIscsiName\": \"S\",\n \"Size\":
+			\"V\",\n \"Snapshots\": \"o\",\n \"Status\": \"l\",\n \"Permission\":
+			\"u\",\n \"TP\": \"m\",\n \"Template\": \"e\"\n },\n \"a\": {\n
+			\"TargetIscsiName\": \"u\",\n \"Size\": \"t\",\n \"Snapshots\":
+			\"o\",\n \"Status\": \"V\",\n \"Permission\": \"o\",\n \"TP\":
+			\"l\",\n \"Template\": \"u\"\n },\n \"h\": {\n \"TargetIscsiName\":
+			\"7\",\n \"Size\": \"1\",\n \"Snapshots\": \"1\",\n \"Status\":
+			\"3\",\n \"Permission\": \"1\",\n \"TP\": \"\",\n \"Template\":
+			\"\"\n },\n \"H\": {\n \"TargetIscsiName\": \"C\",\n \"Size\":
+			\"L\",\n \"Snapshots\": \"V\",\n \"Status\": \"o\",\n \"Permission\":
+			\"l\",\n \"TP\": \"4\",\n \"Template\": \"6\"\n
+			}\n}","Volumes":"6","VolumesInfo":"{\n \"Total Volumes\": \"6\",\n
+			\"Online\": \"6\",\n \"ISCSI Connections\": \"2\",\n \"In Use\":
+			\"1\"\n}","VolumesProperties":"{\n \"PerfScalVol03\": \"{\\n
+			\\\"Storage Pool\\\": \\\"default\\\",\\n \\\"Reported Size\\\":
+			\\\"1024.0GB\\\",\\n \\\"Volume Reserve\\\": \\\"0.0GB\\\",\\n
+			\\\"Snapshot Reserve\\\": \\\"0%\\\",\\n \\\"Borrowed Space\\\":
+			\\\"0MB\\\",\\n \\\"Volume Status\\\": \\\"online\\\",\\n \\\"Volume
+			Use\\\": \\\"0\\\",\\n \\\"Replication Partner\\\": \\\"\\\",\\n
+			\\\"SyncRep Status\\\": \\\"\\\",\\n \\\"Number of Snapshot\\\":
+			\\\"0\\\",\\n \\\"Number of Online Snapshots\\\": \\\"0\\\",\\n
+			\\\"ISCSI Connections\\\": \\\"0\\\",\\n \\\"Snapshots in Use\\\":
+			\\\"0\\\",\\n \\\"TargetIscsiName\\\":
+			\\\"iqn.2001-05.com.equallogic:0-1cb196-59ef67747-6cd001ba4ce54360-perfscalvol03\\\"\\n}\",\n
+			\"OSVolume\": \"{\\n \\\"Storage Pool\\\": \\\"default\\\",\\n
+			\\\"Reported Size\\\": \\\"100.0GB\\\",\\n \\\"Volume Reserve\\\":
+			\\\"10.0048828125GB\\\",\\n \\\"Snapshot Reserve\\\":
+			\\\"100%\\\",\\n \\\"Borrowed Space\\\": \\\"0MB\\\",\\n \\\"Volume
+			Status\\\": \\\"online\\\",\\n \\\"Volume Use\\\": \\\"0\\\",\\n
+			\\\"Replication Partner\\\": \\\"\\\",\\n \\\"SyncRep Status\\\":
+			\\\"\\\",\\n \\\"Number of Snapshot\\\": \\\"0\\\",\\n \\\"Number of
+			Online Snapshots\\\": \\\"0\\\",\\n \\\"ISCSI Connections\\\":
+			\\\"0\\\",\\n \\\"Snapshots in Use\\\": \\\"0\\\",\\n
+			\\\"TargetIscsiName\\\":
+			\\\"iqn.2001-05.com.equallogic:0-1cb196-01ff67747-15e8fafcb3d55a63-osvolume\\\"\\n}\",\n
+			\"autoVolume\": \"{\\n \\\"Storage Pool\\\": \\\"default\\\",\\n
+			\\\"Reported Size\\\": \\\"1.0GB\\\",\\n \\\"Volume Reserve\\\":
+			\\\"0.1025390625GB\\\",\\n \\\"Snapshot Reserve\\\": \\\"100%\\\",\\n
+			\\\"Borrowed Space\\\": \\\"0MB\\\",\\n \\\"Volume Status\\\":
+			\\\"online\\\",\\n \\\"Volume Use\\\": \\\"2\\\",\\n \\\"Replication
+			Partner\\\": \\\"\\\",\\n \\\"SyncRep Status\\\": \\\"\\\",\\n
+			\\\"Number of Snapshot\\\": \\\"0\\\",\\n \\\"Number of Online
+			Snapshots\\\": \\\"0\\\",\\n \\\"ISCSI Connections\\\": \\\"2\\\",\\n
+			\\\"Snapshots in Use\\\": \\\"0\\\",\\n \\\"TargetIscsiName\\\":
+			\\\"iqn.2001-05.com.equallogic:0-1cb196-aa0747947-845006e457e58595-autovolume\\\"\\n}\",\n
+			\"h71132\": \"{\\n \\\"Storage Pool\\\": \\\"default\\\",\\n
+			\\\"Reported Size\\\": \\\"0.5GB\\\",\\n \\\"Volume Reserve\\\":
+			\\\"0.1318359375GB\\\",\\n \\\"Snapshot Reserve\\\": \\\"100%\\\",\\n
+			\\\"Borrowed Space\\\": \\\"0MB\\\",\\n \\\"Volume Status\\\":
+			\\\"online\\\",\\n \\\"Volume Use\\\": \\\"0\\\",\\n \\\"Replication
+			Partner\\\": \\\"\\\",\\n \\\"SyncRep Status\\\": \\\"\\\",\\n
+			\\\"Number of Snapshot\\\": \\\"0\\\",\\n \\\"Number of Online
+			Snapshots\\\": \\\"0\\\",\\n \\\"ISCSI Connections\\\": \\\"0\\\",\\n
+			\\\"Snapshots in Use\\\": \\\"0\\\",\\n \\\"TargetIscsiName\\\":
+			\\\"iqn.2001-05.com.equallogic:0-1cb196-f7a284032-4b00000006058814-h71132\\\"\\n}\",\n
+			\"h71131\": \"{\\n \\\"Storage Pool\\\": \\\"default\\\",\\n
+			\\\"Reported Size\\\": \\\"300.0GB\\\",\\n \\\"Volume Reserve\\\":
+			\\\"30.0GB\\\",\\n \\\"Snapshot Reserve\\\": \\\"100%\\\",\\n
+			\\\"Borrowed Space\\\": \\\"0MB\\\",\\n \\\"Volume Status\\\":
+			\\\"online\\\",\\n \\\"Volume Use\\\": \\\"0\\\",\\n \\\"Replication
+			Partner\\\": \\\"\\\",\\n \\\"SyncRep Status\\\": \\\"\\\",\\n
+			\\\"Number of Snapshot\\\": \\\"0\\\",\\n \\\"Number of Online
+			Snapshots\\\": \\\"0\\\",\\n \\\"ISCSI Connections\\\": \\\"0\\\",\\n
+			\\\"Snapshots in Use\\\": \\\"0\\\",\\n \\\"TargetIscsiName\\\":
+			\\\"iqn.2001-05.com.equallogic:0-1cb196-fb9284032-a940000006358814-h71131\\\"\\n}\",\n
+			\"HCLVol4624\": \"{\\n \\\"Storage Pool\\\": \\\"default\\\",\\n
+			\\\"Reported Size\\\": \\\"100.0GB\\\",\\n \\\"Volume Reserve\\\":
+			\\\"10.0048828125GB\\\",\\n \\\"Snapshot Reserve\\\":
+			\\\"100%\\\",\\n \\\"Borrowed Space\\\": \\\"0MB\\\",\\n \\\"Volume
+			Status\\\": \\\"online\\\",\\n \\\"Volume Use\\\": \\\"0\\\",\\n
+			\\\"Replication Partner\\\": \\\"\\\",\\n \\\"SyncRep Status\\\":
+			\\\"\\\",\\n \\\"Number of Snapshot\\\": \\\"0\\\",\\n \\\"Number of
+			Online Snapshots\\\": \\\"0\\\",\\n \\\"ISCSI Connections\\\":
+			\\\"0\\\",\\n \\\"Snapshots in Use\\\": \\\"0\\\",\\n
+			\\\"TargetIscsiName\\\":
+			\\\"iqn.2001-05.com.equallogic:0-1cb196-d6f284032-fa80000009158ab2-hclvol4624\\\"\\n}\"\n}","Group
+			Members":"1","name":"equallogic-172.31.64.242","fwversion":"{\n
+			\"member03\": \"V7.0.5 (R390599)\"\n}"}</facts>
+		<failuresCount>0</failuresCount>
+		<firmwareName>Default Catalog - ASM December 2016</firmwareName>
+		<health>GREEN</health>
+		<healthMessage>OK</healthMessage>
+		<inUse>false</inUse>
+		<ipAddress>172.31.64.242</ipAddress>
+		<managedState>MANAGED</managedState>
+		<memoryInGB>0</memoryInGB>
+		<model>EqualLogic</model>
+		<nics>0</nics>
+		<numberOfCPUs>0</numberOfCPUs>
+		<operatingSystem>N/A</operatingSystem>
+		<refId>equallogic-172.31.64.242</refId>
+		<serviceTag>Bigfoot-RowG-Rack7-EQL6110-3</serviceTag>
+		<state>READY</state>
+	</ManagedDevice>
+</ManagedDevices>

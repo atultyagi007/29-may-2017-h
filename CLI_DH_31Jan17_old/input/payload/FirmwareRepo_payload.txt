@@ -1,0 +1,9 @@
+<FirmwareRepository>
+<bundleCount></bundleCount>
+<componentCount></componentCount>
+<defaultCatalog>True</defaultCatalog>
+<embedded>false</embedded>
+<password></password>
+<sourceLocation>$sourceLocation</sourceLocation>
+<username></username>
+</FirmwareRepository>

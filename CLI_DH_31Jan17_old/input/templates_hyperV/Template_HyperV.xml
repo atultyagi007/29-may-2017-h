@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceTemplate>
+	<id />
+	<templateName>perfecttemp</templateName>
+	<templateDescription />
+	<draft>false</draft>
+	<createdDate />
+	<createdBy />
+	<updatedDate />
+	<updatedBy />
+	<components>
+		<id />
+		<componentID />
+		<name>Server 1</name>
+		<type>SERVER</type>
+		<relatedComponents>
+			<entry>
+				<key />
+				<value />
+			</entry>
+		</relatedComponents>
+		<resources>
+			<id />
+			<displayName>Hardware Settings</displayName>
+			<parameters>
+				<id>target_boot_device</id>
+				<value>HD</value>
+				<type>ENUMERATED</type>
+				<displayName>Target Boot Device</displayName>
+				<required>true</required>
+				<requiredAtDeployment />
+				<hideFromTemplate />
+				<min />
+				<max />
+				<possibleValues />
+				<possibleValues />
+				<possibleValuesDisplayName>
+				</possibleValuesDisplayName>
+				<possibleValuesDisplayName />
+			</parameters>
+			<parameters>
+				<id>server_pool</id>
+				<value>sweSP</value>
+				<type>ENUMERATED</type>
+				<displayName>Server Pool</displayName>
+				<required>true</required>
+				<requiredAtDeployment />
+				<hideFromTemplate />
+				<min />
+				<max />
+				<possibleValues />
+				<possibleValuesDisplayName />
+			</parameters>
+		</resources>
+		<resources>
+			<id>asm::server</id>
+			<displayName>OS Settings</displayName>
+			<parameters>
+				<id>os_host_name</id>
+				<value />
+				<type>STRING</type>
+				<displayName>Host Name</displayName>
+				<required>false</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+			</parameters>
+			<parameters>
+				<id>admin_password</id>
+				<value>Dell1234</value>
+				<type>PASSWORD</type>
+				<displayName>Administrator password</displayName>
+				<required>true</required>
+				<requiredAtDeployment />
+				<hideFromTemplate />
+				<min />
+				<max />
+			</parameters>
+			<parameters>
+				<id>admin_confirm_password</id>
+				<value>Dell1234</value>
+				<type>PASSWORD</type>
+				<displayName>Confirm administrator password</displayName>
+				<required />
+				<requiredAtDeployment />
+				<hideFromTemplate />
+				<min />
+				<max />
+			</parameters>
+			<parameters>
+				<id>razor_image</id>
+				<value>esxi-5.1</value>
+				<type>ENUMERATED</type>
+				<displayName>OS Image</displayName>
+				<required>true</required>
+				<requiredAtDeployment />
+				<hideFromTemplate />
+				<min />
+				<max />
+				<possibleValues />
+				<possibleValues />
+				<possibleValues />
+				<possibleValuesDisplayName />
+				<possibleValuesDisplayName />
+				<possibleValuesDisplayName />
+			</parameters>
+			<parameters>
+				<id>os_image_type</id>
+				<value>vmware_esxi</value>
+				<type>ENUMERATED</type>
+				<displayName>OS Image Type</displayName>
+				<required />
+				<requiredAtDeployment />
+				<hideFromTemplate />
+				<min />
+				<max />
+				<possibleValues />
+				<possibleValues />
+				<possibleValues />
+				<possibleValues />
+				<possibleValuesDisplayName />
+				<possibleValuesDisplayName />
+				<possibleValuesDisplayName />
+				<possibleValuesDisplayName />
+			</parameters>
+			<parameters>
+				<id>custom_script</id>
+				<value />
+				<type>TEXT</type>
+				<displayName>Custom OS Installation script</displayName>
+				<required />
+				<requiredAtDeployment />
+				<hideFromTemplate />
+				<min />
+				<max />
+			</parameters>
+		</resources>
+		<resources>
+			<id>asm::esxiscsiconfig</id>
+			<displayName>Network Settings</displayName>
+			<parameters>
+				<id>identity_pool</id>
+				<value>Global</value>
+				<type>ENUMERATED</type>
+				<displayName>Identity Pool</displayName>
+				<required>true</required>
+				<requiredAtDeployment />
+				<hideFromTemplate />
+				<min />
+				<max />
+				<possibleValues />
+				<possibleValuesDisplayName />
+			</parameters>
+			<parameters>
+				<id>hypervisor_network</id>
+				<value>ff808081478f89600147c54c13c70b03</value>
+				<type>ENUMERATED</type>
+				<displayName>Hypervisor Management Network</displayName>
+				<required>true</required>
+				<requiredAtDeployment />
+				<hideFromTemplate />
+				<min />
+				<max />
+				<possibleValues />
+				<possibleValues />
+				<possibleValuesDisplayName />
+				<possibleValuesDisplayName />
+			</parameters>
+			<parameters>
+				<id>vmotion_network</id>
+				<value>ff808081478f89600147c54bff470a07</value>
+				<type>ENUMERATED</type>
+				<displayName>Hypervisor vMotion Network</displayName>
+				<required>true</required>
+				<requiredAtDeployment />
+				<hideFromTemplate />
+				<min />
+				<max />
+				<possibleValues />
+				<possibleValues />
+				<possibleValues />
+				<possibleValuesDisplayName />
+				<possibleValuesDisplayName />
+				<possibleValuesDisplayName />
+			</parameters>
+			<parameters>
+				<id>storage_network</id>
+				<value>ff808081478f89600147c54c506c0cfc</value>
+				<type>ENUMERATED</type>
+				<displayName>Storage Network</displayName>
+				<required>true</required>
+				<requiredAtDeployment />
+				<hideFromTemplate />
+				<min />
+				<max />
+				<possibleValues />
+				<possibleValues />
+				<possibleValuesDisplayName />
+				<possibleValuesDisplayName />
+			</parameters>
+			<parameters>
+				<id>pxe_network</id>
+				<value>ff808081478f89600147c54c28330bff</value>
+				<type>ENUMERATED</type>
+				<displayName>PXE Network</displayName>
+				<required>true</required>
+				<requiredAtDeployment />
+				<hideFromTemplate />
+				<min />
+				<max />
+				<possibleValues />
+				<possibleValues />
+				<possibleValues />
+				<possibleValuesDisplayName />
+				<possibleValuesDisplayName />
+				<possibleValuesDisplayName />
+			</parameters>
+			<parameters>
+				<id>workload_network</id>
+				<value>ff808081478f89600147c54bea84090b</value>
+				<type>LIST</type>
+				<displayName>Workload Networks</displayName>
+				<required>true</required>
+				<requiredAtDeployment />
+				<hideFromTemplate />
+				<min />
+				<max />
+				<possibleValues />
+				<possibleValues />
+				<possibleValuesDisplayName />
+				<possibleValuesDisplayName />
+			</parameters>
+		</resources>
+	</components>
+</ServiceTemplate>

@@ -1,0 +1,20 @@
+<networks>
+<id>$WorkLoadId</id>
+<name>Workload</name>
+<description>$WLDesc</description>
+<type>PUBLIC_LAN</type>
+<vlanId>$WLVlanID</vlanId>
+<static>true</static>
+<staticNetworkConfiguration>
+<gateway>$gatewayIP</gateway>
+<subnet>$subnetIP</subnet>
+<primaryDns>$primaryDNS</primaryDns>
+<secondaryDns>$secondaryDNS</secondaryDns>
+<dnsSuffix />
+<ipRange>
+<Id>$ipRangeID</Id>
+<StartingIp>$startingIP</StartingIp>
+<EndingIp>$endingIP</EndingIp>
+</ipRange>
+</staticNetworkConfiguration>
+</networks>
