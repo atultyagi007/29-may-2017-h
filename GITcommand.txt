@@ -1,0 +1,131 @@
+atul.kumar@w10d-0162 MINGW64 ~/Desktop/GUI8.4
+$ git clone git@github.com:mirlandell/gui-automation.git
+Cloning into 'gui-automation'...
+The authenticity of host 'github.com (192.30.253.112)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.253.112' (RSA) to the list of known hosts.
+Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+atul.kumar@w10d-0162 MINGW64 ~/Desktop/GUI8.4
+$ git clone https://github.com/mirlandell/gui-automation.git
+Cloning into 'gui-automation'...
+remote: Counting objects: 6461, done.
+remote: Compressing objects: 100% (75/75), done.
+remote: Total 6461 (delta 37), reused 0 (delta 0), pack-reused 6386
+Receiving objects: 100% (6461/6461), 202.51 MiB | 49.94 MiB/s, done.
+Resolving deltas: 100% (4899/4899), done.
+Checking out files: 100% (1520/1520), done.
+
+atul.kumar@w10d-0162 MINGW64 ~/Desktop/GUI8.4
+$ ls
+gui-automation/
+
+atul.kumar@w10d-0162 MINGW64 ~/Desktop/GUI8.4
+$ cd gui-automation/
+
+atul.kumar@w10d-0162 MINGW64 ~/Desktop/GUI8.4/gui-automation (master)
+$ git branch -a
+* master
+  remotes/origin/820_5883_UI
+  remotes/origin/830_6744_HCL_Automation
+  remotes/origin/ASM-3125_-_Compellent_end-to-end_discovery
+  remotes/origin/ASM-4511_initial_creation
+  remotes/origin/ASMvNext84UI
+  remotes/origin/FlowTestCases_code
+  remotes/origin/GUIFeaturesBasedTestCases
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/NGI-TC-4729
+  remotes/origin/Resource-State
+  remotes/origin/adc_skalyankrish
+  remotes/origin/asm_raj
+  remotes/origin/master
+
+atul.kumar@w10d-0162 MINGW64 ~/Desktop/GUI8.4/gui-automation (master)
+$ git checkout ASMvNext84UI
+Switched to a new branch 'ASMvNext84UI'
+Branch ASMvNext84UI set up to track remote branch ASMvNext84UI from origin.
+
+atul.kumar@w10d-0162 MINGW64 ~/Desktop/GUI8.4/gui-automation (ASMvNext84UI)
+$ git status
+On branch ASMvNext84UI
+Your branch is up-to-date with 'origin/ASMvNext84UI'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   libs/product/objects/Users.py
+        modified:   libs/product/pages/Users.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+atul.kumar@w10d-0162 MINGW64 ~/Desktop/GUI8.4/gui-automation (ASMvNext84UI)
+$ git add .
+
+atul.kumar@w10d-0162 MINGW64 ~/Desktop/GUI8.4/gui-automation (ASMvNext84UI)
+$ git commit -m "Update User.py for GUI8.4"
+[ASMvNext84UI ee8a9c1] Update User.py for GUI8.4
+ Committer: Atul Kumar <Atul.Kumar@delllabs.net>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 2 files changed, 169 insertions(+), 95 deletions(-)
+
+atul.kumar@w10d-0162 MINGW64 ~/Desktop/GUI8.4/gui-automation (ASMvNext84UI)
+$ git status
+On branch ASMvNext84UI
+Your branch is ahead of 'origin/ASMvNext84UI' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working tree clean
+
+atul.kumar@w10d-0162 MINGW64 ~/Desktop/GUI8.4/gui-automation (ASMvNext84UI)
+$ git branch -a
+* ASMvNext84UI
+  master
+  remotes/origin/820_5883_UI
+  remotes/origin/830_6744_HCL_Automation
+  remotes/origin/ASM-3125_-_Compellent_end-to-end_discovery
+  remotes/origin/ASM-4511_initial_creation
+  remotes/origin/ASMvNext84UI
+  remotes/origin/FlowTestCases_code
+  remotes/origin/GUIFeaturesBasedTestCases
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/NGI-TC-4729
+  remotes/origin/Resource-State
+  remotes/origin/adc_skalyankrish
+  remotes/origin/asm_raj
+  remotes/origin/master
+
+atul.kumar@w10d-0162 MINGW64 ~/Desktop/GUI8.4/gui-automation (ASMvNext84UI)
+$ git status
+On branch ASMvNext84UI
+Your branch is ahead of 'origin/ASMvNext84UI' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working tree clean
+
+atul.kumar@w10d-0162 MINGW64 ~/Desktop/GUI8.4/gui-automation (ASMvNext84UI)
+$ git push
+Counting objects: 8, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 2.91 KiB | 0 bytes/s, done.
+Total 8 (delta 5), reused 0 (delta 0)
+remote: Resolving deltas: 100% (5/5), completed with 5 local objects.
+To https://github.com/mirlandell/gui-automation.git
+   fe89fa6..ee8a9c1  ASMvNext84UI -> ASMvNext84UI
+
+atul.kumar@w10d-0162 MINGW64 ~/Desktop/GUI8.4/gui-automation (ASMvNext84UI)
+$
