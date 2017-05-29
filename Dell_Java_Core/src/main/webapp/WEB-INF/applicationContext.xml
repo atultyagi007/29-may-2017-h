@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+    <context:component-scan base-package="com.dell.asm.asmcore.asmmanager"/>
+
+    <bean id="discoveryProviders" scope="prototype"
+          class="com.dell.asm.asmcore.asmmanager.util.discovery.DiscoveryProviders">
+        <property name="discoverableDevices">
+            <list>
+                <!-- discoverDeviceType value must be a member of DiscoverDeviceType -->
+                <!-- inventoryDeviceType value must be a member of DeviceType -->
+                <bean id="idrac7" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.IDRACServer">
+                    <property name="discoverDeviceType" value="IDRAC7"/>
+                </bean>
+                <bean id="idrac8" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.IDRACServer">
+                    <property name="discoverDeviceType" value="IDRAC8"/>
+                </bean>
+                <bean id="fx2" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.CMCChassis">
+                    <property name="discoverDeviceType" value="CMC_FX2"/>
+                    <property name="inventoryDeviceType" value="ChassisFX"/>
+                </bean>
+                <bean id="vrtx" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.CMCChassis">
+                    <property name="discoverDeviceType" value="VRTX"/>
+                    <property name="inventoryDeviceType" value="ChassisVRTX"/>
+                </bean>
+                <bean id="cmc" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.CMCChassis">
+                    <property name="discoverDeviceType" value="CMC"/>
+                    <property name="inventoryDeviceType" value="ChassisM1000e"/>
+                </bean>
+                <bean id="brocade84" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.SwitchBrocade">
+                    <property name="discoverDeviceType" value="DELL_IOM_84"/>
+                    <property name="inventoryDeviceType" value="genericswitch"/>
+                    <property name="firmwareComponentID" value="31125"/>
+                </bean>
+                <bean id="brocade" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.SwitchBrocade">
+                    <property name="discoverDeviceType" value="BROCADE"/>
+                    <property name="inventoryDeviceType" value="genericswitch"/>
+                    <property name="firmwareComponentID" value="31124"/>
+                </bean>
+                <bean id="force10" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.SwitchForce10">
+                    <property name="discoverDeviceType" value="FORCE10"/>
+                    <property name="inventoryDeviceType" value="dellswitch"/>
+                    <property name="firmwareComponentID" value="29632"/>
+                </bean>
+                <bean id="force10s4810" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.SwitchForce10">
+                    <property name="discoverDeviceType" value="FORCE10_S4810"/>
+                    <property name="inventoryDeviceType" value="dellswitch"/>
+                    <property name="firmwareComponentID" value="29629"/>
+                </bean>
+                <bean id="force10s5000" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.SwitchForce10">
+                    <property name="discoverDeviceType" value="FORCE10_S5000"/>
+                    <property name="inventoryDeviceType" value="dellswitch"/>
+                    <property name="firmwareComponentID" value="29630"/>
+                </bean>
+                <bean id="force10s6000" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.SwitchForce10">
+                    <property name="discoverDeviceType" value="FORCE10_S6000"/>
+                    <property name="inventoryDeviceType" value="dellswitch"/>
+                    <property name="firmwareComponentID" value="29631"/>
+                </bean>
+                <bean id="force10s4048" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.SwitchForce10">
+                    <property name="discoverDeviceType" value="FORCE10_S4048"/>
+                    <property name="inventoryDeviceType" value="dellswitch"/>
+                    <property name="firmwareComponentID" value="29633"/>
+                </bean>
+                <bean id="force10fx2" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.SwitchForce10">
+                    <property name="discoverDeviceType" value="FX2_IOM"/>
+                    <property name="inventoryDeviceType" value="dellswitch"/>
+                    <property name="firmwareComponentID" value="31130"/>
+                </bean>
+                <bean id="force10iom" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.SwitchForce10">
+                    <property name="discoverDeviceType" value="FORCE10IOM"/>
+                    <property name="inventoryDeviceType" value="dellswitch"/>
+                    <property name="firmwareComponentID" value="31122"/>
+                </bean>
+                <bean id="powerconnect" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.SwitchPowerConnect">
+                    <property name="discoverDeviceType" value="POWERCONNECT"/>
+                    <property name="inventoryDeviceType" value="dellswitch"/>
+                    <property name="firmwareComponentID" value="31123"/>
+                </bean>
+                <bean id="powerconnectN3000" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.SwitchPowerConnect">
+                    <property name="discoverDeviceType" value="POWERCONNECT_N3000"/>
+                    <property name="inventoryDeviceType" value="dellswitch"/>
+                    <property name="firmwareComponentID" value="31131"/>
+                </bean>
+                <bean id="powerconnectN4000" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.SwitchPowerConnect">
+                    <property name="discoverDeviceType" value="POWERCONNECT_N4000"/>
+                    <property name="inventoryDeviceType" value="dellswitch"/>
+                    <property name="firmwareComponentID" value="31132"/>
+                </bean>
+                <bean id="cisconexus" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.SwitchCiscoNexus">
+                    <property name="discoverDeviceType" value="CISCONEXUS"/>
+                    <property name="inventoryDeviceType" value="genericswitch"/>
+                </bean>
+                <bean id="netapp" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.StorageNetApp">
+                    <property name="discoverDeviceType" value="NETAPP"/>
+                    <property name="inventoryDeviceType" value="netapp"/>
+                    <property name="firmwareComponentID" value="31127"/>
+                </bean>
+                <bean id="compellent" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.StorageCompellent">
+                    <property name="discoverDeviceType" value="COMPELLENT"/>
+                    <property name="inventoryDeviceType" value="compellent"/>
+                    <property name="firmwareComponentID" value="31128"/>
+                </bean>
+                <bean id="equallogic" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.StorageEquallogic">
+                    <property name="discoverDeviceType" value="EQUALLOGIC"/>
+                    <property name="inventoryDeviceType" value="equallogic"/>
+                    <property name="firmwareComponentID" value="31129"/>
+                </bean>
+                <bean id="vcenter" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.VCenter">
+                    <property name="discoverDeviceType" value="VCENTER"/>
+                    <property name="inventoryDeviceType" value="vcenter"/>
+                </bean>
+                <bean id="scvmm" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.SCVMM">
+                    <property name="discoverDeviceType" value="SCVMM"/>
+                    <property name="inventoryDeviceType" value="scvmm"/>
+                </bean>
+                <bean id="cserver" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.CServer">
+                    <property name="discoverDeviceType" value="CSERVER"/>
+                    <property name="inventoryDeviceType" value="Server"/>
+                    <property name="firmwareComponentID" value="159"/>
+                </bean>
+                <bean id="em" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.EnterpriseManager">
+                    <property name="discoverDeviceType" value="EM"/>
+                    <property name="inventoryDeviceType" value="em"/>
+                </bean>
+                <bean id="netapp" scope="prototype"
+                      class="com.dell.asm.asmcore.asmmanager.util.discovery.providers.StorageEmcVnx">
+                    <property name="discoverDeviceType" value="VNX"/>
+                    <property name="inventoryDeviceType" value="emcvnx"/>
+                    <property name="firmwareComponentID" value="31126"/>
+                </bean>
+
+            </list>
+        </property>
+    </bean>
+
+</beans>
+

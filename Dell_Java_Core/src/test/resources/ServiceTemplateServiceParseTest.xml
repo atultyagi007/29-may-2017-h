@@ -1,0 +1,824 @@
+<SystemConfiguration Model="PowerEdge M620" ServiceTag="890SLV1"
+    TimeStamp="Fri Jun 20 23:25:49 2014"><!--Exported configuration does not contain FC-HBA data as the presence of the appropriate cards could not be detected!-->
+    <Component FQDD="LifecycleController.Embedded.1">
+        <Attribute Name="LCAttributes.1#CollectSystemInventoryOnRestart">
+            Enabled
+        </Attribute>
+        <Attribute Name="LCAttributes.1#PartConfigurationUpdate">Apply always
+        </Attribute>
+        <Attribute Name="LCAttributes.1#PartFirmwareUpdate">Match firmware of
+            replaced part
+        </Attribute>
+        <!--  <Attribute Name="LCAttributes.1#LifecycleControllerState">Enabled</Attribute>-->
+        <Attribute Name="LCAttributes.1#IPChangeNotifyPS">Off</Attribute>
+        <Attribute Name="LCAttributes.1#VirtualAddressManagement">Console
+        </Attribute>
+        <Attribute
+            Name="LCAttributes.1#VirtualAddressManagementApplication"></Attribute>
+        <Attribute Name="LCAttributes.1#ProvisioningServer"></Attribute>
+        <Attribute Name="LCAttributes.1#BIOSRTDRequested">False</Attribute>
+        <Attribute Name="LCAttributes.1#AutoUpdate">Enabled</Attribute>
+        <Attribute Name="LCAttributes.1#AutoBackup">Disabled</Attribute>
+        <Attribute Name="LCAttributes.1#AutoRestore">Enabled</Attribute>
+    </Component>
+    <Component FQDD="System.Embedded.1">
+        <Attribute Name="ThermalConfig.1#EventGenerationInterval">30</Attribute>
+        <Attribute Name="ThermalConfig.1#CriticalEventGenerationInterval">30
+        </Attribute>
+        <Attribute Name="ThermalSettings.1#BaseAlgorithm">Auto</Attribute>
+        <Attribute Name="ServerPwr.1#PowerCapSetting">Disabled</Attribute>
+        <!--  <Attribute Name="ServerPwr.1#PowerCapValue">227</Attribute>--> <!--  <Attribute Name="ServerTopology.1#DataCenterName">ChrisTestDC</Attribute>--> <!--  <Attribute Name="ServerTopology.1#AisleName">444</Attribute>--> <!--  <Attribute Name="ServerTopology.1#RackName">4</Attribute>--> <!--  <Attribute Name="ServerTopology.1#RackSlot">4</Attribute>--> <!--  <Attribute Name="ServerTopology.1#RoomName"></Attribute>--> <!--  <Attribute Name="ServerOS.1#HostName">esx-ch1-slot10.acme.local</Attribute>--> <!--  <Attribute Name="ServerOS.1#OSName">VMware ESXi 5.1.0 build-1065491</Attribute>-->
+    </Component>
+    <Component FQDD="iDRAC.Embedded.1">
+        <Attribute Name="IPMILan.1#Enable">Disabled</Attribute>
+        <Attribute Name="IPMILan.1#PrivLimit">Administrator</Attribute>
+        <Attribute Name="IPMILan.1#EncryptionKey">
+            0000000000000000000000000000000000000000
+        </Attribute>
+        <Attribute Name="IPMILan.1#CommunityName">public</Attribute>
+        <Attribute Name="IPMILan.1#AlertEnable">Enabled</Attribute>
+        <Attribute Name="Users.2#UserName">root</Attribute>
+        <Attribute Name="Users.2#Password">calvin</Attribute>
+        <Attribute Name="Users.2#Privilege">511</Attribute>
+        <Attribute Name="Users.2#IpmiLanPrivilege">Administrator</Attribute>
+        <Attribute Name="Users.2#Enable">Enabled</Attribute>
+        <Attribute Name="Users.2#SolEnable">Enabled</Attribute>
+        <Attribute Name="Users.2#ProtocolEnable">Disabled</Attribute>
+        <Attribute Name="Users.2#AuthenticationProtocol">SHA</Attribute>
+        <Attribute Name="Users.2#PrivacyProtocol">AES</Attribute>
+        <Attribute Name="Users.3#UserName"></Attribute>
+        <Attribute Name="Users.3#Password"></Attribute>
+        <Attribute Name="Users.3#Privilege">0</Attribute>
+        <Attribute Name="Users.3#IpmiLanPrivilege">No Access</Attribute>
+        <Attribute Name="Users.3#Enable">Disabled</Attribute>
+        <Attribute Name="Users.3#SolEnable">Disabled</Attribute>
+        <Attribute Name="Users.3#ProtocolEnable">Disabled</Attribute>
+        <Attribute Name="Users.3#AuthenticationProtocol">SHA</Attribute>
+        <Attribute Name="Users.3#PrivacyProtocol">AES</Attribute>
+        <Attribute Name="Users.4#UserName"></Attribute>
+        <Attribute Name="Users.4#Password"></Attribute>
+        <Attribute Name="Users.4#Privilege">0</Attribute>
+        <Attribute Name="Users.4#IpmiLanPrivilege">No Access</Attribute>
+        <Attribute Name="Users.4#Enable">Disabled</Attribute>
+        <Attribute Name="Users.4#SolEnable">Disabled</Attribute>
+        <Attribute Name="Users.4#ProtocolEnable">Disabled</Attribute>
+        <Attribute Name="Users.4#AuthenticationProtocol">SHA</Attribute>
+        <Attribute Name="Users.4#PrivacyProtocol">AES</Attribute>
+        <Attribute Name="Users.5#UserName"></Attribute>
+        <Attribute Name="Users.5#Password"></Attribute>
+        <Attribute Name="Users.5#Privilege">0</Attribute>
+        <Attribute Name="Users.5#IpmiLanPrivilege">No Access</Attribute>
+        <Attribute Name="Users.5#Enable">Disabled</Attribute>
+        <Attribute Name="Users.5#SolEnable">Disabled</Attribute>
+        <Attribute Name="Users.5#ProtocolEnable">Disabled</Attribute>
+        <Attribute Name="Users.5#AuthenticationProtocol">SHA</Attribute>
+        <Attribute Name="Users.5#PrivacyProtocol">AES</Attribute>
+        <Attribute Name="Users.6#UserName"></Attribute>
+        <Attribute Name="Users.6#Password"></Attribute>
+        <Attribute Name="Users.6#Privilege">0</Attribute>
+        <Attribute Name="Users.6#IpmiLanPrivilege">No Access</Attribute>
+        <Attribute Name="Users.6#Enable">Disabled</Attribute>
+        <Attribute Name="Users.6#SolEnable">Disabled</Attribute>
+        <Attribute Name="Users.6#ProtocolEnable">Disabled</Attribute>
+        <Attribute Name="Users.6#AuthenticationProtocol">SHA</Attribute>
+        <Attribute Name="Users.6#PrivacyProtocol">AES</Attribute>
+        <Attribute Name="Users.7#UserName"></Attribute>
+        <Attribute Name="Users.7#Password"></Attribute>
+        <Attribute Name="Users.7#Privilege">0</Attribute>
+        <Attribute Name="Users.7#IpmiLanPrivilege">No Access</Attribute>
+        <Attribute Name="Users.7#Enable">Disabled</Attribute>
+        <Attribute Name="Users.7#SolEnable">Disabled</Attribute>
+        <Attribute Name="Users.7#ProtocolEnable">Disabled</Attribute>
+        <Attribute Name="Users.7#AuthenticationProtocol">SHA</Attribute>
+        <Attribute Name="Users.7#PrivacyProtocol">AES</Attribute>
+        <Attribute Name="Users.8#UserName"></Attribute>
+        <Attribute Name="Users.8#Password"></Attribute>
+        <Attribute Name="Users.8#Privilege">0</Attribute>
+        <Attribute Name="Users.8#IpmiLanPrivilege">No Access</Attribute>
+        <Attribute Name="Users.8#Enable">Disabled</Attribute>
+        <Attribute Name="Users.8#SolEnable">Disabled</Attribute>
+        <Attribute Name="Users.8#ProtocolEnable">Disabled</Attribute>
+        <Attribute Name="Users.8#AuthenticationProtocol">SHA</Attribute>
+        <Attribute Name="Users.8#PrivacyProtocol">AES</Attribute>
+        <Attribute Name="Users.9#UserName"></Attribute>
+        <Attribute Name="Users.9#Password"></Attribute>
+        <Attribute Name="Users.9#Privilege">0</Attribute>
+        <Attribute Name="Users.9#IpmiLanPrivilege">No Access</Attribute>
+        <Attribute Name="Users.9#Enable">Disabled</Attribute>
+        <Attribute Name="Users.9#SolEnable">Disabled</Attribute>
+        <Attribute Name="Users.9#ProtocolEnable">Disabled</Attribute>
+        <Attribute Name="Users.9#AuthenticationProtocol">SHA</Attribute>
+        <Attribute Name="Users.9#PrivacyProtocol">AES</Attribute>
+        <Attribute Name="Users.10#UserName"></Attribute>
+        <Attribute Name="Users.10#Password"></Attribute>
+        <Attribute Name="Users.10#Privilege">0</Attribute>
+        <Attribute Name="Users.10#IpmiLanPrivilege">No Access</Attribute>
+        <Attribute Name="Users.10#Enable">Disabled</Attribute>
+        <Attribute Name="Users.10#SolEnable">Disabled</Attribute>
+        <Attribute Name="Users.10#ProtocolEnable">Disabled</Attribute>
+        <Attribute Name="Users.10#AuthenticationProtocol">SHA</Attribute>
+        <Attribute Name="Users.10#PrivacyProtocol">AES</Attribute>
+        <Attribute Name="Users.11#UserName"></Attribute>
+        <Attribute Name="Users.11#Password"></Attribute>
+        <Attribute Name="Users.11#Privilege">0</Attribute>
+        <Attribute Name="Users.11#IpmiLanPrivilege">No Access</Attribute>
+        <Attribute Name="Users.11#Enable">Disabled</Attribute>
+        <Attribute Name="Users.11#SolEnable">Disabled</Attribute>
+        <Attribute Name="Users.11#ProtocolEnable">Disabled</Attribute>
+        <Attribute Name="Users.11#AuthenticationProtocol">SHA</Attribute>
+        <Attribute Name="Users.11#PrivacyProtocol">AES</Attribute>
+        <Attribute Name="Users.12#UserName"></Attribute>
+        <Attribute Name="Users.12#Password"></Attribute>
+        <Attribute Name="Users.12#Privilege">0</Attribute>
+        <Attribute Name="Users.12#IpmiLanPrivilege">No Access</Attribute>
+        <Attribute Name="Users.12#Enable">Disabled</Attribute>
+        <Attribute Name="Users.12#SolEnable">Disabled</Attribute>
+        <Attribute Name="Users.12#ProtocolEnable">Disabled</Attribute>
+        <Attribute Name="Users.12#AuthenticationProtocol">SHA</Attribute>
+        <Attribute Name="Users.12#PrivacyProtocol">AES</Attribute>
+        <Attribute Name="Users.13#UserName"></Attribute>
+        <Attribute Name="Users.13#Password"></Attribute>
+        <Attribute Name="Users.13#Privilege">0</Attribute>
+        <Attribute Name="Users.13#IpmiLanPrivilege">No Access</Attribute>
+        <Attribute Name="Users.13#Enable">Disabled</Attribute>
+        <Attribute Name="Users.13#SolEnable">Disabled</Attribute>
+        <Attribute Name="Users.13#ProtocolEnable">Disabled</Attribute>
+        <Attribute Name="Users.13#AuthenticationProtocol">SHA</Attribute>
+        <Attribute Name="Users.13#PrivacyProtocol">AES</Attribute>
+        <Attribute Name="Users.14#UserName"></Attribute>
+        <Attribute Name="Users.14#Password"></Attribute>
+        <Attribute Name="Users.14#Privilege">0</Attribute>
+        <Attribute Name="Users.14#IpmiLanPrivilege">No Access</Attribute>
+        <Attribute Name="Users.14#Enable">Disabled</Attribute>
+        <Attribute Name="Users.14#SolEnable">Disabled</Attribute>
+        <Attribute Name="Users.14#ProtocolEnable">Disabled</Attribute>
+        <Attribute Name="Users.14#AuthenticationProtocol">SHA</Attribute>
+        <Attribute Name="Users.14#PrivacyProtocol">AES</Attribute>
+        <Attribute Name="Users.15#UserName"></Attribute>
+        <Attribute Name="Users.15#Password"></Attribute>
+        <Attribute Name="Users.15#Privilege">0</Attribute>
+        <Attribute Name="Users.15#IpmiLanPrivilege">No Access</Attribute>
+        <Attribute Name="Users.15#Enable">Disabled</Attribute>
+        <Attribute Name="Users.15#SolEnable">Disabled</Attribute>
+        <Attribute Name="Users.15#ProtocolEnable">Disabled</Attribute>
+        <Attribute Name="Users.15#AuthenticationProtocol">SHA</Attribute>
+        <Attribute Name="Users.15#PrivacyProtocol">AES</Attribute>
+        <Attribute Name="Users.16#UserName"></Attribute>
+        <Attribute Name="Users.16#Password"></Attribute>
+        <Attribute Name="Users.16#Privilege">0</Attribute>
+        <Attribute Name="Users.16#IpmiLanPrivilege">No Access</Attribute>
+        <Attribute Name="Users.16#Enable">Disabled</Attribute>
+        <Attribute Name="Users.16#SolEnable">Disabled</Attribute>
+        <Attribute Name="Users.16#ProtocolEnable">Disabled</Attribute>
+        <Attribute Name="Users.16#AuthenticationProtocol">SHA</Attribute>
+        <Attribute Name="Users.16#PrivacyProtocol">AES</Attribute>
+        <Attribute Name="Update.1#FwUpdateTFTPEnable">Enabled</Attribute>
+        <Attribute Name="Update.1#FwUpdateIPAddr">0.0.0.0</Attribute>
+        <Attribute Name="Update.1#FwUpdatePath"></Attribute>
+        <Attribute Name="EmailAlert.1#Enable">Disabled</Attribute>
+        <Attribute Name="EmailAlert.1#Address"></Attribute>
+        <Attribute Name="EmailAlert.1#CustomMsg"></Attribute>
+        <Attribute Name="EmailAlert.2#Enable">Disabled</Attribute>
+        <Attribute Name="EmailAlert.2#Address"></Attribute>
+        <Attribute Name="EmailAlert.2#CustomMsg"></Attribute>
+        <Attribute Name="EmailAlert.3#Enable">Disabled</Attribute>
+        <Attribute Name="EmailAlert.3#Address"></Attribute>
+        <Attribute Name="EmailAlert.3#CustomMsg"></Attribute>
+        <Attribute Name="EmailAlert.4#Enable">Disabled</Attribute>
+        <Attribute Name="EmailAlert.4#Address"></Attribute>
+        <Attribute Name="EmailAlert.4#CustomMsg"></Attribute>
+        <Attribute Name="Telnet.1#Enable">Disabled</Attribute>
+        <Attribute Name="Telnet.1#Port">23</Attribute>
+        <Attribute Name="Telnet.1#Timeout">1800</Attribute>
+        <Attribute Name="SSH.1#Enable">Enabled</Attribute>
+        <Attribute Name="SSH.1#Port">22</Attribute>
+        <Attribute Name="SSH.1#Timeout">1800</Attribute>
+        <Attribute Name="WebServer.1#Enable">Enabled</Attribute>
+        <Attribute Name="WebServer.1#HttpPort">80</Attribute>
+        <Attribute Name="WebServer.1#HttpsPort">443</Attribute>
+        <Attribute Name="WebServer.1#Timeout">1800</Attribute>
+        <Attribute Name="WebServer.1#LowerEncryptionBitLength">Enabled
+        </Attribute>
+        <Attribute Name="WebServer.1#HttpsRedirection">Enabled</Attribute>
+        <Attribute Name="VirtualConsole.1#Enable">Enabled</Attribute>
+        <Attribute Name="VirtualConsole.1#EncryptEnable">AES</Attribute>
+        <Attribute Name="VirtualConsole.1#LocalVideo">Enabled</Attribute>
+        <Attribute Name="VirtualConsole.1#PluginType">Active X</Attribute>
+        <Attribute Name="VirtualConsole.1#MaxSessions">4</Attribute>
+        <Attribute Name="VirtualConsole.1#Port">5900</Attribute>
+        <Attribute Name="VirtualConsole.1#Timeout">1800</Attribute>
+        <Attribute Name="VirtualConsole.1#AccessPrivilege">Deny Access
+        </Attribute>
+        <Attribute Name="Racadm.1#Enable">Enabled</Attribute>
+        <Attribute Name="Racadm.1#Timeout">60</Attribute>
+        <Attribute Name="IPMISOL.1#Enable">Enabled</Attribute>
+        <Attribute Name="IPMISOL.1#BaudRate">115200</Attribute>
+        <Attribute Name="IPMISOL.1#MinPrivilege">Administrator</Attribute>
+        <Attribute Name="IPMISOL.1#AccumulateInterval">10</Attribute>
+        <Attribute Name="IPMISOL.1#SendThreshold">255</Attribute>
+        <Attribute Name="SNMP.1#AgentEnable">Enabled</Attribute>
+        <Attribute Name="SNMP.1#AgentCommunity">public</Attribute>
+        <Attribute Name="SNMP.1#TrapFormat">SNMPv1</Attribute>
+        <Attribute Name="SNMP.1#SNMPProtocol">All</Attribute>
+        <Attribute Name="SNMP.1#DiscoveryPort">161</Attribute>
+        <Attribute Name="SNMP.1#AlertPort">162</Attribute>
+        <Attribute Name="VirtualMedia.1#Attached">AutoAttach</Attribute>
+        <Attribute Name="VirtualMedia.1#BootOnce">Disabled</Attribute>
+        <Attribute Name="VirtualMedia.1#KeyEnable">Disabled</Attribute>
+        <Attribute Name="VirtualMedia.1#FloppyEmulation">Disabled</Attribute>
+        <Attribute Name="VirtualMedia.1#EncryptEnable">AES</Attribute>
+        <Attribute Name="IPBlocking.1#RangeEnable">Disabled</Attribute>
+        <Attribute Name="IPBlocking.1#RangeAddr">192.168.1.1</Attribute>
+        <Attribute Name="IPBlocking.1#RangeMask">255.255.255.0</Attribute>
+        <Attribute Name="IPBlocking.1#BlockEnable">Enabled</Attribute>
+        <Attribute Name="IPBlocking.1#FailCount">3</Attribute>
+        <Attribute Name="IPBlocking.1#FailWindow">60</Attribute>
+        <Attribute Name="IPBlocking.1#PenaltyTime">600</Attribute>
+        <Attribute Name="LocalSecurity.1#PrebootConfig">Disabled</Attribute>
+        <Attribute Name="LocalSecurity.1#LocalConfig">Disabled</Attribute>
+        <Attribute Name="Time.1#TimeZoneOffset">0</Attribute>
+        <Attribute Name="Time.1#DaylightOffset">0</Attribute>
+        <Attribute Name="Time.1#TimeZone">US/Central</Attribute>
+        <Attribute Name="Security.1#CsrCommonName"></Attribute>
+        <Attribute Name="Security.1#CsrOrganizationName"></Attribute>
+        <Attribute Name="Security.1#CsrOrganizationUnit"></Attribute>
+        <Attribute Name="Security.1#CsrLocalityName"></Attribute>
+        <Attribute Name="Security.1#CsrStateName"></Attribute>
+        <Attribute Name="Security.1#CsrCountryCode">US</Attribute>
+        <Attribute Name="Security.1#CsrEmailAddr"></Attribute>
+        <Attribute Name="Security.1#CsrKeySize">2048</Attribute>
+        <Attribute Name="ActiveDirectory.1#Enable">Disabled</Attribute>
+        <Attribute Name="ActiveDirectory.1#RacName"></Attribute>
+        <Attribute Name="ActiveDirectory.1#RacDomain"></Attribute>
+        <Attribute Name="ActiveDirectory.1#AuthTimeout">120</Attribute>
+        <Attribute Name="ActiveDirectory.1#Schema">Extended Schema</Attribute>
+        <Attribute Name="ActiveDirectory.1#DomainController1"></Attribute>
+        <Attribute Name="ActiveDirectory.1#DomainController2"></Attribute>
+        <Attribute Name="ActiveDirectory.1#DomainController3"></Attribute>
+        <Attribute Name="ActiveDirectory.1#GlobalCatalog1"></Attribute>
+        <Attribute Name="ActiveDirectory.1#GlobalCatalog2"></Attribute>
+        <Attribute Name="ActiveDirectory.1#GlobalCatalog3"></Attribute>
+        <Attribute Name="ActiveDirectory.1#CertValidationEnable">Disabled
+        </Attribute>
+        <Attribute Name="ActiveDirectory.1#GCLookupEnable">Disabled</Attribute>
+        <Attribute Name="ActiveDirectory.1#DCLookupEnable">Disabled</Attribute>
+        <Attribute Name="ActiveDirectory.1#GCRootDomain"></Attribute>
+        <Attribute Name="ActiveDirectory.1#DCLookupDomainName"></Attribute>
+        <Attribute Name="ActiveDirectory.1#DCLookupByUserDomain">Enabled
+        </Attribute>
+        <Attribute Name="ActiveDirectory.1#SSOEnable">Disabled</Attribute>
+        <Attribute Name="ADGroup.1#Name"></Attribute>
+        <Attribute Name="ADGroup.1#Domain"></Attribute>
+        <Attribute Name="ADGroup.1#Privilege">0</Attribute>
+        <Attribute Name="ADGroup.2#Name"></Attribute>
+        <Attribute Name="ADGroup.2#Domain"></Attribute>
+        <Attribute Name="ADGroup.2#Privilege">0</Attribute>
+        <Attribute Name="ADGroup.3#Name"></Attribute>
+        <Attribute Name="ADGroup.3#Domain"></Attribute>
+        <Attribute Name="ADGroup.3#Privilege">0</Attribute>
+        <Attribute Name="ADGroup.4#Name"></Attribute>
+        <Attribute Name="ADGroup.4#Domain"></Attribute>
+        <Attribute Name="ADGroup.4#Privilege">0</Attribute>
+        <Attribute Name="ADGroup.5#Name"></Attribute>
+        <Attribute Name="ADGroup.5#Domain"></Attribute>
+        <Attribute Name="ADGroup.5#Privilege">0</Attribute>
+        <Attribute Name="UserDomain.1#Name"></Attribute>
+        <Attribute Name="UserDomain.2#Name"></Attribute>
+        <Attribute Name="UserDomain.3#Name"></Attribute>
+        <Attribute Name="UserDomain.4#Name"></Attribute>
+        <Attribute Name="UserDomain.5#Name"></Attribute>
+        <Attribute Name="UserDomain.6#Name"></Attribute>
+        <Attribute Name="UserDomain.7#Name"></Attribute>
+        <Attribute Name="UserDomain.8#Name"></Attribute>
+        <Attribute Name="UserDomain.9#Name"></Attribute>
+        <Attribute Name="UserDomain.10#Name"></Attribute>
+        <Attribute Name="UserDomain.11#Name"></Attribute>
+        <Attribute Name="UserDomain.12#Name"></Attribute>
+        <Attribute Name="UserDomain.13#Name"></Attribute>
+        <Attribute Name="UserDomain.14#Name"></Attribute>
+        <Attribute Name="UserDomain.15#Name"></Attribute>
+        <Attribute Name="UserDomain.16#Name"></Attribute>
+        <Attribute Name="UserDomain.17#Name"></Attribute>
+        <Attribute Name="UserDomain.18#Name"></Attribute>
+        <Attribute Name="UserDomain.19#Name"></Attribute>
+        <Attribute Name="UserDomain.20#Name"></Attribute>
+        <Attribute Name="UserDomain.21#Name"></Attribute>
+        <Attribute Name="UserDomain.22#Name"></Attribute>
+        <Attribute Name="UserDomain.23#Name"></Attribute>
+        <Attribute Name="UserDomain.24#Name"></Attribute>
+        <Attribute Name="UserDomain.25#Name"></Attribute>
+        <Attribute Name="UserDomain.26#Name"></Attribute>
+        <Attribute Name="UserDomain.27#Name"></Attribute>
+        <Attribute Name="UserDomain.28#Name"></Attribute>
+        <Attribute Name="UserDomain.29#Name"></Attribute>
+        <Attribute Name="UserDomain.30#Name"></Attribute>
+        <Attribute Name="UserDomain.31#Name"></Attribute>
+        <Attribute Name="UserDomain.32#Name"></Attribute>
+        <Attribute Name="UserDomain.33#Name"></Attribute>
+        <Attribute Name="UserDomain.34#Name"></Attribute>
+        <Attribute Name="UserDomain.35#Name"></Attribute>
+        <Attribute Name="UserDomain.36#Name"></Attribute>
+        <Attribute Name="UserDomain.37#Name"></Attribute>
+        <Attribute Name="UserDomain.38#Name"></Attribute>
+        <Attribute Name="UserDomain.39#Name"></Attribute>
+        <Attribute Name="UserDomain.40#Name"></Attribute>
+        <Attribute Name="SmartCard.1#SmartCardLogonEnable">Disabled</Attribute>
+        <Attribute Name="SmartCard.1#SmartCardCRLEnable">Disabled</Attribute>
+        <Attribute Name="SysLog.1#SysLogEnable">Disabled</Attribute>
+        <Attribute Name="SysLog.1#Port">514</Attribute>
+        <Attribute Name="SysLog.1#Server1"></Attribute>
+        <Attribute Name="SysLog.1#Server2"></Attribute>
+        <Attribute Name="SysLog.1#Server3"></Attribute>
+        <Attribute Name="SysLog.1#PowerLogEnable">Disabled</Attribute>
+        <Attribute Name="SysLog.1#PowerLogInterval">5</Attribute>
+        <Attribute Name="LDAP.1#Enable">Disabled</Attribute>
+        <Attribute Name="LDAP.1#Server"></Attribute>
+        <Attribute Name="LDAP.1#Port">636</Attribute>
+        <Attribute Name="LDAP.1#BaseDN"></Attribute>
+        <Attribute Name="LDAP.1#UserAttribute"></Attribute>
+        <Attribute Name="LDAP.1#GroupAttribute"></Attribute>
+        <Attribute Name="LDAP.1#GroupAttributeIsDN">Enabled</Attribute>
+        <Attribute Name="LDAP.1#BindDN"></Attribute>
+        <Attribute Name="LDAP.1#BindPassword"></Attribute>
+        <Attribute Name="LDAP.1#SearchFilter"></Attribute>
+        <Attribute Name="LDAP.1#CertValidationEnable">Enabled</Attribute>
+        <Attribute Name="LDAPRoleGroup.1#DN"></Attribute>
+        <Attribute Name="LDAPRoleGroup.1#Privilege">0</Attribute>
+        <Attribute Name="LDAPRoleGroup.2#DN"></Attribute>
+        <Attribute Name="LDAPRoleGroup.2#Privilege">0</Attribute>
+        <Attribute Name="LDAPRoleGroup.3#DN"></Attribute>
+        <Attribute Name="LDAPRoleGroup.3#Privilege">0</Attribute>
+        <Attribute Name="LDAPRoleGroup.4#DN"></Attribute>
+        <Attribute Name="LDAPRoleGroup.4#Privilege">0</Attribute>
+        <Attribute Name="LDAPRoleGroup.5#DN"></Attribute>
+        <Attribute Name="LDAPRoleGroup.5#Privilege">0</Attribute>
+        <Attribute Name="RemoteHosts.1#SMTPServerIPAddress">0.0.0.0</Attribute>
+        <Attribute Name="RemoteHosts.1#SMTPPort">25</Attribute>
+        <Attribute Name="RFS.1#AttachMode">Auto Attach</Attribute>
+        <Attribute Name="OS-BMC.1#AdminState">Disabled</Attribute>
+        <Attribute Name="OS-BMC.1#OsIpAddress">0.0.0.0</Attribute>
+        <Attribute Name="OS-BMC.1#PTMode">usb-p2p</Attribute>
+        <Attribute Name="OS-BMC.1#UsbNicIpAddress">169.254.0.1</Attribute>
+        <Attribute Name="NIC.1#Enable">Enabled</Attribute>
+        <!--  <Attribute Name="NIC.1#DNSRacName">idrac-890SLV1</Attribute>-->
+        <Attribute Name="NIC.1#DNSRegister">Disabled</Attribute>
+        <Attribute Name="NIC.1#AutoConfig">Disabled</Attribute>
+        <Attribute Name="IPv4.1#Enable">Enabled</Attribute>
+        <!--  <Attribute Name="IPv4.1#DHCPEnable">Enabled</Attribute> -->
+        <Attribute Name="IPv6.1#Enable">Disabled</Attribute>
+        <Attribute Name="IPv6.1#AutoConfig">Disabled</Attribute>
+        <!--  <Attribute Name="NICStatic.1#DNSDomainName"></Attribute>-->
+        <Attribute Name="NICStatic.1#DNSDomainFromDHCP">Enabled</Attribute>
+        <!--  <Attribute Name="IPv4Static.1#Address">0.0.0.0</Attribute> -->
+        <Attribute Name="IPv4Static.1#Netmask">0.0.0.0</Attribute>
+        <Attribute Name="IPv4Static.1#Gateway">0.0.0.0</Attribute>
+        <Attribute Name="IPv4Static.1#DNS1">0.0.0.0</Attribute>
+        <Attribute Name="IPv4Static.1#DNS2">0.0.0.0</Attribute>
+        <Attribute Name="IPv4Static.1#DNSFromDHCP">Enabled</Attribute>
+        <Attribute Name="IPv6Static.1#Address1">::</Attribute>
+        <Attribute Name="IPv6Static.1#Gateway">::</Attribute>
+        <Attribute Name="IPv6Static.1#PrefixLength">64</Attribute>
+        <Attribute Name="IPv6Static.1#DNS1">::</Attribute>
+        <Attribute Name="IPv6Static.1#DNS2">::</Attribute>
+        <Attribute Name="IPv6Static.1#DNSFromDHCP6">Disabled</Attribute>
+        <Attribute Name="SNMPAlert.1#Destination">0.0.0.0</Attribute>
+        <Attribute Name="SNMPAlert.1#State">Disabled</Attribute>
+        <Attribute Name="SNMPAlert.2#Destination">0.0.0.0</Attribute>
+        <Attribute Name="SNMPAlert.2#State">Disabled</Attribute>
+        <Attribute Name="SNMPAlert.3#Destination">0.0.0.0</Attribute>
+        <Attribute Name="SNMPAlert.3#State">Disabled</Attribute>
+        <Attribute Name="SNMPAlert.4#Destination">0.0.0.0</Attribute>
+        <Attribute Name="SNMPAlert.4#State">Disabled</Attribute>
+        <Attribute Name="SNMPAlert.5#Destination">::</Attribute>
+        <Attribute Name="SNMPAlert.5#State">Disabled</Attribute>
+        <Attribute Name="SNMPAlert.6#Destination">::</Attribute>
+        <Attribute Name="SNMPAlert.6#State">Disabled</Attribute>
+        <Attribute Name="SNMPAlert.7#Destination">::</Attribute>
+        <Attribute Name="SNMPAlert.7#State">Disabled</Attribute>
+        <Attribute Name="SNMPAlert.8#Destination">::</Attribute>
+        <Attribute Name="SNMPAlert.8#State">Disabled</Attribute>
+        <Attribute
+            Name="DefaultCredentialMitigationConfigGroup.1#DefaultCredentialMitigation">
+            Enabled
+        </Attribute>
+        <Attribute Name="NTPConfigGroup.1#NTP1"></Attribute>
+        <Attribute Name="NTPConfigGroup.1#NTP2"></Attribute>
+        <Attribute Name="NTPConfigGroup.1#NTP3"></Attribute>
+        <Attribute Name="NTPConfigGroup.1#NTPEnable">Disabled</Attribute>
+        <Attribute Name="NTPConfigGroup.1#NTPMaxDist">16</Attribute>
+        <Attribute Name="AutoOSLockGroup.1#AutoOSLockState">Enabled</Attribute>
+        <Attribute Name="SecurityCSC.1#CSCCsrCommonName"></Attribute>
+        <Attribute Name="SecurityCSC.1#CSCCsrBusiness"></Attribute>
+        <Attribute Name="SecurityCSC.1#CSCCsrDeptName"></Attribute>
+        <Attribute Name="SecurityCSC.1#CSCCsrCityName"></Attribute>
+        <Attribute Name="SecurityCSC.1#CSCCsrStateName"></Attribute>
+        <Attribute Name="SecurityCSC.1#CSCCsrCountryCode"></Attribute>
+        <Attribute Name="SecurityCSC.1#CSCCsrEmailAddr"></Attribute>
+        <Attribute Name="Logging.1#SELOEMEventFilterEnable">Disabled</Attribute>
+        <Attribute Name="IOIDOpt.1#IOIDOptEnable">Disabled</Attribute>
+        <Attribute Name="ServiceModule.1#OSInfo">Enabled</Attribute>
+        <Attribute Name="ServiceModule.1#WatchdogState">Disabled</Attribute>
+        <Attribute Name="ServiceModule.1#WatchdogResetTime">480</Attribute>
+        <Attribute Name="ServiceModule.1#WatchdogRecoveryAction">None
+        </Attribute>
+        <Attribute Name="ServiceModule.1#LCLReplication">Disabled</Attribute>
+        <Attribute Name="ServiceModule.1#ServiceModuleEnable">Enabled
+        </Attribute>
+        <Attribute Name="VNCServer.1#Enable">Disabled</Attribute>
+        <Attribute Name="VNCServer.1#Password"></Attribute>
+        <Attribute Name="VNCServer.1#Port">5901</Attribute>
+        <Attribute Name="VNCServer.1#LowerEncryptionBitLength">Disabled
+        </Attribute>
+        <Attribute Name="VNCServer.1#Timeout">300</Attribute>
+        <Attribute Name="vFlashSD.1#Enable">Disabled</Attribute>
+        <Attribute Name="ServerBoot.1#FirstBootDevice">Normal</Attribute>
+        <Attribute Name="ServerBoot.1#BootOnce">1</Attribute>
+    </Component>
+    <Component FQDD="RAID.Embedded.1-1">
+        <Attribute Name="RAIDresetConfig">True</Attribute>
+    </Component>
+    <Component FQDD="BIOS.Setup.1-1">
+        <Attribute Name="MemTest">Disabled</Attribute>
+        <Attribute Name="MemOpMode">OptimizerMode</Attribute>
+        <Attribute Name="NodeInterleave">Enabled</Attribute>
+        <Attribute Name="QpiSpeed">6GTps</Attribute>
+        <Attribute Name="RtidSetting">Disabled</Attribute>
+        <Attribute Name="ProcVirtualization">Enabled</Attribute>
+        <Attribute Name="ProcAdjCacheLine">Enabled</Attribute>
+        <Attribute Name="ProcHwPrefetcher">Enabled</Attribute>
+        <Attribute Name="DcuStreamerPrefetcher">Enabled</Attribute>
+        <Attribute Name="DcuIpPrefetcher">Enabled</Attribute>
+        <Attribute Name="ProcExecuteDisable">Enabled</Attribute>
+        <Attribute Name="DynamicCoreAllocation">Disabled</Attribute>
+        <Attribute Name="ProcCores">All</Attribute>
+        <Attribute Name="EmbSata">RaidMode</Attribute>
+        <!-- <Attribute Name="SataPortA">Auto</Attribute> -->    <!-- <Attribute Name="SataPortB">Auto</Attribute> -->
+        <Attribute Name="BootMode">Bios</Attribute>
+        <Attribute Name="BootSeqRetry">Disabled</Attribute>
+        <!-- <Attribute Name="UefiPxeIpVersion">IPv4</Attribute> -->
+        <Attribute Name="UsbPorts">AllOn</Attribute>
+        <Attribute Name="InternalUsb">On</Attribute>
+        <Attribute Name="InternalSdCard">On</Attribute>
+        <Attribute Name="InternalSdCardRedundancy">Disabled</Attribute>
+        <Attribute Name="IntegratedNetwork1">Enabled</Attribute>
+        <Attribute Name="OsWatchdogTimer">Disabled</Attribute>
+        <Attribute Name="IoatEngine">Disabled</Attribute>
+        <Attribute Name="SriovGlobalEnable">Disabled</Attribute>
+        <Attribute Name="MmioAbove4Gb">Disabled</Attribute>
+        <Attribute Name="Slot1">Enabled</Attribute>
+        <Attribute Name="Slot2">Enabled</Attribute>
+        <Attribute Name="SerialComm">Off</Attribute>
+        <Attribute Name="SerialPortAddress">Com1</Attribute>
+        <Attribute Name="FailSafeBaud">115200</Attribute>
+        <Attribute Name="ConTermType">Vt100Vt220</Attribute>
+        <Attribute Name="RedirAfterBoot">Enabled</Attribute>
+        <Attribute Name="SysProfile">PerfOptimized</Attribute>
+        <!-- <Attribute Name="ProcPwrPerf">MaxPerf</Attribute> -->    <!-- <Attribute Name="MemFrequency">MaxPerf</Attribute> -->    <!-- <Attribute Name="ProcC1E">Disabled</Attribute> -->    <!-- <Attribute Name="ProcCStates">Disabled</Attribute> -->    <!-- <Attribute Name="MonitorMwait">Enabled</Attribute> -->    <!-- <Attribute Name="MemPatrolScrub">Standard</Attribute> -->    <!-- <Attribute Name="MemRefreshRate">1x</Attribute> -->    <!-- <Attribute Name="MemVolt">AutoVolt</Attribute> -->    <!-- <Attribute Name="CollaborativeCpuPerfCtrl">Disabled</Attribute> -->    <!-- <Attribute Name="OldSysPassword">******</Attribute> -->    <!-- <Attribute Name="NewSysPassword">******</Attribute> -->    <!-- <Attribute Name="OldSetupPassword">******</Attribute> -->    <!-- <Attribute Name="NewSetupPassword">******</Attribute> -->
+        <Attribute Name="PasswordStatus">Unlocked</Attribute>
+        <Attribute Name="TpmSecurity">Off</Attribute>
+        <!-- <Attribute Name="TpmActivation">NoChange</Attribute> -->    <!-- <Attribute Name="TpmClear">No</Attribute> -->    <!-- <Attribute Name="IntelTxt">Off</Attribute> -->
+        <Attribute Name="PwrButton">Enabled</Attribute>
+        <Attribute Name="AcPwrRcvry">Last</Attribute>
+        <!-- <Attribute Name="AssetTag"></Attribute> -->
+        <Attribute Name="NumLock">On</Attribute>
+        <Attribute Name="ReportKbdErr">Report</Attribute>
+        <Attribute Name="ErrPrompt">Disabled</Attribute>
+        <Attribute Name="InSystemCharacterization">Enabled</Attribute>
+        <!-- <Attribute Name="UefiBootSeq">NIC.Integrated.1-1-1, NIC.Integrated.1-2-1, NIC.Mezzanine.1C-1-1, NIC.Mezzanine.1C-2-1, NIC.Mezzanine.2B-1-1, NIC.Mezzanine.2B-2-1, Disk.SDInternal.1-1</Attribute> -->
+        <Attribute Name="BiosBootSeq">NIC.Integrated.1-1-1, HardDisk.List.1-1,
+            Floppy.USBFront.1-1, Optical.USBFront.2-1, NIC.Integrated.1-2-1
+        </Attribute>
+        <Attribute Name="HddSeq">Disk.SDInternal.1-1</Attribute>
+        <!-- <Attribute Name="OneTimeBiosBootSeq"></Attribute> -->    <!-- <Attribute Name="OneTimeUefiBootSeq"></Attribute> -->    <!-- <Attribute Name="OneTimeHddSeq"></Attribute> -->
+    </Component>
+    <Component FQDD="NIC.Integrated.1-1-1">
+        <Attribute Name="VirtualizationMode">NPAR</Attribute>
+        <Attribute Name="BlnkLeds">0</Attribute>
+        <!-- <Attribute Name="VirtMacAddr">24:B6:FD:F7:11:60</Attribute> -->    <!-- <Attribute Name="VirtIscsiMacAddr">24:B6:FD:F7:11:61</Attribute> -->    <!-- <Attribute Name="VirtFIPMacAddr">24:B6:FD:F7:11:61</Attribute> -->    <!-- <Attribute Name="VirtWWN">20:00:24:B6:FD:F7:11:61</Attribute> -->    <!-- <Attribute Name="VirtWWPN">20:01:24:B6:FD:F7:11:61</Attribute> -->
+        <Attribute Name="TcpIpViaDHCP">Disabled</Attribute>
+        <!-- <Attribute Name="IpAutoConfig">Disabled</Attribute> -->
+        <Attribute Name="IscsiViaDHCP">Disabled</Attribute>
+        <Attribute Name="ChapAuthEnable">Enabled</Attribute>
+        <Attribute Name="IscsiTgtBoot">Enabled</Attribute>
+        <Attribute Name="DhcpVendId">BRCM ISAN</Attribute>
+        <Attribute Name="LnkUpDelayTime">0</Attribute>
+        <Attribute Name="TcpTimestmp">Disabled</Attribute>
+        <Attribute Name="FirstHddTarget">Disabled</Attribute>
+        <Attribute Name="LunBusyRetryCnt">0</Attribute>
+        <Attribute Name="IpVer">IPv4</Attribute>
+        <Attribute Name="WinHbaBootMode">Disabled</Attribute>
+        <!-- <Attribute Name="IscsiInitiatorIpAddr">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorSubnet">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorSubnetPrefix"></Attribute> -->    <!-- <Attribute Name="IscsiInitiatorGateway">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorPrimDns">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorSecDns">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorName"></Attribute> -->    <!-- <Attribute Name="IscsiInitiatorChapId"></Attribute> -->    <!-- <Attribute Name="IscsiInitiatorChapPwd"></Attribute> -->    <!-- <Attribute Name="ConnectFirstTgt">Disabled</Attribute> -->    <!-- <Attribute Name="FirstTgtIpAddress">0.0.0.0</Attribute> -->    <!-- <Attribute Name="FirstTgtTcpPort">3260</Attribute> -->    <!-- <Attribute Name="FirstTgtBootLun">10</Attribute> -->    <!-- <Attribute Name="FirstTgtIscsiName"></Attribute> -->    <!-- <Attribute Name="FirstTgtChapId"></Attribute> -->    <!-- <Attribute Name="FirstTgtChapPwd"></Attribute> -->    <!-- <Attribute Name="ConnectSecondTgt">Disabled</Attribute> -->    <!-- <Attribute Name="SecondTgtIpAddress">0.0.0.0</Attribute> -->    <!-- <Attribute Name="SecondTgtTcpPort">3260</Attribute> -->    <!-- <Attribute Name="SecondTgtBootLun">0</Attribute> -->    <!-- <Attribute Name="SecondTgtIscsiName"></Attribute> -->    <!-- <Attribute Name="SecondTgtChapId"></Attribute> -->    <!-- <Attribute Name="SecondTgtChapPwd"></Attribute> -->
+        <Attribute Name="LegacyBootProto">PXE</Attribute>
+        <Attribute Name="BootStrapType">AutoDetect</Attribute>
+        <Attribute Name="HideSetupPrompt">Disabled</Attribute>
+        <Attribute Name="BannerMessageTimeout">5</Attribute>
+        <Attribute Name="LnkSpeed">AutoNeg</Attribute>
+        <Attribute Name="WakeOnLan">Disabled</Attribute>
+        <Attribute Name="VLanMode">Disabled</Attribute>
+        <!-- <Attribute Name="VLanId">1</Attribute> -->
+        <Attribute Name="BootRetryCnt">NoRetry</Attribute>
+        <!-- <Attribute Name="SecondaryDeviceMacAddr">00:00:00:00:00:00</Attribute> -->    <!-- <Attribute Name="UseIndTgtPortal">Disabled</Attribute> -->    <!-- <Attribute Name="UseIndTgtName">Disabled</Attribute> -->
+        <Attribute Name="NicPartitioning">Enabled</Attribute>
+        <Attribute Name="FlowControlSetting">Auto</Attribute>
+        <Attribute Name="NicMode">Enabled</Attribute>
+        <Attribute Name="iScsiOffloadMode">Disabled</Attribute>
+        <Attribute Name="FCoEOffloadMode">Disabled</Attribute>
+        <Attribute Name="MinBandwidth">0</Attribute>
+        <Attribute Name="MaxBandwidth">100</Attribute>
+        <Attribute Name="FCoETgtBoot">Disabled</Attribute>
+        <Attribute Name="FCoEFirstHddTarget">Disabled</Attribute>
+        <Attribute Name="FCoELnkUpDelayTime">0</Attribute>
+        <Attribute Name="FCoELunBusyRetryCnt">0</Attribute>
+        <Attribute Name="FCoEFabricDiscoveryRetryCnt">4</Attribute>
+        <!-- <Attribute Name="ConnectFirstFCoETarget">Disabled</Attribute> -->    <!-- <Attribute Name="FirstFCoEWWPNTarget">00:00:00:00:00:00:00:00</Attribute> -->    <!-- <Attribute Name="FirstFCoEBootTargetLUN">15</Attribute> -->
+    </Component>
+    <Component FQDD="NIC.Integrated.1-1-2">
+        <Attribute Name="NicMode">Enabled</Attribute>
+        <Attribute Name="iScsiOffloadMode">Enabled</Attribute>
+        <!-- <Attribute Name="FCoEOffloadMode">Disabled</Attribute> -->    <!-- <Attribute Name="MacAddr">24:B6:FD:F7:11:64</Attribute> -->    <!-- <Attribute Name="VirtMacAddr">24:B6:FD:F7:11:64</Attribute> -->    <!-- <Attribute Name="IscsiMacAddr">24:B6:FD:F7:11:65</Attribute> -->    <!-- <Attribute Name="VirtIscsiMacAddr">24:B6:FD:F7:11:65</Attribute> -->    <!-- <Attribute Name="FIPMacAddr">24:B6:FD:F7:11:65</Attribute> -->    <!-- <Attribute Name="VirtFIPMacAddr">24:B6:FD:F7:11:65</Attribute> -->    <!-- <Attribute Name="WWN">20:00:24:B6:FD:F7:11:65</Attribute> -->    <!-- <Attribute Name="VirtWWN">20:00:24:B6:FD:F7:11:65</Attribute> -->    <!-- <Attribute Name="WWPN">20:01:24:B6:FD:F7:11:65</Attribute> -->    <!-- <Attribute Name="VirtWWPN">20:01:24:B6:FD:F7:11:65</Attribute> -->    <!-- <Attribute Name="PCIDeviceID">16AE</Attribute> -->    <!-- <Attribute Name="BusDeviceFunction">01:00:02</Attribute> -->
+        <Attribute Name="MinBandwidth">0</Attribute>
+        <Attribute Name="MaxBandwidth">100</Attribute>
+    </Component>
+    <Component FQDD="NIC.Integrated.1-1-3">
+        <Attribute Name="NicMode">Enabled</Attribute>
+        <Attribute Name="iScsiOffloadMode">Disabled</Attribute>
+        <Attribute Name="FCoEOffloadMode">Disabled</Attribute>
+        <!-- <Attribute Name="MacAddr">24:B6:FD:F7:11:68</Attribute> -->    <!-- <Attribute Name="VirtMacAddr">24:B6:FD:F7:11:68</Attribute> -->    <!-- <Attribute Name="IscsiMacAddr">24:B6:FD:F7:11:69</Attribute> -->    <!-- <Attribute Name="VirtIscsiMacAddr">24:B6:FD:F7:11:69</Attribute> -->    <!-- <Attribute Name="FIPMacAddr">24:B6:FD:F7:11:69</Attribute> -->    <!-- <Attribute Name="VirtFIPMacAddr">24:B6:FD:F7:11:69</Attribute> -->    <!-- <Attribute Name="WWN">20:00:24:B6:FD:F7:11:69</Attribute> -->    <!-- <Attribute Name="VirtWWN">20:00:24:B6:FD:F7:11:69</Attribute> -->    <!-- <Attribute Name="WWPN">20:01:24:B6:FD:F7:11:69</Attribute> -->    <!-- <Attribute Name="VirtWWPN">20:01:24:B6:FD:F7:11:69</Attribute> -->    <!-- <Attribute Name="PCIDeviceID">16AE</Attribute> -->    <!-- <Attribute Name="BusDeviceFunction">01:00:04</Attribute> -->
+        <Attribute Name="MinBandwidth">0</Attribute>
+        <Attribute Name="MaxBandwidth">100</Attribute>
+    </Component>
+    <Component FQDD="NIC.Integrated.1-1-4">
+        <Attribute Name="NicMode">Enabled</Attribute>
+        <Attribute Name="iScsiOffloadMode">Disabled</Attribute>
+        <Attribute Name="FCoEOffloadMode">Disabled</Attribute>
+        <!-- <Attribute Name="MacAddr">24:B6:FD:F7:11:6C</Attribute> -->    <!-- <Attribute Name="VirtMacAddr">24:B6:FD:F7:11:6C</Attribute> -->    <!-- <Attribute Name="IscsiMacAddr">24:B6:FD:F7:11:6D</Attribute> -->    <!-- <Attribute Name="VirtIscsiMacAddr">24:B6:FD:F7:11:6D</Attribute> -->    <!-- <Attribute Name="FIPMacAddr">24:B6:FD:F7:11:6D</Attribute> -->    <!-- <Attribute Name="VirtFIPMacAddr">24:B6:FD:F7:11:6D</Attribute> -->    <!-- <Attribute Name="WWN">20:00:24:B6:FD:F7:11:6D</Attribute> -->    <!-- <Attribute Name="VirtWWN">20:00:24:B6:FD:F7:11:6D</Attribute> -->    <!-- <Attribute Name="WWPN">20:01:24:B6:FD:F7:11:6D</Attribute> -->    <!-- <Attribute Name="VirtWWPN">20:01:24:B6:FD:F7:11:6D</Attribute> -->    <!-- <Attribute Name="PCIDeviceID">16AE</Attribute> -->    <!-- <Attribute Name="BusDeviceFunction">01:00:06</Attribute> -->
+        <Attribute Name="MinBandwidth">0</Attribute>
+        <Attribute Name="MaxBandwidth">100</Attribute>
+    </Component>
+    <Component FQDD="NIC.Integrated.1-2-1">
+        <Attribute Name="VirtualizationMode">NPAR</Attribute>
+        <Attribute Name="BlnkLeds">0</Attribute>
+        <!-- <Attribute Name="VirtMacAddr">24:B6:FD:F7:11:62</Attribute> -->    <!-- <Attribute Name="VirtIscsiMacAddr">24:B6:FD:F7:11:63</Attribute> -->    <!-- <Attribute Name="VirtFIPMacAddr">24:B6:FD:F7:11:63</Attribute> -->    <!-- <Attribute Name="VirtWWN">20:00:24:B6:FD:F7:11:63</Attribute> -->    <!-- <Attribute Name="VirtWWPN">20:01:24:B6:FD:F7:11:63</Attribute> -->
+        <Attribute Name="TcpIpViaDHCP">Disabled</Attribute>
+        <!-- <Attribute Name="IpAutoConfig">Disabled</Attribute> -->
+        <Attribute Name="IscsiViaDHCP">Disabled</Attribute>
+        <Attribute Name="ChapAuthEnable">Enabled</Attribute>
+        <Attribute Name="IscsiTgtBoot">Enabled</Attribute>
+        <Attribute Name="DhcpVendId">BRCM ISAN</Attribute>
+        <Attribute Name="LnkUpDelayTime">0</Attribute>
+        <Attribute Name="TcpTimestmp">Disabled</Attribute>
+        <Attribute Name="FirstHddTarget">Disabled</Attribute>
+        <Attribute Name="LunBusyRetryCnt">0</Attribute>
+        <Attribute Name="IpVer">IPv4</Attribute>
+        <Attribute Name="WinHbaBootMode">Disabled</Attribute>
+        <!-- <Attribute Name="IscsiInitiatorIpAddr">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorSubnet">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorSubnetPrefix"></Attribute> -->    <!-- <Attribute Name="IscsiInitiatorGateway">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorPrimDns">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorSecDns">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorName"></Attribute> -->    <!-- <Attribute Name="IscsiInitiatorChapId"></Attribute> -->    <!-- <Attribute Name="IscsiInitiatorChapPwd"></Attribute> -->    <!-- <Attribute Name="ConnectFirstTgt">Disabled</Attribute> -->    <!-- <Attribute Name="FirstTgtIpAddress">0.0.0.0</Attribute> -->    <!-- <Attribute Name="FirstTgtTcpPort">3260</Attribute> -->    <!-- <Attribute Name="FirstTgtBootLun">0</Attribute> -->    <!-- <Attribute Name="FirstTgtIscsiName"></Attribute> -->    <!-- <Attribute Name="FirstTgtChapId"></Attribute> -->    <!-- <Attribute Name="FirstTgtChapPwd"></Attribute> -->    <!-- <Attribute Name="ConnectSecondTgt">Disabled</Attribute> -->    <!-- <Attribute Name="SecondTgtIpAddress">0.0.0.0</Attribute> -->    <!-- <Attribute Name="SecondTgtTcpPort">3260</Attribute> -->    <!-- <Attribute Name="SecondTgtBootLun">0</Attribute> -->    <!-- <Attribute Name="SecondTgtIscsiName"></Attribute> -->    <!-- <Attribute Name="SecondTgtChapId"></Attribute> -->    <!-- <Attribute Name="SecondTgtChapPwd"></Attribute> -->
+        <Attribute Name="LegacyBootProto">PXE</Attribute>
+        <Attribute Name="BootStrapType">AutoDetect</Attribute>
+        <Attribute Name="HideSetupPrompt">Disabled</Attribute>
+        <Attribute Name="BannerMessageTimeout">5</Attribute>
+        <Attribute Name="LnkSpeed">AutoNeg</Attribute>
+        <Attribute Name="WakeOnLan">Disabled</Attribute>
+        <Attribute Name="VLanMode">Disabled</Attribute>
+        <!-- <Attribute Name="VLanId">1</Attribute> -->
+        <Attribute Name="BootRetryCnt">NoRetry</Attribute>
+        <!-- <Attribute Name="SecondaryDeviceMacAddr">00:00:00:00:00:00</Attribute> -->    <!-- <Attribute Name="UseIndTgtPortal">Disabled</Attribute> -->    <!-- <Attribute Name="UseIndTgtName">Disabled</Attribute> -->
+        <Attribute Name="NicPartitioning">Enabled</Attribute>
+        <Attribute Name="FlowControlSetting">Auto</Attribute>
+        <Attribute Name="NicMode">Enabled</Attribute>
+        <Attribute Name="iScsiOffloadMode">Disabled</Attribute>
+        <Attribute Name="FCoEOffloadMode">Disabled</Attribute>
+        <Attribute Name="MinBandwidth">0</Attribute>
+        <Attribute Name="MaxBandwidth">100</Attribute>
+        <Attribute Name="FCoETgtBoot">Disabled</Attribute>
+        <Attribute Name="FCoEFirstHddTarget">Disabled</Attribute>
+        <Attribute Name="FCoELnkUpDelayTime">0</Attribute>
+        <Attribute Name="FCoELunBusyRetryCnt">0</Attribute>
+        <Attribute Name="FCoEFabricDiscoveryRetryCnt">4</Attribute>
+        <!-- <Attribute Name="ConnectFirstFCoETarget">Disabled</Attribute> -->    <!-- <Attribute Name="FirstFCoEWWPNTarget">00:00:00:00:00:00:00:00</Attribute> -->    <!-- <Attribute Name="FirstFCoEBootTargetLUN">15</Attribute> -->
+    </Component>
+    <Component FQDD="NIC.Integrated.1-2-2">
+        <Attribute Name="NicMode">Enabled</Attribute>
+        <Attribute Name="iScsiOffloadMode">Enabled</Attribute>
+        <!-- <Attribute Name="FCoEOffloadMode">Disabled</Attribute> -->    <!-- <Attribute Name="MacAddr">24:B6:FD:F7:11:66</Attribute> -->    <!-- <Attribute Name="VirtMacAddr">24:B6:FD:F7:11:66</Attribute> -->    <!-- <Attribute Name="IscsiMacAddr">24:B6:FD:F7:11:67</Attribute> -->    <!-- <Attribute Name="VirtIscsiMacAddr">24:B6:FD:F7:11:67</Attribute> -->    <!-- <Attribute Name="FIPMacAddr">24:B6:FD:F7:11:67</Attribute> -->    <!-- <Attribute Name="VirtFIPMacAddr">24:B6:FD:F7:11:67</Attribute> -->    <!-- <Attribute Name="WWN">20:00:24:B6:FD:F7:11:67</Attribute> -->    <!-- <Attribute Name="VirtWWN">20:00:24:B6:FD:F7:11:67</Attribute> -->    <!-- <Attribute Name="WWPN">20:01:24:B6:FD:F7:11:67</Attribute> -->    <!-- <Attribute Name="VirtWWPN">20:01:24:B6:FD:F7:11:67</Attribute> -->    <!-- <Attribute Name="PCIDeviceID">16AE</Attribute> -->    <!-- <Attribute Name="BusDeviceFunction">01:00:03</Attribute> -->
+        <Attribute Name="MinBandwidth">0</Attribute>
+        <Attribute Name="MaxBandwidth">100</Attribute>
+    </Component>
+    <Component FQDD="NIC.Integrated.1-2-3">
+        <Attribute Name="NicMode">Enabled</Attribute>
+        <Attribute Name="iScsiOffloadMode">Disabled</Attribute>
+        <Attribute Name="FCoEOffloadMode">Disabled</Attribute>
+        <!-- <Attribute Name="MacAddr">24:B6:FD:F7:11:6A</Attribute> -->    <!-- <Attribute Name="VirtMacAddr">24:B6:FD:F7:11:6A</Attribute> -->    <!-- <Attribute Name="IscsiMacAddr">24:B6:FD:F7:11:6B</Attribute> -->    <!-- <Attribute Name="VirtIscsiMacAddr">24:B6:FD:F7:11:6B</Attribute> -->    <!-- <Attribute Name="FIPMacAddr">24:B6:FD:F7:11:6B</Attribute> -->    <!-- <Attribute Name="VirtFIPMacAddr">24:B6:FD:F7:11:6B</Attribute> -->    <!-- <Attribute Name="WWN">20:00:24:B6:FD:F7:11:6B</Attribute> -->    <!-- <Attribute Name="VirtWWN">20:00:24:B6:FD:F7:11:6B</Attribute> -->    <!-- <Attribute Name="WWPN">20:01:24:B6:FD:F7:11:6B</Attribute> -->    <!-- <Attribute Name="VirtWWPN">20:01:24:B6:FD:F7:11:6B</Attribute> -->    <!-- <Attribute Name="PCIDeviceID">16AE</Attribute> -->    <!-- <Attribute Name="BusDeviceFunction">01:00:05</Attribute> -->
+        <Attribute Name="MinBandwidth">0</Attribute>
+        <Attribute Name="MaxBandwidth">100</Attribute>
+    </Component>
+    <Component FQDD="NIC.Integrated.1-2-4">
+        <Attribute Name="NicMode">Enabled</Attribute>
+        <Attribute Name="iScsiOffloadMode">Disabled</Attribute>
+        <Attribute Name="FCoEOffloadMode">Disabled</Attribute>
+        <!-- <Attribute Name="MacAddr">24:B6:FD:F7:11:6E</Attribute> -->    <!-- <Attribute Name="VirtMacAddr">24:B6:FD:F7:11:6E</Attribute> -->    <!-- <Attribute Name="IscsiMacAddr">24:B6:FD:F7:11:6F</Attribute> -->    <!-- <Attribute Name="VirtIscsiMacAddr">24:B6:FD:F7:11:6F</Attribute> -->    <!-- <Attribute Name="FIPMacAddr">24:B6:FD:F7:11:6F</Attribute> -->    <!-- <Attribute Name="VirtFIPMacAddr">24:B6:FD:F7:11:6F</Attribute> -->    <!-- <Attribute Name="WWN">20:00:24:B6:FD:F7:11:6F</Attribute> -->    <!-- <Attribute Name="VirtWWN">20:00:24:B6:FD:F7:11:6F</Attribute> -->    <!-- <Attribute Name="WWPN">20:01:24:B6:FD:F7:11:6F</Attribute> -->    <!-- <Attribute Name="VirtWWPN">20:01:24:B6:FD:F7:11:6F</Attribute> -->    <!-- <Attribute Name="PCIDeviceID">16AE</Attribute> -->    <!-- <Attribute Name="BusDeviceFunction">01:00:07</Attribute> -->
+        <Attribute Name="MinBandwidth">0</Attribute>
+        <Attribute Name="MaxBandwidth">100</Attribute>
+    </Component>
+    <Component FQDD="NIC.Mezzanine.2B-1-1">
+        <Attribute Name="VirtualizationMode">NPAR</Attribute>
+        <Attribute Name="BlnkLeds">0</Attribute>
+        <!-- <Attribute Name="VirtMacAddr">00:10:18:DC:D9:C0</Attribute> -->    <!-- <Attribute Name="VirtIscsiMacAddr">00:10:18:DC:D9:C1</Attribute> -->    <!-- <Attribute Name="VirtFIPMacAddr">00:10:18:DC:D9:C1</Attribute> -->    <!-- <Attribute Name="VirtWWN">20:00:00:10:18:DC:D9:C1</Attribute> -->    <!-- <Attribute Name="VirtWWPN">20:01:00:10:18:DC:D9:C1</Attribute> -->
+        <Attribute Name="TcpIpViaDHCP">Disabled</Attribute>
+        <!-- <Attribute Name="IpAutoConfig">Disabled</Attribute> -->
+        <Attribute Name="IscsiViaDHCP">Disabled</Attribute>
+        <Attribute Name="ChapAuthEnable">Enabled</Attribute>
+        <Attribute Name="IscsiTgtBoot">Enabled</Attribute>
+        <Attribute Name="DhcpVendId">BRCM ISAN</Attribute>
+        <Attribute Name="LnkUpDelayTime">0</Attribute>
+        <Attribute Name="TcpTimestmp">Disabled</Attribute>
+        <Attribute Name="FirstHddTarget">Disabled</Attribute>
+        <Attribute Name="LunBusyRetryCnt">0</Attribute>
+        <Attribute Name="IpVer">IPv4</Attribute>
+        <Attribute Name="WinHbaBootMode">Disabled</Attribute>
+        <!-- <Attribute Name="IscsiInitiatorIpAddr">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorSubnet">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorSubnetPrefix"></Attribute> -->    <!-- <Attribute Name="IscsiInitiatorGateway">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorPrimDns">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorSecDns">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorName"></Attribute> -->    <!-- <Attribute Name="IscsiInitiatorChapId"></Attribute> -->    <!-- <Attribute Name="IscsiInitiatorChapPwd"></Attribute> -->    <!-- <Attribute Name="ConnectFirstTgt">Disabled</Attribute> -->    <!-- <Attribute Name="FirstTgtIpAddress">0.0.0.0</Attribute> -->    <!-- <Attribute Name="FirstTgtTcpPort">1111</Attribute> -->    <!-- <Attribute Name="FirstTgtBootLun">10</Attribute> -->    <!-- <Attribute Name="FirstTgtIscsiName"></Attribute> -->    <!-- <Attribute Name="FirstTgtChapId"></Attribute> -->    <!-- <Attribute Name="FirstTgtChapPwd"></Attribute> -->    <!-- <Attribute Name="ConnectSecondTgt">Disabled</Attribute> -->    <!-- <Attribute Name="SecondTgtIpAddress">0.0.0.0</Attribute> -->    <!-- <Attribute Name="SecondTgtTcpPort">3260</Attribute> -->    <!-- <Attribute Name="SecondTgtBootLun">0</Attribute> -->    <!-- <Attribute Name="SecondTgtIscsiName"></Attribute> -->    <!-- <Attribute Name="SecondTgtChapId"></Attribute> -->    <!-- <Attribute Name="SecondTgtChapPwd"></Attribute> -->
+        <Attribute Name="LegacyBootProto">NONE</Attribute>
+        <Attribute Name="BootStrapType">AutoDetect</Attribute>
+        <Attribute Name="HideSetupPrompt">Disabled</Attribute>
+        <Attribute Name="BannerMessageTimeout">5</Attribute>
+        <Attribute Name="LnkSpeed">AutoNeg</Attribute>
+        <Attribute Name="WakeOnLan">Disabled</Attribute>
+        <Attribute Name="VLanMode">Disabled</Attribute>
+        <!-- <Attribute Name="VLanId">151</Attribute> -->
+        <Attribute Name="BootRetryCnt">NoRetry</Attribute>
+        <!-- <Attribute Name="SecondaryDeviceMacAddr">00:00:00:00:00:00</Attribute> -->    <!-- <Attribute Name="UseIndTgtPortal">Disabled</Attribute> -->    <!-- <Attribute Name="UseIndTgtName">Disabled</Attribute> -->
+        <Attribute Name="NicPartitioning">Enabled</Attribute>
+        <Attribute Name="FlowControlSetting">Auto</Attribute>
+        <Attribute Name="NicMode">Disabled</Attribute>
+        <Attribute Name="iScsiOffloadMode">Disabled</Attribute>
+        <Attribute Name="FCoEOffloadMode">Disabled</Attribute>
+        <Attribute Name="MinBandwidth">0</Attribute>
+        <Attribute Name="MaxBandwidth">1</Attribute>
+        <Attribute Name="FCoETgtBoot">Enabled</Attribute>
+        <Attribute Name="FCoEFirstHddTarget">Disabled</Attribute>
+        <Attribute Name="FCoELnkUpDelayTime">0</Attribute>
+        <Attribute Name="FCoELunBusyRetryCnt">0</Attribute>
+        <Attribute Name="FCoEFabricDiscoveryRetryCnt">4</Attribute>
+        <!-- <Attribute Name="ConnectFirstFCoETarget">Disabled</Attribute> -->    <!-- <Attribute Name="FirstFCoEWWPNTarget">00:00:00:00:00:00:00:00</Attribute> -->    <!-- <Attribute Name="FirstFCoEBootTargetLUN">0</Attribute> -->
+    </Component>
+    <Component FQDD="NIC.Mezzanine.2B-1-2">
+        <Attribute Name="NicMode">Disabled</Attribute>
+        <Attribute Name="iScsiOffloadMode">Disabled</Attribute>
+        <Attribute Name="FCoEOffloadMode">Disabled</Attribute>
+        <!-- <Attribute Name="MacAddr">00:10:18:DC:D9:C4</Attribute> -->    <!-- <Attribute Name="VirtMacAddr">00:10:18:DC:D9:C4</Attribute> -->    <!-- <Attribute Name="IscsiMacAddr">00:10:18:DC:D9:C5</Attribute> -->    <!-- <Attribute Name="VirtIscsiMacAddr">00:10:18:DC:D9:C5</Attribute> -->    <!-- <Attribute Name="FIPMacAddr">00:10:18:DC:D9:C5</Attribute> -->    <!-- <Attribute Name="VirtFIPMacAddr">00:10:18:DC:D9:C5</Attribute> -->    <!-- <Attribute Name="WWN">20:00:00:10:18:DC:D9:C5</Attribute> -->    <!-- <Attribute Name="VirtWWN">20:00:00:10:18:DC:D9:C5</Attribute> -->    <!-- <Attribute Name="WWPN">20:01:00:10:18:DC:D9:C5</Attribute> -->    <!-- <Attribute Name="VirtWWPN">20:01:00:10:18:DC:D9:C5</Attribute> -->    <!-- <Attribute Name="PCIDeviceID">16AE</Attribute> -->    <!-- <Attribute Name="BusDeviceFunction">03:00:02</Attribute> -->
+        <Attribute Name="MinBandwidth">0</Attribute>
+        <Attribute Name="MaxBandwidth">1</Attribute>
+    </Component>
+    <Component FQDD="NIC.Mezzanine.2B-1-3">
+        <Attribute Name="NicMode">Disabled</Attribute>
+        <Attribute Name="iScsiOffloadMode">Disabled</Attribute>
+        <Attribute Name="FCoEOffloadMode">Disabled</Attribute>
+        <!-- <Attribute Name="MacAddr">00:10:18:DC:D9:C8</Attribute> -->    <!-- <Attribute Name="VirtMacAddr">00:10:18:DC:D9:C8</Attribute> -->    <!-- <Attribute Name="IscsiMacAddr">00:10:18:DC:D9:C9</Attribute> -->    <!-- <Attribute Name="VirtIscsiMacAddr">00:10:18:DC:D9:C9</Attribute> -->    <!-- <Attribute Name="FIPMacAddr">00:10:18:DC:D9:C9</Attribute> -->    <!-- <Attribute Name="VirtFIPMacAddr">00:10:18:DC:D9:C9</Attribute> -->    <!-- <Attribute Name="WWN">20:00:00:10:18:DC:D9:C9</Attribute> -->    <!-- <Attribute Name="VirtWWN">20:00:00:10:18:DC:D9:C9</Attribute> -->    <!-- <Attribute Name="WWPN">20:01:00:10:18:DC:D9:C9</Attribute> -->    <!-- <Attribute Name="VirtWWPN">20:01:00:10:18:DC:D9:C9</Attribute> -->    <!-- <Attribute Name="PCIDeviceID">16AE</Attribute> -->    <!-- <Attribute Name="BusDeviceFunction">03:00:04</Attribute> -->
+        <Attribute Name="MinBandwidth">0</Attribute>
+        <Attribute Name="MaxBandwidth">1</Attribute>
+    </Component>
+    <Component FQDD="NIC.Mezzanine.2B-1-4">
+        <Attribute Name="NicMode">Disabled</Attribute>
+        <Attribute Name="iScsiOffloadMode">Disabled</Attribute>
+        <Attribute Name="FCoEOffloadMode">Disabled</Attribute>
+        <!-- <Attribute Name="MacAddr">00:10:18:DC:D9:CC</Attribute> -->    <!-- <Attribute Name="VirtMacAddr">00:10:18:DC:D9:CC</Attribute> -->    <!-- <Attribute Name="IscsiMacAddr">00:10:18:DC:D9:CD</Attribute> -->    <!-- <Attribute Name="VirtIscsiMacAddr">00:10:18:DC:D9:CD</Attribute> -->    <!-- <Attribute Name="FIPMacAddr">00:10:18:DC:D9:CD</Attribute> -->    <!-- <Attribute Name="VirtFIPMacAddr">00:10:18:DC:D9:CD</Attribute> -->    <!-- <Attribute Name="WWN">20:00:00:10:18:DC:D9:CD</Attribute> -->    <!-- <Attribute Name="VirtWWN">20:00:00:10:18:DC:D9:CD</Attribute> -->    <!-- <Attribute Name="WWPN">20:01:00:10:18:DC:D9:CD</Attribute> -->    <!-- <Attribute Name="VirtWWPN">20:01:00:10:18:DC:D9:CD</Attribute> -->    <!-- <Attribute Name="PCIDeviceID">16AE</Attribute> -->    <!-- <Attribute Name="BusDeviceFunction">03:00:06</Attribute> -->
+        <Attribute Name="MinBandwidth">0</Attribute>
+        <Attribute Name="MaxBandwidth">1</Attribute>
+    </Component>
+    <Component FQDD="NIC.Mezzanine.2B-2-1">
+        <Attribute Name="VirtualizationMode">NPAR</Attribute>
+        <Attribute Name="BlnkLeds">0</Attribute>
+        <!-- <Attribute Name="VirtMacAddr">00:10:18:DC:D9:C2</Attribute> -->    <!-- <Attribute Name="VirtIscsiMacAddr">00:10:18:DC:D9:C3</Attribute> -->    <!-- <Attribute Name="VirtFIPMacAddr">00:10:18:DC:D9:C3</Attribute> -->    <!-- <Attribute Name="VirtWWN">20:00:00:10:18:DC:D9:C3</Attribute> -->    <!-- <Attribute Name="VirtWWPN">20:01:00:10:18:DC:D9:C3</Attribute> -->
+        <Attribute Name="TcpIpViaDHCP">Disabled</Attribute>
+        <!-- <Attribute Name="IpAutoConfig">Disabled</Attribute> -->
+        <Attribute Name="IscsiViaDHCP">Enabled</Attribute>
+        <Attribute Name="ChapAuthEnable">Disabled</Attribute>
+        <Attribute Name="IscsiTgtBoot">Enabled</Attribute>
+        <Attribute Name="DhcpVendId">BRCM ISAN</Attribute>
+        <Attribute Name="LnkUpDelayTime">0</Attribute>
+        <Attribute Name="TcpTimestmp">Disabled</Attribute>
+        <Attribute Name="FirstHddTarget">Disabled</Attribute>
+        <Attribute Name="LunBusyRetryCnt">0</Attribute>
+        <Attribute Name="IpVer">IPv4</Attribute>
+        <Attribute Name="WinHbaBootMode">Disabled</Attribute>
+        <!-- <Attribute Name="IscsiInitiatorIpAddr">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorSubnet">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorSubnetPrefix"></Attribute> -->    <!-- <Attribute Name="IscsiInitiatorGateway">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorPrimDns">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorSecDns">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorName"></Attribute> -->    <!-- <Attribute Name="IscsiInitiatorChapId"></Attribute> -->    <!-- <Attribute Name="IscsiInitiatorChapPwd"></Attribute> -->    <!-- <Attribute Name="ConnectFirstTgt">Disabled</Attribute> -->    <!-- <Attribute Name="FirstTgtIpAddress">0.0.0.0</Attribute> -->    <!-- <Attribute Name="FirstTgtTcpPort">3260</Attribute> -->    <!-- <Attribute Name="FirstTgtBootLun">0</Attribute> -->    <!-- <Attribute Name="FirstTgtIscsiName"></Attribute> -->    <!-- <Attribute Name="FirstTgtChapId"></Attribute> -->    <!-- <Attribute Name="FirstTgtChapPwd"></Attribute> -->    <!-- <Attribute Name="ConnectSecondTgt">Disabled</Attribute> -->    <!-- <Attribute Name="SecondTgtIpAddress">0.0.0.0</Attribute> -->    <!-- <Attribute Name="SecondTgtTcpPort">3260</Attribute> -->    <!-- <Attribute Name="SecondTgtBootLun">0</Attribute> -->    <!-- <Attribute Name="SecondTgtIscsiName"></Attribute> -->    <!-- <Attribute Name="SecondTgtChapId"></Attribute> -->    <!-- <Attribute Name="SecondTgtChapPwd"></Attribute> -->
+        <Attribute Name="LegacyBootProto">NONE</Attribute>
+        <Attribute Name="BootStrapType">AutoDetect</Attribute>
+        <Attribute Name="HideSetupPrompt">Disabled</Attribute>
+        <Attribute Name="BannerMessageTimeout">5</Attribute>
+        <Attribute Name="LnkSpeed">AutoNeg</Attribute>
+        <Attribute Name="WakeOnLan">Disabled</Attribute>
+        <Attribute Name="VLanMode">Disabled</Attribute>
+        <!-- <Attribute Name="VLanId">1</Attribute> -->
+        <Attribute Name="BootRetryCnt">NoRetry</Attribute>
+        <!-- <Attribute Name="SecondaryDeviceMacAddr">00:00:00:00:00:00</Attribute> -->    <!-- <Attribute Name="UseIndTgtPortal">Disabled</Attribute> -->    <!-- <Attribute Name="UseIndTgtName">Disabled</Attribute> -->
+        <Attribute Name="NicPartitioning">Enabled</Attribute>
+        <Attribute Name="FlowControlSetting">Auto</Attribute>
+        <Attribute Name="NicMode">Disabled</Attribute>
+        <Attribute Name="iScsiOffloadMode">Disabled</Attribute>
+        <Attribute Name="FCoEOffloadMode">Disabled</Attribute>
+        <Attribute Name="MinBandwidth">0</Attribute>
+        <Attribute Name="MaxBandwidth">70</Attribute>
+        <Attribute Name="FCoETgtBoot">Enabled</Attribute>
+        <Attribute Name="FCoEFirstHddTarget">Disabled</Attribute>
+        <Attribute Name="FCoELnkUpDelayTime">0</Attribute>
+        <Attribute Name="FCoELunBusyRetryCnt">0</Attribute>
+        <Attribute Name="FCoEFabricDiscoveryRetryCnt">4</Attribute>
+        <!-- <Attribute Name="ConnectFirstFCoETarget">Disabled</Attribute> -->    <!-- <Attribute Name="FirstFCoEWWPNTarget">00:00:00:00:00:00:00:00</Attribute> -->    <!-- <Attribute Name="FirstFCoEBootTargetLUN">0</Attribute> -->
+    </Component>
+    <Component FQDD="NIC.Mezzanine.2B-2-2">
+        <Attribute Name="NicMode">Disabled</Attribute>
+        <Attribute Name="iScsiOffloadMode">Disabled</Attribute>
+        <Attribute Name="FCoEOffloadMode">Disabled</Attribute>
+        <!-- <Attribute Name="MacAddr">00:10:18:DC:D9:C6</Attribute> -->    <!-- <Attribute Name="VirtMacAddr">00:10:18:DC:D9:C6</Attribute> -->    <!-- <Attribute Name="IscsiMacAddr">00:10:18:DC:D9:C7</Attribute> -->    <!-- <Attribute Name="VirtIscsiMacAddr">00:10:18:DC:D9:C7</Attribute> -->    <!-- <Attribute Name="FIPMacAddr">00:10:18:DC:D9:C7</Attribute> -->    <!-- <Attribute Name="VirtFIPMacAddr">00:10:18:DC:D9:C7</Attribute> -->    <!-- <Attribute Name="WWN">20:00:00:10:18:DC:D9:C7</Attribute> -->    <!-- <Attribute Name="VirtWWN">20:00:00:10:18:DC:D9:C7</Attribute> -->    <!-- <Attribute Name="WWPN">20:01:00:10:18:DC:D9:C7</Attribute> -->    <!-- <Attribute Name="VirtWWPN">20:01:00:10:18:DC:D9:C7</Attribute> -->    <!-- <Attribute Name="PCIDeviceID">16AE</Attribute> -->    <!-- <Attribute Name="BusDeviceFunction">03:00:03</Attribute> -->
+        <Attribute Name="MinBandwidth">0</Attribute>
+        <Attribute Name="MaxBandwidth">1</Attribute>
+    </Component>
+    <Component FQDD="NIC.Mezzanine.2B-2-3">
+        <Attribute Name="NicMode">Disabled</Attribute>
+        <Attribute Name="iScsiOffloadMode">Disabled</Attribute>
+        <Attribute Name="FCoEOffloadMode">Disabled</Attribute>
+        <!-- <Attribute Name="MacAddr">00:10:18:DC:D9:CA</Attribute> -->    <!-- <Attribute Name="VirtMacAddr">00:10:18:DC:D9:CA</Attribute> -->    <!-- <Attribute Name="IscsiMacAddr">00:10:18:DC:D9:CB</Attribute> -->    <!-- <Attribute Name="VirtIscsiMacAddr">00:10:18:DC:D9:CB</Attribute> -->    <!-- <Attribute Name="FIPMacAddr">00:10:18:DC:D9:CB</Attribute> -->    <!-- <Attribute Name="VirtFIPMacAddr">00:10:18:DC:D9:CB</Attribute> -->    <!-- <Attribute Name="WWN">20:00:00:10:18:DC:D9:CB</Attribute> -->    <!-- <Attribute Name="VirtWWN">20:00:00:10:18:DC:D9:CB</Attribute> -->    <!-- <Attribute Name="WWPN">20:01:00:10:18:DC:D9:CB</Attribute> -->    <!-- <Attribute Name="VirtWWPN">20:01:00:10:18:DC:D9:CB</Attribute> -->    <!-- <Attribute Name="PCIDeviceID">16AE</Attribute> -->    <!-- <Attribute Name="BusDeviceFunction">03:00:05</Attribute> -->
+        <Attribute Name="MinBandwidth">0</Attribute>
+        <Attribute Name="MaxBandwidth">1</Attribute>
+    </Component>
+    <Component FQDD="NIC.Mezzanine.2B-2-4">
+        <Attribute Name="NicMode">Disabled</Attribute>
+        <Attribute Name="iScsiOffloadMode">Disabled</Attribute>
+        <Attribute Name="FCoEOffloadMode">Disabled</Attribute>
+        <!-- <Attribute Name="MacAddr">00:10:18:DC:D9:CE</Attribute> -->    <!-- <Attribute Name="VirtMacAddr">00:10:18:DC:D9:CE</Attribute> -->    <!-- <Attribute Name="IscsiMacAddr">00:10:18:DC:D9:CF</Attribute> -->    <!-- <Attribute Name="VirtIscsiMacAddr">00:10:18:DC:D9:CF</Attribute> -->    <!-- <Attribute Name="FIPMacAddr">00:10:18:DC:D9:CF</Attribute> -->    <!-- <Attribute Name="VirtFIPMacAddr">00:10:18:DC:D9:CF</Attribute> -->    <!-- <Attribute Name="WWN">20:00:00:10:18:DC:D9:CF</Attribute> -->    <!-- <Attribute Name="VirtWWN">20:00:00:10:18:DC:D9:CF</Attribute> -->    <!-- <Attribute Name="WWPN">20:01:00:10:18:DC:D9:CF</Attribute> -->    <!-- <Attribute Name="VirtWWPN">20:01:00:10:18:DC:D9:CF</Attribute> -->    <!-- <Attribute Name="PCIDeviceID">16AE</Attribute> -->    <!-- <Attribute Name="BusDeviceFunction">03:00:07</Attribute> -->
+        <Attribute Name="MinBandwidth">0</Attribute>
+        <Attribute Name="MaxBandwidth">1</Attribute>
+    </Component>
+    <Component FQDD="NIC.Mezzanine.1C-1-1">
+        <Attribute Name="VirtualizationMode">NONE</Attribute>
+        <Attribute Name="BlnkLeds">0</Attribute>
+        <!-- <Attribute Name="VirtMacAddr">00:10:18:DC:C4:D0</Attribute> -->    <!-- <Attribute Name="VirtIscsiMacAddr">00:10:18:DC:C4:D1</Attribute> -->    <!-- <Attribute Name="VirtFIPMacAddr">00:10:18:DC:C4:D1</Attribute> -->    <!-- <Attribute Name="VirtWWN">20:00:00:10:18:DC:C4:D1</Attribute> -->    <!-- <Attribute Name="VirtWWPN">20:01:00:10:18:DC:C4:D1</Attribute> -->
+        <Attribute Name="TcpIpViaDHCP">Disabled</Attribute>
+        <!-- <Attribute Name="IpAutoConfig">Disabled</Attribute> -->
+        <Attribute Name="IscsiViaDHCP">Disabled</Attribute>
+        <Attribute Name="ChapAuthEnable">Enabled</Attribute>
+        <Attribute Name="IscsiTgtBoot">Enabled</Attribute>
+        <Attribute Name="DhcpVendId">BRCM ISAN</Attribute>
+        <Attribute Name="LnkUpDelayTime">0</Attribute>
+        <Attribute Name="TcpTimestmp">Disabled</Attribute>
+        <Attribute Name="FirstHddTarget">Disabled</Attribute>
+        <Attribute Name="LunBusyRetryCnt">0</Attribute>
+        <Attribute Name="IpVer">IPv4</Attribute>
+        <Attribute Name="WinHbaBootMode">Disabled</Attribute>
+        <!-- <Attribute Name="IscsiInitiatorIpAddr">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorSubnet">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorSubnetPrefix"></Attribute> -->    <!-- <Attribute Name="IscsiInitiatorGateway">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorPrimDns">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorSecDns">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorName"></Attribute> -->    <!-- <Attribute Name="IscsiInitiatorChapId"></Attribute> -->    <!-- <Attribute Name="IscsiInitiatorChapPwd"></Attribute> -->    <!-- <Attribute Name="ConnectFirstTgt">Disabled</Attribute> -->    <!-- <Attribute Name="FirstTgtIpAddress">0.0.0.0</Attribute> -->    <!-- <Attribute Name="FirstTgtTcpPort">1111</Attribute> -->    <!-- <Attribute Name="FirstTgtBootLun">10</Attribute> -->    <!-- <Attribute Name="FirstTgtIscsiName"></Attribute> -->    <!-- <Attribute Name="FirstTgtChapId"></Attribute> -->    <!-- <Attribute Name="FirstTgtChapPwd"></Attribute> -->    <!-- <Attribute Name="ConnectSecondTgt">Disabled</Attribute> -->    <!-- <Attribute Name="SecondTgtIpAddress">0.0.0.0</Attribute> -->    <!-- <Attribute Name="SecondTgtTcpPort">3260</Attribute> -->    <!-- <Attribute Name="SecondTgtBootLun">0</Attribute> -->    <!-- <Attribute Name="SecondTgtIscsiName"></Attribute> -->    <!-- <Attribute Name="SecondTgtChapId"></Attribute> -->    <!-- <Attribute Name="SecondTgtChapPwd"></Attribute> -->
+        <Attribute Name="LegacyBootProto">NONE</Attribute>
+        <Attribute Name="BootStrapType">AutoDetect</Attribute>
+        <Attribute Name="HideSetupPrompt">Disabled</Attribute>
+        <Attribute Name="BannerMessageTimeout">5</Attribute>
+        <Attribute Name="LnkSpeed">AutoNeg</Attribute>
+        <Attribute Name="WakeOnLan">Disabled</Attribute>
+        <Attribute Name="VLanMode">Disabled</Attribute>
+        <!-- <Attribute Name="VLanId">1</Attribute> -->
+        <Attribute Name="BootRetryCnt">NoRetry</Attribute>
+        <!-- <Attribute Name="SecondaryDeviceMacAddr">00:00:00:00:00:00</Attribute> -->    <!-- <Attribute Name="UseIndTgtPortal">Disabled</Attribute> -->    <!-- <Attribute Name="UseIndTgtName">Disabled</Attribute> -->
+        <Attribute Name="NicPartitioning">Disabled</Attribute>
+        <!-- <Attribute Name="FlowControlSetting">Auto</Attribute> -->
+        <Attribute Name="FCoETgtBoot">Enabled</Attribute>
+        <Attribute Name="FCoEFirstHddTarget">Disabled</Attribute>
+        <Attribute Name="FCoELnkUpDelayTime">0</Attribute>
+        <Attribute Name="FCoELunBusyRetryCnt">0</Attribute>
+        <Attribute Name="FCoEFabricDiscoveryRetryCnt">4</Attribute>
+        <!-- <Attribute Name="ConnectFirstFCoETarget">Disabled</Attribute> -->    <!-- <Attribute Name="FirstFCoEWWPNTarget">00:00:00:00:00:00:00:00</Attribute> -->    <!-- <Attribute Name="FirstFCoEBootTargetLUN">0</Attribute> -->
+    </Component>
+    <Component FQDD="NIC.Mezzanine.1C-2-1">
+        <Attribute Name="VirtualizationMode">NONE</Attribute>
+        <Attribute Name="BlnkLeds">0</Attribute>
+        <!-- <Attribute Name="VirtMacAddr">00:10:18:DC:C4:D2</Attribute> -->    <!-- <Attribute Name="VirtIscsiMacAddr">00:10:18:DC:C4:D3</Attribute> -->    <!-- <Attribute Name="VirtFIPMacAddr">00:10:18:DC:C4:D3</Attribute> -->    <!-- <Attribute Name="VirtWWN">20:00:00:10:18:DC:C4:D3</Attribute> -->    <!-- <Attribute Name="VirtWWPN">20:01:00:10:18:DC:C4:D3</Attribute> -->
+        <Attribute Name="TcpIpViaDHCP">Enabled</Attribute>
+        <!-- <Attribute Name="IpAutoConfig">Enabled</Attribute> -->
+        <Attribute Name="IscsiViaDHCP">Enabled</Attribute>
+        <Attribute Name="ChapAuthEnable">Disabled</Attribute>
+        <Attribute Name="IscsiTgtBoot">Enabled</Attribute>
+        <Attribute Name="DhcpVendId">BRCM ISAN</Attribute>
+        <Attribute Name="LnkUpDelayTime">0</Attribute>
+        <Attribute Name="TcpTimestmp">Disabled</Attribute>
+        <Attribute Name="FirstHddTarget">Disabled</Attribute>
+        <Attribute Name="LunBusyRetryCnt">0</Attribute>
+        <Attribute Name="IpVer">IPv4</Attribute>
+        <Attribute Name="WinHbaBootMode">Disabled</Attribute>
+        <!-- <Attribute Name="IscsiInitiatorIpAddr">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorSubnet">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorSubnetPrefix"></Attribute> -->    <!-- <Attribute Name="IscsiInitiatorGateway">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorPrimDns">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorSecDns">0.0.0.0</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorName">iqn.1995-05.com.broadcom.iscsiboot</Attribute> -->    <!-- <Attribute Name="IscsiInitiatorChapId"></Attribute> -->    <!-- <Attribute Name="IscsiInitiatorChapPwd"></Attribute> -->    <!-- <Attribute Name="ConnectFirstTgt">Disabled</Attribute> -->    <!-- <Attribute Name="FirstTgtIpAddress">0.0.0.0</Attribute> -->    <!-- <Attribute Name="FirstTgtTcpPort">3260</Attribute> -->    <!-- <Attribute Name="FirstTgtBootLun">0</Attribute> -->    <!-- <Attribute Name="FirstTgtIscsiName"></Attribute> -->    <!-- <Attribute Name="FirstTgtChapId"></Attribute> -->    <!-- <Attribute Name="FirstTgtChapPwd"></Attribute> -->    <!-- <Attribute Name="ConnectSecondTgt">Disabled</Attribute> -->    <!-- <Attribute Name="SecondTgtIpAddress">0.0.0.0</Attribute> -->    <!-- <Attribute Name="SecondTgtTcpPort">3260</Attribute> -->    <!-- <Attribute Name="SecondTgtBootLun">0</Attribute> -->    <!-- <Attribute Name="SecondTgtIscsiName"></Attribute> -->    <!-- <Attribute Name="SecondTgtChapId"></Attribute> -->    <!-- <Attribute Name="SecondTgtChapPwd"></Attribute> -->
+        <Attribute Name="LegacyBootProto">NONE</Attribute>
+        <Attribute Name="BootStrapType">AutoDetect</Attribute>
+        <Attribute Name="HideSetupPrompt">Disabled</Attribute>
+        <Attribute Name="BannerMessageTimeout">5</Attribute>
+        <Attribute Name="LnkSpeed">AutoNeg</Attribute>
+        <Attribute Name="WakeOnLan">Disabled</Attribute>
+        <Attribute Name="VLanMode">Disabled</Attribute>
+        <!-- <Attribute Name="VLanId">1</Attribute> -->
+        <Attribute Name="BootRetryCnt">NoRetry</Attribute>
+        <!-- <Attribute Name="SecondaryDeviceMacAddr">00:00:00:00:00:00</Attribute> -->    <!-- <Attribute Name="UseIndTgtPortal">Disabled</Attribute> -->    <!-- <Attribute Name="UseIndTgtName">Disabled</Attribute> -->
+        <Attribute Name="NicPartitioning">Disabled</Attribute>
+        <!-- <Attribute Name="FlowControlSetting">Auto</Attribute> -->
+        <Attribute Name="FCoETgtBoot">Enabled</Attribute>
+        <Attribute Name="FCoEFirstHddTarget">Disabled</Attribute>
+        <Attribute Name="FCoELnkUpDelayTime">0</Attribute>
+        <Attribute Name="FCoELunBusyRetryCnt">0</Attribute>
+        <Attribute Name="FCoEFabricDiscoveryRetryCnt">4</Attribute>
+        <!-- <Attribute Name="ConnectFirstFCoETarget">Disabled</Attribute> -->    <!-- <Attribute Name="FirstFCoEWWPNTarget">00:00:00:00:00:00:00:00</Attribute> -->    <!-- <Attribute Name="FirstFCoEBootTargetLUN">0</Attribute> -->
+    </Component>
+</SystemConfiguration>

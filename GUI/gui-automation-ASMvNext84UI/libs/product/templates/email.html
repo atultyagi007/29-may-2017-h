@@ -1,0 +1,146 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title></title>
+    <style type="text/css">{% include "style.css" %}</style>
+    <style type="text/css">body{margin:0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;line-height:20px;color:#333333;background-color:#ffffff;}</style>
+</head>
+<body>
+    <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
+        <tr>
+            <td valign="top">
+
+    <table width="100%">
+        <tr style="background-color: #0085c3; color: #eee">
+            <td width="100%">
+    <font size="+1">{{ info.description }}</font size="+1"><br/>
+    {%if info.version %}v{{ info.version }}{% endif %} {% if info.build_id %} -- Build: {{ info.build_id }}{% endif %}<br/>
+    {{ info.author }}
+            </td>
+        </tr>
+
+        <tr>
+            <td width="100%">
+                <h3>Execution Statistics</h3>
+                <table border="0" cellpadding="5" cellspacing="0" width="100%">
+                        <tr >
+                            <td>Start Time:</td>
+                            <td>{{start_time}}</td>
+                        </tr>
+                        <tr >
+                            <td>Stop Time:</td>
+                            <td>{{stop_time}}</td>
+                        </tr>
+                        <tr >
+                            <td>Duration:</td>
+                            <td>{{duration}}</td>
+                        </tr>
+                        <tr >
+                            <td>Status:</td>
+                            <td>
+                            {% for (level, count) in summary|dictsort|rejectattr(1, 'equals', 0)|reverse %}
+                            {{ level|title }} {{count}}{%if not loop.last %},{% endif %}
+                            {% endfor %}
+                            </td>
+                        </tr>
+                </table>
+            </td>
+        </tr>
+        <tr><td><hr/></td></tr>
+        <tr>
+            <td>
+                <h3>Runtime Information</h3>
+                <table border="0" cellpadding="5" cellspacing="0" width="100%">
+                        {% for key, val in runtime|dictsort %}
+                        <tr >
+                            <td>{{key}}</td>
+                            <td>{{val}}</td>
+                        </tr>
+                        {% endfor %}
+                </table>
+            </td>
+        </tr>
+        <tr><td><hr/></td></tr>
+
+{% if results %}
+        <tr>
+            <td>
+        <table border="1" cellpadding="5" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th>Test Group/Test Case</th>
+            <th>Count</th>
+            <th>Pass</th>
+            <th>Fail</th>
+            <th>Omit</th>
+            <th>Block</th>
+            <th>Error</th>
+        </tr>
+        </thead>
+{% for result in results %}
+            {% set pass_count = result.tests|selectattr('status', 'equals', 'pass')|list|length %}
+            {% set fail_count = result.tests|selectattr('status', 'equals', 'fail')|list|length %}
+            {% set omit_count = result.tests|selectattr('status', 'equals', 'omit')|list|length %}
+            {% set block_count = result.tests|selectattr('status', 'equals', 'block')|list|length %}
+            {% set error_count = result.tests|selectattr('status', 'equals', 'error')|list|length %}
+            {% set class_id = loop.index0 %}
+            
+            {% if block_count > 0 %}
+            <tr class="block" >
+            {% elif error_count > 0 %}
+            <tr class="error" >
+            {% elif fail_count > 0 %}
+            <tr class="fail" >
+            {% elif omit_count > 0 %}
+            <tr class="omit" >
+            {% else %}
+            <tr class="pass" >
+            {% endif %}
+                <td title="{{result.description}}">{{result.name.split(".").0}}</td>
+                <td>{{ result.tests|length }}</td>
+                <td>{{ pass_count }}</td>
+                <td>{{ fail_count }}</td>
+                <td>{{ omit_count }}</td>
+                <td>{{ block_count }}</td>
+                <td>{{ error_count }}</td>
+            </tr>
+        </tbody>
+        <tbody id="tests_{{loop.index0}}">
+{% for testresult in result.tests %}
+        {% if testresult.status == 'pass' %}
+        <tr bgcolor="#ccff99">
+        {% elif testresult.status == 'fail' %}
+        <tr bgcolor="#ff9999">
+        {% elif testresult.status == 'error' %}
+        <tr bgcolor="#ff0000">
+        {% else %}
+        <tr>
+        {% endif %}
+            <td title="{{testresult.description}}">{{testresult.testcase}} - {{ testresult.description }}</td>
+            <td colspan="6">
+                {{ testresult.status|upper }}{% if testresult.status in ('omit', 'skip', 'block') %}: {{ testresult.stderr}}{% endif %}
+            </td>
+        </tr>
+{% endfor %}
+
+{% endfor %}
+    </table>
+        </td>
+    </tr>
+
+{% endif %}
+
+
+            </td>
+        </tr>
+        <tr>
+            <td width="100%">For Detailed Results 
+            <a href = "{{link}}" target="_blank">&nbsp;click here</a>    			 
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

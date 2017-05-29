@@ -1,0 +1,1 @@
+ALTER TABLE device_inventory ADD COLUMN resource_type character varying(255);

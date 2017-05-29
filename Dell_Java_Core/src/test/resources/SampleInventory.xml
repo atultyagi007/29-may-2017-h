@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sampleInventory>
+    <inventory>
+        <entry>
+            <key>192.168.1.100</key>
+            <value>VCENTER</value>
+        </entry>
+    </inventory>
+</sampleInventory>

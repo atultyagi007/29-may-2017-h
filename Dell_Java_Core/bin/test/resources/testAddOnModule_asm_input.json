@@ -1,0 +1,23 @@
+{
+  "name": "asm-linux_postinstall",
+  "version": "0.1.0",
+  "description" : "ASM-Linux post install scripts and cool things.",
+  "operatingSystemSupport": [
+    {
+      "operatingSystem": "RedHat",
+      "releaseVersions": [ "5", "6", "7" ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "pe",
+      "versionRequirement": ">= 3.0.0 < 2015.3.0"
+    },
+    {
+      "name": "puppet",
+      "versionRequirement": ">= 3.0.0 < 5.0.0"
+    }
+  ],
+  "classes": [],
+  "types": []
+}

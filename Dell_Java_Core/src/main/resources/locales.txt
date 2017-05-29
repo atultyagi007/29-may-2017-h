@@ -1,0 +1,2 @@
+en-US	English (United States)
+de-DE	German (Germany) 

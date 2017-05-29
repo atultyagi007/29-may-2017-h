@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<InfrastructureTemplate>
+	<displayName>Default Template</displayName>
+	<draft>true</draft>
+	<id>1000</id>
+	<ipAddressing>
+		<chassisIpType>USE_EXISTING_IP</chassisIpType>
+		<iomIpType>USE_EXISTING_IP</iomIpType>
+		<serverIpType>USE_EXISTING_IP</serverIpType>
+		</ipAddressing>
+	<templateName>DefaultTemplate</templateName>
+	<templateType>Chassism1000e</templateType>
+	<networkSettings>
+    <enableIpmiOverLan>true</enableIpmiOverLan>
+    <enableSSH>true</enableSSH>
+    <enableTelnet>true</enableTelnet>
+    <registerChassisOnDNS>true</registerChassisOnDNS>
+    <registerIDracOnDNS>false</registerIDracOnDNS>
+	</networkSettings>
+	
+	<timeSettings>
+    <enableNTP>false</enableNTP>
+    <timeZoneID>11</timeZoneID>	
+	</timeSettings>
+    <firmwareSettings>
+         <downgradeFWOnDevice>false</downgradeFWOnDevice>
+         <useLatestBundle>true</useLatestBundle>
+    </firmwareSettings>	
+</InfrastructureTemplate>

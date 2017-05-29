@@ -1,0 +1,21 @@
+{
+	"catalog": 
+		{	"name": "ASM September",
+			"path": "\\\\10.255.7.219\\SELab\\LAB\\Catalog\\ASMSeptember2016_Full\\ASMCatalog.xml"
+		},
+	"switchBundleRepositoy":
+						{
+						"S4810": "\\\\100.64.1.150\\Projects\\ASM\\Firmware\\Force10\\S4810\\FTOS-SE-9.10.0.1P15.bin",
+                        "S5000": "\\\\100.64.1.150\\Projects\\ASM\\Firmware\\Force10\\S5000\\FTOS-SH-9.10.0.1P15.bin",
+                        "S6000": "\\\\100.64.1.150\\Projects\\ASM\\Firmware\\Force10\\S6000\\FTOS-SI-9.10.0.1P13.bin",
+                        "S4820": "\\\\100.64.1.150\\Projects\\ASM\\Firmware\\Force10\\S4810\\FTOS-SE-9.10.0.1P15.bin",
+                        "MXL-10/40GbE": "\\\\100.64.1.150\\Projects\\ASM\\Firmware\\Force10\\MIOA\\FTOS-XL-9.10.0.1P13.bin",
+                        "PE-FN-2210S-IOM": "\\\\100.64.1.150\\Projects\\ASM\\Firmware\\Force10\\FNIOA\\FTOS-FN-9.10.0.1P15.bin",
+                        "I/O-Aggregator": "\\\\100.64.1.150\\Projects\\ASM\\Firmware\\Force10\\MIOA\\FTOS-XL-9.10.0.1P13.bin",
+                        "PE-FN-410S-IOM": "\\\\100.64.1.150\\Projects\\ASM\\Firmware\\Force10\\FNIOA\\FTOS-FN-9.10.0.1P15.bin",
+                        "N3000":"",
+                        "N4000":"",
+                        "S4048_ON":"\\\\100.64.1.150\\Projects\\ASM\\Firmware\\Force10\\S4048-ON\\FTOS-SK-9.10.0.1P18.bin",
+                        "S4048T-ON":"\\\\100.64.1.150\\Projects\\ASM\\Firmware\\Force10\\S4048-T\\FTOS-SK-9.10.0.1P18.bin"
+                        }
+}

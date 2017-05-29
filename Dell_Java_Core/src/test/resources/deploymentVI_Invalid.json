@@ -1,0 +1,737 @@
+{
+  "Deployment": {
+    "deploymentDescription": "",
+    "deploymentName": "ESXi 2",
+    "id": "ff80808145b4230c0145b4470f640229_INVALID",
+    "jobStatus": "SUCCESSFUL",
+    "serviceTemplate": {
+      "id": "ff80808145b4230c0145b432fbc401cd",
+      "templateName": "ESXi",
+      "templateDescription": "",
+      "draft": false,
+      "createdDate": "2014-04-30T19:53:31.331Z",
+      "createdBy": "admin",
+      "components": {
+        "id": "0a12b6f3-65b4-44b2-a489-b2b30d13b793",
+        "componentID": "component0",
+        "puppetCertName": "bladeserver-b12qqv1",
+        "name": "Server 1",
+        "type": "SERVER",
+        "asmGUID": "ff80808145b4230c0145b430f75200d4",
+        "relatedComponents": "",
+        "associatedComponents": "",
+        "resources": [
+          {
+            "id": "asm::server",
+            "displayName": "OS Settings",
+            "parameters": [
+              {
+                "id": "os_host_name",
+                "value": "",
+                "type": "STRING",
+                "displayName": "Host Name",
+                "required": true,
+                "requiredAtDeployment": true,
+                "hideFromTemplate": true,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "id": "admin_password",
+                "value": "ff80808145b4230c0145b4470f040227",
+                "type": "PASSWORD",
+                "displayName": "Administrator password",
+                "required": true,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "id": "razor_image",
+                "value": "esxi-5.1",
+                "type": "ENUMERATED",
+                "displayName": "OS Image",
+                "required": true,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "id": "os_image_type",
+                "value": "vmware_esxi",
+                "type": "ENUMERATED",
+                "displayName": "OS Image Type",
+                "required": true,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "id": "esx_mem",
+                "value": false,
+                "type": "ENUMERATED",
+                "displayName": "Install EqualLogic MEM",
+                "required": true,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0,
+                "dependencyTarget": "os_image_type",
+                "dependencyValue": "vmware_esxi"
+              },
+              {
+                "id": "custom_script",
+                "type": "TEXT",
+                "displayName": "Custom OS Installation script",
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "id": "title",
+                "value": "bladeserver-b12qqv1",
+                "type": "STRING",
+                "required": true,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false
+              }
+            ]
+          },
+          {
+            "id": "asm::idrac",
+            "displayName": "Hardware Settings",
+            "parameters": [
+              {
+                "id": "target_boot_device",
+                "value": "SD",
+                "type": "ENUMERATED",
+                "displayName": "Target Boot Device",
+                "required": true,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "id": "title",
+                "value": "bladeserver-b12qqv1",
+                "type": "STRING",
+                "required": true,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false
+              }
+            ]
+          },
+          {
+            "id": "asm::esxiscsiconfig",
+            "displayName": "Network Settings",
+            "parameters": [
+              {
+                "id": "identity_pool",
+                "value": -1,
+                "type": "ENUMERATED",
+                "displayName": "Identity Pool",
+                "required": true,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "id": "hypervisor_network",
+                "value": "ff80808145b4230c0145b42cf42e0000",
+                "type": "ENUMERATED",
+                "displayName": "Hypervisor Management Network",
+                "required": true,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0,
+                "dependencyTarget": "os_image_type",
+                "dependencyValue": "vmware_esxi",
+                "networks": {
+                  "id": "ff80808145b4230c0145b42cf42e0000",
+                  "name": "Hypervisor Management",
+                  "type": "HYPERVISOR_MANAGEMENT",
+                  "vlanId": 28,
+                  "static": true,
+                  "staticNetworkConfiguration": {
+                    "gateway": "172.28.0.1",
+                    "subnet": "255.255.0.0",
+                    "primaryDns": "172.20.0.8",
+                    "dnsSuffix": "aidev.net",
+                    "ipRange": {
+                      "Id": "ff80808145b4230c0145b42cf42f0001",
+                      "StartingIp": "172.28.12.115",
+                      "EndingIp": "172.28.12.135"
+                    },
+                    "ipAddress": "172.28.12.116"
+                  }
+                }
+              },
+              {
+                "id": "vmotion_network",
+                "value": "ff80808145b4230c0145b42cfb770017",
+                "type": "ENUMERATED",
+                "displayName": "Hypervisor vMotion Network",
+                "required": true,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0,
+                "dependencyTarget": "os_image_type",
+                "dependencyValue": "vmware_esxi",
+                "networks": {
+                  "id": "ff80808145b4230c0145b42cfb770017",
+                  "name": "vMotion",
+                  "type": "HYPERVISOR_MANAGEMENT",
+                  "vlanId": 23,
+                  "static": false,
+                  "staticNetworkConfiguration": ""
+                }
+              },
+              {
+                "id": "storage_network",
+                "value": "ff80808145b4230c0145b42cfcc30018",
+                "type": "ENUMERATED",
+                "displayName": "Storage Network",
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0,
+                "networks": [
+                  {
+                    "id": "ff80808145b4230c0145b42cfcc30018",
+                    "name": "iSCSI",
+                    "type": "STORAGE_ISCSI_SAN",
+                    "vlanId": 16,
+                    "static": true,
+                    "staticNetworkConfiguration": {
+                      "gateway": "172.16.0.1",
+                      "subnet": "255.255.0.0",
+                      "primaryDns": "172.20.0.8",
+                      "dnsSuffix": "aidev.net",
+                      "ipRange": {
+                        "Id": "ff80808145b4230c0145b42cfcc30019",
+                        "StartingIp": "172.16.12.115",
+                        "EndingIp": "172.16.12.135"
+                      },
+                      "ipAddress": "172.16.12.117"
+                    }
+                  },
+                  {
+                    "id": "ff80808145b4230c0145b42cfcc30018",
+                    "name": "iSCSI",
+                    "type": "STORAGE_ISCSI_SAN",
+                    "vlanId": 16,
+                    "static": true,
+                    "staticNetworkConfiguration": {
+                      "gateway": "172.16.0.1",
+                      "subnet": "255.255.0.0",
+                      "primaryDns": "172.20.0.8",
+                      "dnsSuffix": "aidev.net",
+                      "ipRange": {
+                        "Id": "ff80808145b4230c0145b42cfcc30019",
+                        "StartingIp": "172.16.12.115",
+                        "EndingIp": "172.16.12.135"
+                      },
+                      "ipAddress": "172.16.12.118"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "nfs_network",
+                "value": "",
+                "type": "ENUMERATED",
+                "displayName": "NFS/CIFS Network",
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "id": "pxe_network",
+                "value": "ff80808145b4230c0145b42d0022002f",
+                "type": "ENUMERATED",
+                "displayName": "PXE Network",
+                "required": true,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0,
+                "networks": {
+                  "id": "ff80808145b4230c0145b42d0022002f",
+                  "name": "PXE",
+                  "type": "PRIVATE_LAN",
+                  "vlanId": 20,
+                  "static": false,
+                  "staticNetworkConfiguration": ""
+                }
+              },
+              {
+                "id": "workload_network",
+                "value": ",ff80808145b4230c0145b42d032d0030",
+                "type": "LIST",
+                "displayName": "Workload Networks",
+                "required": true,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0,
+                "networks": {
+                  "id": "ff80808145b4230c0145b42d032d0030",
+                  "name": "Workload",
+                  "type": "PRIVATE_LAN",
+                  "vlanId": 27,
+                  "static": false,
+                  "staticNetworkConfiguration": ""
+                }
+              },
+              {
+                "id": "network_configuration",
+                "value": "{\"id\":\"becbacdb-3950-49a1-9ef4-00689de8e3fa\",\"fabrics\":[{\"id\":\"7cb5f0d8-3188-479d-b9ee-33c7f8e080d5\",\"name\":\"Fabric A\",\"interfaces\":[{\"id\":\"017d90c1-8ecc-402a-afde-721fecd4e4e9\",\"name\":\"Interface A1\",\"partitions\":[{\"id\":\"449608ed-a766-44cb-a926-65b63b5217a1\",\"name\":\"1\",\"networks\":[\"ff80808145b4230c0145b42cf42e0000\",\"ff80808145b4230c0145b42d0022002f\"],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"ff293364-15a4-4c86-896e-9de8785ab982\",\"name\":\"2\",\"networks\":[\"ff80808145b4230c0145b42cfb770017\"],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"de3abf89-eb38-4b9a-89f8-77598278a446\",\"name\":\"3\",\"networks\":[\"ff80808145b4230c0145b42d032d0030\"],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"2dd70b23-4e1e-4d22-947d-bc02b746a9a3\",\"name\":\"4\",\"networks\":[\"ff80808145b4230c0145b42cfcc30018\"],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null}],\"partitioned\":true},{\"id\":\"90f414d5-0851-4831-a7d0-ffb3b13d91ae\",\"name\":\"Interface A2\",\"partitions\":[{\"id\":\"5f867cf9-76dc-4dc2-bdbd-42f9e9783cc4\",\"name\":\"1\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"a68deb58-6bff-4f04-9f64-04dd8a5bda96\",\"name\":\"2\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"ea84381a-d06a-4372-9cf8-bb829b38ac4e\",\"name\":\"3\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"2fb2b88c-0bca-4b3a-aa40-3c15d32d6c1f\",\"name\":\"4\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null}],\"partitioned\":true},{\"id\":\"aa17bd92-dac0-48c2-b6f3-a030cf69677f\",\"name\":\"Interface A3\",\"partitions\":[{\"id\":\"9c56028f-5334-460d-82ee-5241d316be58\",\"name\":\"1\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"5c26c73b-031f-4bc2-9272-74ed973a130e\",\"name\":\"2\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"a8561063-21e3-41c5-b3f1-4a9deeb3c71a\",\"name\":\"3\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"f57c80d8-2cf8-41ff-a493-6451eed2fc2b\",\"name\":\"4\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null}],\"partitioned\":true},{\"id\":\"8838190b-6c3c-4d41-b0f9-265e653dbfe3\",\"name\":\"Interface A4\",\"partitions\":[{\"id\":\"f5313c6c-261f-4e97-a80a-221e61aae03f\",\"name\":\"1\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"8bfe1b36-5085-4937-9dc4-a889a9232e82\",\"name\":\"2\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"cd1ca1fe-d592-48e8-9de2-daa92cd2b075\",\"name\":\"3\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"c592df3a-f8c1-4c23-8ac8-ecd2cd9c0666\",\"name\":\"4\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null}],\"partitioned\":true}],\"enabled\":true,\"redundancy\":true,\"nictype\":\"2\"},{\"id\":\"379a08ff-e1fc-4646-a925-5099dbda49fc\",\"name\":\"Fabric B\",\"interfaces\":[{\"id\":\"2422b5f8-1bff-41ed-8e18-7e010c592e27\",\"name\":\"Interface B1\",\"partitions\":[{\"id\":\"9acfc326-95fe-452e-8850-9ef4e60af133\",\"name\":\"1\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"4eb8d554-2eae-46a1-b371-78b286ff7810\",\"name\":\"2\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"b03dc6c9-1709-4f5a-bbd8-6e325ab0057e\",\"name\":\"3\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"03a7478d-44d5-4e33-b7b9-aa5888c23141\",\"name\":\"4\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null}],\"partitioned\":true},{\"id\":\"c3cfaa77-5938-49a8-846a-4bea1a59e1f9\",\"name\":\"Interface B2\",\"partitions\":[{\"id\":\"87967ef5-b622-458f-b935-22b7b941a0d3\",\"name\":\"1\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"aa6d8d33-0042-417d-926a-0fa46ebb6726\",\"name\":\"2\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"010a51ba-91af-466f-9960-a1505bdc1a48\",\"name\":\"3\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"abace93c-4c29-4c94-a3a4-6e9f55f8b887\",\"name\":\"4\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null}],\"partitioned\":true},{\"id\":\"d4169fb2-87a7-4c3e-8811-ab86e12f5a98\",\"name\":\"Interface B3\",\"partitions\":[{\"id\":\"0f16f734-233b-4962-a846-85466a8cbd71\",\"name\":\"1\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"3757e106-3126-4c0d-ae95-21dd9a9b0929\",\"name\":\"2\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"33c06e6a-c6cf-44de-91f9-2e68229148c7\",\"name\":\"3\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"0ae8a56b-9af0-47ee-b679-6ea59cdfeef2\",\"name\":\"4\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null}],\"partitioned\":true},{\"id\":\"9f01bd8b-d453-4b70-a6ea-e82be619bf06\",\"name\":\"Interface B4\",\"partitions\":[{\"id\":\"e4fe1527-bc3e-4ae2-8d71-447bd678bf57\",\"name\":\"1\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"5445ca76-3e19-445c-a0f7-92273bc43cc5\",\"name\":\"2\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"955cd1da-4700-4c54-be7e-fa976d984d97\",\"name\":\"3\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"479862f9-4afd-4f7f-bfb0-93d45eb30a44\",\"name\":\"4\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null}],\"partitioned\":true}],\"enabled\":false,\"redundancy\":false,\"nictype\":\"2\"},{\"id\":\"ddc0ad7f-c5d0-4208-bc2d-0107d995f5b8\",\"name\":\"Fabric C\",\"interfaces\":[{\"id\":\"a4348186-f4b0-4508-8c59-4b20f4b50720\",\"name\":\"Interface C1\",\"partitions\":[{\"id\":\"85f6386c-1bb1-4ee8-93d1-dd47cc4c5ffc\",\"name\":\"1\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"ac2f935a-c8e1-4e87-8e74-83e6f1ec1ed6\",\"name\":\"2\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"946bcc4a-e7f6-4ab7-acb6-bb2a848dc983\",\"name\":\"3\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"ab37dbe6-70d2-4d49-9cc5-0adc92b94ddc\",\"name\":\"4\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null}],\"partitioned\":true},{\"id\":\"2ee29160-9b45-4251-a8bb-7c09b3a6861f\",\"name\":\"Interface C2\",\"partitions\":[{\"id\":\"ff1b87d3-c5b0-4cc9-a2e4-05b9b5cb6fa1\",\"name\":\"1\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"49f4fc48-502b-4e53-9756-1e37bb0f082e\",\"name\":\"2\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"9b61822a-0ff3-4768-9f77-a398c98b9de8\",\"name\":\"3\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"0bc62398-93d2-4a44-8595-73ba8285a2a6\",\"name\":\"4\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null}],\"partitioned\":true},{\"id\":\"fa995a26-bb4b-45d4-8529-b2b94dd76c0d\",\"name\":\"Interface C3\",\"partitions\":[{\"id\":\"cf0668ef-3dca-459d-9fbb-29cbaa1b02c3\",\"name\":\"1\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"f3940f64-941c-48be-a725-e6778cd8114f\",\"name\":\"2\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"514f0abf-4cea-4897-bc72-3adfe1cc3fd9\",\"name\":\"3\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"ec3fcf27-0264-4b4e-bf49-c55e66de927b\",\"name\":\"4\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null}],\"partitioned\":true},{\"id\":\"8539e6b3-70fc-4012-b9fe-2b2dae7eef37\",\"name\":\"Interface C4\",\"partitions\":[{\"id\":\"852234a8-a0aa-48b0-96c2-c0aabfad2729\",\"name\":\"1\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"56941b47-1e87-4e4e-8ffe-cb7bde6696ad\",\"name\":\"2\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"f693f876-6067-4d81-b1d4-111609a402bc\",\"name\":\"3\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null},{\"id\":\"6f41fb83-c800-4aca-ac89-bc7b0367eb80\",\"name\":\"4\",\"networks\":[],\"virtualidentitypool\":null,\"minimum\":0,\"maximum\":100,\"boot\":false,\"personality\":null}],\"partitioned\":true}],\"enabled\":false,\"redundancy\":false,\"nictype\":\"2\"}],\"servertype\":\"blade\",\"interfaces\":[],\"teams\":[],\"vswitches\":[]}",
+                "type": "NETWORKCONFIGURATION",
+                "displayName": "Network Config",
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0,
+                "networkConfiguration": {
+                  "id": "becbacdb-3950-49a1-9ef4-00689de8e3fa",
+                  "servertype": "blade",
+                  "fabrics": [
+                    {
+                      "id": "7cb5f0d8-3188-479d-b9ee-33c7f8e080d5",
+                      "name": "Fabric A",
+                      "redundancy": true,
+                      "enabled": true,
+                      "interfaces": [
+                        {
+                          "id": "017d90c1-8ecc-402a-afde-721fecd4e4e9",
+                          "name": "Interface A1",
+                          "partitioned": true,
+                          "partitions": [
+                            {
+                              "id": "449608ed-a766-44cb-a926-65b63b5217a1",
+                              "name": 1,
+                              "networks": [
+                                "ff80808145b4230c0145b42cf42e0000",
+                                "ff80808145b4230c0145b42d0022002f"
+                              ],
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "ff293364-15a4-4c86-896e-9de8785ab982",
+                              "name": 2,
+                              "networks": "ff80808145b4230c0145b42cfb770017",
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "de3abf89-eb38-4b9a-89f8-77598278a446",
+                              "name": 3,
+                              "networks": "ff80808145b4230c0145b42d032d0030",
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "2dd70b23-4e1e-4d22-947d-bc02b746a9a3",
+                              "name": 4,
+                              "networks": "ff80808145b4230c0145b42cfcc30018",
+                              "minimum": 0,
+                              "maximum": 100
+                            }
+                          ]
+                        },
+                        {
+                          "id": "90f414d5-0851-4831-a7d0-ffb3b13d91ae",
+                          "name": "Interface A2",
+                          "partitioned": true,
+                          "partitions": [
+                            {
+                              "id": "5f867cf9-76dc-4dc2-bdbd-42f9e9783cc4",
+                              "name": 1,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "a68deb58-6bff-4f04-9f64-04dd8a5bda96",
+                              "name": 2,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "ea84381a-d06a-4372-9cf8-bb829b38ac4e",
+                              "name": 3,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "2fb2b88c-0bca-4b3a-aa40-3c15d32d6c1f",
+                              "name": 4,
+                              "minimum": 0,
+                              "maximum": 100
+                            }
+                          ]
+                        },
+                        {
+                          "id": "aa17bd92-dac0-48c2-b6f3-a030cf69677f",
+                          "name": "Interface A3",
+                          "partitioned": true,
+                          "partitions": [
+                            {
+                              "id": "9c56028f-5334-460d-82ee-5241d316be58",
+                              "name": 1,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "5c26c73b-031f-4bc2-9272-74ed973a130e",
+                              "name": 2,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "a8561063-21e3-41c5-b3f1-4a9deeb3c71a",
+                              "name": 3,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "f57c80d8-2cf8-41ff-a493-6451eed2fc2b",
+                              "name": 4,
+                              "minimum": 0,
+                              "maximum": 100
+                            }
+                          ]
+                        },
+                        {
+                          "id": "8838190b-6c3c-4d41-b0f9-265e653dbfe3",
+                          "name": "Interface A4",
+                          "partitioned": true,
+                          "partitions": [
+                            {
+                              "id": "f5313c6c-261f-4e97-a80a-221e61aae03f",
+                              "name": 1,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "8bfe1b36-5085-4937-9dc4-a889a9232e82",
+                              "name": 2,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "cd1ca1fe-d592-48e8-9de2-daa92cd2b075",
+                              "name": 3,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "c592df3a-f8c1-4c23-8ac8-ecd2cd9c0666",
+                              "name": 4,
+                              "minimum": 0,
+                              "maximum": 100
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "379a08ff-e1fc-4646-a925-5099dbda49fc",
+                      "name": "Fabric B",
+                      "redundancy": false,
+                      "enabled": false,
+                      "interfaces": [
+                        {
+                          "id": "2422b5f8-1bff-41ed-8e18-7e010c592e27",
+                          "name": "Interface B1",
+                          "partitioned": true,
+                          "partitions": [
+                            {
+                              "id": "9acfc326-95fe-452e-8850-9ef4e60af133",
+                              "name": 1,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "4eb8d554-2eae-46a1-b371-78b286ff7810",
+                              "name": 2,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "b03dc6c9-1709-4f5a-bbd8-6e325ab0057e",
+                              "name": 3,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "03a7478d-44d5-4e33-b7b9-aa5888c23141",
+                              "name": 4,
+                              "minimum": 0,
+                              "maximum": 100
+                            }
+                          ]
+                        },
+                        {
+                          "id": "c3cfaa77-5938-49a8-846a-4bea1a59e1f9",
+                          "name": "Interface B2",
+                          "partitioned": true,
+                          "partitions": [
+                            {
+                              "id": "87967ef5-b622-458f-b935-22b7b941a0d3",
+                              "name": 1,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "aa6d8d33-0042-417d-926a-0fa46ebb6726",
+                              "name": 2,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "010a51ba-91af-466f-9960-a1505bdc1a48",
+                              "name": 3,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "abace93c-4c29-4c94-a3a4-6e9f55f8b887",
+                              "name": 4,
+                              "minimum": 0,
+                              "maximum": 100
+                            }
+                          ]
+                        },
+                        {
+                          "id": "d4169fb2-87a7-4c3e-8811-ab86e12f5a98",
+                          "name": "Interface B3",
+                          "partitioned": true,
+                          "partitions": [
+                            {
+                              "id": "0f16f734-233b-4962-a846-85466a8cbd71",
+                              "name": 1,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "3757e106-3126-4c0d-ae95-21dd9a9b0929",
+                              "name": 2,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "33c06e6a-c6cf-44de-91f9-2e68229148c7",
+                              "name": 3,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "0ae8a56b-9af0-47ee-b679-6ea59cdfeef2",
+                              "name": 4,
+                              "minimum": 0,
+                              "maximum": 100
+                            }
+                          ]
+                        },
+                        {
+                          "id": "9f01bd8b-d453-4b70-a6ea-e82be619bf06",
+                          "name": "Interface B4",
+                          "partitioned": true,
+                          "partitions": [
+                            {
+                              "id": "e4fe1527-bc3e-4ae2-8d71-447bd678bf57",
+                              "name": 1,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "5445ca76-3e19-445c-a0f7-92273bc43cc5",
+                              "name": 2,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "955cd1da-4700-4c54-be7e-fa976d984d97",
+                              "name": 3,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "479862f9-4afd-4f7f-bfb0-93d45eb30a44",
+                              "name": 4,
+                              "minimum": 0,
+                              "maximum": 100
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "ddc0ad7f-c5d0-4208-bc2d-0107d995f5b8",
+                      "name": "Fabric C",
+                      "redundancy": false,
+                      "enabled": false,
+                      "interfaces": [
+                        {
+                          "id": "a4348186-f4b0-4508-8c59-4b20f4b50720",
+                          "name": "Interface C1",
+                          "partitioned": true,
+                          "partitions": [
+                            {
+                              "id": "85f6386c-1bb1-4ee8-93d1-dd47cc4c5ffc",
+                              "name": 1,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "ac2f935a-c8e1-4e87-8e74-83e6f1ec1ed6",
+                              "name": 2,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "946bcc4a-e7f6-4ab7-acb6-bb2a848dc983",
+                              "name": 3,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "ab37dbe6-70d2-4d49-9cc5-0adc92b94ddc",
+                              "name": 4,
+                              "minimum": 0,
+                              "maximum": 100
+                            }
+                          ]
+                        },
+                        {
+                          "id": "2ee29160-9b45-4251-a8bb-7c09b3a6861f",
+                          "name": "Interface C2",
+                          "partitioned": true,
+                          "partitions": [
+                            {
+                              "id": "ff1b87d3-c5b0-4cc9-a2e4-05b9b5cb6fa1",
+                              "name": 1,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "49f4fc48-502b-4e53-9756-1e37bb0f082e",
+                              "name": 2,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "9b61822a-0ff3-4768-9f77-a398c98b9de8",
+                              "name": 3,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "0bc62398-93d2-4a44-8595-73ba8285a2a6",
+                              "name": 4,
+                              "minimum": 0,
+                              "maximum": 100
+                            }
+                          ]
+                        },
+                        {
+                          "id": "fa995a26-bb4b-45d4-8529-b2b94dd76c0d",
+                          "name": "Interface C3",
+                          "partitioned": true,
+                          "partitions": [
+                            {
+                              "id": "cf0668ef-3dca-459d-9fbb-29cbaa1b02c3",
+                              "name": 1,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "f3940f64-941c-48be-a725-e6778cd8114f",
+                              "name": 2,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "514f0abf-4cea-4897-bc72-3adfe1cc3fd9",
+                              "name": 3,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "ec3fcf27-0264-4b4e-bf49-c55e66de927b",
+                              "name": 4,
+                              "minimum": 0,
+                              "maximum": 100
+                            }
+                          ]
+                        },
+                        {
+                          "id": "8539e6b3-70fc-4012-b9fe-2b2dae7eef37",
+                          "name": "Interface C4",
+                          "partitioned": true,
+                          "partitions": [
+                            {
+                              "id": "852234a8-a0aa-48b0-96c2-c0aabfad2729",
+                              "name": 1,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "56941b47-1e87-4e4e-8ffe-cb7bde6696ad",
+                              "name": 2,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "f693f876-6067-4d81-b1d4-111609a402bc",
+                              "name": 3,
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "id": "6f41fb83-c800-4aca-ac89-bc7b0367eb80",
+                              "name": 4,
+                              "minimum": 0,
+                              "maximum": 100
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "title",
+                "value": "bladeserver-b12qqv1",
+                "type": "STRING",
+                "required": true,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false
+              }
+            ]
+          }
+        ]
+      },
+      "enableApps": false,
+      "enableCluster": false,
+      "enableServer": false,
+      "enableStorage": false,
+      "enableVMs": false
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{
+    "component": {
+          "id": "component-netapp-1",
+          "puppetCertName": "netapp-cert",
+          "name": "NetApp",
+          "relatedComponents": {},
+          "associatedComponents": {},
+          "type": "STORAGE",
+          "resources": {
+            "id": "netapp::create_nfs_export",
+            "displayName": "NetApp Storage Settings",
+            "parameters": [
+              {
+                "id": "title",
+                "value": "",
+                "type": "STRING",
+                "displayName": "Storage Volume Name",
+                "required": true,
+                "requiredAtDeployment": true,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "id": "size",
+                "value": "",
+                "type": "STRING",
+                "displayName": "Storage Size e.g 100GB",
+                "required": true,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "id": "aggr",
+                "value": "",
+                "type": "STRING",
+                "displayName": "Aggregate Name",
+                "required": true,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "id": "spaceres",
+                "value": "none",
+                "displayName": "Space Reservation Mode",
+                "type": "ENUMERATED",
+                "options": [
+                  {
+                    "value": "none",
+                    "name": "None",
+                    "dependencyTarget": null,
+                    "dependencyValue": null
+                  },
+                  {
+                    "value": "file",
+                    "name": "File",
+                    "dependencyTarget": null,
+                    "dependencyValue": null
+                  },
+                  {
+                    "value": "volume",
+                    "name": "Volume",
+                    "dependencyTarget": null,
+                    "dependencyValue": null
+                  }
+                ],
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "id": "snapresv",
+                "value": "0",
+                "type": "INTEGER",
+                "displayName": "The % of Space Reserved for Snapshots",
+                "required": true,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 100
+              },
+              {
+                "id": "autoincrement",
+                "value": "true",
+                "type": "BOOLEAN",
+                "displayName": "Auto Increment",
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "id": "persistent",
+                "value": "true",
+                "type": "BOOLEAN",
+                "displayName": "Persistent",
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "id": "nfs_network",
+                "value": "",
+                "type": "STRING",
+                "displayName": "NFS Target IP",
+                "required": true,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0
+              }]
+           }
+    }   
+ }

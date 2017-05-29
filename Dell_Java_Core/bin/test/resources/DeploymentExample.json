@@ -1,0 +1,691 @@
+{"Deployment": {
+    "createdBy": "admin",
+    "deploymentDescription": "This is the deployment description.",
+    "deploymentName": "My deployment",
+    "id": 999,
+    "serviceTemplate": {
+        "id": 1000,
+        "templateName": "Default Template",
+        "templateDescription": "Default Template Description",
+        "draft": false,
+        "createdBy": "Administrator",
+        "updatedBy": "Administrator",
+        "components": [
+            {
+                "id": "fbf7f901-49cb-4db7-b9aa-baa6de473576",
+                "name": "Storage",
+                "type": "STORAGE",
+                "relatedComponents": "",
+                "associatedComponents": "",
+                "resources": {
+                    "id": "StorageCategory_1",
+                    "displayName": "Storage Settings",
+                    "parameters": {
+                        "id": "StorageVolume",
+                        "type": "STRING",
+                        "displayName": "Storage Volume",
+                        "required": true
+                    }
+                }
+            },
+            {
+                "id": "component-compellent-1",
+                "name": "Compellent",
+                "type": "STORAGE",
+                "relatedComponents": "",
+                "associatedComponents": "",
+                "resources": {
+                    "id": "asm::volume::compellent",
+                    "displayName": "Compellent Storage Settings",
+                    "parameters": [
+                        {
+                            "id": "title",
+                            "value": "",
+                            "type": "STRING",
+                            "displayName": "Storage Volume",
+                            "required": true
+                        },
+                        {
+                            "id": "size",
+                            "value": "",
+                            "type": "STRING",
+                            "displayName": "Storage Size e.g 100g",
+                            "required": true
+                        },
+                        {
+                            "id": "boot",
+                            "value": false,
+                            "type": "STRING",
+                            "displayName": "Boot Volume",
+                            "required": true,
+                            "possibleValues": [true, false]
+                        },
+                        {
+                            "id": "volumefolder",
+                            "value": "",
+                            "type": "STRING",
+                            "displayName": "Volume Folder",
+                            "required": false
+                        },
+                        {
+                            "id": "purge",
+                            "value": "yes",
+                            "type": "STRING",
+                            "displayName": "Purge Volume",
+                            "required": true,
+                            "possibleValues": ["yes", "no"]
+                        },
+                        {
+                            "id": "volume_notes",
+                            "value": "",
+                            "type": "STRING",
+                            "displayName": "Volume Notes",
+                            "required": false
+                        },
+                        {
+                            "id": "replayprofile",
+                            "value": "",
+                            "type": "STRING",
+                            "displayName": "Replay Profile",
+                            "required": false
+                        },
+                        {
+                            "id": "storageprofile",
+                            "value": "",
+                            "type": "STRING",
+                            "displayName": "Storage Profile Name",
+                            "required": false
+                        },
+                        {
+                            "id": "server_notes",
+                            "value": "",
+                            "type": "STRING",
+                            "displayName": "Server Notes",
+                            "required": false
+                        },
+                        {
+                            "id": "servername",
+                            "value": "",
+                            "type": "STRING",
+                            "displayName": "Server Object Name",
+                            "required": false
+                        },
+                        {
+                            "id": "operatingsystem",
+                            "value": "VMware ESX 5.1",
+                            "type": "STRING",
+                            "displayName": "Operating System Name",
+                            "required": true,
+                            "possibleValues": ["VMware ESX 5.1", "VMware ESX 5.0", "VMware ESX 5.5"]
+                        },
+                        {
+                            "id": "serverfolder",
+                            "value": "",
+                            "type": "STRING",
+                            "displayName": "Server Object Folder",
+                            "required": false
+                        },
+                        {
+                            "id": "wwn",
+                            "value": "",
+                            "type": "STRING",
+                            "displayName": "Server WWPN Values",
+                            "required": false
+                        },
+                        {
+                            "id": "porttype",
+                            "value": "FibreChannel",
+                            "type": "STRING",
+                            "displayName": "Port Type",
+                            "required": false,
+                            "possibleValues": ["FibreChannel", "iSCSI"]
+                        },
+                        {
+                            "id": "manual",
+                            "value": false,
+                            "type": "STRING",
+                            "displayName": "Manual",
+                            "required": false,
+                            "possibleValues": [true, false]
+                        },
+                        {
+                            "id": "force",
+                            "value": false,
+                            "type": "STRING",
+                            "displayName": "Force Map",
+                            "required": false,
+                            "possibleValues": [true, false]
+                        },
+                        {
+                            "id": "readonly",
+                            "value": false,
+                            "type": "STRING",
+                            "displayName": "Map Read Only",
+                            "required": false,
+                            "possibleValues": [true, false]
+                        },
+                        {
+                            "id": "singlepath",
+                            "value": false,
+                            "type": "STRING",
+                            "displayName": "Single Path Map",
+                            "required": false,
+                            "possibleValues": [true, false]
+                        },
+                        {
+                            "id": "TargetCompellent",
+                            "type": "ENUMERATED",
+                            "displayName": "Target Compellent",
+                            "required": true
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "component-equallogic-iqn-1",
+                "name": "EqualLogic IQN",
+                "type": "STORAGE",
+                "relatedComponents": "",
+                "associatedComponents": "",
+                "resources": {
+                    "id": "equallogic::create_vol_iqnorip_access",
+                    "displayName": "Storage Settings",
+                    "parameters": [
+                        {
+                            "id": "title",
+                            "value": "my_volume",
+                            "type": "STRING",
+                            "displayName": "Storage Volume",
+                            "required": true
+                        },
+                        {
+	                        "id": "poolname",
+	                        "value": "default",
+	                        "type": "STRING",
+	                        "displayName": "Storage Pool",
+	                        "required": false
+                    	},
+                        {
+                            "id": "size",
+                            "value": "",
+                            "type": "INTEGER",
+                            "displayName": "Storage Size",
+                            "required": true
+                        },
+                        {
+                            "id": "thinprovision",
+                            "value": "enable",
+                            "type": "STRING",
+                            "displayName": "Thin Provisioning",
+                            "required": true,
+                            "possibleValues": ["enable", "disable"]
+                        },
+                        {
+                            "id": "snapreserve",
+                            "value": "100%",
+                            "type": "STRING",
+                            "displayName": "Snapshot Reserve %",
+                            "required": true
+                        },
+                        {
+                            "id": "thinminreserve",
+                            "value": "10%",
+                            "type": "STRING",
+                            "displayName": "Thin Min Reserve %",
+                            "required": true,
+                            "dependencyTarget": "thinprovision",
+                            "dependencyValue": "enable"
+                        },
+                        {
+                            "id": "thingrowthwarn",
+                            "value": "60%",
+                            "type": "STRING",
+                            "displayName": "Thin growth Warning %",
+                            "required": true,
+                            "dependencyTarget": "thinprovision",
+                            "dependencyValue": "enable"
+                        },
+                        {
+                            "id": "thingrowthmax",
+                            "value": "100%",
+                            "type": "STRING",
+                            "displayName": "Thin growth Maximum %",
+                            "required": true,
+                            "dependencyTarget": "thinprovision",
+                            "dependencyValue": "enable"
+                        },
+                        {
+                            "id": "thinwarnsoftthres",
+                            "value": "60%",
+                            "type": "STRING",
+                            "displayName": "Thin warning on threshold %",
+                            "required": true,
+                            "dependencyTarget": "thinprovision",
+                            "dependencyValue": "enable"
+                        },
+                        {
+                            "id": "thinwarnhardthres",
+                            "value": "90%",
+                            "type": "STRING",
+                            "displayName": "Thin warning hard threshold %",
+                            "required": true,
+                            "dependencyTarget": "thinprovision",
+                            "dependencyValue": "enable"
+                        },
+                        {
+                            "id": "multihostaccess",
+                            "value": "enable",
+                            "type": "STRING",
+                            "displayName": "Multi-Host access of volume",
+                            "required": true,
+                            "possibleValues": ["enable", "disable"]
+                        },
+                        {
+                            "id": "iqnOrIP",
+                            "value": "",
+                            "type": "STRING",
+                            "displayName": "Initiator IQN or IP Address",
+                            "required": true
+                        },
+                        {
+                            "id": "TargetEqualLogic",
+                            "type": "ENUMERATED",
+                            "displayName": "Target EqualLogic",
+                            "required": true
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "component-equallogic-chap-1",
+                "name": "EqualLogic Chap",
+                "type": "STORAGE",
+                "relatedComponents": "",
+                "associatedComponents": "",
+                "resources": {
+                    "id": "asm::volume::equallogic",
+                    "displayName": "Storage Settings",
+                    "parameters": [
+                        {
+                            "id": "title",
+                            "value": "my_volume",
+                            "type": "STRING",
+                            "displayName": "Storage Volume",
+                            "required": true
+                        },
+                        {
+	                        "id": "poolname",
+	                        "value": "default",
+	                        "type": "STRING",
+	                        "displayName": "Storage Pool",
+	                        "required": false
+	                    },
+                        {
+                            "id": "size",
+                            "value": "",
+                            "type": "INTEGER",
+                            "displayName": "Storage Size",
+                            "required": true
+                        },
+                        {
+                            "id": "thinprovision",
+                            "value": "enable",
+                            "type": "STRING",
+                            "displayName": "Thin Provisioning",
+                            "required": true,
+                            "possibleValues": ["enable", "disable"]
+                        },
+                        {
+                            "id": "snapreserve",
+                            "value": "100%",
+                            "type": "STRING",
+                            "displayName": "Snapshot Reserve %",
+                            "required": true
+                        },
+                        {
+                            "id": "thinminreserve",
+                            "value": "10%",
+                            "type": "STRING",
+                            "displayName": "Thin Min Reserve %",
+                            "required": true
+                        },
+                        {
+                            "id": "thingrowthwarn",
+                            "value": "60%",
+                            "type": "STRING",
+                            "displayName": "Thin growth Warning %",
+                            "required": true
+                        },
+                        {
+                            "id": "thingrowthmax",
+                            "value": "100%",
+                            "type": "STRING",
+                            "displayName": "Thin growth Maximum %",
+                            "required": true
+                        },
+                        {
+                            "id": "thinwarnsoftthres",
+                            "value": "60%",
+                            "type": "STRING",
+                            "displayName": "Thin warning on threshold %",
+                            "required": true
+                        },
+                        {
+                            "id": "thinwarnhardthres",
+                            "value": "90%",
+                            "type": "STRING",
+                            "displayName": "Thin warning hard threshold %",
+                            "required": true
+                        },
+                        {
+                            "id": "multihostaccess",
+                            "value": "enable",
+                            "type": "STRING",
+                            "displayName": "Multi-Host access of volume",
+                            "required": true,
+                            "possibleValues": ["enable", "disable"]
+                        },
+                        {
+                            "id": "chap_user_name",
+                            "value": "",
+                            "type": "STRING",
+                            "displayName": "Chap Username",
+                            "required": true
+                        },
+                        {
+                            "id": "passwd",
+                            "value": "",
+                            "type": "PASSWORD",
+                            "displayName": "Chap Secret",
+                            "required": true
+                        },
+                        {
+                            "id": "TargetEqualLogic",
+                            "type": "ENUMERATED",
+                            "displayName": "Target EqualLogic",
+                            "required": true
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "f84f7a4b-b3c8-4bfd-ada1-fc90be8a2a89",
+                "name": "Server",
+                "type": "SERVER",
+                "relatedComponents": {
+                    "entry": {
+                        "key": "fbf7f901-49cb-4db7-b9aa-baa6de473576",
+                        "value": "Storage"
+                    }
+                },
+                "associatedComponents": {
+                    "entry": {
+                        "key": "fbf7f901-49cb-4db7-b9aa-baa6de473576",
+                        "value": {"entry": {
+                            "key": "name",
+                            "value": "Storage"
+                        }}
+                    }
+                },
+                "resources": [
+                    {
+                        "id": "ServerCategory_1",
+                        "displayName": "Hardware Settings",
+                        "parameters": [
+                            {
+                                "id": "TargetBootDevice",
+                                "value": "HD",
+                                "type": "ENUMERATED",
+                                "displayName": "Target Boot Device",
+                                "required": true,
+                                "possibleValues": ["SD", "HD"],
+                                "possibleValuesDisplayName": ["SD Card", "Local Hard Drive"]
+                            },
+                            {
+                                "id": "ServerPool",
+                                "value": -1,
+                                "type": "ENUMERATED",
+                                "displayName": "Server Pool",
+                                "required": true,
+                                "possibleValues": -1,
+                                "possibleValuesDisplayName": "Global"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "ServerCategory_2",
+                        "displayName": "OS Settings",
+                        "parameters": [
+                            {
+                                "id": "IdentityPool",
+                                "value": -1,
+                                "type": "ENUMERATED",
+                                "displayName": "Identity Pool",
+                                "required": true,
+                                "possibleValues": -1,
+                                "possibleValuesDisplayName": "Global"
+                            },
+                            {
+                                "id": "OSHostName",
+                                "type": "STRING",
+                                "displayName": "Host Name",
+                                "required": true
+                            },
+                            {
+                                "id": "HypervisorNetwork",
+                                "value": -1,
+                                "type": "ENUMERATED",
+                                "displayName": "Hypervisor Management Network",
+                                "required": true,
+                                "possibleValues": -1,
+                                "possibleValuesDisplayName": "Select..."
+                            },
+                            {
+                                "id": "VMotionNetwork",
+                                "value": -1,
+                                "type": "ENUMERATED",
+                                "displayName": "Hypervisor vMotion Network",
+                                "required": true,
+                                "possibleValues": -1,
+                                "possibleValuesDisplayName": "Select..."
+                            },
+                            {
+                                "id": "StorageNetwork",
+                                "value": -1,
+                                "type": "ENUMERATED",
+                                "displayName": "Storage Network",
+                                "required": true,
+                                "possibleValues": -1,
+                                "possibleValuesDisplayName": "Select..."
+                            },
+                            {
+                                "id": "WorkloadNetwork",
+                                "type": "LIST",
+                                "displayName": "Workload Networks",
+                                "required": true
+                            },
+                            {
+                                "id": "AdminPassword",
+                                "type": "PASSWORD",
+                                "displayName": "Administrator password",
+                                "required": true
+                            },
+                            {
+                                "id": "RazorImage",
+                                "value": -1,
+                                "type": "ENUMERATED",
+                                "displayName": "OS Image",
+                                "required": true,
+                                "possibleValues": [-1, "esxi-5.1"],
+                                "possibleValuesDisplayName": ["Select...", "esxi-5.1"]
+                            },
+                            {
+                                "id": "OSImageType",
+                                "value": -1,
+                                "type": "ENUMERATED",
+                                "displayName": "OS Image Type",
+                                "required": true,
+                                "possibleValues": [-1, "Linux", "Windows", "ESXi"],
+                                "possibleValuesDisplayName": ["Select...", "Linux", "Windows", "ESXi"]
+                            },
+                            {
+                                "id": "CustomScript",
+                                "type": "TEXT",
+                                "displayName": "Custom OS Installation script",
+                                "required": true
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "0adab86c-fe55-4ed7-b030-03a906897a28",
+                "name": "Cluster",
+                "type": "CLUSTER",
+                "relatedComponents": {
+                    "entry": {
+                        "key": "f84f7a4b-b3c8-4bfd-ada1-fc90be8a2a89",
+                        "value": "Server"
+                    }
+                },
+                "associatedComponents": {
+                    "entry": {
+                        "key": "f84f7a4b-b3c8-4bfd-ada1-fc90be8a2a89",
+                        "value": {"entry": {
+                            "key": "name",
+                            "value": "Server"
+                        }}
+                    }
+                },
+                "resources": {
+                    "id": "ClusterCategory_1",
+                    "displayName": "Cluster Settings",
+                    "parameters": [
+                        {
+                            "id": "TargetVCenter",
+                            "type": "ENUMERATED",
+                            "displayName": "Target vCenter",
+                            "required": true
+                        },
+                        {
+                            "id": "DataCenter",
+                            "type": "STRING",
+                            "displayName": "Data Center Name",
+                            "required": true
+                        },
+                        {
+                            "id": "Cluster",
+                            "type": "STRING",
+                            "displayName": "Cluster Name",
+                            "required": true
+                        },
+                        {
+                            "id": "Datastore",
+                            "type": "STRING",
+                            "displayName": "Cluster Data Store",
+                            "required": true
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "201d1961-81de-40ac-a625-5c058893ec13",
+                "name": "Virtual Machine",
+                "type": "VIRTUALMACHINE",
+                "relatedComponents": {
+                    "entry": {
+                        "key": "0adab86c-fe55-4ed7-b030-03a906897a28",
+                        "value": "Cluster"
+                    }
+                },
+                "associatedComponents": {
+                    "entry": {
+                        "key": "0adab86c-fe55-4ed7-b030-03a906897a28",
+                        "value": {"entry": {
+                            "key": "name",
+                            "value": "Cluster"
+                        }}
+                    }
+                },
+                "resources": [
+                    {
+                        "id": "VMCategory_1",
+                        "displayName": "Virtual Machine Settings",
+                        "parameters": [
+                            {
+                                "id": "VMCPU",
+                                "value": 1,
+                                "type": "INTEGER",
+                                "displayName": "Number of CPUs",
+                                "required": true,
+                                "min": 1,
+                                "max": 8
+                            },
+                            {
+                                "id": "VMMemory",
+                                "value": 8,
+                                "type": "INTEGER",
+                                "displayName": "Memory in GB",
+                                "required": true,
+                                "min": 1,
+                                "max": 256
+                            },
+                            {
+                                "id": "VMNICs",
+                                "value": 1,
+                                "type": "INTEGER",
+                                "displayName": "Number of NICs",
+                                "required": true,
+                                "min": 1,
+                                "max": 16
+                            }
+                        ]
+                    },
+                    {
+                        "id": "VMCategory_2",
+                        "displayName": "Virtual Machine OS Settings",
+                        "parameters": [
+                            {
+                                "id": "VMHostName",
+                                "type": "STRING",
+                                "displayName": "Host Name",
+                                "required": true
+                            },
+                            {
+                                "id": "VMAdminPassword",
+                                "type": "PASSWORD",
+                                "displayName": "Administrator password",
+                                "required": true
+                            },
+                            {
+                                "id": "VMRazorImage",
+                                "value": -1,
+                                "type": "ENUMERATED",
+                                "displayName": "OS Image",
+                                "required": true,
+                                "possibleValues": -1,
+                                "possibleValuesDisplayName": "Select..."
+                            },
+                            {
+                                "id": "VMOSImageType",
+                                "value": -1,
+                                "type": "ENUMERATED",
+                                "displayName": "OS Image Type",
+                                "required": true,
+                                "possibleValues": [-1, "Linux", "Windows"],
+                                "possibleValuesDisplayName": ["Select...", "Linux", "Windows"]
+                            },
+                            {
+                                "id": "VMCustomScript",
+                                "type": "TEXT",
+                                "displayName": "Custom OS Installation script",
+                                "required": true
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "updatedBy": "admin"
+}}

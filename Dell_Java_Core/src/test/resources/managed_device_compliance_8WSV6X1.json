@@ -1,0 +1,41 @@
+{
+   "refId":"ff8080814fcbba8a014fd0db5a2803e9",
+   "ipAddress":"172.17.3.143",
+   "serviceTag":"8WSV6X1",
+   "model":"PowerEdge R720",
+   "deviceType":"RackServer",
+   "discoverDeviceType":"IDRAC7",
+   "displayName":"idrac-8WSV6X1",
+   "managedState":"MANAGED",
+   "state":"READY",
+   "manufacturer":"Dell",
+   "systemId":"1164",
+   "health":"GREEN",
+   "healthMessage":"OK",
+   "operatingSystem":"N/A",
+   "numberOfCPUs":2,
+   "cpuType":"Intel(R) Xeon(R) CPU E5-2670 0 @ 2.60GHz",
+   "nics":6,
+   "memoryInGB":128,
+   "complianceCheckDate":"2015-09-15T11:54:44.699+0000",
+   "discoveredDate":"2015-09-15T11:54:44.552+0000",
+   "deviceGroupList":{
+      "deviceGroup":[
+         {
+            "groupSeqId":-1,
+            "groupName":"Global",
+            "createdBy":"admin"
+         }
+      ],
+      "totalCount":0
+   },
+   "detailLink":{
+      "title":"ff8080814fcbba8a014fd0db5a2803e9",
+      "href":"http://172.27.15.171:9080/AsmManager/Server/ff8080814fcbba8a014fd0db5a2803e9",
+      "rel":"describedby"
+   },
+   "credId":"ff8080814de8b664014de8b7df15008b",
+   "compliance":"COMPLIANT",
+   "failuresCount":0,
+   "facts":"memoryInGB=128;nics=6;numberOfCPUs=2;cpuType=Intel(R) Xeon(R) CPU E5-2670 0 @ 2.60GHz;"
+}

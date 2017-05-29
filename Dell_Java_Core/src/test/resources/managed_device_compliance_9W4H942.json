@@ -1,0 +1,41 @@
+{
+  "refId": "ff8080815255fd7b0152560e710301e6",
+  "ipAddress": "172.17.15.203",
+  "serviceTag": "9W4H942",
+  "model": "PowerEdge M630",
+  "deviceType": "BladeServer",
+  "discoverDeviceType": "IDRAC8",
+  "displayName": "idrac",
+  "managedState":"MANAGED",
+  "state": "READY",
+  "manufacturer": "Dell",
+  "systemId": "1550",
+  "health": "GREEN",
+  "healthMessage": "OK",
+  "operatingSystem": "N/A",
+  "numberOfCPUs": 2,
+  "cpuType": "Intel(R) Xeon(R) CPU E5-2623 v3 @ 3.00GHz",
+  "nics": 4,
+  "memoryInGB": 32,
+  "complianceCheckDate": "2016-02-02T00:05:37.560+0000",
+  "discoveredDate": "2016-01-18T18:45:46.193+0000",
+  "deviceGroupList": {
+    "deviceGroup": [
+      {
+        "groupSeqId": -1,
+        "groupName": "Global",
+        "createdBy": "admin"
+      }
+    ],
+    "totalCount": 0
+  },
+  "detailLink": {
+    "title": "ff8080815255fd7b0152560e710301e6",
+    "href": "http://172.27.15.100:9080/AsmManager/Server/ff8080815255fd7b0152560e710301e6",
+    "rel": "describedby"
+  },
+  "credId": "ff8080815256a239015256a3d2a50009",
+  "compliance": "COMPLIANT",
+  "failuresCount": 0,
+  "facts": "memoryInGB=32;nics=4;numberOfCPUs=2;cpuType=Intel(R) Xeon(R) CPU E5-2623 v3 @ 3.00GHz;"
+}

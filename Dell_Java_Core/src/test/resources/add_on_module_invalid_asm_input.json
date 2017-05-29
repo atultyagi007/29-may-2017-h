@@ -1,0 +1,164 @@
+{
+  "requirements": [
+    {
+      "name": "pe",
+      "versionRequirement": ">= 3.0.0 < 2015.4.0"
+    },
+    {
+      "name": "puppet",
+      "versionRequirement": ">= 3.0.0 < 5.0.0"
+    }
+  ],
+  "operatingSystemSupport": [
+    {
+      "operatingSystem": "RedHat",
+      "releaseVersions": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingSystem": "CentOS",
+      "releaseVersions": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingSystem": "OracleLinux",
+      "releaseVersions": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingSystem": "Scientific",
+      "releaseVersions": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingSystem": "Debian",
+      "releaseVersions": [
+        "6",
+        "7",
+        "8"
+      ]
+    },
+    {
+      "operatingSystem": "Ubuntu",
+      "releaseVersions": [
+        "10.04",
+        "12.04",
+        "14.04"
+      ]
+    }
+  ],
+    "classes" : [
+        {
+            "id" : "component-haproxy",
+            "componentValid" : {
+                "valid" : true
+            },
+            "name" : "haproxy",
+            "teardown" : false,
+            "resources" : [
+                {
+                    "id": "haproxy",
+                    "displayName" : "haproxy",
+                    "parameters" : []
+                }
+            ]
+        }
+    ],
+  "types" : [
+     {
+         "id" : "component-haproxy::listen",
+         "componentValid" : {
+             "valid" : true
+         },
+         "name" : "haproxy::listen",
+         "type" : "SERVICE",
+         "teardown": false,
+         "resources" : [
+             {
+                 "id" : "haproxy::listen",
+                 "displayName" : "Listen",
+                 "parameters" : [
+                     {
+                         "id" : "collect_exported",
+                         "type" : "BOOLEAN",
+                         "displayName" : "Collect Exported",
+                         "required" : false
+                     },
+                     {
+                         "id" : "ipaddress",
+                         "type" : "STRING",
+                         "displayName" : "Ip Address",
+                         "required" : true
+                     },
+                     {
+                         "id" : "ports",
+                         "type" : "STRING",
+                         "displayName" : "Ports",
+                         "required" : true
+                     }
+
+                 ]
+             }
+         ]
+     },
+     {
+         "id" : "component-haproxy::balancermember",
+         "componentValid" : {
+             "valid" : true
+         },
+         "name" : "haproxy::balancermember",
+         "type" : "SERVICE",
+         "teardown" : false,
+         "resources" : [
+             {
+                 "id" : "haproxy::balancermember",
+                 "displayName" : "Balancer Member",
+                 "parameters" : [
+                     {
+                         "id" : "listening_service",
+                         "type": "STRING",
+                         "displayName" : "Listening Service",
+                         "required" : true
+                     },
+                     {
+                         "id" : "server_names",
+                         "type" : "STRING",
+                         "displayName" : "Server Names",
+                         "required" : true
+                     },
+                     {
+                         "id" : "ipaddresses",
+                         "type" : "STRING",
+                         "displayName" : "IP Addresses",
+                         "required" : true
+                     },
+                     {
+                         "id" : "ports",
+                         "type": "STRING",
+                         "displayName" : "Ports",
+                         "required" :true
+                     },
+                     {
+                         "id" : "options",
+                         "type" : "STRING",
+                         "displayName" : "Options",
+                         "required" : false
+                     }
+                 ]
+             }
+         ]
+     }
+  ]
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ManagedDevice>
+	<compliance>COMPLIANT</compliance>
+	<complianceCheckDate>2015-10-01T00:12:33.898Z</complianceCheckDate>
+	<cpuType>Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz</cpuType>
+	<credId>ff8080814fb39dc4014fb39e87700009</credId>
+	<detailLink
+		href="http://172.20.4.171:9080/AsmManager/Server/ff8080814fb3f6cc014fb41370a205b8"
+		rel="describedby" title="ff8080814fb3f6cc014fb41370a205b8" />
+	<deviceGroupList>
+		<DeviceGroup>
+			<groupSeqId>-1</groupSeqId>
+			<groupName>Global</groupName>
+			<createdBy>admin</createdBy>
+		</DeviceGroup>
+		<totalRecords>0</totalRecords>
+	</deviceGroupList>
+	<deviceType>BladeServer</deviceType>
+	<discoverDeviceType>IDRAC7</discoverDeviceType>
+	<discoveredDate>2015-09-09T21:46:57.651Z</discoveredDate>
+	<displayName />
+	<facts>memoryInGB=32;nics=8;numberOfCPUs=2;cpuType=Intel(R) Xeon(R) CPU
+		E5-2640 0 @ 2.50GHz;</facts>
+	<failuresCount>0</failuresCount>
+	<health>GREEN</health>
+	<healthMessage>OK</healthMessage>
+	<inventoryDate>2015-09-11T20:22:49.257Z</inventoryDate>
+	<ipAddress>172.17.4.214</ipAddress>
+	<manufacturer>Dell</manufacturer>
+	<memoryInGB>32</memoryInGB>
+	<model>PowerEdge M620</model>
+	<nics>8</nics>
+	<numberOfCPUs>2</numberOfCPUs>
+	<operatingSystem>N/A</operatingSystem>
+	<refId>ff8080814fb3f6cc014fb41370a205b8</refId>
+	<serviceTag>CV7QQV1</serviceTag>
+	<state>READY</state>
+	<systemId>1243</systemId>
+</ManagedDevice>

@@ -1,0 +1,215 @@
+{
+	"Template":
+			{
+				"Name":"Template_BAREMETAL_LINUX_2964",
+				"Description":"Deploy a Baremetal Linux Template",
+				"Flow":"linux",
+				"retryOnFailure":"true"
+			},
+	"Server":
+			{
+				"Instances":1,
+				"target_boot_device_value":"SD",
+				"OSImage_Value": ["red7"],
+				"install_HyperV": "false",
+				"iSCSI_Initiator":"hardware",
+				"HostNameTemplate":"server${num}",
+				"ServerPoolName":"testPool2",
+				"ServersIPForPool": ["172.31.60.187","172.31.60.98"],
+				"memEnabled":"false",
+				"Os_Image_Version":"",
+				"Product_Key":"",
+				"domain_name":"",
+				"Domain_Admin_Username":"",
+				"Domain_Admin_Password":"Dell1234",
+				"FQ_Domain_Name":"",
+				"Raid_Type":"",
+				"Networks": "BAREMETAL_LINUX_2"					
+			},
+	"Storage":
+			{
+				"Instances":0,
+				"Type":"EqualLogic",
+				"Size":["100GB"],
+				"IPAddress":"172.31.32.108",
+				"Initiator_IQN_IP_Addresses":"",
+				"Auth_Type":"CHAP",
+				"CHAP_User":"grpadmin",
+				"CHAP_Password":"dell1234",
+				"Operating_SystemName_Compellent":"VMware ESX 5.5",
+				"PortType_Compellent":"FibreChannel",
+				"Aggregate_Name":"Aggregate2RAID4",
+				"Snapshot_Space":"2",
+				"NFS_IP":"172.31.32.81"
+			},
+	"Cluster":
+			{
+				"Instances":0,
+				"Type":"VMWare",
+				"IPAddress":"172.31.61.244",
+				"DCName":"",
+				"ExistingClusterName":"",
+				"HGName":"",
+				"ClusterName":"autoCluster",
+				"SwitchType":"Standard",	
+				"HA_Config":"false",
+				"DRS_Config":"false",
+				"VSAN_Enabled":"false",
+				"ClusterIP":""
+			},
+		"VM":
+			{
+				"Instances":0,
+				"Type":"VMWareVM",
+				"AutoGenerateHostName":"true",
+				"HostNameTemplate":"vm${num}",
+				"OS_Image":"red7",
+				"OS_Image_Version":"Windows Server 2012 R2 SERVERDATACENTER",
+				"OS_Image_Type" : "redhat7",
+				"Product_Key":"",
+				"CPU_Count":"1",
+				"Memory_MB":"1024",
+				"vm_template_name":"HCLAman01",
+				"path":"C:\\ClusterStorage\\Volume1",
+				"start_action":"Always auto turn on VM",
+				"stop_action":"Turn off VM"
+			},
+		"Application":
+			{
+				"Instances":0,
+				"Type":"LinuxPostInstall",
+				"yum_proxy":"",	
+				"install_packages":"",
+				"upload_share":"",
+				"upload_file":"hello.sh",
+				"execute_file_command":"sh /var/lib/puppet/staging/hello.sh",
+				"windows_postinstall_share":"",
+				"windows_install_command":"",
+				"citrix_source_location":""
+			},
+			
+			
+	"Scaleup":
+		{
+			"Server":
+			{
+				"Instances":0,
+				"target_boot_device_value":"SD",
+				"OSImage_Value": ["red7"],
+				"install_HyperV": "false",
+				"iSCSI_Initiator":"hardware",
+				"HostNameTemplate":"server${num}",
+				"ServerPoolName":"autoPool",
+				"ServersIPForPool": ["172.31.60.138"],
+				"memEnabled":"false",
+				"Networks": "BAREMETAL_LINUX_2",
+				"Os_Image_Version":"",
+				"Product_Key":"",
+				"domain_name":"",
+				"Domain_Admin_Username":"",
+				"Domain_Admin_Password":"Dell1234",
+				"FQ_Domain_Name":""						
+			},
+			
+			"Storage":
+			{
+				"Instances":0,
+				"Type":"EqualLogic",
+				"Size":["100GB"],
+				"IPAddress":"172.31.32.108",
+				"Initiator_IQN_IP_Addresses":"",
+				"Auth_Type":"CHAP",
+				"CHAP_User":"grpadmin",
+				"CHAP_Password":"dell1234",
+				"Operating_SystemName_Compellent":"VMware ESX 5.5",
+				"PortType_Compellent":"FibreChannel",
+				"Aggregate_Name":"Aggregate2RAID4",
+				"Snapshot_Space":"2",
+				"NFS_IP":"172.31.32.81"
+			},
+			
+			"Cluster":
+			{
+				"Instances":0,
+				"Type":"vmware",
+				"IPAddress":"172.31.61.244",
+				"DCName":"",
+				"ExistingClusterName":"",
+				"HGName":"",
+				"ClusterName":"autoCluster",
+				"SwitchType":"Standard",	
+				"HA_Config":"false",
+				"DRS_Config":"false",
+				"VSAN_Enabled":"false",
+				"ClusterIP":""
+			},
+			
+			"VM":
+			{
+				"Instances":0,
+				"Type":"VMWareVM",
+				"AutoGenerateHostName":"true",
+				"HostNameTemplate":"vm${num}",
+				"OS_Image":"red7",
+				"OS_Image_Version":"Windows Server 2012 R2 SERVERDATACENTER",
+				"OS_Image_Type" : "redhat7",
+				"Product_Key":"",
+				"CPU_Count":"1",
+				"Memory_MB":"1024",
+				"vm_template_name":"HCLAman01",
+				"path":"C:\\ClusterStorage\\Volume1",
+				"start_action":"Always auto turn on VM",
+				"stop_action":"Turn off VM"
+			},
+			
+			"Application":
+			{
+				"Instances":0,
+				"Type":"LinuxPostInstall",
+				"yum_proxy":"",	
+				"install_packages":"",
+				"upload_share":"",
+				"upload_file":"hello.sh",
+				"execute_file_command":"sh",
+				"windows_postinstall_share":"",
+				"windows_install_command":"",
+				"citrix_source_location":""
+			},
+			
+			"Network": 
+			{
+				"Instances":0,
+				"select_network":["CustomPublic", "test_hcl"],
+				"select_resource":["host", "host"]			
+			}	
+		},
+	"Scaledown":
+		{
+			"Storage":
+			{
+				"Instances":0,
+				"storgae_ip":["172.31.32.108"],	
+				"volume_name":["autoVolume0"]
+			},
+			"Server":
+			{
+				"Instances":0,
+				"server_ip":["172.31.60.101","172.31.60.87"]
+			},
+			"Cluster": 
+			{
+				"Instances":0,
+				"cluster_ip":["172.31.32.195"]
+			},
+			"VM": 
+			{
+				"Instances":0, 
+				"vm_hostName":["vm1"]
+			},
+			"Application": 
+			{
+				"Instances":0,
+				"Type":["linux_postinstall"]
+			}
+		}
+}

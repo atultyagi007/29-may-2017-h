@@ -1,0 +1,3595 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceTemplate>
+   <id>ff80808155ff50220155ff813d0d089e</id>
+   <templateName>asm00324</templateName>
+   <templateDescription />
+   <templateVersion>8.3.1-1480444843</templateVersion>
+   <templateValid>
+      <valid>false</valid>
+   </templateValid>
+   <templateLocked>false</templateLocked>
+   <draft>true</draft>
+   <createdDate>2016-07-18T12:35:07.789-07:00</createdDate>
+   <createdBy>admin</createdBy>
+   <updatedDate>2016-11-30T14:40:42.891-07:00</updatedDate>
+   <lastDeployedDate>2016-11-22T19:18:51.234-07:00</lastDeployedDate>
+   <updatedBy>admin</updatedBy>
+   <components>
+      <id>EB302D09-E1DB-4F77-A26B-7FA8ED52940D</id>
+      <componentID>component-server-1</componentID>
+      <componentValid>
+         <valid>false</valid>
+         <messages>
+            <messageBundle>AsmManagerMessages</messageBundle>
+            <messageCode>ASM00324</messageCode>
+            <severity>ERROR</severity>
+            <category>USER_FACING</category>
+            <displayMessage>Server with Windows OS can not be associated with a VMWare Cluster.</displayMessage>
+            <responseAction>Please check the template and try again.</responseAction>
+            <detailedMessage />
+            <agentId>ASM Manager</agentId>
+            <timeStamp>2016-11-30T14:40:37.823-07:00</timeStamp>
+            <sequenceNumber>0</sequenceNumber>
+         </messages>
+      </componentValid>
+      <name>Server</name>
+      <type>SERVER</type>
+      <teardown>false</teardown>
+      <relatedComponents>
+         <entry>
+            <key>CB4884D6-2B45-4B34-8146-BA2E04AA2F68</key>
+            <value>VMWare Cluster</value>
+         </entry>
+      </relatedComponents>
+      <associatedComponents>
+         <entry>
+            <key>CB4884D6-2B45-4B34-8146-BA2E04AA2F68</key>
+            <value>
+               <entry>
+                  <key>service_type</key>
+                  <value>class</value>
+               </entry>
+               <entry>
+                  <key>name</key>
+                  <value>VMWare Cluster</value>
+               </entry>
+            </value>
+         </entry>
+      </associatedComponents>
+      <resources>
+         <id>asm::server</id>
+         <displayName>OS Settings</displayName>
+         <parameters>
+            <id>generate_host_name</id>
+            <value>true</value>
+            <type>BOOLEAN</type>
+            <displayName>Auto-generate Host Name</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>target_boot_device</dependencyTarget>
+            <dependencyValue>HD,SD,SD_WITH_RAID_VSAN,SD_WITH_RAID,AHCI_VSAN</dependencyValue>
+            <toolTip>Use the Host Name Template field to auto-generate host names at deployment time. If not selected, a unique host name will be requested when the template is deployed.</toolTip>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>os_host_name_template</id>
+            <value>server${num}alex</value>
+            <type>STRING</type>
+            <displayName>Host Name Template</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>generate_host_name</dependencyTarget>
+            <dependencyValue>true</dependencyValue>
+            <toolTip>Template used to generate host names at deployment time. Must contain variables that will produce a unique host name. Allowed variables  are ${num} (an auto-generated unique number), ${service_tag}, ${model}, ${vendor} and ${dns} (ASM-assigned static IP will be resolved to hostname by DNS lookup).</toolTip>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>os_host_name</id>
+            <type>STRING</type>
+            <displayName>Host Name</displayName>
+            <required>true</required>
+            <requiredAtDeployment>true</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <dependencyTarget>generate_host_name</dependencyTarget>
+            <dependencyValue>false</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>os_image_type</id>
+            <value>windows2012</value>
+            <type>ENUMERATED</type>
+            <displayName>OS Image Type</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <dependencyTarget>target_boot_device</dependencyTarget>
+            <dependencyValue>SD,SD_WITH_RAID,SD_WITH_RAID_VSAN,HD,AHCI_VSAN</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>razor_image</id>
+            <value>win2012r2</value>
+            <type>ENUMERATED</type>
+            <displayName>OS Image</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>target_boot_device</dependencyTarget>
+            <dependencyValue>SD,SD_WITH_RAID,SD_WITH_RAID_VSAN,HD,AHCI_VSAN</dependencyValue>
+            <options>
+               <value />
+               <name>Select...</name>
+               <attributes />
+            </options>
+            <options>
+               <value>esxi-5.1</value>
+               <name>esxi-5.1</name>
+               <attributes />
+            </options>
+            <options>
+               <value>esxi-5.5</value>
+               <name>esxi-5.5</name>
+               <attributes />
+            </options>
+            <options>
+               <value>esxi-6.0</value>
+               <name>esxi-6.0</name>
+               <attributes />
+            </options>
+            <options>
+               <value>esxi-6.5</value>
+               <name>esxi-6.5</name>
+               <attributes />
+            </options>
+            <options>
+               <value>win2012r2</value>
+               <name>win2012r2</name>
+               <attributes />
+            </options>
+            <toolTip>Location of OS image installation files</toolTip>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>hyperv_install</id>
+            <value>false</value>
+            <type>BOOLEAN</type>
+            <displayName>Install HyperV</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>razor_image</dependencyTarget>
+            <dependencyValue>win2012r2</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>os_image_version</id>
+            <value>windows2012datacenter</value>
+            <type>ENUMERATED</type>
+            <displayName>OS Image Version</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>razor_image</dependencyTarget>
+            <dependencyValue>win2012r2</dependencyValue>
+            <options>
+               <value />
+               <name>Select...</name>
+               <attributes />
+            </options>
+            <options>
+               <value>windows2012datacenter</value>
+               <name>Windows Server 2012 SERVERDATACENTER</name>
+               <dependencyTarget>razor_image</dependencyTarget>
+               <dependencyValue>win2012r2</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>windows2012datacentercore</value>
+               <name>Windows Server 2012 SERVERDATACENTERCORE</name>
+               <dependencyTarget>razor_image</dependencyTarget>
+               <dependencyValue>win2012r2</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>windows2012r2datacenter</value>
+               <name>Windows Server 2012 R2 SERVERDATACENTER</name>
+               <dependencyTarget>razor_image</dependencyTarget>
+               <dependencyValue>win2012r2</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>windows2012r2datacentercore</value>
+               <name>Windows Server 2012 R2 SERVERDATACENTERCORE</name>
+               <dependencyTarget>razor_image</dependencyTarget>
+               <dependencyValue>win2012r2</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>windows2012r2standard</value>
+               <name>Windows Server 2012 R2 SERVERSTANDARD</name>
+               <dependencyTarget>razor_image</dependencyTarget>
+               <dependencyValue>win2012r2</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>windows2012r2standardcore</value>
+               <name>Windows Server 2012 R2 SERVERSTANDARDCORE</name>
+               <dependencyTarget>razor_image</dependencyTarget>
+               <dependencyValue>win2012r2</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>windows2012standard</value>
+               <name>Windows Server 2012 SERVERSTANDARD</name>
+               <dependencyTarget>razor_image</dependencyTarget>
+               <dependencyValue>win2012r2</dependencyValue>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>admin_password</id>
+            <type>PASSWORD</type>
+            <value>aaa</value>
+            <displayName>Administrator password</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>target_boot_device</dependencyTarget>
+            <dependencyValue>SD,SD_WITH_RAID,SD_WITH_RAID_VSAN,HD,AHCI_VSAN</dependencyValue>
+            <toolTip>OS administrator password set on the installed OS</toolTip>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>admin_confirm_password</id>
+            <type>PASSWORD</type>
+            <value>aaa</value>
+            <displayName>Confirm administrator password</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>target_boot_device</dependencyTarget>
+            <dependencyValue>SD,SD_WITH_RAID,SD_WITH_RAID_VSAN,HD,AHCI_VSAN</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>product_key</id>
+            <value>aaa</value>
+            <type>STRING</type>
+            <displayName>Product Key</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>razor_image</dependencyTarget>
+            <dependencyValue>win2012r2</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>timezone</id>
+            <value>Central Standard Time</value>
+            <type>ENUMERATED</type>
+            <displayName>Timezone</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>hyperv_install</dependencyTarget>
+            <dependencyValue>true</dependencyValue>
+            <options>
+               <value>A.U.S. Central Standard Time</value>
+               <name>(GMT+09:30) Darwin</name>
+               <attributes />
+            </options>
+            <options>
+               <value>A.U.S. Eastern Standard Time</value>
+               <name>(GMT+10:00) Canberra, Melbourne, Sydney</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Alaskan Standard Time</value>
+               <name>(GMT-09:00) Alaska</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Arab Standard Time</value>
+               <name>(GMT+03:00) Kuwait, Riyadh</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Arabian Standard Time</value>
+               <name>(GMT+04:00) Abu Dhabi, Muscat</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Arabic Standard Time</value>
+               <name>(GMT+03:00) Baghdad</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Atlantic Standard Time</value>
+               <name>(GMT-04:00) Atlantic Time (Canada)</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Azores Standard Time</value>
+               <name>(GMT-01:00) Azores</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Canada Central Standard Time</value>
+               <name>(GMT-06:00) Saskatchewan</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Cape Verde Standard Time</value>
+               <name>(GMT-01:00) Cape Verde Islands</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Caucasus Standard Time</value>
+               <name>(GMT+04:00) Baku, Tbilisi, Yerevan</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Cen. Australia Standard Time</value>
+               <name>(GMT+09:30) Adelaide</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Central America Standard Time</value>
+               <name>(GMT-06:00) Central America</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Central Asia Standard Time</value>
+               <name>(GMT+06:00) Astana, Dhaka</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Central Europe Standard Time</value>
+               <name>(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Central European Standard Time</value>
+               <name>(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Central Pacific Standard Time</value>
+               <name>(GMT+11:00) Magadan, Solomon Islands, New Caledonia</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Central Standard Time</value>
+               <name>(GMT-06:00) Central Time (US and Canada)</name>
+               <attributes />
+            </options>
+            <options>
+               <value>China Standard Time</value>
+               <name>(GMT+08:00) Beijing, Chongqing, Hong Kong SAR, Urumqi</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Dateline Standard Time</value>
+               <name>(GMT-12:00) International Date Line West</name>
+               <attributes />
+            </options>
+            <options>
+               <value>E. Africa Standard Time</value>
+               <name>(GMT+03:00) Nairobi</name>
+               <attributes />
+            </options>
+            <options>
+               <value>E. Australia Standard Time</value>
+               <name>(GMT+10:00) Brisbane</name>
+               <attributes />
+            </options>
+            <options>
+               <value>E. Europe Standard Time</value>
+               <name>(GMT+02:00) Bucharest</name>
+               <attributes />
+            </options>
+            <options>
+               <value>E. South America Standard Time</value>
+               <name>(GMT-03:00) Brasilia</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Eastern Standard Time</value>
+               <name>(GMT-05:00) Eastern Time (US and Canada)</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Egypt Standard Time</value>
+               <name>(GMT+02:00) Cairo</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Ekaterinburg Standard Time</value>
+               <name>(GMT+05:00) Ekaterinburg</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Fiji Islands Standard Time</value>
+               <name>(GMT+12:00) Fiji Islands, Kamchatka, Marshall Islands</name>
+               <attributes />
+            </options>
+            <options>
+               <value>FLE Standard Time</value>
+               <name>(GMT+02:00) Helsinki, Kiev, Riga, Sofia, Tallinn, Vilnius</name>
+               <attributes />
+            </options>
+            <options>
+               <value>GMT Standard Time</value>
+               <name>(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Greenland Standard Time</value>
+               <name>(GMT-03:00) Greenland</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Greenwich Standard Time</value>
+               <name>(GMT) Casablanca, Monrovia</name>
+               <attributes />
+            </options>
+            <options>
+               <value>GTB Standard Time</value>
+               <name>(GMT+02:00) Athens, Istanbul, Minsk</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Hawaiian Standard Time</value>
+               <name>(GMT-10:00) Hawaii</name>
+               <attributes />
+            </options>
+            <options>
+               <value>India Standard Time</value>
+               <name>(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Iran Standard Time</value>
+               <name>(GMT+03:30) Tehran</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Israel Standard Time</value>
+               <name>(GMT+02:00) Jerusalem</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Korea Standard Time</value>
+               <name>(GMT+09:00) Seoul</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Mexico Standard Time</value>
+               <name>(GMT-06:00) Guadalajara, Mexico City, Monterrey</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Mexico Standard Time 2</value>
+               <name>(GMT-07:00) Chihuahua, La Paz, Mazatlan</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Mid-Atlantic Standard Time</value>
+               <name>(GMT-02:00) Mid-Atlantic</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Mountain Standard Time</value>
+               <name>(GMT-07:00) Mountain Time (US and Canada)</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Myanmar Standard Time</value>
+               <name>(GMT+06:30) Yangon Rangoon</name>
+               <attributes />
+            </options>
+            <options>
+               <value>N. Central Asia Standard Time</value>
+               <name>(GMT+06:00) Almaty, Novosibirsk</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Nepal Standard Time</value>
+               <name>(GMT+05:45) Kathmandu</name>
+               <attributes />
+            </options>
+            <options>
+               <value>New Zealand Standard Time</value>
+               <name>(GMT+12:00) Auckland, Wellington</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Newfoundland and Labrador Standard Time</value>
+               <name>(GMT-03:30) Newfoundland and Labrador</name>
+               <attributes />
+            </options>
+            <options>
+               <value>North Asia East Standard Time</value>
+               <name>(GMT+08:00) Irkutsk, Ulaanbaatar</name>
+               <attributes />
+            </options>
+            <options>
+               <value>North Asia Standard Time</value>
+               <name>(GMT+07:00) Krasnoyarsk</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Pacific S.A. Standard Time</value>
+               <name>(GMT-04:00) Santiago</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Pacific Standard Time</value>
+               <name>(GMT-08:00) Pacific Time (US and Canada); Tijuana</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Romance Standard Time</value>
+               <name>(GMT+01:00) Brussels, Copenhagen, Madrid, Paris</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Russian Standard Time</value>
+               <name>(GMT+03:00) Moscow, St. Petersburg, Volgograd</name>
+               <attributes />
+            </options>
+            <options>
+               <value>S.A. Eastern Standard Time</value>
+               <name>(GMT-03:00) Buenos Aires, Georgetown</name>
+               <attributes />
+            </options>
+            <options>
+               <value>S.A. Pacific Standard Time</value>
+               <name>(GMT-05:00) Bogota, Lima, Quito</name>
+               <attributes />
+            </options>
+            <options>
+               <value>S.A. Western Standard Time</value>
+               <name>(GMT-04:00) Caracas, La Paz</name>
+               <attributes />
+            </options>
+            <options>
+               <value>S.E. Asia Standard Time</value>
+               <name>(GMT+07:00) Bangkok, Hanoi, Jakarta</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Samoa Standard Time</value>
+               <name>(GMT-11:00) Midway Island, Samoa</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Singapore Standard Time</value>
+               <name>(GMT+08:00) Kuala Lumpur, Singapore</name>
+               <attributes />
+            </options>
+            <options>
+               <value>South Africa Standard Time</value>
+               <name>(GMT+02:00) Harare, Pretoria</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Sri Lanka Standard Time</value>
+               <name>(GMT+06:00) Sri Jayawardenepura</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Taipei Standard Time</value>
+               <name>(GMT+08:00) Taipei</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Tasmania Standard Time</value>
+               <name>(GMT+10:00) Hobart</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Tokyo Standard Time</value>
+               <name>(GMT+09:00) Osaka, Sapporo, Tokyo</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Tonga Standard Time</value>
+               <name>(GMT+13:00) Nuku'alofa</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Transitional Islamic State of Afghanistan Standard Time</value>
+               <name>(GMT+04:30) Kabul</name>
+               <attributes />
+            </options>
+            <options>
+               <value>U.S. Eastern Standard Time</value>
+               <name>(GMT-05:00) Indiana (East)</name>
+               <attributes />
+            </options>
+            <options>
+               <value>U.S. Mountain Standard Time</value>
+               <name>(GMT-07:00) Arizona</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Vladivostok Standard Time</value>
+               <name>(GMT+10:00) Vladivostok</name>
+               <attributes />
+            </options>
+            <options>
+               <value>W. Australia Standard Time</value>
+               <name>(GMT+08:00) Perth</name>
+               <attributes />
+            </options>
+            <options>
+               <value>W. Central Africa Standard Time</value>
+               <name>(GMT+01:00) West Central Africa</name>
+               <attributes />
+            </options>
+            <options>
+               <value>W. Europe Standard Time</value>
+               <name>(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</name>
+               <attributes />
+            </options>
+            <options>
+               <value>West Asia Standard Time</value>
+               <name>(GMT+05:00) Islamabad, Karachi, Tashkent</name>
+               <attributes />
+            </options>
+            <options>
+               <value>West Pacific Standard Time</value>
+               <name>(GMT+10:00) Guam, Port Moresby</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Yakutsk Standard Time</value>
+               <name>(GMT+09:00) Yakutsk</name>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>time_zone</id>
+            <value>11</value>
+            <type>ENUMERATED</type>
+            <displayName>Timezone</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>razor_image</dependencyTarget>
+            <dependencyValue />
+            <options>
+               <value>1</value>
+               <name>(UTC-12:00) International Date Line West</name>
+               <attributes />
+            </options>
+            <options>
+               <value>10</value>
+               <name>(UTC-06:00) Central America</name>
+               <attributes />
+            </options>
+            <options>
+               <value>100</value>
+               <name>(UTC+13:00) Samoa</name>
+               <attributes />
+            </options>
+            <options>
+               <value>11</value>
+               <name>(UTC-06:00) Central Time (US &amp; Canada)</name>
+               <attributes />
+            </options>
+            <options>
+               <value>12</value>
+               <name>(UTC-06:00) Guadalajara, Mexico City, Monterrey</name>
+               <attributes />
+            </options>
+            <options>
+               <value>13</value>
+               <name>(UTC-06:00) Saskatchewan</name>
+               <attributes />
+            </options>
+            <options>
+               <value>14</value>
+               <name>(UTC-05:00) Bogota, Lima, Quito</name>
+               <attributes />
+            </options>
+            <options>
+               <value>15</value>
+               <name>(UTC-05:00) Eastern Time (US &amp; Canada)</name>
+               <attributes />
+            </options>
+            <options>
+               <value>16</value>
+               <name>(UTC-05:00) Indiana (East)</name>
+               <attributes />
+            </options>
+            <options>
+               <value>17</value>
+               <name>(UTC-04:30) Caracas</name>
+               <attributes />
+            </options>
+            <options>
+               <value>18</value>
+               <name>(UTC-04:00) Asuncion</name>
+               <attributes />
+            </options>
+            <options>
+               <value>19</value>
+               <name>(UTC-04:00) Atlantic Time (Canada)</name>
+               <attributes />
+            </options>
+            <options>
+               <value>2</value>
+               <name>(UTC-11:00) Coordinated Universal Time-11</name>
+               <attributes />
+            </options>
+            <options>
+               <value>20</value>
+               <name>(UTC-04:00) Cuiaba</name>
+               <attributes />
+            </options>
+            <options>
+               <value>21</value>
+               <name>(UTC-04:00) Georgetown, La Paz, Manaus, San Juan</name>
+               <attributes />
+            </options>
+            <options>
+               <value>22</value>
+               <name>(UTC-04:00) Santiago</name>
+               <attributes />
+            </options>
+            <options>
+               <value>23</value>
+               <name>(UTC-03:30) Newfoundland</name>
+               <attributes />
+            </options>
+            <options>
+               <value>24</value>
+               <name>(UTC-03:00) Brasilia</name>
+               <attributes />
+            </options>
+            <options>
+               <value>25</value>
+               <name>(UTC-03:00) Buenos Aires</name>
+               <attributes />
+            </options>
+            <options>
+               <value>26</value>
+               <name>(UTC-03:00) Cayenne, Fortaleza</name>
+               <attributes />
+            </options>
+            <options>
+               <value>27</value>
+               <name>(UTC-03:00) Greenland</name>
+               <attributes />
+            </options>
+            <options>
+               <value>28</value>
+               <name>(UTC-03:00) Montevideo</name>
+               <attributes />
+            </options>
+            <options>
+               <value>29</value>
+               <name>(UTC-03:00) Salvador</name>
+               <attributes />
+            </options>
+            <options>
+               <value>3</value>
+               <name>(UTC-10:00) Hawaii</name>
+               <attributes />
+            </options>
+            <options>
+               <value>30</value>
+               <name>(UTC-02:00) Coordinated Universal Time-02</name>
+               <attributes />
+            </options>
+            <options>
+               <value>32</value>
+               <name>(UTC-01:00) Azores</name>
+               <attributes />
+            </options>
+            <options>
+               <value>33</value>
+               <name>(UTC-01:00) Cape Verde Is.</name>
+               <attributes />
+            </options>
+            <options>
+               <value>34</value>
+               <name>(UTC) Casablanca</name>
+               <attributes />
+            </options>
+            <options>
+               <value>35</value>
+               <name>(UTC) Coordinated Universal Time</name>
+               <attributes />
+            </options>
+            <options>
+               <value>36</value>
+               <name>(UTC) Dublin, Edinburgh, Lisbon, London</name>
+               <attributes />
+            </options>
+            <options>
+               <value>37</value>
+               <name>(UTC) Monrovia, Reykjavik</name>
+               <attributes />
+            </options>
+            <options>
+               <value>38</value>
+               <name>(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</name>
+               <attributes />
+            </options>
+            <options>
+               <value>39</value>
+               <name>(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</name>
+               <attributes />
+            </options>
+            <options>
+               <value>4</value>
+               <name>(UTC-09:00) Alaska</name>
+               <attributes />
+            </options>
+            <options>
+               <value>40</value>
+               <name>(UTC+01:00) Brussels, Copenhagen, Madrid, Paris</name>
+               <attributes />
+            </options>
+            <options>
+               <value>41</value>
+               <name>(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb</name>
+               <attributes />
+            </options>
+            <options>
+               <value>42</value>
+               <name>(UTC+01:00) West Central Africa</name>
+               <attributes />
+            </options>
+            <options>
+               <value>43</value>
+               <name>(UTC+01:00) Windhoek</name>
+               <attributes />
+            </options>
+            <options>
+               <value>44</value>
+               <name>(UTC+02:00) Amman</name>
+               <attributes />
+            </options>
+            <options>
+               <value>45</value>
+               <name>(UTC+02:00) Athens, Bucharest</name>
+               <attributes />
+            </options>
+            <options>
+               <value>46</value>
+               <name>(UTC+02:00) Beirut</name>
+               <attributes />
+            </options>
+            <options>
+               <value>47</value>
+               <name>(UTC+02:00) Cairo</name>
+               <attributes />
+            </options>
+            <options>
+               <value>48</value>
+               <name>(UTC+02:00) Damascus</name>
+               <attributes />
+            </options>
+            <options>
+               <value>49</value>
+               <name>(UTC+02:00) Harare, Pretoria</name>
+               <attributes />
+            </options>
+            <options>
+               <value>5</value>
+               <name>(UTC-08:00) Baja California</name>
+               <attributes />
+            </options>
+            <options>
+               <value>50</value>
+               <name>(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius</name>
+               <attributes />
+            </options>
+            <options>
+               <value>51</value>
+               <name>(UTC+02:00) Istanbul</name>
+               <attributes />
+            </options>
+            <options>
+               <value>52</value>
+               <name>(UTC+02:00) Jerusalem</name>
+               <attributes />
+            </options>
+            <options>
+               <value>53</value>
+               <name>(UTC+02:00) Nicosia</name>
+               <attributes />
+            </options>
+            <options>
+               <value>54</value>
+               <name>(UTC+03:00) Baghdad</name>
+               <attributes />
+            </options>
+            <options>
+               <value>55</value>
+               <name>(UTC+03:00) Kaliningrad, Minsk</name>
+               <attributes />
+            </options>
+            <options>
+               <value>56</value>
+               <name>(UTC+03:00) Kuwait, Riyadh</name>
+               <attributes />
+            </options>
+            <options>
+               <value>57</value>
+               <name>(UTC+03:00) Nairobi</name>
+               <attributes />
+            </options>
+            <options>
+               <value>58</value>
+               <name>(UTC+03:30) Tehran</name>
+               <attributes />
+            </options>
+            <options>
+               <value>59</value>
+               <name>(UTC+04:00) Abu Dhabi, Muscat</name>
+               <attributes />
+            </options>
+            <options>
+               <value>6</value>
+               <name>(UTC-08:00) Pacific Time (US &amp; Canada)</name>
+               <attributes />
+            </options>
+            <options>
+               <value>60</value>
+               <name>(UTC+04:00) Baku</name>
+               <attributes />
+            </options>
+            <options>
+               <value>61</value>
+               <name>(UTC+04:00) Moscow, St. Petersburg, Volgograd</name>
+               <attributes />
+            </options>
+            <options>
+               <value>62</value>
+               <name>(UTC+04:00) Port Louis</name>
+               <attributes />
+            </options>
+            <options>
+               <value>63</value>
+               <name>(UTC+04:00) Tbilisi</name>
+               <attributes />
+            </options>
+            <options>
+               <value>64</value>
+               <name>(UTC+04:00) Yerevan</name>
+               <attributes />
+            </options>
+            <options>
+               <value>65</value>
+               <name>(UTC+04:30) Kabul</name>
+               <attributes />
+            </options>
+            <options>
+               <value>66</value>
+               <name>(UTC+05:00) Islamabad, Karachi</name>
+               <attributes />
+            </options>
+            <options>
+               <value>67</value>
+               <name>(UTC+05:00) Tashkent</name>
+               <attributes />
+            </options>
+            <options>
+               <value>68</value>
+               <name>(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi</name>
+               <attributes />
+            </options>
+            <options>
+               <value>69</value>
+               <name>(UTC+05:30) Sri Jayawardenepura</name>
+               <attributes />
+            </options>
+            <options>
+               <value>7</value>
+               <name>(UTC-07:00) Arizona</name>
+               <attributes />
+            </options>
+            <options>
+               <value>70</value>
+               <name>(UTC+05:45) Kathmandu</name>
+               <attributes />
+            </options>
+            <options>
+               <value>71</value>
+               <name>(UTC+06:00) Astana</name>
+               <attributes />
+            </options>
+            <options>
+               <value>72</value>
+               <name>(UTC+06:00) Dhaka</name>
+               <attributes />
+            </options>
+            <options>
+               <value>73</value>
+               <name>(UTC+06:00) Ekaterinburg</name>
+               <attributes />
+            </options>
+            <options>
+               <value>74</value>
+               <name>(UTC+06:30) Yangon (Rangoon)</name>
+               <attributes />
+            </options>
+            <options>
+               <value>75</value>
+               <name>(UTC+07:00) Bangkok, Hanoi, Jakarta</name>
+               <attributes />
+            </options>
+            <options>
+               <value>76</value>
+               <name>(UTC+07:00) Novosibirsk</name>
+               <attributes />
+            </options>
+            <options>
+               <value>77</value>
+               <name>(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi</name>
+               <attributes />
+            </options>
+            <options>
+               <value>78</value>
+               <name>(UTC+08:00) Krasnoyarsk</name>
+               <attributes />
+            </options>
+            <options>
+               <value>79</value>
+               <name>(UTC+08:00) Kuala Lumpur, Singapore</name>
+               <attributes />
+            </options>
+            <options>
+               <value>8</value>
+               <name>(UTC-07:00) Chihuahua, La Paz, Mazatlan</name>
+               <attributes />
+            </options>
+            <options>
+               <value>80</value>
+               <name>(UTC+08:00) Perth</name>
+               <attributes />
+            </options>
+            <options>
+               <value>81</value>
+               <name>(UTC+08:00) Taipei</name>
+               <attributes />
+            </options>
+            <options>
+               <value>82</value>
+               <name>(UTC+08:00) Ulaanbaatar</name>
+               <attributes />
+            </options>
+            <options>
+               <value>83</value>
+               <name>(UTC+09:00) Irkutsk</name>
+               <attributes />
+            </options>
+            <options>
+               <value>84</value>
+               <name>(UTC+09:00) Osaka, Sapporo, Tokyo</name>
+               <attributes />
+            </options>
+            <options>
+               <value>85</value>
+               <name>(UTC+09:00) Seoul</name>
+               <attributes />
+            </options>
+            <options>
+               <value>86</value>
+               <name>(UTC+09:30) Adelaide</name>
+               <attributes />
+            </options>
+            <options>
+               <value>87</value>
+               <name>(UTC+09:30) Darwin</name>
+               <attributes />
+            </options>
+            <options>
+               <value>88</value>
+               <name>(UTC+10:00) Brisbane</name>
+               <attributes />
+            </options>
+            <options>
+               <value>89</value>
+               <name>(UTC+10:00) Canberra, Melbourne, Sydney</name>
+               <attributes />
+            </options>
+            <options>
+               <value>9</value>
+               <name>(UTC-07:00) Mountain Time (US &amp; Canada)</name>
+               <attributes />
+            </options>
+            <options>
+               <value>90</value>
+               <name>(UTC+10:00) Guam, Port Moresby</name>
+               <attributes />
+            </options>
+            <options>
+               <value>91</value>
+               <name>(UTC+10:00) Hobart</name>
+               <attributes />
+            </options>
+            <options>
+               <value>92</value>
+               <name>(UTC+10:00) Yakutsk</name>
+               <attributes />
+            </options>
+            <options>
+               <value>93</value>
+               <name>(UTC+11:00) Solomon Is., New Caledonia</name>
+               <attributes />
+            </options>
+            <options>
+               <value>94</value>
+               <name>(UTC+11:00) Vladivostok</name>
+               <attributes />
+            </options>
+            <options>
+               <value>95</value>
+               <name>(UTC+12:00) Auckland, Wellington</name>
+               <attributes />
+            </options>
+            <options>
+               <value>96</value>
+               <name>(UTC+12:00) Coordinated Universal Time+12</name>
+               <attributes />
+            </options>
+            <options>
+               <value>97</value>
+               <name>(UTC+12:00) Fiji</name>
+               <attributes />
+            </options>
+            <options>
+               <value>98</value>
+               <name>(UTC+12:00) Magadan</name>
+               <attributes />
+            </options>
+            <options>
+               <value>99</value>
+               <name>(UTC+13:00) Nuku'alofa</name>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>ntp_server</id>
+            <value>143.166.255.32</value>
+            <type>STRING</type>
+            <displayName>NTP Server</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>razor_image</dependencyTarget>
+            <dependencyValue>win2012r2,esxi-5.1,esxi-5.5,esxi-6.0,esxi-6.5</dependencyValue>
+            <toolTip>ESXi, Windows, and Linux services support multiple NTP servers. NTP addresses must be separated by commas.</toolTip>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>language</id>
+            <value>en-US</value>
+            <type>ENUMERATED</type>
+            <displayName>Language</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>hyperv_install</dependencyTarget>
+            <dependencyValue>true</dependencyValue>
+            <options>
+               <value>de-DE</value>
+               <name>German (Germany)</name>
+               <attributes />
+            </options>
+            <options>
+               <value>en-US</value>
+               <name>English (United States)</name>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>keyboard</id>
+            <value>00000409</value>
+            <type>ENUMERATED</type>
+            <displayName>Keyboard</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>hyperv_install</dependencyTarget>
+            <dependencyValue>true</dependencyValue>
+            <options>
+               <value>00000409</value>
+               <name>U.S. English</name>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>domain_name</id>
+            <type>STRING</type>
+            <displayName>Domain Name</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>razor_image</dependencyTarget>
+            <dependencyValue>win2012r2</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>fqdn</id>
+            <type>STRING</type>
+            <displayName>FQ Domain Name</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>hyperv_install</dependencyTarget>
+            <dependencyValue>true</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>domain_admin_user</id>
+            <type>STRING</type>
+            <displayName>Domain Admin Username</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>razor_image</dependencyTarget>
+            <dependencyValue>win2012r2</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>domain_admin_password</id>
+            <value />
+            <type>PASSWORD</type>
+            <displayName>Domain Admin Password</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>razor_image</dependencyTarget>
+            <dependencyValue>win2012r2</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>domain_admin_password_confirm</id>
+            <value />
+            <type>PASSWORD</type>
+            <displayName>Domain Admin Password Confirm</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>razor_image</dependencyTarget>
+            <dependencyValue>win2012r2</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>iscsi_initiator</id>
+            <value />
+            <type>ENUMERATED</type>
+            <displayName>Select iSCSI Initiator</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <dependencyTarget>razor_image</dependencyTarget>
+            <dependencyValue>esxi-5.1,esxi-5.5,esxi-6.0,esxi-6.5</dependencyValue>
+            <options>
+               <value />
+               <name>Select...</name>
+               <attributes />
+            </options>
+            <options>
+               <value>hardware</value>
+               <name>Hardware Initiator</name>
+               <attributes />
+            </options>
+            <options>
+               <value>software</value>
+               <name>Software Initiator</name>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>esx_mem</id>
+            <value />
+            <type>ENUMERATED</type>
+            <displayName>Install EqualLogic MEM</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <dependencyTarget>razor_image</dependencyTarget>
+            <dependencyValue>esxi-5.1,esxi-5.5,esxi-6.0,esxi-6.5</dependencyValue>
+            <options>
+               <value />
+               <name>Select...</name>
+               <attributes />
+            </options>
+            <options>
+               <value>false</value>
+               <name>False</name>
+               <attributes />
+            </options>
+            <options>
+               <value>true</value>
+               <name>True</name>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>local_storage_vsan</id>
+            <value>false</value>
+            <type>BOOLEAN</type>
+            <displayName>Local storage for Vmware vSAN</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>razor_image</dependencyTarget>
+            <dependencyValue>esxi-5.1,esxi-5.5,esxi-6.0,esxi-6.5</dependencyValue>
+            <toolTip>RAID controller will be put in the appropriate mode and automatically configured based on VMware vSAN best practices.</toolTip>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>local_storage_vsan_type</id>
+            <value>flash</value>
+            <type>RADIO</type>
+            <displayName>Local storage type</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>local_storage_vsan</dependencyTarget>
+            <dependencyValue>true</dependencyValue>
+            <options>
+               <value>flash</value>
+               <name>All flash</name>
+               <attributes />
+            </options>
+            <options>
+               <value>hybrid</value>
+               <name>Hybrid</name>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>ensure</id>
+            <value>present</value>
+            <type>STRING</type>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <group>none</group>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>ip_source</id>
+            <value>automatic</value>
+            <type>RADIO</type>
+            <displayName>IP Source</displayName>
+            <required>true</required>
+            <requiredAtDeployment>true</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <min>0</min>
+            <max>0</max>
+            <options>
+               <value>automatic</value>
+               <name>ASM Selected IP</name>
+               <attributes />
+            </options>
+            <options>
+               <value>manual</value>
+               <name>User Entered IP</name>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>static_ip_source:Hypervisor Management</id>
+            <value>automatic</value>
+            <type>ENUMERATED</type>
+            <displayName>Hypervisor Management IP Source</displayName>
+            <required>true</required>
+            <requiredAtDeployment>true</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <min>0</min>
+            <max>0</max>
+            <dependencyTarget>ip_source</dependencyTarget>
+            <dependencyValue>manual</dependencyValue>
+            <options>
+               <value>automatic</value>
+               <name>ASM Selected IP</name>
+               <attributes />
+            </options>
+            <options>
+               <value>dns</value>
+               <name>Hostname DNS Lookup</name>
+               <attributes />
+            </options>
+            <options>
+               <value>manual</value>
+               <name>Manual Entry</name>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>static_ip_value:Hypervisor Management</id>
+            <type>STRING</type>
+            <displayName>Hypervisor Management IP Address</displayName>
+            <required>true</required>
+            <requiredAtDeployment>true</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <min>0</min>
+            <max>0</max>
+            <dependencyTarget>static_ip_source:Hypervisor Management</dependencyTarget>
+            <dependencyValue>manual</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+      </resources>
+      <resources>
+         <id>asm::idrac</id>
+         <displayName>Hardware Settings</displayName>
+         <parameters>
+            <id>target_boot_device</id>
+            <value>HD</value>
+            <type>ENUMERATED</type>
+            <displayName>Target Boot Device</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value>HD</value>
+               <name>Local Hard Drive</name>
+               <dependencyTarget>local_storage_vsan</dependencyTarget>
+               <dependencyValue>false</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>SD_WITH_RAID</value>
+               <name>SD with RAID enabled</name>
+               <dependencyTarget>local_storage_vsan</dependencyTarget>
+               <dependencyValue>false</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>SD</value>
+               <name>SD with RAID disabled</name>
+               <dependencyTarget>local_storage_vsan</dependencyTarget>
+               <dependencyValue>false</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>SD_WITH_RAID_VSAN</value>
+               <name>SD with RAID enabled for VMWare vSAN</name>
+               <dependencyTarget>local_storage_vsan</dependencyTarget>
+               <dependencyValue>true</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>AHCI_VSAN</value>
+               <name>Local Disk For VMware vSAN</name>
+               <dependencyTarget>local_storage_vsan</dependencyTarget>
+               <dependencyValue>true</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>iSCSI</value>
+               <name>Boot From SAN (iSCSI)</name>
+               <dependencyTarget>local_storage_vsan</dependencyTarget>
+               <dependencyValue>false</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>FC</value>
+               <name>Boot From SAN (FC)</name>
+               <dependencyTarget>local_storage_vsan</dependencyTarget>
+               <dependencyValue>false</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>NONE</value>
+               <name>None</name>
+               <dependencyTarget>local_storage_vsan</dependencyTarget>
+               <dependencyValue>false</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>NONE_WITH_RAID</value>
+               <name>None (With RAID Configuration)</name>
+               <dependencyTarget>local_storage_vsan</dependencyTarget>
+               <dependencyValue>false</dependencyValue>
+               <attributes />
+            </options>
+            <toolTip>Local Hard Drive - ASM creates a RAID with the local HDDs and installs the OS to this RAID array.&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;SD w/ RAID enabled - Enables SD, sets boot the SD, creates the specified RAID config which will not be the boot device.&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;SD w/ RAID disabled - Enables SD, sets boot the SD, disables RAID controller.&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;None - will not configure the boot device or boot order.&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;None (w/ RAID Configuration) - will not configure the boot device or boot order, but will create the RAID virtual disk.</toolTip>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>false</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>raid_configuration</id>
+            <value>{"raidtype":"basic","basicraidlevel":"raid1","virtualdisks":[],"enableglobalhotspares":false,"globalhotspares":0,"minimumssd":0,"enableglobalhotsparesexternal":false,"globalhotsparesexternal":0,"minimumssdexternal":0,"externalvirtualdisks":[]}</value>
+            <type>RAIDCONFIGURATION</type>
+            <displayName>RAID</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>target_boot_device</dependencyTarget>
+            <dependencyValue>HD,SD_WITH_RAID,NONE_WITH_RAID</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>server_source</id>
+            <value>pool</value>
+            <type>ENUMERATED</type>
+            <displayName>Server Source</displayName>
+            <required>true</required>
+            <requiredAtDeployment>true</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <options>
+               <value>manual</value>
+               <name>Manual Entry</name>
+               <attributes />
+            </options>
+            <options>
+               <value>pool</value>
+               <name>Server Pool</name>
+               <attributes />
+            </options>
+            <toolTip>Method for server selection</toolTip>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>server_pool</id>
+            <value>-1</value>
+            <type>ENUMERATED</type>
+            <displayName>Server Pool</displayName>
+            <required>true</required>
+            <requiredAtDeployment>true</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>server_source</dependencyTarget>
+            <dependencyValue>pool</dependencyValue>
+            <options>
+               <value>-1</value>
+               <name>Global</name>
+               <attributes />
+            </options>
+            <toolTip>Pool from which servers are selected during deployment</toolTip>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>server_select</id>
+            <value />
+            <type>ENUMERATED</type>
+            <displayName>Choose Server</displayName>
+            <required>true</required>
+            <requiredAtDeployment>true</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <dependencyTarget>server_source</dependencyTarget>
+            <dependencyValue>manual</dependencyValue>
+            <options>
+               <value />
+               <name>Select...</name>
+               <attributes />
+            </options>
+            <options>
+               <value>ff80808155ff50220155ff5868000194</value>
+               <name>10ZWQV1</name>
+               <attributes />
+            </options>
+            <options>
+               <value>ff80808155ff50220155ff58b38001c6</value>
+               <name>G8Q91Y1</name>
+               <attributes />
+            </options>
+            <options>
+               <value>ff80808155ff50220155ff58cda1020e</value>
+               <name>29Q91Y1</name>
+               <attributes />
+            </options>
+            <options>
+               <value>ff80808155ff50220155ff59019502a5</value>
+               <name>1HVWQV1</name>
+               <attributes />
+            </options>
+            <options>
+               <value>ff80808155ff50220155ff59b79502fe</value>
+               <name>9H870W1</name>
+               <attributes />
+            </options>
+            <options>
+               <value>ff80808155ff50220155ff5a36910345</value>
+               <name>B12QQV1</name>
+               <attributes />
+            </options>
+            <options>
+               <value>ff80808155ff50220155ff5a6348037a</value>
+               <name>JZYWQV1</name>
+               <attributes />
+            </options>
+            <options>
+               <value>ff80808155ff50220155ff5b7f7803c7</value>
+               <name>821HMW1</name>
+               <attributes />
+            </options>
+            <options>
+               <value>ff80808155ff50220155ff5c2e30041c</value>
+               <name>DXP91Y1</name>
+               <attributes />
+            </options>
+            <options>
+               <value>ff80808155ff50220155ff5c9f2804b8</value>
+               <name>HH870W1</name>
+               <attributes />
+            </options>
+            <options>
+               <value>ff80808155ff50220155ff5dba990518</value>
+               <name>GH870W1</name>
+               <attributes />
+            </options>
+            <options>
+               <value>ff80808155ff50220155ff5dda5a053b</value>
+               <name>CH870W1</name>
+               <attributes />
+            </options>
+            <options>
+               <value>ff80808155ff50220155ff5e575d05a7</value>
+               <name>BYJPGB2</name>
+               <attributes />
+            </options>
+            <options>
+               <value>ff80808155ff50220155ff5fdf3005de</value>
+               <name>20ZWQV1</name>
+               <attributes />
+            </options>
+            <options>
+               <value>ff80808155ff50220155ff5ffaa80658</value>
+               <name>19Q91Y1</name>
+               <attributes />
+            </options>
+            <options>
+               <value>ff80808155ff50220155ff606656072c</value>
+               <name>2W5QQV1</name>
+               <attributes />
+            </options>
+            <options>
+               <value>ff80808155ff50220155ff61cd340779</value>
+               <name>60ZWQV1</name>
+               <attributes />
+            </options>
+            <options>
+               <value>ff80808155ff50220155ff62b25907ba</value>
+               <name>9W4H942</name>
+               <attributes />
+            </options>
+            <options>
+               <value>ff80808155ff50220155ff6435390812</value>
+               <name>6H870W1</name>
+               <attributes />
+            </options>
+            <toolTip>Select specific server from a drop-down list</toolTip>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>migrate_on_failure</id>
+            <value>true</value>
+            <type>BOOLEAN</type>
+            <displayName>Retry On Failure</displayName>
+            <required>false</required>
+            <requiredAtDeployment>true</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <dependencyTarget>server_source</dependencyTarget>
+            <dependencyValue>pool</dependencyValue>
+            <toolTip>If selected server fails, retry on another available server</toolTip>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>attempted_servers</id>
+            <type>STRING</type>
+            <displayName>Attempted Servers</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>ensure</id>
+            <value>present</value>
+            <type>STRING</type>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <group>none</group>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+      </resources>
+      <resources>
+         <id>asm::bios</id>
+         <displayName>BIOS Settings</displayName>
+         <parameters>
+            <id>bios_configuration</id>
+            <value>basic</value>
+            <type>BIOSCONFIGURATION</type>
+            <displayName>BIOS Settings</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>SysProfile</id>
+            <value>PerfOptimized</value>
+            <type>ENUMERATED</type>
+            <displayName>System Profile</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value>Custom</value>
+               <name>Custom</name>
+               <attributes />
+            </options>
+            <options>
+               <value>DenseCfgOptimized</value>
+               <name>Dense Configuration</name>
+               <attributes />
+            </options>
+            <options>
+               <value>n/a</value>
+               <name>Not Applicable</name>
+               <attributes />
+            </options>
+            <options>
+               <value>PerfOptimized</value>
+               <name>Performance</name>
+               <attributes />
+            </options>
+            <options>
+               <value>PerfPerWattOptimizedDapc</value>
+               <name>Performance Per Watt (DAPC)</name>
+               <attributes />
+            </options>
+            <options>
+               <value>PerfPerWattOptimizedOs</value>
+               <name>Performance Per Watt (OS)</name>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>UsbPorts</id>
+            <value>AllOn</value>
+            <type>ENUMERATED</type>
+            <displayName>User Accessible USB Ports</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value>AllOff</value>
+               <name>All Ports Off</name>
+               <attributes />
+            </options>
+            <options>
+               <value>AllOn</value>
+               <name>All Ports On</name>
+               <attributes />
+            </options>
+            <options>
+               <value>n/a</value>
+               <name>Not Applicable</name>
+               <attributes />
+            </options>
+            <options>
+               <value>OnlyBackPortsOn</value>
+               <name>Only Back Ports On</name>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>ProcCores</id>
+            <value>All</value>
+            <type>ENUMERATED</type>
+            <displayName>Number of Cores per Processor</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value>1</value>
+               <name>1</name>
+               <attributes />
+            </options>
+            <options>
+               <value>2</value>
+               <name>2</name>
+               <attributes />
+            </options>
+            <options>
+               <value>4</value>
+               <name>4</name>
+               <attributes />
+            </options>
+            <options>
+               <value>6</value>
+               <name>6</name>
+               <attributes />
+            </options>
+            <options>
+               <value>All</value>
+               <name>All</name>
+               <attributes />
+            </options>
+            <options>
+               <value>n/a</value>
+               <name>Not Applicable</name>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>ProcVirtualization</id>
+            <value>Enabled</value>
+            <type>ENUMERATED</type>
+            <displayName>Virtualization Technology</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value>Disabled</value>
+               <name>Disabled</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Enabled</value>
+               <name>Enabled</name>
+               <attributes />
+            </options>
+            <options>
+               <value>n/a</value>
+               <name>Not Applicable</name>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>LogicalProc</id>
+            <value>Enabled</value>
+            <type>ENUMERATED</type>
+            <displayName>Logical Processor</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value>Disabled</value>
+               <name>Disabled</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Enabled</value>
+               <name>Enabled</name>
+               <attributes />
+            </options>
+            <options>
+               <value>n/a</value>
+               <name>Not Applicable</name>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>ProcExecuteDisable</id>
+            <value>Enabled</value>
+            <type>ENUMERATED</type>
+            <displayName>Execute Disable</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value>Disabled</value>
+               <name>Disabled</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Enabled</value>
+               <name>Enabled</name>
+               <attributes />
+            </options>
+            <options>
+               <value>n/a</value>
+               <name>Not Applicable</name>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>NodeInterleave</id>
+            <value>Enabled</value>
+            <type>ENUMERATED</type>
+            <displayName>Node Interleaving</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value>Disabled</value>
+               <name>Disabled</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Enabled</value>
+               <name>Enabled</name>
+               <attributes />
+            </options>
+            <options>
+               <value>n/a</value>
+               <name>Not Applicable</name>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>ensure</id>
+            <value>present</value>
+            <type>STRING</type>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <group>none</group>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+      </resources>
+      <resources>
+         <id>asm::esxiscsiconfig</id>
+         <displayName>Network Settings</displayName>
+         <parameters>
+            <id>network_configuration</id>
+            <value>{"id":"7763A694-6C06-4F41-91E6-FE49AAFD2092","servertype":null,"fabrics":[],"interfaces":[{"id":"7E03E6C2-CBC1-4903-9490-632B9B081073","name":"Interface","redundancy":true,"enabled":true,"usedforfc":false,"partitioned":false,"nictype":"2x10Gb","interfaces":[{"id":"5B25CEE8-518F-4594-9A20-CC188D3D533E","name":"Port 1","partitioned":false,"partitions":[{"id":"524A91FF-0E66-46ED-85B3-54C0285142AE","name":"1","networks":["PUBLIC_LAN","PXE"],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null,"port_no":0,"partition_no":0,"partition_index":0,"fqdd":null},{"id":"B416AD8D-A157-459A-8D0B-341565E3046C","name":"2","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null,"port_no":0,"partition_no":0,"partition_index":0,"fqdd":null},{"id":"E63056C2-5517-44E5-9B9A-DC96DCF6915F","name":"3","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null,"port_no":0,"partition_no":0,"partition_index":0,"fqdd":null},{"id":"FD2A3F09-5D68-4FF0-8E99-A34CD0DF949E","name":"4","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null,"port_no":0,"partition_no":0,"partition_index":0,"fqdd":null}],"enabled":false,"redundancy":false,"nictype":"2x10Gb","fqdd":null},{"id":"2B8FAE40-5649-453E-A6C3-6AF5BB31021E","name":"Port 2","partitioned":false,"partitions":[{"id":"25A6D951-84B4-4D31-BC54-424B87B78C93","name":"1","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null,"port_no":0,"partition_no":0,"partition_index":0,"fqdd":null},{"id":"0580DDED-1807-4B1E-B218-CA6716FD2291","name":"2","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null,"port_no":0,"partition_no":0,"partition_index":0,"fqdd":null},{"id":"8507574F-71E5-48A4-B1C3-074A15870D87","name":"3","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null,"port_no":0,"partition_no":0,"partition_index":0,"fqdd":null},{"id":"46811DB5-6BB0-4071-B91A-34F23FB80D7F","name":"4","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null,"port_no":0,"partition_no":0,"partition_index":0,"fqdd":null}],"enabled":false,"redundancy":false,"nictype":null,"fqdd":null},{"id":"B9993A52-E0D4-4ADC-B202-8021042EFD96","name":"Port 3","partitioned":false,"partitions":[{"id":"85959149-25AD-4120-9AAA-0C1C5AA3EF29","name":"1","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null,"port_no":0,"partition_no":0,"partition_index":0,"fqdd":null},{"id":"023A7C6F-F7D9-4A09-A060-89792EA13348","name":"2","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null,"port_no":0,"partition_no":0,"partition_index":0,"fqdd":null},{"id":"AB6E6439-FE47-484C-9641-07EE86FDD2E9","name":"3","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null,"port_no":0,"partition_no":0,"partition_index":0,"fqdd":null},{"id":"1A4617BA-C37A-4AA3-A0ED-FEBDF64BF56E","name":"4","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null,"port_no":0,"partition_no":0,"partition_index":0,"fqdd":null}],"enabled":false,"redundancy":false,"nictype":null,"fqdd":null},{"id":"6C281FC1-2456-4E73-9825-49645096E1A6","name":"Port 4","partitioned":false,"partitions":[{"id":"2733F199-8AF5-4E02-8FF9-393CF345BC12","name":"1","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null,"port_no":0,"partition_no":0,"partition_index":0,"fqdd":null},{"id":"ADAF51BD-AEBA-47BE-94C4-FD040C4EB210","name":"2","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null,"port_no":0,"partition_no":0,"partition_index":0,"fqdd":null},{"id":"5DABAAC2-D6E0-449B-8979-2128A67AA637","name":"3","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null,"port_no":0,"partition_no":0,"partition_index":0,"fqdd":null},{"id":"77B29F9A-C805-49CB-8C3E-D176556A1401","name":"4","networks":[],"networkObjects":null,"minimum":0,"maximum":100,"lanMacAddress":null,"iscsiMacAddress":null,"iscsiIQN":null,"wwnn":null,"wwpn":null,"port_no":0,"partition_no":0,"partition_index":0,"fqdd":null}],"enabled":false,"redundancy":false,"nictype":null,"fqdd":null}],"fabrictype":"ethernet"}]}</value>
+            <type>NETWORKCONFIGURATION</type>
+            <displayName>Network Config</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>default_gateway</id>
+            <value>dhcp_workload</value>
+            <type>STRING</type>
+            <displayName>Static Network Default Gateway</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>razor_image</dependencyTarget>
+            <dependencyValue>win2012r2</dependencyValue>
+            <options>
+               <value />
+               <name>Select...</name>
+               <attributes />
+            </options>
+            <options>
+               <value>dhcp_workload</value>
+               <name>DHCP / No Gateway</name>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>mtu</id>
+            <value>1500</value>
+            <type>ENUMERATED</type>
+            <displayName>MTU size for bonded interfaces:</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <options>
+               <value>1500</value>
+               <name>1500</name>
+               <attributes />
+            </options>
+            <options>
+               <value>9000</value>
+               <name>9000</name>
+               <attributes />
+            </options>
+            <toolTip>Allows the Maximum Transfer Unit (MTU) to be set in the server Operating System. This will only take effect on bonded interfaces.</toolTip>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>identity_pool</id>
+            <value>-1</value>
+            <type>ENUMERATED</type>
+            <displayName>Identity Pool</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value>-1</value>
+               <name>Global</name>
+               <attributes />
+            </options>
+            <toolTip>Pool from which virtual identities are selected during deployment</toolTip>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>ensure</id>
+            <value>present</value>
+            <type>STRING</type>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <group>none</group>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+      </resources>
+      <cloned>false</cloned>
+      <manageFirmware>false</manageFirmware>
+      <brownfield>false</brownfield>
+   </components>
+   <components>
+      <id>CB4884D6-2B45-4B34-8146-BA2E04AA2F68</id>
+      <componentID>component-cluster-vcenter-1</componentID>
+      <componentValid>
+         <valid>true</valid>
+      </componentValid>
+      <name>VMWare Cluster</name>
+      <type>CLUSTER</type>
+      <teardown>false</teardown>
+      <relatedComponents>
+         <entry>
+            <key>EB302D09-E1DB-4F77-A26B-7FA8ED52940D</key>
+            <value>Server</value>
+         </entry>
+      </relatedComponents>
+      <associatedComponents>
+         <entry>
+            <key>EB302D09-E1DB-4F77-A26B-7FA8ED52940D</key>
+            <value>
+               <entry>
+                  <key>service_type</key>
+                  <value>class</value>
+               </entry>
+               <entry>
+                  <key>name</key>
+                  <value>Server</value>
+               </entry>
+            </value>
+         </entry>
+      </associatedComponents>
+      <resources>
+         <id>asm::cluster</id>
+         <displayName>Cluster Settings</displayName>
+         <parameters>
+            <id>asm_guid</id>
+            <value>vcenter-172.28.15.6</value>
+            <type>ENUMERATED</type>
+            <displayName>Target Virtual Machine Manager</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value />
+               <name>Select...</name>
+               <attributes />
+            </options>
+            <options>
+               <value>vcenter-172.28.15.6</value>
+               <name>VCENTER-AS800R.aidev.com</name>
+               <attributes />
+            </options>
+            <options>
+               <value>vcenter-172.28.8.6</value>
+               <name>env08-vcenter</name>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>datacenter</id>
+            <value>Env15</value>
+            <type>ENUMERATED</type>
+            <displayName>Data Center Name</displayName>
+            <required>true</required>
+            <requiredAtDeployment>true</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value />
+               <name>Select...</name>
+               <attributes />
+            </options>
+            <options>
+               <value>$new$</value>
+               <name>Create New Datacenter...</name>
+               <attributes />
+            </options>
+            <options>
+               <value>ciscofcoeflexdc</value>
+               <name>ciscofcoeflexdc</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>vcenter-172.28.8.6</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>Env15</value>
+               <name>Env15</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>vcenter-172.28.15.6</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>Env8</value>
+               <name>Env8</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>vcenter-172.28.8.6</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>fcoedc</value>
+               <name>fcoedc</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>vcenter-172.28.8.6</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vds</value>
+               <name>vds</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>vcenter-172.28.8.6</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsmemdc</value>
+               <name>vdsmemdc</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>vcenter-172.28.8.6</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>aaa</value>
+               <name>aaa</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>vcenter-172.28.8.6</dependencyValue>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>$new$datacenter</id>
+            <type>STRING</type>
+            <displayName>New datacenter name</displayName>
+            <required>true</required>
+            <requiredAtDeployment>true</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>datacenter</dependencyTarget>
+            <dependencyValue>$new$</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>cluster</id>
+            <value>Management</value>
+            <type>ENUMERATED</type>
+            <displayName>Cluster Name</displayName>
+            <required>true</required>
+            <requiredAtDeployment>true</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value />
+               <name>Select...</name>
+               <attributes />
+            </options>
+            <options>
+               <value>$new$</value>
+               <name>Create New Cluster...</name>
+               <attributes />
+            </options>
+            <options>
+               <value>Management</value>
+               <name>Management</name>
+               <dependencyTarget>datacenter</dependencyTarget>
+               <dependencyValue>Env15</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>test</value>
+               <name>test</name>
+               <dependencyTarget>datacenter</dependencyTarget>
+               <dependencyValue>aaa</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsmemcluster</value>
+               <name>vdsmemcluster</name>
+               <dependencyTarget>datacenter</dependencyTarget>
+               <dependencyValue>vdsmemdc</dependencyValue>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>$new$cluster</id>
+            <type>STRING</type>
+            <displayName>New cluster name</displayName>
+            <required>true</required>
+            <requiredAtDeployment>true</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>cluster</dependencyTarget>
+            <dependencyValue>$new$</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>vds_enabled</id>
+            <value>standard</value>
+            <type>RADIO</type>
+            <displayName>Switch Type</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value>distributed</value>
+               <name>Distributed</name>
+               <attributes />
+            </options>
+            <options>
+               <value>standard</value>
+               <name>Standard</name>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>ha_config</id>
+            <value>false</value>
+            <type>BOOLEAN</type>
+            <displayName>Cluster HA Enabled</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>cluster</dependencyTarget>
+            <dependencyValue>$new$</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>drs_config</id>
+            <value>false</value>
+            <type>BOOLEAN</type>
+            <displayName>Cluster DRS Enabled</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>cluster</dependencyTarget>
+            <dependencyValue>$new$</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>vsan_enabled</id>
+            <value>false</value>
+            <type>BOOLEAN</type>
+            <displayName>Enable VMWare vSAN</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>compression_enabled</id>
+            <value>false</value>
+            <type>BOOLEAN</type>
+            <displayName>Enable Compression and Deduplication</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <dependencyTarget>vsan_enabled</dependencyTarget>
+            <dependencyValue>true</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>failure_tolerance_method</id>
+            <value />
+            <type>ENUMERATED</type>
+            <displayName>Failure Tolerance Method</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <dependencyTarget>vsan_enabled</dependencyTarget>
+            <dependencyValue>true</dependencyValue>
+            <options>
+               <value />
+               <name>Select...</name>
+               <attributes />
+            </options>
+            <options>
+               <value>failure_tolerance_raid1</value>
+               <name>RAID-1 (Mirroring) – Performance</name>
+               <attributes />
+            </options>
+            <options>
+               <value>failure_tolerance_raid5</value>
+               <name>RAID-5/6 (Erasure Coding) – Capacity</name>
+               <attributes />
+            </options>
+            <toolTip>RAID-1 (Mirroring) in Virtual SAN employs a 2n+1 host or fault domain algorithm, where n is the number of failures to tolerate.&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;RAID-5/6 (Erasure Coding) in Virtual SAN employs a 3+1 or 4+2 host or fault domain requirement, depending on 1 or 2 failures to tolerate respectively. RAID-5/6 (Erasure Coding) does not support 3 failures to tolerate</toolTip>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>failures_number</id>
+            <value />
+            <type>ENUMERATED</type>
+            <displayName>Number of Failures to Tolerate</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <dependencyTarget>failure_tolerance_method</dependencyTarget>
+            <dependencyValue>failure_tolerance_raid1,failure_tolerance_raid5</dependencyValue>
+            <options>
+               <value />
+               <name>Select...</name>
+               <attributes />
+            </options>
+            <options>
+               <value>0</value>
+               <name>0</name>
+               <dependencyTarget>failure_tolerance_method</dependencyTarget>
+               <dependencyValue>failure_tolerance_raid1</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>1</value>
+               <name>1</name>
+               <attributes />
+            </options>
+            <options>
+               <value>2</value>
+               <name>2</name>
+               <attributes />
+            </options>
+            <options>
+               <value>3</value>
+               <name>3</name>
+               <dependencyTarget>failure_tolerance_method</dependencyTarget>
+               <dependencyValue>failure_tolerance_raid1</dependencyValue>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>sdrs_config</id>
+            <value>false</value>
+            <type>BOOLEAN</type>
+            <displayName>Storage DRS Enabled</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>sdrs_name</id>
+            <type>STRING</type>
+            <displayName>Storage Cluster Name</displayName>
+            <required>true</required>
+            <requiredAtDeployment>true</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <dependencyTarget>sdrs_config</dependencyTarget>
+            <dependencyValue>true</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>sdrs_members</id>
+            <type>LIST</type>
+            <displayName>Datastores to Add to Cluster:</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <min>0</min>
+            <max>0</max>
+            <dependencyTarget>sdrs_config</dependencyTarget>
+            <dependencyValue>true</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>true</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>ensure</id>
+            <value>present</value>
+            <type>STRING</type>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <group>none</group>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+      </resources>
+      <resources>
+         <id>asm::cluster::vds</id>
+         <displayName>vSphere VDS Settings</displayName>
+         <parameters>
+            <id>vds_name</id>
+            <value />
+            <type>ENUMERATED</type>
+            <displayName>VDS Name</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <min>0</min>
+            <max>0</max>
+            <dependencyTarget>vds_enabled</dependencyTarget>
+            <dependencyValue>distributed</dependencyValue>
+            <options>
+               <value />
+               <name>Select...</name>
+               <attributes />
+            </options>
+            <options>
+               <value>$new$</value>
+               <name>Create VDS Name ...</name>
+               <attributes />
+            </options>
+            <options>
+               <value>memiscsivds</value>
+               <name>memiscsivds</name>
+               <dependencyTarget>datacenter</dependencyTarget>
+               <dependencyValue>vdsmemdc</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>memmgmtvds</value>
+               <name>memmgmtvds</name>
+               <dependencyTarget>datacenter</dependencyTarget>
+               <dependencyValue>vdsmemdc</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>memvmotionvds</value>
+               <name>memvmotionvds</name>
+               <dependencyTarget>datacenter</dependencyTarget>
+               <dependencyValue>vdsmemdc</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>memworkloadvds</value>
+               <name>memworkloadvds</name>
+               <dependencyTarget>datacenter</dependencyTarget>
+               <dependencyValue>vdsmemdc</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsmanagement-vds</value>
+               <name>vdsmanagement-vds</name>
+               <dependencyTarget>datacenter</dependencyTarget>
+               <dependencyValue>vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsmigration-vds</value>
+               <name>vdsmigration-vds</name>
+               <dependencyTarget>datacenter</dependencyTarget>
+               <dependencyValue>vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsstorage-vds</value>
+               <name>vdsstorage-vds</name>
+               <dependencyTarget>datacenter</dependencyTarget>
+               <dependencyValue>vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsworkload-vds</value>
+               <name>vdsworkload-vds</name>
+               <dependencyTarget>datacenter</dependencyTarget>
+               <dependencyValue>vds</dependencyValue>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>true</generated>
+            <group>VDS</group>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>$new$vds_name</id>
+            <type>STRING</type>
+            <displayName>New VDS Name</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <min>0</min>
+            <max>0</max>
+            <dependencyTarget>vds_name</dependencyTarget>
+            <dependencyValue>$new$</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>true</generated>
+            <group>VDS</group>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>vds_pg</id>
+            <value />
+            <type>ENUMERATED</type>
+            <displayName>Port Group</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <min>0</min>
+            <max>0</max>
+            <dependencyTarget>vds_enabled</dependencyTarget>
+            <dependencyValue>distributed</dependencyValue>
+            <options>
+               <value />
+               <name>Select...</name>
+               <attributes />
+            </options>
+            <options>
+               <value>$new$</value>
+               <name>Create Port Group ...</name>
+               <attributes />
+            </options>
+            <options>
+               <value>iscsi1</value>
+               <name>iscsi1</name>
+               <dependencyTarget>vds_name</dependencyTarget>
+               <dependencyValue>memiscsivds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>iscsi2</value>
+               <name>iscsi2</name>
+               <dependencyTarget>vds_name</dependencyTarget>
+               <dependencyValue>memiscsivds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>LiveMigration</value>
+               <name>LiveMigration</name>
+               <dependencyTarget>vds_name</dependencyTarget>
+               <dependencyValue>vdsmigration-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>Management Network</value>
+               <name>Management Network</name>
+               <dependencyTarget>vds_name</dependencyTarget>
+               <dependencyValue>vdsmanagement-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>memiscsivds-uplink-pg</value>
+               <name>memiscsivds-uplink-pg</name>
+               <dependencyTarget>vds_name</dependencyTarget>
+               <dependencyValue>memiscsivds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>memmgmtvds-uplink-pg</value>
+               <name>memmgmtvds-uplink-pg</name>
+               <dependencyTarget>vds_name</dependencyTarget>
+               <dependencyValue>memmgmtvds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>memvmotionvds-uplink-pg</value>
+               <name>memvmotionvds-uplink-pg</name>
+               <dependencyTarget>vds_name</dependencyTarget>
+               <dependencyValue>memvmotionvds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>memworkloadvds-uplink-pg</value>
+               <name>memworkloadvds-uplink-pg</name>
+               <dependencyTarget>vds_name</dependencyTarget>
+               <dependencyValue>memworkloadvds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>mgmt</value>
+               <name>mgmt</name>
+               <dependencyTarget>vds_name</dependencyTarget>
+               <dependencyValue>memmgmtvds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>PXE</value>
+               <name>PXE</name>
+               <dependencyTarget>vds_name</dependencyTarget>
+               <dependencyValue>vdsmanagement-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>pxe</value>
+               <name>pxe</name>
+               <dependencyTarget>vds_name</dependencyTarget>
+               <dependencyValue>memmgmtvds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsmanagement-vds-uplink-pg</value>
+               <name>vdsmanagement-vds-uplink-pg</name>
+               <dependencyTarget>vds_name</dependencyTarget>
+               <dependencyValue>vdsmanagement-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsmigration-vds-uplink-pg</value>
+               <name>vdsmigration-vds-uplink-pg</name>
+               <dependencyTarget>vds_name</dependencyTarget>
+               <dependencyValue>vdsmigration-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsstorage-vds-uplink-pg</value>
+               <name>vdsstorage-vds-uplink-pg</name>
+               <dependencyTarget>vds_name</dependencyTarget>
+               <dependencyValue>vdsstorage-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsstorage-vdsISCSI0</value>
+               <name>vdsstorage-vdsISCSI0</name>
+               <dependencyTarget>vds_name</dependencyTarget>
+               <dependencyValue>vdsstorage-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsstorage-vdsISCSI1</value>
+               <name>vdsstorage-vdsISCSI1</name>
+               <dependencyTarget>vds_name</dependencyTarget>
+               <dependencyValue>vdsstorage-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsworkload-vds-uplink-pg</value>
+               <name>vdsworkload-vds-uplink-pg</name>
+               <dependencyTarget>vds_name</dependencyTarget>
+               <dependencyValue>vdsworkload-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vmotion1</value>
+               <name>vmotion1</name>
+               <dependencyTarget>vds_name</dependencyTarget>
+               <dependencyValue>memvmotionvds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>Workload-22</value>
+               <name>Workload-22</name>
+               <dependencyTarget>vds_name</dependencyTarget>
+               <dependencyValue>vdsworkload-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>Workload-22-Static</value>
+               <name>Workload-22-Static</name>
+               <dependencyTarget>vds_name</dependencyTarget>
+               <dependencyValue>vdsworkload-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>Workload-25</value>
+               <name>Workload-25</name>
+               <dependencyTarget>vds_name</dependencyTarget>
+               <dependencyValue>vdsworkload-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>workloadvds1</value>
+               <name>workloadvds1</name>
+               <dependencyTarget>vds_name</dependencyTarget>
+               <dependencyValue>memworkloadvds</dependencyValue>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>true</generated>
+            <group>VDS</group>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>$new$vds_pg</id>
+            <type>STRING</type>
+            <displayName>New Port Group</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <min>0</min>
+            <max>0</max>
+            <dependencyTarget>vds_pg</dependencyTarget>
+            <dependencyValue>$new$</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>true</generated>
+            <group>VDS</group>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>ensure</id>
+            <value>present</value>
+            <type>STRING</type>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <group>none</group>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>vds_name::PUBLIC_LAN:PXE</id>
+            <value />
+            <type>ENUMERATED</type>
+            <displayName>VDS Name</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <min>0</min>
+            <max>0</max>
+            <dependencyTarget>vds_enabled</dependencyTarget>
+            <dependencyValue>distributed</dependencyValue>
+            <options>
+               <value />
+               <name>Select...</name>
+               <attributes />
+            </options>
+            <options>
+               <value>$new$</value>
+               <name>Create VDS Name ...</name>
+               <attributes />
+            </options>
+            <options>
+               <value>memiscsivds</value>
+               <name>memiscsivds</name>
+               <dependencyTarget>datacenter</dependencyTarget>
+               <dependencyValue>vdsmemdc</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>memmgmtvds</value>
+               <name>memmgmtvds</name>
+               <dependencyTarget>datacenter</dependencyTarget>
+               <dependencyValue>vdsmemdc</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>memvmotionvds</value>
+               <name>memvmotionvds</name>
+               <dependencyTarget>datacenter</dependencyTarget>
+               <dependencyValue>vdsmemdc</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>memworkloadvds</value>
+               <name>memworkloadvds</name>
+               <dependencyTarget>datacenter</dependencyTarget>
+               <dependencyValue>vdsmemdc</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsmanagement-vds</value>
+               <name>vdsmanagement-vds</name>
+               <dependencyTarget>datacenter</dependencyTarget>
+               <dependencyValue>vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsmigration-vds</value>
+               <name>vdsmigration-vds</name>
+               <dependencyTarget>datacenter</dependencyTarget>
+               <dependencyValue>vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsstorage-vds</value>
+               <name>vdsstorage-vds</name>
+               <dependencyTarget>datacenter</dependencyTarget>
+               <dependencyValue>vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsworkload-vds</value>
+               <name>vdsworkload-vds</name>
+               <dependencyTarget>datacenter</dependencyTarget>
+               <dependencyValue>vds</dependencyValue>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>true</generated>
+            <group>VDS 1</group>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>$new$vds_name::PUBLIC_LAN:PXE</id>
+            <type>STRING</type>
+            <displayName>New VDS Name</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <min>0</min>
+            <max>0</max>
+            <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+            <dependencyValue>$new$</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>true</generated>
+            <group>VDS 1</group>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>vds_pg::PUBLIC_LAN:PXE::PUBLIC_LAN::1</id>
+            <value />
+            <type>ENUMERATED</type>
+            <displayName>Workload Port Group</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <min>0</min>
+            <max>0</max>
+            <dependencyTarget>vds_enabled</dependencyTarget>
+            <dependencyValue>distributed</dependencyValue>
+            <options>
+               <value />
+               <name>Select...</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <attributes />
+            </options>
+            <options>
+               <value>$new$</value>
+               <name>Create Port Group ...</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <attributes />
+            </options>
+            <options>
+               <value>iscsi1</value>
+               <name>iscsi1</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>memiscsivds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>iscsi2</value>
+               <name>iscsi2</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>memiscsivds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>LiveMigration</value>
+               <name>LiveMigration</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>vdsmigration-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>Management Network</value>
+               <name>Management Network</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>vdsmanagement-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>memiscsivds-uplink-pg</value>
+               <name>memiscsivds-uplink-pg</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>memiscsivds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>memmgmtvds-uplink-pg</value>
+               <name>memmgmtvds-uplink-pg</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>memmgmtvds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>memvmotionvds-uplink-pg</value>
+               <name>memvmotionvds-uplink-pg</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>memvmotionvds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>memworkloadvds-uplink-pg</value>
+               <name>memworkloadvds-uplink-pg</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>memworkloadvds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>mgmt</value>
+               <name>mgmt</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>memmgmtvds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>PXE</value>
+               <name>PXE</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>vdsmanagement-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>pxe</value>
+               <name>pxe</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>memmgmtvds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsmanagement-vds-uplink-pg</value>
+               <name>vdsmanagement-vds-uplink-pg</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>vdsmanagement-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsmigration-vds-uplink-pg</value>
+               <name>vdsmigration-vds-uplink-pg</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>vdsmigration-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsstorage-vds-uplink-pg</value>
+               <name>vdsstorage-vds-uplink-pg</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>vdsstorage-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsstorage-vdsISCSI0</value>
+               <name>vdsstorage-vdsISCSI0</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>vdsstorage-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsstorage-vdsISCSI1</value>
+               <name>vdsstorage-vdsISCSI1</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>vdsstorage-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsworkload-vds-uplink-pg</value>
+               <name>vdsworkload-vds-uplink-pg</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>vdsworkload-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vmotion1</value>
+               <name>vmotion1</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>memvmotionvds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>Workload-22</value>
+               <name>Workload-22</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>vdsworkload-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>Workload-22-Static</value>
+               <name>Workload-22-Static</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>vdsworkload-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>Workload-25</value>
+               <name>Workload-25</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>vdsworkload-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>workloadvds1</value>
+               <name>workloadvds1</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>memworkloadvds</dependencyValue>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>true</generated>
+            <group>VDS 1</group>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>$new$vds_pg::PUBLIC_LAN:PXE::PUBLIC_LAN::1</id>
+            <type>STRING</type>
+            <displayName>New Port Group</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <min>0</min>
+            <max>0</max>
+            <dependencyTarget>vds_pg::PUBLIC_LAN:PXE::PUBLIC_LAN::1</dependencyTarget>
+            <dependencyValue>$new$</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>true</generated>
+            <group>VDS 1</group>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>vds_pg::PUBLIC_LAN:PXE::PXE::1</id>
+            <value />
+            <type>ENUMERATED</type>
+            <displayName>PXE Port Group</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <min>0</min>
+            <max>0</max>
+            <dependencyTarget>vds_enabled</dependencyTarget>
+            <dependencyValue>distributed</dependencyValue>
+            <options>
+               <value />
+               <name>Select...</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <attributes />
+            </options>
+            <options>
+               <value>$new$</value>
+               <name>Create Port Group ...</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <attributes />
+            </options>
+            <options>
+               <value>iscsi1</value>
+               <name>iscsi1</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>memiscsivds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>iscsi2</value>
+               <name>iscsi2</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>memiscsivds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>LiveMigration</value>
+               <name>LiveMigration</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>vdsmigration-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>Management Network</value>
+               <name>Management Network</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>vdsmanagement-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>memiscsivds-uplink-pg</value>
+               <name>memiscsivds-uplink-pg</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>memiscsivds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>memmgmtvds-uplink-pg</value>
+               <name>memmgmtvds-uplink-pg</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>memmgmtvds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>memvmotionvds-uplink-pg</value>
+               <name>memvmotionvds-uplink-pg</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>memvmotionvds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>memworkloadvds-uplink-pg</value>
+               <name>memworkloadvds-uplink-pg</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>memworkloadvds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>mgmt</value>
+               <name>mgmt</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>memmgmtvds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>PXE</value>
+               <name>PXE</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>vdsmanagement-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>pxe</value>
+               <name>pxe</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>memmgmtvds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsmanagement-vds-uplink-pg</value>
+               <name>vdsmanagement-vds-uplink-pg</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>vdsmanagement-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsmigration-vds-uplink-pg</value>
+               <name>vdsmigration-vds-uplink-pg</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>vdsmigration-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsstorage-vds-uplink-pg</value>
+               <name>vdsstorage-vds-uplink-pg</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>vdsstorage-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsstorage-vdsISCSI0</value>
+               <name>vdsstorage-vdsISCSI0</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>vdsstorage-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsstorage-vdsISCSI1</value>
+               <name>vdsstorage-vdsISCSI1</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>vdsstorage-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vdsworkload-vds-uplink-pg</value>
+               <name>vdsworkload-vds-uplink-pg</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>vdsworkload-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>vmotion1</value>
+               <name>vmotion1</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>memvmotionvds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>Workload-22</value>
+               <name>Workload-22</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>vdsworkload-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>Workload-22-Static</value>
+               <name>Workload-22-Static</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>vdsworkload-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>Workload-25</value>
+               <name>Workload-25</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>vdsworkload-vds</dependencyValue>
+               <attributes />
+            </options>
+            <options>
+               <value>workloadvds1</value>
+               <name>workloadvds1</name>
+               <dependencyTarget>vds_name::PUBLIC_LAN:PXE</dependencyTarget>
+               <dependencyValue>memworkloadvds</dependencyValue>
+               <attributes />
+            </options>
+            <readOnly>false</readOnly>
+            <generated>true</generated>
+            <group>VDS 1</group>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>$new$vds_pg::PUBLIC_LAN:PXE::PXE::1</id>
+            <type>STRING</type>
+            <displayName>New Port Group</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <min>0</min>
+            <max>0</max>
+            <dependencyTarget>vds_pg::PUBLIC_LAN:PXE::PXE::1</dependencyTarget>
+            <dependencyValue>$new$</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>true</generated>
+            <group>VDS 1</group>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+      </resources>
+      <cloned>false</cloned>
+      <manageFirmware>false</manageFirmware>
+      <brownfield>false</brownfield>
+   </components>
+   <category>alex</category>
+   <enableApps>false</enableApps>
+   <enableCluster>false</enableCluster>
+   <enableServer>false</enableServer>
+   <enableStorage>false</enableStorage>
+   <enableVMs>false</enableVMs>
+   <allUsersAllowed>false</allUsersAllowed>
+   <manageFirmware>true</manageFirmware>
+   <useDefaultCatalog>false</useDefaultCatalog>
+   <firmwareRepository>
+      <bundleCount>0</bundleCount>
+      <componentCount>0</componentCount>
+      <defaultCatalog>false</defaultCatalog>
+      <embedded>false</embedded>
+      <id>ff8080815676360801567ba1a2b5003b</id>
+      <name>ASM June 2016</name>
+      <userBundleCount>0</userBundleCount>
+   </firmwareRepository>
+</ServiceTemplate>

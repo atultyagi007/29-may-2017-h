@@ -1,0 +1,222 @@
+{
+	"Template":
+			{
+				"Name":"VMware VSAN with Virtual Distributed Switch_clone",
+				"Description":"Deploy a template VSAN Converged 2 port with Redundancy clone",
+				"Flow":"esxi"
+			},
+	"Server":
+			{
+				"Instances":3,
+				"target_boot_device_value":"AHCI_VSAN",
+				"OSImage_Value": ["esxi-6.0", "esxi-6.0", "esxi-6.0"],
+				"vSAN": "true",
+				"vSANStorageType": "flash",
+				"install_HyperV": "false",
+				"iSCSI_Initiator":"hardware",
+				"HostNameTemplate":"server${num}",
+				"ServerPoolName":"autoPool",
+				"ServersIPForPool": ["172.31.60.79","172.31.60.81","172.31.60.83"],
+				"memEnabled":"false",
+				"Os_Image_Version":"",
+				"Product_Key":"",
+				"domain_name":"",
+				"Domain_Admin_Username":"",
+				"Domain_Admin_Password":"Dell1234",
+				"FQ_Domain_Name":""	,
+				"Networks": "VSAN_CONVERGED_2_REDUNDANCY"	
+							
+			},
+	"Storage":
+			{
+				"Instances":1,
+				"Type":"EqualLogic",
+				"Size":["100GB"],
+				"IPAddress":"172.31.32.108",
+				"Initiator_IQN_IP_Addresses":"",
+				"Auth_Type":"CHAP",
+				"CHAP_User":"grpadmin",
+				"CHAP_Password":"dell1234",
+				"Operating_SystemName_Compellent":"VMware ESX 5.5",
+				"PortType_Compellent":"FibreChannel",
+				"Aggregate_Name":"Aggregate2RAID4",
+				"Snapshot_Space":"2",
+				"NFS_IP":"172.31.32.81"
+			},
+	"Cluster":
+			{
+				"Instances":1,
+				"Type":"VMWare",
+				"IPAddress":"172.31.61.244",
+				"DCName":"",
+				"ExistingClusterName":"",
+				"HGName":"",
+				"ClusterName":"",
+				"SwitchType":"Distributed",	
+				"HA_Config":"true",
+				"DRS_Config":"true",
+				"VSAN_Enabled":"true",
+				"ClusterIP":"",
+				"failure_tolerance_method":"failure_tolerance_raid1",
+				"number_of_failure_to_tolerate":"0"
+			},
+		"VM":
+			{
+				"Instances":0,
+				"Type":"VMWareVM",
+				"AutoGenerateHostName":"true",
+				"HostNameTemplate":"vm${num}",
+				"OS_Image":"red7",
+				"OS_Image_Version":"Windows Server 2012 R2 SERVERDATACENTER",
+				"OS_Image_Type" : "redhat7",
+				"Product_Key":"",
+				"CPU_Count":"1",
+				"Memory_MB":"1024",
+				"vm_template_name":"HCLAman01",
+				"path":"C:\\ClusterStorage\\Volume1",
+				"start_action":"Always auto turn on VM",
+				"stop_action":"Turn off VM"
+			},
+		"Application":
+			{
+				"Instances":0,
+				"Type":"LinuxPostInstall",
+				"yum_proxy":"",	
+				"install_packages":"",
+				"upload_share":"",
+				"upload_file":"hello.sh",
+				"execute_file_command":"sh",
+				"windows_postinstall_share":"",
+				"windows_install_command":"",
+				"citrix_source_location":""
+			},
+			
+			
+	"Scaleup":
+		{
+			"Server":
+			{
+				"Instances":0,
+				"target_boot_device_value":"SD",
+				"OSImage_Value": ["esxi-5.5"],
+				"install_HyperV": "false",
+				"vSAN": "true",
+				"vSANStorageType": "flash",
+				"iSCSI_Initiator":"hardware",
+				"HostNameTemplate":"server${num}",
+				"ServerPoolName":"autoPool",
+				"ServersIPForPool": ["172.31.60.138"],
+				"memEnabled":"false",
+				"Networks": "ESXI_EQL_CONVERGED_4_REDUNDANCY",
+				"Os_Image_Version":"",
+				"Product_Key":"",
+				"domain_name":"",
+				"Domain_Admin_Username":"",
+				"Domain_Admin_Password":"Dell1234",
+				"FQ_Domain_Name":""						
+			},
+			
+			"Storage":
+			{
+				"Instances":0,
+				"Type":"EqualLogic",
+				"Size":["100GB"],
+				"IPAddress":"172.31.32.108",
+				"Initiator_IQN_IP_Addresses":"",
+				"Auth_Type":"CHAP",
+				"CHAP_User":"grpadmin",
+				"CHAP_Password":"dell1234",
+				"Operating_SystemName_Compellent":"VMware ESX 5.5",
+				"PortType_Compellent":"FibreChannel",
+				"Aggregate_Name":"Aggregate2RAID4",
+				"Snapshot_Space":"2",
+				"NFS_IP":"172.31.32.81"
+			},
+			
+			"Cluster":
+			{
+				"Instances":0,
+				"Type":"vmware",
+				"IPAddress":"172.31.61.244",
+				"DCName":"",
+				"ExistingClusterName":"",
+				"HGName":"",
+				"ClusterName":"autoCluster",
+				"SwitchType":"Standard",	
+				"HA_Config":"false",
+				"DRS_Config":"false",
+				"VSAN_Enabled":"false",
+				"ClusterIP":""
+			},
+			
+			"VM":
+			{
+				"Instances":0,
+				"Type":"VMWareVM",
+				"AutoGenerateHostName":"true",
+				"HostNameTemplate":"vm${num}",
+				"OS_Image":"red7",
+				"OS_Image_Version":"Windows Server 2012 R2 SERVERDATACENTER",
+				"OS_Image_Type" : "redhat7",
+				"Product_Key":"",
+				"CPU_Count":"1",
+				"Memory_MB":"1024",
+				"vm_template_name":"HCLAman01",
+				"path":"C:\\ClusterStorage\\Volume1",
+				"CPU_Count":"2",
+				"Memory_MB":"1024",
+				"start_action":"Always auto turn on VM",
+				"stop_action":"Turn off VM"
+			},
+			
+			"Application":
+			{
+				"Instances":0,
+				"Type":"LinuxPostInstall",
+				"yum_proxy":"",	
+				"install_packages":"",
+				"upload_share":"",
+				"upload_file":"hello.sh",
+				"execute_file_command":"sh",
+				"windows_postinstall_share":"",
+				"windows_install_command":"",
+				"citrix_source_location":""
+			},
+			
+			"Network": 
+			{
+				"Instances":0,
+				"select_network":["CustomPublic", "test_hcl"],
+				"select_resource":["host", "host"]			
+			}	
+		},
+	"Scaledown":
+		{
+			"Storage":
+			{
+				"Instances":0,
+				"storgae_ip":["172.31.32.106","172.31.32.108"],	
+				"volume_name":["atVolume1602110", "autoVolume0"]
+			},
+			"Server":
+			{
+				"Instances":0,
+				"server_ip":["172.31.60.138"]
+			},
+			"Cluster": 
+			{
+				"Instances":0,
+				"cluster_ip":["172.31.32.195"]
+			},
+			"VM": 
+			{
+				"Instances":0, 
+				"vm_hostName":["vm1"]
+			},
+			"Application": 
+			{
+				"Instances":0,
+				"Type":["linux_postinstall"]
+			}
+		}
+}

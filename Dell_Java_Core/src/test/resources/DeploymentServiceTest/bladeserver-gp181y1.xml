@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ManagedDevice>
+    <compliance>NONCOMPLIANT</compliance>
+    <complianceCheckDate>2015-09-30T00:02:35.677-05:00</complianceCheckDate>
+    <cpuType>Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz</cpuType>
+    <credId>ff80808150188637015018875a6c0009</credId>
+    <detailLink
+        href="http://localhost:9080/AsmManager/Server/ff80808150199d19015019f1f3c30343"
+        rel="describedby" title="ff80808150199d19015019f1f3c30343" />
+    <deviceGroupList>
+        <DeviceGroup>
+            <groupSeqId>-1</groupSeqId>
+            <groupName>Global</groupName>
+            <createdBy>admin</createdBy>
+        </DeviceGroup>
+        <totalRecords>0</totalRecords>
+    </deviceGroupList>
+    <deviceType>BladeServer</deviceType>
+    <discoverDeviceType>IDRAC8</discoverDeviceType>
+    <discoveredDate>2015-09-29T11:31:40.964-05:00</discoveredDate>
+    <displayName>idrac-GP181Y1</displayName>
+    <facts>memoryInGB=64;nics=10;numberOfCPUs=2;cpuType=Intel(R) Xeon(R) CPU
+        E5-2640 0 @ 2.50GHz;
+    </facts>
+    <failuresCount>0</failuresCount>
+    <health>GREEN</health>
+    <healthMessage>OK</healthMessage>
+    <inventoryDate>2015-09-29T18:27:26.693-05:00</inventoryDate>
+    <ipAddress>172.17.9.207</ipAddress>
+    <manufacturer>Dell</manufacturer>
+    <memoryInGB>64</memoryInGB>
+    <model>PowerEdge M620</model>
+    <nics>10</nics>
+    <numberOfCPUs>2</numberOfCPUs>
+    <operatingSystem>N/A</operatingSystem>
+    <refId>ff80808150199d19015019f1f3c30343</refId>
+    <serviceTag>GP181Y1</serviceTag>
+    <state>DEPLOYED</state>
+    <systemId>1243</systemId>
+</ManagedDevice>

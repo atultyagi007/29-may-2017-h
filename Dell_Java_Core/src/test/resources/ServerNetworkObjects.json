@@ -1,0 +1,363 @@
+{"ServerNetworkObjects": {
+  "fc_interfaces": [
+    
+  ],
+  "network_config": {
+    "id": "FEEA5A24-F37D-4DC6-A4E8-DB8EDA51A0E0",
+    "interfaces": [
+      {
+        "id": "E57DEE86-3378-48AF-9B4E-E48D12C68BD8",
+        "name": "Interface",
+        "redundancy": true,
+        "enabled": true,
+        "usedforfc": false,
+        "partitioned": true,
+        "nictype": "2x10Gb",
+        "interfaces": [
+          {
+            "id": "790E6C4C-89AF-4E96-8470-C583CC711185",
+            "name": "Port 1",
+            "partitioned": true,
+            "partitions": [
+              {
+                "id": "622DB8F1-B869-45A1-B8DD-787477FA071A",
+                "name": "1",
+                "networks": [
+                  "ff8080815255fd7b0152560ba9fc0137"
+                ],
+                "networkObjects": [
+                  {
+                    "id": "ff8080815255fd7b0152560ba9fc0137",
+                    "name": "PXE",
+                    "description": null,
+                    "type": "PXE",
+                    "vlanId": 25,
+                    "static": false,
+                    "staticNetworkConfiguration": null
+                  }
+                ],
+                "minimum": 0,
+                "maximum": 100,
+                "lanMacAddress": null,
+                "iscsiMacAddress": null,
+                "iscsiIQN": null,
+                "wwnn": null,
+                "wwpn": null,
+                "port_no": 1,
+                "partition_no": 1,
+                "partition_index": 0,
+                "fqdd": "NIC.Integrated.1-1-1",
+                "mac_address": "E0:DB:55:00:1F:E0"
+              },
+              {
+                "id": "4C8B1572-782A-49CD-B6D1-3C64870A69AD",
+                "name": "2",
+                "networks": [
+                  "ff8080815255fd7b0152560b9ab20002"
+                ],
+                "networkObjects": [
+                  {
+                    "id": "ff8080815255fd7b0152560b9ab20002",
+                    "name": "Hypervisor Management",
+                    "description": null,
+                    "type": "HYPERVISOR_MANAGEMENT",
+                    "vlanId": 28,
+                    "static": true,
+                    "staticNetworkConfiguration": {
+                      "gateway": "172.28.0.1",
+                      "subnet": "255.255.0.0",
+                      "primaryDns": "172.20.0.8",
+                      "secondaryDns": null,
+                      "dnsSuffix": "aidev.com",
+                      "ipAddress": "172.28.115.2"
+                    }
+                  }
+                ],
+                "minimum": 0,
+                "maximum": 100,
+                "lanMacAddress": null,
+                "iscsiMacAddress": null,
+                "iscsiIQN": null,
+                "wwnn": null,
+                "wwpn": null,
+                "port_no": 1,
+                "partition_no": 2,
+                "partition_index": 1,
+                "fqdd": "NIC.Integrated.1-1-2",
+                "mac_address": "E0:DB:55:00:1F:E4"
+              },
+              {
+                "id": "75700F3E-DED4-4F3F-9B88-02492757DCEB",
+                "name": "3",
+                "networks": [
+                  "ff8080815255fd7b0152560ba181006b"
+                ],
+                "networkObjects": [
+                  {
+                    "id": "ff8080815255fd7b0152560ba181006b",
+                    "name": "vMotion",
+                    "description": null,
+                    "type": "HYPERVISOR_MIGRATION",
+                    "vlanId": 23,
+                    "static": true,
+                    "staticNetworkConfiguration": {
+                      "gateway": "172.23.0.1",
+                      "subnet": "255.255.0.0",
+                      "primaryDns": "172.20.0.8",
+                      "secondaryDns": null,
+                      "dnsSuffix": "aidev.com",
+                      "ipAddress": "172.23.115.1"
+                    }
+                  }
+                ],
+                "minimum": 0,
+                "maximum": 100,
+                "lanMacAddress": null,
+                "iscsiMacAddress": null,
+                "iscsiIQN": null,
+                "wwnn": null,
+                "wwpn": null,
+                "port_no": 1,
+                "partition_no": 3,
+                "partition_index": 2,
+                "fqdd": "NIC.Integrated.1-1-3",
+                "mac_address": "E0:DB:55:00:1F:E8"
+              },
+              {
+                "id": "D72817B9-72C7-422C-B12A-D074A7297151",
+                "name": "4",
+                "networks": [
+                  "ff8080815255fd7b0152560b9e450068"
+                ],
+                "networkObjects": [
+                  {
+                    "id": "ff8080815255fd7b0152560b9e450068",
+                    "name": "Cluster",
+                    "description": null,
+                    "type": "HYPERVISOR_CLUSTER_PRIVATE",
+                    "vlanId": 24,
+                    "static": true,
+                    "staticNetworkConfiguration": {
+                      "gateway": "172.24.0.1",
+                      "subnet": "255.255.0.0",
+                      "primaryDns": "172.20.0.8",
+                      "secondaryDns": null,
+                      "dnsSuffix": "aidev.com",
+                      "ipAddress": "172.24.115.1"
+                    }
+                  }
+                ],
+                "minimum": 0,
+                "maximum": 100,
+                "lanMacAddress": null,
+                "iscsiMacAddress": null,
+                "iscsiIQN": null,
+                "wwnn": null,
+                "wwpn": null,
+                "port_no": 1,
+                "partition_no": 4,
+                "partition_index": 3,
+                "fqdd": "NIC.Integrated.1-1-4",
+                "mac_address": "E0:DB:55:00:1F:EC"
+              }
+            ],
+            "enabled": false,
+            "redundancy": false,
+            "nictype": null,
+            "fqdd": "NIC.Integrated.1-1-1"
+          },
+          {
+            "id": "634C7F3F-3412-45B4-B0E6-CEF96BE70D31",
+            "name": "Port 2",
+            "partitioned": true,
+            "partitions": [
+              {
+                "id": "622DB8F1-B869-45A1-B8DD-787477FA071A",
+                "name": "1",
+                "networks": [
+                  "ff8080815255fd7b0152560ba9fc0137"
+                ],
+                "networkObjects": [
+                  {
+                    "id": "ff8080815255fd7b0152560ba9fc0137",
+                    "name": "PXE",
+                    "description": null,
+                    "type": "PXE",
+                    "vlanId": 25,
+                    "static": false,
+                    "staticNetworkConfiguration": null
+                  }
+                ],
+                "minimum": 0,
+                "maximum": 100,
+                "lanMacAddress": null,
+                "iscsiMacAddress": null,
+                "iscsiIQN": null,
+                "wwnn": null,
+                "wwpn": null,
+                "port_no": 2,
+                "partition_no": 1,
+                "partition_index": 4,
+                "fqdd": "NIC.Integrated.1-2-1",
+                "mac_address": "E0:DB:55:00:1F:E2"
+              },
+              {
+                "id": "4C8B1572-782A-49CD-B6D1-3C64870A69AD",
+                "name": "2",
+                "networks": [
+                  "ff8080815255fd7b0152560b9ab20002"
+                ],
+                "networkObjects": [
+                  {
+                    "id": "ff8080815255fd7b0152560b9ab20002",
+                    "name": "Hypervisor Management",
+                    "description": null,
+                    "type": "HYPERVISOR_MANAGEMENT",
+                    "vlanId": 28,
+                    "static": true,
+                    "staticNetworkConfiguration": {
+                      "gateway": "172.28.0.1",
+                      "subnet": "255.255.0.0",
+                      "primaryDns": "172.20.0.8",
+                      "secondaryDns": null,
+                      "dnsSuffix": "aidev.com",
+                      "ipAddress": "172.28.115.2"
+                    }
+                  }
+                ],
+                "minimum": 0,
+                "maximum": 100,
+                "lanMacAddress": null,
+                "iscsiMacAddress": null,
+                "iscsiIQN": null,
+                "wwnn": null,
+                "wwpn": null,
+                "port_no": 2,
+                "partition_no": 2,
+                "partition_index": 5,
+                "fqdd": "NIC.Integrated.1-2-2",
+                "mac_address": "E0:DB:55:00:1F:E6"
+              },
+              {
+                "id": "75700F3E-DED4-4F3F-9B88-02492757DCEB",
+                "name": "3",
+                "networks": [
+                  "ff8080815255fd7b0152560ba181006b"
+                ],
+                "networkObjects": [
+                  {
+                    "id": "ff8080815255fd7b0152560ba181006b",
+                    "name": "vMotion",
+                    "description": null,
+                    "type": "HYPERVISOR_MIGRATION",
+                    "vlanId": 23,
+                    "static": true,
+                    "staticNetworkConfiguration": {
+                      "gateway": "172.23.0.1",
+                      "subnet": "255.255.0.0",
+                      "primaryDns": "172.20.0.8",
+                      "secondaryDns": null,
+                      "dnsSuffix": "aidev.com",
+                      "ipAddress": "172.23.115.1"
+                    }
+                  }
+                ],
+                "minimum": 0,
+                "maximum": 100,
+                "lanMacAddress": null,
+                "iscsiMacAddress": null,
+                "iscsiIQN": null,
+                "wwnn": null,
+                "wwpn": null,
+                "port_no": 2,
+                "partition_no": 3,
+                "partition_index": 6,
+                "fqdd": "NIC.Integrated.1-2-3",
+                "mac_address": "E0:DB:55:00:1F:EA"
+              },
+              {
+                "id": "D72817B9-72C7-422C-B12A-D074A7297151",
+                "name": "4",
+                "networks": [
+                  "ff8080815255fd7b0152560b9e450068"
+                ],
+                "networkObjects": [
+                  {
+                    "id": "ff8080815255fd7b0152560b9e450068",
+                    "name": "Cluster",
+                    "description": null,
+                    "type": "HYPERVISOR_CLUSTER_PRIVATE",
+                    "vlanId": 24,
+                    "static": true,
+                    "staticNetworkConfiguration": {
+                      "gateway": "172.24.0.1",
+                      "subnet": "255.255.0.0",
+                      "primaryDns": "172.20.0.8",
+                      "secondaryDns": null,
+                      "dnsSuffix": "aidev.com",
+                      "ipAddress": "172.24.115.1"
+                    }
+                  }
+                ],
+                "minimum": 0,
+                "maximum": 100,
+                "lanMacAddress": null,
+                "iscsiMacAddress": null,
+                "iscsiIQN": null,
+                "wwnn": null,
+                "wwpn": null,
+                "port_no": 2,
+                "partition_no": 4,
+                "partition_index": 7,
+                "fqdd": "NIC.Integrated.1-2-4",
+                "mac_address": "E0:DB:55:00:1F:EE"
+              }
+            ],
+            "enabled": false,
+            "redundancy": false,
+            "nictype": null,
+            "fqdd": "NIC.Integrated.1-2-1"
+          }
+        ],
+        "fabrictype": "ethernet",
+        "card_index": 1
+      }
+    ]
+  },
+  "related_switches": [
+    "dell_iom-172.17.15.254",
+    "dell_iom-172.17.15.253"
+  ],
+  "name": "Server",
+  "server": "bladeserver-1hvwqv1",
+  "physical_type": "BLADE",
+  "serial_number": "1HVWQV1",
+  "razor_policy_name": "policy-server1-ff8080815255fd7b0152562054530a34",
+  "connected_switches": [
+    {
+      "local_device": "bladeserver-1hvwqv1",
+      "local_device_type": "blade",
+      "local_ports": [
+        "NIC.Integrated.1-1-1"
+      ],
+      "remote_device": "dell_iom-172.17.15.254",
+      "remote_device_type": "blade",
+      "remote_ports": [
+        "Te 0/6"
+      ]
+    },
+    {
+      "local_device": "bladeserver-1hvwqv1",
+      "local_device_type": "blade",
+      "local_ports": [
+        "NIC.Integrated.1-2-1"
+      ],
+      "remote_device": "dell_iom-172.17.15.253",
+      "remote_device_type": "blade",
+      "remote_ports": [
+        "Te 0/6"
+      ]
+    }
+  ]
+}
+}

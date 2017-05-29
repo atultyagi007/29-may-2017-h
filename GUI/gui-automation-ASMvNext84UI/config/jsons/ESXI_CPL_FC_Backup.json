@@ -1,0 +1,181 @@
+{
+	"Template":
+			{
+				"Name":"Template_esxi_cpl_fc_converged_2",
+				"Description":"Deploy a template ESXi Compellent FC",
+				"Flow":"esxi"
+			},
+	"Server":
+			{
+				"Instances":1,
+				"target_boot_device_value":"SD",
+				"OSImage_Value": ["esxi-6.0"],
+				"iSCSI_Initiator":"hardware",
+				"HostNameTemplate":"server${num}",
+				"ServerPoolName":"autoPool",
+				"ServersIPForPool": ["172.31.6.111"],
+				"memEnabled":"",
+				"Networks": "ESXI_NETAPP_CONVERGED_2_REDUNDANCY_PARTITION"							
+			},
+	"Storage":
+			{
+				"Instances":1,
+				"Type":"NetApp",
+				"Size":["100GB"],
+				"IPAddress":"172.31.32.81",
+				"Initiator_IQN_IP_Addresses":"",
+				"Auth_Type":"",
+				"CHAP_User":"",
+				"CHAP_Password":"",
+				"Operating_SystemName_Compellent":"VMware ESX 5.5",
+				"PortType_Compellent":"FibreChannel",
+				"Aggregate_Name":"Aggregate2RAID4",
+				"Snapshot_Space":"2",
+				"NFS_IP":"172.31.32.81"
+			},
+	"Cluster":
+			{
+				"Instances":1,
+				"Type":"VMWare",
+				"IPAddress":"172.31.61.50",
+				"DCName":"autoDC",
+				"HGName":"",
+				"ClusterName":"autoCluster",
+				"SwitchType":"Standard",	
+				"HA_Config":"false",
+				"DRS_Config":"false",
+				"VSAN_Enabled":"false",
+				"ClusterIP":""
+			},
+		"VM":
+			{
+				"Instances":1,
+				"Type":"VMWareVM",
+				"AutoGenerateHostName":"true",
+				"HostNameTemplate":"vm${num}",
+				"OS_Image":"red7",
+				"OS_Image_Version":"Windows Server 2012 R2 SERVERDATACENTER",
+				"OS_Image_Type" : "redhat7",
+				"Product_Key":"",
+				"CPU_Count":"1",
+				"Memory_MB":"1024"
+			},
+		"Application":
+			{
+				"Instances":1,
+				"Type":"LinuxPostInstall",
+				"yum_proxy":"",	
+				"install_packages":"",
+				"upload_share":"",
+				"upload_file":"hello.sh",
+				"execute_file_command":"sh",
+				"windows_postinstall_share":"",
+				"windows_install_command":"",
+				"citrix_source_location":""
+			},
+	"Scaleup":
+		{
+			"Server":
+			{
+				"Instances":0,
+				"target_boot_device_value":"SD",
+				"OSImage_Value": ["esxi-6.0"],
+				"iSCSI_Initiator":"hardware",
+				"HostNameTemplate":"server${num}",
+				"ServerPoolName":"autoPool",
+				"ServersIPForPool": ["172.31.61.111"],
+				"memEnabled":"false",
+				"Networks": "ESXI_EQL_CONVERGED_4_REDUNDANCY_PARTITION"							
+			},
+			"Storage":
+			{
+				"Instances":0,
+				"Type":"EqualLogic",
+				"Size":["100GB"],
+				"IPAddress":"172.31.32.106",
+				"Initiator_IQN_IP_Addresses":"",
+				"Auth_Type":"CHAP",
+				"CHAP_User":"grpadmin",
+				"CHAP_Password":"dell1234",
+				"Operating_SystemName_Compellent":"VMware ESX 5.5",
+				"PortType_Compellent":"FibreChannel",
+				"Volume_Name" : "scaleupVolume"
+								
+			},
+			"Cluster": 
+			{
+				"Instances":0,
+				"Type":"VMWare",
+				"IPAddress":"172.31.61.50",
+				"DCName":"autoDC",
+				"HGName":"",
+				"ClusterName":"autoCluster",
+				"SwitchType":"Standard",	
+				"HA_Config":"false",
+				"DRS_Config":"false",
+				"VSAN_Enabled":"false",
+				"ClusterIP":""	
+			},
+			"VM": 
+			{
+				"Instances":0,
+				"Type":"VMWareVM",
+				"AutoGenerateHostName":"true",
+				"HostNameTemplate":"vm${num}",
+				"OS_Image":"red7",
+				"OS_Image_Version":"Windows Server 2012 R2 SERVERDATACENTER",
+				"OS_Image_Type" : "redhat7",
+				"Product_Key":"",
+				"CPU_Count":"1",
+				"Memory_MB":"1024"
+			},
+			"Application": 
+			{
+				"Instances":0,
+				"Type":"LinuxPostInstall",
+				"yum_proxy":"",	
+				"install_packages":"",
+				"upload_share":"",
+				"upload_file":"hello.sh",
+				"execute_file_command":"sh",
+				"windows_postinstall_share":"",
+				"windows_install_command":"",
+				"citrix_source_location":""			
+			},
+			"Network": 
+			{
+				"Instances":1,
+				"select_network":["CustomPublic", "test_hcl"],
+				"select_resource":["host", "host"]			
+			}	
+		},
+	"Scaledown":
+		{
+			"Storage":
+			{
+				"Instances":1,
+				"storgae_ip":["172.31.32.108"],	
+				"volume_name":["autoVolume"]
+			},
+			"Server":
+			{
+				"Instances":0,
+				"server_ip":["",""]
+			},
+			"Cluster": 
+			{
+				"Instances":0,
+				"cluster_ip":"172.31.61.50"
+			},
+			"VM": 
+			{
+				"Instances":0, 
+				"vm_hostName":["VMWareVM",""]
+			},
+			"Application": 
+			{
+				"Instances":0,
+				"Type":["LinuxPostInstall",""]
+			}
+		}		
+}

@@ -1,0 +1,1 @@
+ALTER TABLE add_on_module ALTER COLUMN active SET DEFAULT false;

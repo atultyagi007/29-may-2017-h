@@ -1,0 +1,4345 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceTemplate>
+    <id>1000</id>
+    <templateName>Default Template</templateName>
+    <templateDescription>Default Template Description</templateDescription>
+    <draft>false</draft>
+    <createdBy>Administrator</createdBy>
+    <updatedBy>Administrator</updatedBy>
+    <components>
+        <id>component-compellent-1</id>
+        <name>Compellent</name>
+        <type>STORAGE</type>
+        <teardown>false</teardown>
+        <relatedComponents />
+        <associatedComponents />
+        <resources>
+            <id>asm::volume::compellent</id>
+            <displayName>Compellent Storage Settings</displayName>
+            <parameters>
+                <id>asm_guid</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>Target Compellent</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <toolTip>Device where volume will be created</toolTip>
+            </parameters>
+            <parameters>
+                <id>title</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>Storage Volume Name</displayName>
+                <required>true</required>
+                <requiredAtDeployment>true</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>$new$</value>
+                    <name>Create New Volume...</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>$new$title</id>
+                <type>STRING</type>
+                <displayName>New Volume Name</displayName>
+                <required>false</required>
+                <requiredAtDeployment>true</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>size</id>
+                <value></value>
+                <type>STRING</type>
+                <displayName>Storage Size e.g 100GB</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>boot</id>
+                <value>false</value>
+                <type>BOOLEAN</type>
+                <displayName>Boot Volume</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>volumefolder</id>
+                <value></value>
+                <type>STRING</type>
+                <displayName>Volume Folder</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>purge</id>
+                <value>yes</value>
+                <type>ENUMERATED</type>
+                <displayName>Purge Volume</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+                <options>
+                    <value>yes</value>
+                    <name>Yes</name>
+                    <dependencyTarget></dependencyTarget>
+                    <dependencyValue></dependencyValue>
+                </options>
+                <options>
+                    <value>no</value>
+                    <name>No</name>
+                    <dependencyTarget></dependencyTarget>
+                    <dependencyValue></dependencyValue>
+                </options>
+            </parameters>
+            <parameters>
+                <id>volume_notes</id>
+                <value></value>
+                <type>STRING</type>
+                <displayName>Volume Notes</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>replayprofile</id>
+                <value></value>
+                <type>STRING</type>
+                <displayName>Replay Profile</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>storageprofile</id>
+                <value></value>
+                <type>STRING</type>
+                <displayName>Storage Profile Name</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>server_notes</id>
+                <value></value>
+                <type>STRING</type>
+                <displayName>Server Notes</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>operatingsystem</id>
+                <value>VMware ESX 5.1</value>
+                <type>ENUMERATED</type>
+                <displayName>Operating System Name</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+                <options>
+                    <value>VMware ESX 5.1</value>
+                    <name>VMware ESX 5.1</name>
+                    <dependencyTarget></dependencyTarget>
+                    <dependencyValue></dependencyValue>
+                </options>
+                <options>
+                    <value>VMware ESX 5.0</value>
+                    <name>VMware ESX 5.0</name>
+                    <dependencyTarget></dependencyTarget>
+                    <dependencyValue></dependencyValue>
+                </options>
+                <options>
+                    <value>VMware ESX 5.5</value>
+                    <name>VMware ESX 5.5</name>
+                    <dependencyTarget></dependencyTarget>
+                    <dependencyValue></dependencyValue>
+                </options>
+                <options>
+                    <value>Windows 2012 MPIO</value>
+                    <name>Windows 2012 MPIO</name>
+                    <dependencyTarget></dependencyTarget>
+                    <dependencyValue></dependencyValue>
+                </options>
+                <options>
+                    <value>Red Hat Linux 5.x</value>
+                    <name>Red Hat Linux 5.x</name>
+                    <dependencyTarget></dependencyTarget>
+                    <dependencyValue></dependencyValue>
+                </options>
+                <options>
+                    <value>Red Hat Linux 6.x</value>
+                    <name>Red Hat Linux 6.x</name>
+                    <dependencyTarget></dependencyTarget>
+                    <dependencyValue></dependencyValue>
+                </options>
+                <toolTip>Defines the host OS type</toolTip>
+            </parameters>
+            <parameters>
+                <id>wwn</id>
+                <value></value>
+                <type>STRING</type>
+                <displayName>Server WWN Values</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>porttype</id>
+                <value>FibreChannel</value>
+                <type>ENUMERATED</type>
+                <displayName>Port Type</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+                <options>
+                    <value>FibreChannel</value>
+                    <name>FibreChannel</name>
+                    <dependencyTarget></dependencyTarget>
+                    <dependencyValue></dependencyValue>
+                </options>
+                <options>
+                    <value>iSCSI</value>
+                    <name>iSCSI</name>
+                    <dependencyTarget></dependencyTarget>
+                    <dependencyValue></dependencyValue>
+                </options>
+            </parameters>
+            <parameters>
+                <id>manual</id>
+                <value>false</value>
+                <type>BOOLEAN</type>
+                <displayName>Manual</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>force</id>
+                <value>false</value>
+                <type>BOOLEAN</type>
+                <displayName>Force Map</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>readonly</id>
+                <value>false</value>
+                <type>BOOLEAN</type>
+                <displayName>Map Read Only</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>singlepath</id>
+                <value>false</value>
+                <type>BOOLEAN</type>
+                <displayName>Single Path Map</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>configuresan</id>
+                <value>true</value>
+                <type>BOOLEAN</type>
+                <displayName>Configure SAN Switch</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>ensure</id>
+                <value>present</value>
+                <type>STRING</type>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>true</hideFromTemplate>
+            </parameters>
+        </resources>
+        <manageFirmware>false</manageFirmware>
+    </components>
+    <components>
+        <id>component-equallogic-chap-1</id>
+        <name>EqualLogic</name>
+        <type>STORAGE</type>
+        <teardown>false</teardown>
+        <relatedComponents />
+        <associatedComponents />
+        <resources>
+            <id>asm::volume::equallogic</id>
+            <displayName>EqualLogic Storage Settings</displayName>
+            <parameters>
+                <id>asm_guid</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>Target EqualLogic</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <toolTip>Device where volume will be created</toolTip>
+            </parameters>
+            <parameters>
+                <id>title</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>Storage Volume Name</displayName>
+                <required>true</required>
+                <requiredAtDeployment>true</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>$new$</value>
+                    <name>Create New Volume...</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>$new$title</id>
+                <type>STRING</type>
+                <displayName>New Volume Name</displayName>
+                <required>false</required>
+                <requiredAtDeployment>true</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>poolname</id>
+                <value>default</value>
+                <type>STRING</type>
+                <displayName>Storage Pool</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>size</id>
+                <value></value>
+                <type>STRING</type>
+                <displayName>Storage Size (e.g. 100MB, 1GB)</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>thinprovision</id>
+                <value>enable</value>
+                <type>ENUMERATED</type>
+                <displayName>Thin Provisioning</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+                <options>
+                    <value>enable</value>
+                    <name>Enable</name>
+                    <dependencyTarget></dependencyTarget>
+                    <dependencyValue></dependencyValue>
+                </options>
+                <options>
+                    <value>disable</value>
+                    <name>Disable</name>
+                    <dependencyTarget></dependencyTarget>
+                    <dependencyValue></dependencyValue>
+                </options>
+            </parameters>
+            <parameters>
+                <id>snapreserve</id>
+                <value>100%</value>
+                <type>STRING</type>
+                <displayName>Snapshot Reserve %</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>thinminreserve</id>
+                <value>10%</value>
+                <type>STRING</type>
+                <displayName>Thin Min Reserve %</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>thinprovision</dependencyTarget>
+                <dependencyValue>enable</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>thingrowthwarn</id>
+                <value>60%</value>
+                <type>STRING</type>
+                <displayName>Thin growth Warning %</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>thinprovision</dependencyTarget>
+                <dependencyValue>enable</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>thingrowthmax</id>
+                <value>100%</value>
+                <type>STRING</type>
+                <displayName>Thin growth Maximum %</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>thinprovision</dependencyTarget>
+                <dependencyValue>enable</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>thinwarnsoftthres</id>
+                <value>60%</value>
+                <type>STRING</type>
+                <displayName>Thin warning on threshold %</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>thinprovision</dependencyTarget>
+                <dependencyValue>enable</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>thinwarnhardthres</id>
+                <value>90%</value>
+                <type>STRING</type>
+                <displayName>Thin warning hard threshold %</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>thinprovision</dependencyTarget>
+                <dependencyValue>enable</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>multihostaccess</id>
+                <value>enable</value>
+                <type>ENUMERATED</type>
+                <displayName>Multi-Host Access of Volume</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+                <options>
+                    <value>enable</value>
+                    <name>Enable</name>
+                    <dependencyTarget></dependencyTarget>
+                    <dependencyValue></dependencyValue>
+                </options>
+                <options>
+                    <value>disable</value>
+                    <name>Disable</name>
+                    <dependencyTarget></dependencyTarget>
+                    <dependencyValue></dependencyValue>
+                </options>
+            </parameters>
+            <parameters>
+                <id>auth_type</id>
+                <value>iqnip</value>
+                <type>ENUMERATED</type>
+                <displayName>Authentication</displayName>
+                <required>true</required>
+                <requiredAtDeployment>true</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value>iqnip</value>
+                    <name>IQN/IP</name>
+                    <dependencyTarget></dependencyTarget>
+                    <dependencyValue></dependencyValue>
+                </options>
+                <options>
+                    <value>chap</value>
+                    <name>CHAP</name>
+                    <dependencyTarget></dependencyTarget>
+                    <dependencyValue></dependencyValue>
+                </options>
+                <toolTip>Authentication method for storage volume</toolTip>
+            </parameters>
+            <parameters>
+                <id>chap_user_name</id>
+                <value></value>
+                <type>STRING</type>
+                <displayName>Chap Username</displayName>
+                <required>true</required>
+                <requiredAtDeployment>true</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>auth_type</dependencyTarget>
+                <dependencyValue>chap</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>passwd</id>
+                <value></value>
+                <type>PASSWORD</type>
+                <displayName>Chap Secret</displayName>
+                <required>true</required>
+                <requiredAtDeployment>true</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>auth_type</dependencyTarget>
+                <dependencyValue>chap</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>iqnOrIP</id>
+                <value></value>
+                <type>TEXT</type>
+                <displayName>Initiator IQN or IP Addresses</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>auth_type</dependencyTarget>
+                <dependencyValue>iqnip</dependencyValue>
+                <toolTip>Comma separated list of IPs or IQNs</toolTip>
+            </parameters>
+            <parameters>
+                <id>ensure</id>
+                <value>present</value>
+                <type>STRING</type>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>true</hideFromTemplate>
+            </parameters>
+        </resources>
+        <manageFirmware>false</manageFirmware>
+    </components>
+    <components>
+        <id>component-netapp-1</id>
+        <puppetCertName>netapp-cert</puppetCertName>
+        <name>NetApp</name>
+        <type>STORAGE</type>
+        <teardown>false</teardown>
+        <relatedComponents />
+        <associatedComponents />
+        <resources>
+            <id>netapp::create_nfs_export</id>
+            <displayName>NetApp Storage Settings</displayName>
+            <parameters>
+                <id>asm_guid</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>Target NetApp</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <toolTip>Device where volume will be created</toolTip>
+            </parameters>
+            <parameters>
+                <id>title</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>Storage Volume Name</displayName>
+                <required>true</required>
+                <requiredAtDeployment>true</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <min>0</min>
+                <max>0</max>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>$new$</value>
+                    <name>Create New Volume...</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>$new$title</id>
+                <type>STRING</type>
+                <displayName>New Volume Name</displayName>
+                <required>false</required>
+                <requiredAtDeployment>true</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>size</id>
+                <value></value>
+                <type>STRING</type>
+                <displayName>Storage Size e.g 100GB</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <min>0</min>
+                <max>0</max>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>aggr</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>Aggregate Name</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <min>0</min>
+                <max>0</max>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>spaceres</id>
+                <value>none</value>
+                <type>ENUMERATED</type>
+                <displayName>Space Reservation Mode</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <min>0</min>
+                <max>0</max>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+                <options>
+                    <value>none</value>
+                    <name>None</name>
+                    <dependencyTarget></dependencyTarget>
+                    <dependencyValue></dependencyValue>
+                </options>
+                <options>
+                    <value>file</value>
+                    <name>File</name>
+                    <dependencyTarget></dependencyTarget>
+                    <dependencyValue></dependencyValue>
+                </options>
+                <options>
+                    <value>volume</value>
+                    <name>Volume</name>
+                    <dependencyTarget></dependencyTarget>
+                    <dependencyValue></dependencyValue>
+                </options>
+            </parameters>
+            <parameters>
+                <id>snapresv</id>
+                <value>0</value>
+                <type>INTEGER</type>
+                <displayName>The % of Space Reserved for Snapshots</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <min>0</min>
+                <max>100</max>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>autoincrement</id>
+                <value>true</value>
+                <type>BOOLEAN</type>
+                <displayName>Auto Increment</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <min>0</min>
+                <max>0</max>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>persistent</id>
+                <value>true</value>
+                <type>BOOLEAN</type>
+                <displayName>Persistent</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <min>0</min>
+                <max>0</max>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>nfs_network</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>NFS Target IP</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <min>0</min>
+                <max>0</max>
+                <dependencyTarget>title</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>ensure</id>
+                <value>present</value>
+                <type>STRING</type>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>true</hideFromTemplate>
+            </parameters>
+        </resources>
+        <manageFirmware>false</manageFirmware>
+    </components>
+    <components>
+        <id>component-server-1</id>
+        <name>Server</name>
+        <type>SERVER</type>
+        <teardown>false</teardown>
+        <relatedComponents>
+            <entry>
+                <key>component-compellent-1</key>
+                <value>Compellent</value>
+            </entry>
+        </relatedComponents>
+        <resources>
+            <id>asm::idrac</id>
+            <displayName>Hardware Settings</displayName>
+            <parameters>
+                <id>target_boot_device</id>
+                <value>HD</value>
+                <type>ENUMERATED</type>
+                <displayName>Target Boot Device</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>NONE</value>
+                    <name>None</name>
+                </options>
+                <options>
+                    <value>SD</value>
+                    <name>SD Card</name>
+                </options>
+                <options>
+                    <value>HD</value>
+                    <name>Local Hard Drive</name>
+                </options>
+                <options>
+                    <value>iSCSI</value>
+                    <name>Boot From SAN (iSCSI)</name>
+                </options>
+                <options>
+                    <value>FC</value>
+                    <name>Boot From SAN (FC)</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>system_profile</id>
+                <value>PerfOptimized</value>
+                <type>ENUMERATED</type>
+                <displayName>System Profile</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value>PerfPerWattOptimizedDapc</value>
+                    <name>Performance Per Watt (DAPC)</name>
+                </options>
+                <options>
+                    <value>PerfPerWattOptimizedOs</value>
+                    <name>Performance Per Watt (OS)</name>
+                </options>
+                <options>
+                    <value>PerfOptimized</value>
+                    <name>Performance</name>
+                </options>
+                <options>
+                    <value>DenseCfgOptimized</value>
+                    <name>Dense Configuration</name>
+                </options>
+                <options>
+                    <value>Custom</value>
+                    <name>Custom</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>user_usb_ports</id>
+                <value>AllOn</value>
+                <type>ENUMERATED</type>
+                <displayName>User Accessible USB Ports</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value>AllOn</value>
+                    <name>All Ports On</name>
+                </options>
+                <options>
+                    <value>AllOff</value>
+                    <name>All Ports Off</name>
+                </options>
+                <options>
+                    <value>OnlyBackPortsOn</value>
+                    <name>Only Back Ports On</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>number_core_processors</id>
+                <value>All</value>
+                <type>ENUMERATED</type>
+                <displayName>Number of Core Processors</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value>All</value>
+                    <name>All</name>
+                </options>
+                <options>
+                    <value>1</value>
+                    <name>1</name>
+                </options>
+                <options>
+                    <value>1</value>
+                    <name>2</name>
+                </options>
+                <options>
+                    <value>1</value>
+                    <name>4</name>
+                </options>
+                <options>
+                    <value>1</value>
+                    <name>6</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>virtualization_technology</id>
+                <value>true</value>
+                <type>BOOLEAN</type>
+                <displayName>Processor Virtualization Technology</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>logical_processor</id>
+                <value>true</value>
+                <type>BOOLEAN</type>
+                <displayName>Logical Processors</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>memory_node_interleave</id>
+                <value>true</value>
+                <type>BOOLEAN</type>
+                <displayName>Memory Node Interleaving</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>execute_disable</id>
+                <value>true</value>
+                <type>BOOLEAN</type>
+                <displayName>Execute Disable</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>server_pool</id>
+                <value>-1</value>
+                <type>ENUMERATED</type>
+                <displayName>Server Pool</displayName>
+                <required>true</required>
+                <requiredAtDeployment>true</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value>-1</value>
+                    <name>Global</name>
+                </options>
+                <toolTip>Pool from which servers are selected during deployment</toolTip>
+            </parameters>
+            <parameters>
+                <id>ensure</id>
+                <value>present</value>
+                <type>STRING</type>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>true</hideFromTemplate>
+            </parameters>
+        </resources>
+        <resources>
+            <id>asm::server</id>
+            <displayName>OS Settings</displayName>
+            <parameters>
+                <id>generate_host_name</id>
+                <value>true</value>
+                <type>BOOLEAN</type>
+                <displayName>Auto-generate Host Name</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>target_boot_device</dependencyTarget>
+                <dependencyValue>HD,SD</dependencyValue>
+                <toolTip>Use the Host Name Template field to auto-generate host names at deployment
+                    time. If not selected, a unique host name will be requested when the template is
+                    deployed.
+                </toolTip>
+            </parameters>
+            <parameters>
+                <id>os_host_name_template</id>
+                <value>server${num}</value>
+                <type>STRING</type>
+                <displayName>Host Name Template</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>generate_host_name</dependencyTarget>
+                <dependencyValue>true</dependencyValue>
+                <toolTip>Template used to generate host names at deployment time. Must contain
+                    variables that will produce a unique host name. Allowed variables are ${num} (an
+                    auto-generated unique number), ${service_tag}, ${model} and ${vendor}.
+                </toolTip>
+            </parameters>
+            <parameters>
+                <id>os_host_name</id>
+                <type>STRING</type>
+                <displayName>Host Name</displayName>
+                <required>true</required>
+                <requiredAtDeployment>true</requiredAtDeployment>
+                <hideFromTemplate>true</hideFromTemplate>
+                <dependencyTarget>generate_host_name</dependencyTarget>
+                <dependencyValue>false</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>os_image_type</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>OS Image Type</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>target_boot_device</dependencyTarget>
+                <dependencyValue>SD,HD</dependencyValue>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>vmware_esxi</value>
+                    <name>ESXi</name>
+                </options>
+                <options>
+                    <value>redhat</value>
+                    <name>Red Hat 6</name>
+                </options>
+                <options>
+                    <value>redhat7</value>
+                    <name>Red Hat 7</name>
+                </options>
+                <options>
+                    <value>windows2008</value>
+                    <name>Windows 2008</name>
+                    <dependencyTarget>target_boot_device</dependencyTarget>
+                    <dependencyValue>HD</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2012</value>
+                    <name>Windows 2012</name>
+                    <dependencyTarget>target_boot_device</dependencyTarget>
+                    <dependencyValue>HD</dependencyValue>
+                </options>
+                <options>
+                    <value>hyperv</value>
+                    <name>Hyper-V</name>
+                    <dependencyTarget>target_boot_device</dependencyTarget>
+                    <dependencyValue>HD</dependencyValue>
+                </options>
+            </parameters>
+            <parameters>
+                <id>razor_image</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>OS Image</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>target_boot_device</dependencyTarget>
+                <dependencyValue>SD,HD</dependencyValue>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>esxi-5.1</value>
+                    <name>esxi-5.1</name>
+                </options>
+                <options>
+                    <value>esxi-5.5</value>
+                    <name>esxi-5.5</name>
+                </options>
+                <toolTip>Location of OS image installation files</toolTip>
+            </parameters>
+            <parameters>
+                <id>os_image_version</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>OS Image Version</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>windows2008,windows2012,hyperv</dependencyValue>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>windows2012datacenter</value>
+                    <name>Windows Server 2012 SERVERDATACENTER</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>hyperv,windows2012</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2012r2datacenter</value>
+                    <name>Windows Server 2012 R2 SERVERDATACENTER</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>hyperv,windows2012</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2012r2standard</value>
+                    <name>Windows Server 2012 R2 SERVERSTANDARD</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>hyperv,windows2012</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2012standard</value>
+                    <name>Windows Server 2012 SERVERSTANDARD</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>hyperv,windows2012</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2012datacentercore</value>
+                    <name>Windows Server 2012 SERVERDATACENTERCORE</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>windows2012,hyperv</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2012r2datacentercore</value>
+                    <name>Windows Server 2012 R2 SERVERDATACENTERCORE</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>windows2012,hyperv</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2012r2standardcore</value>
+                    <name>Windows Server 2012 R2 SERVERSTANDARDCORE</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>windows2012,hyperv</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2008r2datacenter</value>
+                    <name>Windows Server 2008 R2 Datacenter</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>hyperv,windows2008</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2008r2standard</value>
+                    <name>Windows Server 2008 R2 Standard</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>hyperv,windows2008</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2008r2enterprise</value>
+                    <name>Windows Server 2008 R2 Enterprise</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>windows2008,hyperv</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2008r2web</value>
+                    <name>Windows Server 2008 R2 Web</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>windows2008,hyperv</dependencyValue>
+                </options>
+            </parameters>
+            <parameters>
+                <id>admin_password</id>
+                <type>PASSWORD</type>
+                <displayName>Administrator password</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>target_boot_device</dependencyTarget>
+                <dependencyValue>SD,HD</dependencyValue>
+                <toolTip>OS administrator password set on the installed OS</toolTip>
+            </parameters>
+            <parameters>
+                <id>admin_confirm_password</id>
+                <type>PASSWORD</type>
+                <displayName>Confirm administrator password</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>target_boot_device</dependencyTarget>
+                <dependencyValue>SD,HD</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>product_key</id>
+                <type>STRING</type>
+                <displayName>Product Key</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>hyperv,windows2008,windows2012</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>timezone</id>
+                <value>Central Standard Time</value>
+                <type>ENUMERATED</type>
+                <displayName>Timezone</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>hyperv</dependencyValue>
+                <options>
+                    <value>Dateline Standard Time</value>
+                    <name>(GMT-12:00) International Date Line West</name>
+                </options>
+                <options>
+                    <value>Samoa Standard Time</value>
+                    <name>(GMT-11:00) Midway Island, Samoa</name>
+                </options>
+                <options>
+                    <value>Hawaiian Standard Time</value>
+                    <name>(GMT-10:00) Hawaii</name>
+                </options>
+                <options>
+                    <value>Alaskan Standard Time</value>
+                    <name>(GMT-09:00) Alaska</name>
+                </options>
+                <options>
+                    <value>Pacific Standard Time</value>
+                    <name>(GMT-08:00) Pacific Time (US and Canada); Tijuana</name>
+                </options>
+                <options>
+                    <value>Mountain Standard Time</value>
+                    <name>(GMT-07:00) Mountain Time (US and Canada)</name>
+                </options>
+                <options>
+                    <value>Mexico Standard Time 2</value>
+                    <name>(GMT-07:00) Chihuahua, La Paz, Mazatlan</name>
+                </options>
+                <options>
+                    <value>U.S. Mountain Standard Time</value>
+                    <name>(GMT-07:00) Arizona</name>
+                </options>
+                <options>
+                    <value>Central Standard Time</value>
+                    <name>(GMT-06:00) Central Time (US and Canada</name>
+                </options>
+                <options>
+                    <value>Canada Central Standard Time</value>
+                    <name>(GMT-06:00) Saskatchewan</name>
+                </options>
+                <options>
+                    <value>Mexico Standard Time</value>
+                    <name>(GMT-06:00) Guadalajara, Mexico City, Monterrey</name>
+                </options>
+                <options>
+                    <value>Central America Standard Time</value>
+                    <name>(GMT-06:00) Central America</name>
+                </options>
+                <options>
+                    <value>Eastern Standard Time</value>
+                    <name>(GMT-05:00) Eastern Time (US and Canada)</name>
+                </options>
+                <options>
+                    <value>U.S. Eastern Standard Time</value>
+                    <name>(GMT-05:00) Indiana (East)</name>
+                </options>
+                <options>
+                    <value>S.A. Pacific Standard Time</value>
+                    <name>(GMT-05:00) Bogota, Lima, Quito</name>
+                </options>
+                <options>
+                    <value>Atlantic Standard Time</value>
+                    <name>(GMT-04:00) Atlantic Time (Canada)</name>
+                </options>
+                <options>
+                    <value>S.A. Western Standard Time</value>
+                    <name>(GMT-04:00) Caracas, La Paz</name>
+                </options>
+                <options>
+                    <value>Pacific S.A. Standard Time</value>
+                    <name>(GMT-04:00) Santiago</name>
+                </options>
+                <options>
+                    <value>Newfoundland and Labrador Standard Time</value>
+                    <name>(GMT-03:30) Newfoundland and Labrador</name>
+                </options>
+                <options>
+                    <value>E. South America Standard Time</value>
+                    <name>(GMT-03:00) Brasilia</name>
+                </options>
+                <options>
+                    <value>S.A. Eastern Standard Time</value>
+                    <name>(GMT-03:00) Buenos Aires, Georgetown</name>
+                </options>
+                <options>
+                    <value>Greenland Standard Time</value>
+                    <name>(GMT-03:00) Greenland</name>
+                </options>
+                <options>
+                    <value>Mid-Atlantic Standard Time</value>
+                    <name>(GMT-02:00) Mid-Atlantic</name>
+                </options>
+                <options>
+                    <value>Azores Standard Time</value>
+                    <name>(GMT-01:00) Azores</name>
+                </options>
+                <options>
+                    <value>Cape Verde Standard Time</value>
+                    <name>(GMT-01:00) Cape Verde Islands</name>
+                </options>
+                <options>
+                    <value>GMT Standard Time</value>
+                    <name>(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London</name>
+                </options>
+                <options>
+                    <value>Greenwich Standard Time</value>
+                    <name>(GMT) Casablanca, Monrovia</name>
+                </options>
+                <options>
+                    <value>Central Europe Standard Time</value>
+                    <name>(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</name>
+                </options>
+                <options>
+                    <value>Central European Standard Time</value>
+                    <name>(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb</name>
+                </options>
+                <options>
+                    <value>Romance Standard Time</value>
+                    <name>(GMT+01:00) Brussels, Copenhagen, Madrid, Paris</name>
+                </options>
+                <options>
+                    <value>W. Europe Standard Time</value>
+                    <name>(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</name>
+                </options>
+                <options>
+                    <value>W. Central Africa Standard Time</value>
+                    <name>(GMT+01:00) West Central Africa</name>
+                </options>
+                <options>
+                    <value>E. Europe Standard Time</value>
+                    <name>(GMT+02:00) Bucharest</name>
+                </options>
+                <options>
+                    <value>Egypt Standard Time</value>
+                    <name>(GMT+02:00) Cairo</name>
+                </options>
+                <options>
+                    <value>FLE Standard Time</value>
+                    <name>(GMT+02:00) Helsinki, Kiev, Riga, Sofia, Tallinn, Vilnius</name>
+                </options>
+                <options>
+                    <value>GTB Standard Time</value>
+                    <name>(GMT+02:00) Athens, Istanbul, Minsk</name>
+                </options>
+                <options>
+                    <value>Israel Standard Time</value>
+                    <name>(GMT+02:00) Jerusalem</name>
+                </options>
+                <options>
+                    <value>South Africa Standard Time</value>
+                    <name>(GMT+02:00) Harare, Pretoria</name>
+                </options>
+                <options>
+                    <value>Russian Standard Time</value>
+                    <name>(GMT+03:00) Moscow, St. Petersburg, Volgograd</name>
+                </options>
+                <options>
+                    <value>Arab Standard Time</value>
+                    <name>(GMT+03:00) Kuwait, Riyadh</name>
+                </options>
+                <options>
+                    <value>E. Africa Standard Time</value>
+                    <name>(GMT+03:00) Nairobi</name>
+                </options>
+                <options>
+                    <value>Arabic Standard Time</value>
+                    <name>(GMT+03:00) Baghdad</name>
+                </options>
+                <options>
+                    <value>Iran Standard Time</value>
+                    <name>(GMT+03:30) Tehran</name>
+                </options>
+                <options>
+                    <value>Arabian Standard Time</value>
+                    <name>(GMT+04:00) Abu Dhabi, Muscat</name>
+                </options>
+                <options>
+                    <value>Caucasus Standard Time</value>
+                    <name>(GMT+04:00) Baku, Tbilisi, Yerevan</name>
+                </options>
+                <options>
+                    <value>Transitional Islamic State of Afghanistan Standard Time</value>
+                    <name>(GMT+04:30) Kabul</name>
+                </options>
+                <options>
+                    <value>Ekaterinburg Standard Time</value>
+                    <name>(GMT+05:00) Ekaterinburg</name>
+                </options>
+                <options>
+                    <value>West Asia Standard Time</value>
+                    <name>(GMT+05:00) Islamabad, Karachi, Tashkent</name>
+                </options>
+                <options>
+                    <value>India Standard Time</value>
+                    <name>(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</name>
+                </options>
+                <options>
+                    <value>Nepal Standard Time</value>
+                    <name>(GMT+05:45) Kathmandu</name>
+                </options>
+                <options>
+                    <value>Central Asia Standard Time</value>
+                    <name>(GMT+06:00) Astana, Dhaka</name>
+                </options>
+                <options>
+                    <value>Sri Lanka Standard Time</value>
+                    <name>(GMT+06:00) Sri Jayawardenepura</name>
+                </options>
+                <options>
+                    <value>N. Central Asia Standard Time</value>
+                    <name>(GMT+06:00) Almaty, Novosibirsk</name>
+                </options>
+                <options>
+                    <value>Myanmar Standard Time</value>
+                    <name>(GMT+06:30) Yangon Rangoon</name>
+                </options>
+                <options>
+                    <value>S.E. Asia Standard Time</value>
+                    <name>(GMT+07:00) Bangkok, Hanoi, Jakarta</name>
+                </options>
+                <options>
+                    <value>North Asia Standard Time</value>
+                    <name>(GMT+07:00) Krasnoyarsk</name>
+                </options>
+                <options>
+                    <value>China Standard Time</value>
+                    <name>(GMT+08:00) Beijing, Chongqing, Hong Kong SAR, Urumqi</name>
+                </options>
+                <options>
+                    <value>Singapore Standard Time</value>
+                    <name>(GMT+08:00) Kuala Lumpur, Singapore</name>
+                </options>
+                <options>
+                    <value>Taipei Standard Time</value>
+                    <name>(GMT+08:00) Taipei</name>
+                </options>
+                <options>
+                    <value>W. Australia Standard Time</value>
+                    <name>(GMT+08:00) Perth</name>
+                </options>
+                <options>
+                    <value>North Asia East Standard Time</value>
+                    <name>(GMT+08:00) Irkutsk, Ulaanbaatar</name>
+                </options>
+                <options>
+                    <value>Korea Standard Time</value>
+                    <name>(GMT+09:00) Seoul</name>
+                </options>
+                <options>
+                    <value>Tokyo Standard Time</value>
+                    <name>(GMT+09:00) Osaka, Sapporo, Tokyo</name>
+                </options>
+                <options>
+                    <value>Yakutsk Standard Time</value>
+                    <name>(GMT+09:00) Yakutsk</name>
+                </options>
+                <options>
+                    <value>A.U.S. Central Standard Time</value>
+                    <name>(GMT+09:30) Darwin</name>
+                </options>
+                <options>
+                    <value>Cen. Australia Standard Time</value>
+                    <name>(GMT+09:30) Adelaide</name>
+                </options>
+                <options>
+                    <value>A.U.S. Eastern Standard Time</value>
+                    <name>(GMT+10:00) Canberra, Melbourne, Sydney</name>
+                </options>
+                <options>
+                    <value>E. Australia Standard Time</value>
+                    <name>(GMT+10:00) Brisbane</name>
+                </options>
+                <options>
+                    <value>Tasmania Standard Time</value>
+                    <name>(GMT+10:00) Hobart</name>
+                </options>
+                <options>
+                    <value>Vladivostok Standard Time</value>
+                    <name>(GMT+10:00) Vladivostok</name>
+                </options>
+                <options>
+                    <value>West Pacific Standard Time</value>
+                    <name>(GMT+10:00) Guam, Port Moresby</name>
+                </options>
+                <options>
+                    <value>Central Pacific Standard Time</value>
+                    <name>(GMT+11:00) Magadan, Solomon Islands, New Caledonia</name>
+                </options>
+                <options>
+                    <value>Fiji Islands Standard Time</value>
+                    <name>(GMT+12:00) Fiji Islands, Kamchatka, Marshall Islands</name>
+                </options>
+                <options>
+                    <value>New Zealand Standard Time</value>
+                    <name>(GMT+12:00) Auckland, Wellington</name>
+                </options>
+                <options>
+                    <value>Tonga Standard Time</value>
+                    <name>(GMT+13:00) Nuku'alofa</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>time_zone</id>
+                <value>11</value>
+                <type>ENUMERATED</type>
+                <displayName>Timezone</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>redhat,redhat7</dependencyValue>
+                <options>
+                    <value>1</value>
+                    <name>(UTC-12:00) International Date Line West</name>
+                </options>
+                <options>
+                    <value>2</value>
+                    <name>(UTC-11:00) Coordinated Universal Time-11</name>
+                </options>
+                <options>
+                    <value>3</value>
+                    <name>(UTC-10:00) Hawaii</name>
+                </options>
+                <options>
+                    <value>4</value>
+                    <name>(UTC-09:00) Alaska</name>
+                </options>
+                <options>
+                    <value>5</value>
+                    <name>(UTC-08:00) Baja California</name>
+                </options>
+                <options>
+                    <value>6</value>
+                    <name>(UTC-08:00) Pacific Time (US &amp; Canada)</name>
+                </options>
+                <options>
+                    <value>7</value>
+                    <name>(UTC-07:00) Arizona</name>
+                </options>
+                <options>
+                    <value>8</value>
+                    <name>(UTC-07:00) Chihuahua, La Paz, Mazatlan</name>
+                </options>
+                <options>
+                    <value>9</value>
+                    <name>(UTC-07:00) Mountain Time (US &amp; Canada)</name>
+                </options>
+                <options>
+                    <value>10</value>
+                    <name>(UTC-06:00) Central America</name>
+                </options>
+                <options>
+                    <value>11</value>
+                    <name>(UTC-06:00) Central Time (US &amp; Canada)</name>
+                </options>
+                <options>
+                    <value>12</value>
+                    <name>(UTC-06:00) Guadalajara, Mexico City, Monterrey</name>
+                </options>
+                <options>
+                    <value>13</value>
+                    <name>(UTC-06:00) Saskatchewan</name>
+                </options>
+                <options>
+                    <value>14</value>
+                    <name>(UTC-05:00) Bogota, Lima, Quito</name>
+                </options>
+                <options>
+                    <value>15</value>
+                    <name>(UTC-05:00) Eastern Time (US &amp; Canada)</name>
+                </options>
+                <options>
+                    <value>16</value>
+                    <name>(UTC-05:00) Indiana (East)</name>
+                </options>
+                <options>
+                    <value>17</value>
+                    <name>(UTC-04:30) Caracas</name>
+                </options>
+                <options>
+                    <value>18</value>
+                    <name>(UTC-04:00) Asuncion</name>
+                </options>
+                <options>
+                    <value>19</value>
+                    <name>(UTC-04:00) Atlantic Time (Canada)</name>
+                </options>
+                <options>
+                    <value>20</value>
+                    <name>(UTC-04:00) Cuiaba</name>
+                </options>
+                <options>
+                    <value>21</value>
+                    <name>(UTC-04:00) Georgetown, La Paz, Manaus, San Juan</name>
+                </options>
+                <options>
+                    <value>22</value>
+                    <name>(UTC-04:00) Santiago</name>
+                </options>
+                <options>
+                    <value>23</value>
+                    <name>(UTC-03:30) Newfoundland</name>
+                </options>
+                <options>
+                    <value>24</value>
+                    <name>(UTC-03:00) Brasilia</name>
+                </options>
+                <options>
+                    <value>25</value>
+                    <name>(UTC-03:00) Buenos Aires</name>
+                </options>
+                <options>
+                    <value>26</value>
+                    <name>(UTC-03:00) Cayenne, Fortaleza</name>
+                </options>
+                <options>
+                    <value>27</value>
+                    <name>(UTC-03:00) Greenland</name>
+                </options>
+                <options>
+                    <value>28</value>
+                    <name>(UTC-03:00) Montevideo</name>
+                </options>
+                <options>
+                    <value>29</value>
+                    <name>(UTC-03:00) Salvador</name>
+                </options>
+                <options>
+                    <value>30</value>
+                    <name>(UTC-02:00) Coordinated Universal Time-02</name>
+                </options>
+                <options>
+                    <value>32</value>
+                    <name>(UTC-01:00) Azores</name>
+                </options>
+                <options>
+                    <value>33</value>
+                    <name>(UTC-01:00) Cape Verde Is.</name>
+                </options>
+                <options>
+                    <value>34</value>
+                    <name>(UTC) Casablanca</name>
+                </options>
+                <options>
+                    <value>35</value>
+                    <name>(UTC) Coordinated Universal Time</name>
+                </options>
+                <options>
+                    <value>36</value>
+                    <name>(UTC) Dublin, Edinburgh, Lisbon, London</name>
+                </options>
+                <options>
+                    <value>37</value>
+                    <name>(UTC) Monrovia, Reykjavik</name>
+                </options>
+                <options>
+                    <value>38</value>
+                    <name>(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</name>
+                </options>
+                <options>
+                    <value>39</value>
+                    <name>(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</name>
+                </options>
+                <options>
+                    <value>40</value>
+                    <name>(UTC+01:00) Brussels, Copenhagen, Madrid, Paris</name>
+                </options>
+                <options>
+                    <value>41</value>
+                    <name>(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb</name>
+                </options>
+                <options>
+                    <value>42</value>
+                    <name>(UTC+01:00) West Central Africa</name>
+                </options>
+                <options>
+                    <value>43</value>
+                    <name>(UTC+01:00) Windhoek</name>
+                </options>
+                <options>
+                    <value>44</value>
+                    <name>(UTC+02:00) Amman</name>
+                </options>
+                <options>
+                    <value>45</value>
+                    <name>(UTC+02:00) Athens, Bucharest</name>
+                </options>
+                <options>
+                    <value>46</value>
+                    <name>(UTC+02:00) Beirut</name>
+                </options>
+                <options>
+                    <value>47</value>
+                    <name>(UTC+02:00) Cairo</name>
+                </options>
+                <options>
+                    <value>48</value>
+                    <name>(UTC+02:00) Damascus</name>
+                </options>
+                <options>
+                    <value>49</value>
+                    <name>(UTC+02:00) Harare, Pretoria</name>
+                </options>
+                <options>
+                    <value>50</value>
+                    <name>(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius</name>
+                </options>
+                <options>
+                    <value>51</value>
+                    <name>(UTC+02:00) Istanbul</name>
+                </options>
+                <options>
+                    <value>52</value>
+                    <name>(UTC+02:00) Jerusalem</name>
+                </options>
+                <options>
+                    <value>53</value>
+                    <name>(UTC+02:00) Nicosia</name>
+                </options>
+                <options>
+                    <value>54</value>
+                    <name>(UTC+03:00) Baghdad</name>
+                </options>
+                <options>
+                    <value>55</value>
+                    <name>(UTC+03:00) Kaliningrad, Minsk</name>
+                </options>
+                <options>
+                    <value>56</value>
+                    <name>(UTC+03:00) Kuwait, Riyadh</name>
+                </options>
+                <options>
+                    <value>57</value>
+                    <name>(UTC+03:00) Nairobi</name>
+                </options>
+                <options>
+                    <value>58</value>
+                    <name>(UTC+03:30) Tehran</name>
+                </options>
+                <options>
+                    <value>59</value>
+                    <name>(UTC+04:00) Abu Dhabi, Muscat</name>
+                </options>
+                <options>
+                    <value>60</value>
+                    <name>(UTC+04:00) Baku</name>
+                </options>
+                <options>
+                    <value>61</value>
+                    <name>(UTC+04:00) Moscow, St. Petersburg, Volgograd</name>
+                </options>
+                <options>
+                    <value>62</value>
+                    <name>(UTC+04:00) Port Louis</name>
+                </options>
+                <options>
+                    <value>63</value>
+                    <name>(UTC+04:00) Tbilisi</name>
+                </options>
+                <options>
+                    <value>64</value>
+                    <name>(UTC+04:00) Yerevan</name>
+                </options>
+                <options>
+                    <value>65</value>
+                    <name>(UTC+04:30) Kabul</name>
+                </options>
+                <options>
+                    <value>66</value>
+                    <name>(UTC+05:00) Islamabad, Karachi</name>
+                </options>
+                <options>
+                    <value>67</value>
+                    <name>(UTC+05:00) Tashkent</name>
+                </options>
+                <options>
+                    <value>68</value>
+                    <name>(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi</name>
+                </options>
+                <options>
+                    <value>69</value>
+                    <name>(UTC+05:30) Sri Jayawardenepura</name>
+                </options>
+                <options>
+                    <value>70</value>
+                    <name>(UTC+05:45) Kathmandu</name>
+                </options>
+                <options>
+                    <value>71</value>
+                    <name>(UTC+06:00) Astana</name>
+                </options>
+                <options>
+                    <value>72</value>
+                    <name>(UTC+06:00) Dhaka</name>
+                </options>
+                <options>
+                    <value>73</value>
+                    <name>(UTC+06:00) Ekaterinburg</name>
+                </options>
+                <options>
+                    <value>74</value>
+                    <name>(UTC+06:30) Yangon (Rangoon)</name>
+                </options>
+                <options>
+                    <value>75</value>
+                    <name>(UTC+07:00) Bangkok, Hanoi, Jakarta</name>
+                </options>
+                <options>
+                    <value>76</value>
+                    <name>(UTC+07:00) Novosibirsk</name>
+                </options>
+                <options>
+                    <value>77</value>
+                    <name>(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi</name>
+                </options>
+                <options>
+                    <value>78</value>
+                    <name>(UTC+08:00) Krasnoyarsk</name>
+                </options>
+                <options>
+                    <value>79</value>
+                    <name>(UTC+08:00) Kuala Lumpur, Singapore</name>
+                </options>
+                <options>
+                    <value>80</value>
+                    <name>(UTC+08:00) Perth</name>
+                </options>
+                <options>
+                    <value>81</value>
+                    <name>(UTC+08:00) Taipei</name>
+                </options>
+                <options>
+                    <value>82</value>
+                    <name>(UTC+08:00) Ulaanbaatar</name>
+                </options>
+                <options>
+                    <value>83</value>
+                    <name>(UTC+09:00) Irkutsk</name>
+                </options>
+                <options>
+                    <value>84</value>
+                    <name>(UTC+09:00) Osaka, Sapporo, Tokyo</name>
+                </options>
+                <options>
+                    <value>85</value>
+                    <name>(UTC+09:00) Seoul</name>
+                </options>
+                <options>
+                    <value>86</value>
+                    <name>(UTC+09:30) Adelaide</name>
+                </options>
+                <options>
+                    <value>87</value>
+                    <name>(UTC+09:30) Darwin</name>
+                </options>
+                <options>
+                    <value>88</value>
+                    <name>(UTC+10:00) Brisbane</name>
+                </options>
+                <options>
+                    <value>89</value>
+                    <name>(UTC+10:00) Canberra, Melbourne, Sydney</name>
+                </options>
+                <options>
+                    <value>90</value>
+                    <name>(UTC+10:00) Guam, Port Moresby</name>
+                </options>
+                <options>
+                    <value>91</value>
+                    <name>(UTC+10:00) Hobart</name>
+                </options>
+                <options>
+                    <value>92</value>
+                    <name>(UTC+10:00) Yakutsk</name>
+                </options>
+                <options>
+                    <value>93</value>
+                    <name>(UTC+11:00) Solomon Is., New Caledonia</name>
+                </options>
+                <options>
+                    <value>94</value>
+                    <name>(UTC+11:00) Vladivostok</name>
+                </options>
+                <options>
+                    <value>95</value>
+                    <name>(UTC+12:00) Auckland, Wellington</name>
+                </options>
+                <options>
+                    <value>96</value>
+                    <name>(UTC+12:00) Coordinated Universal Time+12</name>
+                </options>
+                <options>
+                    <value>97</value>
+                    <name>(UTC+12:00) Fiji</name>
+                </options>
+                <options>
+                    <value>98</value>
+                    <name>(UTC+12:00) Magadan</name>
+                </options>
+                <options>
+                    <value>99</value>
+                    <name>(UTC+13:00) Nuku'alofa</name>
+                </options>
+                <options>
+                    <value>100</value>
+                    <name>(UTC+13:00) Samoa</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>ntp</id>
+                <type>STRING</type>
+                <displayName>NTP Server</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>hyperv</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>ntp_server</id>
+                <type>STRING</type>
+                <displayName>NTP Server</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>vmware_esxi,redhat,redhat7</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>language</id>
+                <value>en-US</value>
+                <type>ENUMERATED</type>
+                <displayName>Language</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>hyperv</dependencyValue>
+                <options>
+                    <value>en-US</value>
+                    <name>English (United States)</name>
+                </options>
+                <options>
+                    <value>de-DE</value>
+                    <name>German (Germany)</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>keyboard</id>
+                <value>00000409</value>
+                <type>ENUMERATED</type>
+                <displayName>Keyboard</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>hyperv</dependencyValue>
+                <options>
+                    <value>00000409</value>
+                    <name>U.S. English</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>domain_name</id>
+                <type>STRING</type>
+                <displayName>Domain Name</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>hyperv</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>fqdn</id>
+                <type>STRING</type>
+                <displayName>FQ Domain Name</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>hyperv</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>domain_admin_user</id>
+                <type>STRING</type>
+                <displayName>Domain Admin Username</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>hyperv</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>domain_admin_password</id>
+                <value>asm</value>
+                <type>PASSWORD</type>
+                <displayName>Domain Admin Password</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>hyperv</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>domain_admin_password_confirm</id>
+                <value>asm</value>
+                <type>PASSWORD</type>
+                <displayName>Domain Admin Password Confirm</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>hyperv</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>esx_mem</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>Install EqualLogic MEM</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>vmware_esxi</dependencyValue>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>true</value>
+                    <name>True</name>
+                </options>
+                <options>
+                    <value>false</value>
+                    <name>False</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>ensure</id>
+                <value>present</value>
+                <type>STRING</type>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>true</hideFromTemplate>
+            </parameters>
+        </resources>
+        <resources>
+            <id>asm::esxiscsiconfig</id>
+            <displayName>Network Settings</displayName>
+            <parameters>
+                <id>network_configuration</id>
+                <value></value>
+                <type>NETWORKCONFIGURATION</type>
+                <displayName>Network Config</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>identity_pool</id>
+                <value>-1</value>
+                <type>ENUMERATED</type>
+                <displayName>Identity Pool</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value>-1</value>
+                    <name>Global</name>
+                </options>
+                <toolTip>Pool from which virtual identities are selected during deployment</toolTip>
+            </parameters>
+            <parameters>
+                <id>ensure</id>
+                <value>present</value>
+                <type>STRING</type>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>true</hideFromTemplate>
+            </parameters>
+        </resources>
+        <manageFirmware>false</manageFirmware>
+    </components>
+    <components>
+        <id>component-serverminimal-1</id>
+        <name>Server (O/S Installation Only)</name>
+        <type>SERVER</type>
+        <teardown>false</teardown>
+        <relatedComponents>
+            <entry>
+                <key>component-compellent-1</key>
+                <value>Compellent</value>
+            </entry>
+        </relatedComponents>
+        <resources>
+            <id>asm::server</id>
+            <displayName>OS Settings</displayName>
+            <parameters>
+                <id>generate_host_name</id>
+                <value>true</value>
+                <type>BOOLEAN</type>
+                <displayName>Auto-generate Host Name</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <toolTip>Use the Host Name Template field to auto-generate host names at deployment
+                    time. If not selected, a unique host name will be requested when the template is
+                    deployed.
+                </toolTip>
+            </parameters>
+            <parameters>
+                <id>os_host_name_template</id>
+                <value>server${num}</value>
+                <type>STRING</type>
+                <displayName>Host Name Template</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>generate_host_name</dependencyTarget>
+                <dependencyValue>true</dependencyValue>
+                <toolTip>Template used to generate host names at deployment time. Must contain
+                    variables that will produce a unique host name. Allowed variables are ${num} (an
+                    auto-generated unique number), ${service_tag}, ${model} and ${vendor}.
+                </toolTip>
+            </parameters>
+            <parameters>
+                <id>os_host_name</id>
+                <type>STRING</type>
+                <displayName>Host Name</displayName>
+                <required>true</required>
+                <requiredAtDeployment>true</requiredAtDeployment>
+                <hideFromTemplate>true</hideFromTemplate>
+                <dependencyTarget>generate_host_name</dependencyTarget>
+                <dependencyValue>false</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>os_image_type</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>OS Image Type</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>redhat</value>
+                    <name>Red Hat 6</name>
+                </options>
+                <options>
+                    <value>redhat7</value>
+                    <name>Red Hat 7</name>
+                </options>
+                <options>
+                    <value>windows2008</value>
+                    <name>Windows 2008</name>
+                </options>
+                <options>
+                    <value>windows2012</value>
+                    <name>Windows 2012</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>razor_image</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>OS Image</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>esxi-5.1</value>
+                    <name>esxi-5.1</name>
+                </options>
+                <options>
+                    <value>esxi-5.5</value>
+                    <name>esxi-5.5</name>
+                </options>
+                <toolTip>Location of OS image installation files</toolTip>
+            </parameters>
+            <parameters>
+                <id>os_image_version</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>OS Image Version</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>windows2008,windows2012,hyperv</dependencyValue>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>windows2012datacenter</value>
+                    <name>Windows Server 2012 SERVERDATACENTER</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>hyperv,windows2012</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2012r2datacenter</value>
+                    <name>Windows Server 2012 R2 SERVERDATACENTER</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>hyperv,windows2012</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2012r2standard</value>
+                    <name>Windows Server 2012 R2 SERVERSTANDARD</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>hyperv,windows2012</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2012standard</value>
+                    <name>Windows Server 2012 SERVERSTANDARD</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>hyperv,windows2012</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2012datacentercore</value>
+                    <name>Windows Server 2012 SERVERDATACENTERCORE</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>windows2012,hyperv</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2012r2datacentercore</value>
+                    <name>Windows Server 2012 R2 SERVERDATACENTERCORE</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>windows2012,hyperv</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2012r2standardcore</value>
+                    <name>Windows Server 2012 R2 SERVERSTANDARDCORE</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>windows2012,hyperv</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2008r2datacenter</value>
+                    <name>Windows Server 2008 R2 Datacenter</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>hyperv,windows2008</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2008r2standard</value>
+                    <name>Windows Server 2008 R2 Standard</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>hyperv,windows2008</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2008r2enterprise</value>
+                    <name>Windows Server 2008 R2 Enterprise</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>windows2008,hyperv</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2008r2web</value>
+                    <name>Windows Server 2008 R2 Web</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>windows2008,hyperv</dependencyValue>
+                </options>
+            </parameters>
+            <parameters>
+                <id>admin_password</id>
+                <type>PASSWORD</type>
+                <displayName>Administrator password</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <toolTip>OS administrator password set on the installed OS</toolTip>
+            </parameters>
+            <parameters>
+                <id>admin_confirm_password</id>
+                <type>PASSWORD</type>
+                <displayName>Confirm administrator password</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>product_key</id>
+                <type>STRING</type>
+                <displayName>Product Key</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>hyperv,windows2008,windows2012</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>timezone</id>
+                <value>Central Standard Time</value>
+                <type>ENUMERATED</type>
+                <displayName>Timezone</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>hyperv</dependencyValue>
+                <options>
+                    <value>Dateline Standard Time</value>
+                    <name>(GMT-12:00) International Date Line West</name>
+                </options>
+                <options>
+                    <value>Samoa Standard Time</value>
+                    <name>(GMT-11:00) Midway Island, Samoa</name>
+                </options>
+                <options>
+                    <value>Hawaiian Standard Time</value>
+                    <name>(GMT-10:00) Hawaii</name>
+                </options>
+                <options>
+                    <value>Alaskan Standard Time</value>
+                    <name>(GMT-09:00) Alaska</name>
+                </options>
+                <options>
+                    <value>Pacific Standard Time</value>
+                    <name>(GMT-08:00) Pacific Time (US and Canada); Tijuana</name>
+                </options>
+                <options>
+                    <value>Mountain Standard Time</value>
+                    <name>(GMT-07:00) Mountain Time (US and Canada)</name>
+                </options>
+                <options>
+                    <value>Mexico Standard Time 2</value>
+                    <name>(GMT-07:00) Chihuahua, La Paz, Mazatlan</name>
+                </options>
+                <options>
+                    <value>U.S. Mountain Standard Time</value>
+                    <name>(GMT-07:00) Arizona</name>
+                </options>
+                <options>
+                    <value>Central Standard Time</value>
+                    <name>(GMT-06:00) Central Time (US and Canada</name>
+                </options>
+                <options>
+                    <value>Canada Central Standard Time</value>
+                    <name>(GMT-06:00) Saskatchewan</name>
+                </options>
+                <options>
+                    <value>Mexico Standard Time</value>
+                    <name>(GMT-06:00) Guadalajara, Mexico City, Monterrey</name>
+                </options>
+                <options>
+                    <value>Central America Standard Time</value>
+                    <name>(GMT-06:00) Central America</name>
+                </options>
+                <options>
+                    <value>Eastern Standard Time</value>
+                    <name>(GMT-05:00) Eastern Time (US and Canada)</name>
+                </options>
+                <options>
+                    <value>U.S. Eastern Standard Time</value>
+                    <name>(GMT-05:00) Indiana (East)</name>
+                </options>
+                <options>
+                    <value>S.A. Pacific Standard Time</value>
+                    <name>(GMT-05:00) Bogota, Lima, Quito</name>
+                </options>
+                <options>
+                    <value>Atlantic Standard Time</value>
+                    <name>(GMT-04:00) Atlantic Time (Canada)</name>
+                </options>
+                <options>
+                    <value>S.A. Western Standard Time</value>
+                    <name>(GMT-04:00) Caracas, La Paz</name>
+                </options>
+                <options>
+                    <value>Pacific S.A. Standard Time</value>
+                    <name>(GMT-04:00) Santiago</name>
+                </options>
+                <options>
+                    <value>Newfoundland and Labrador Standard Time</value>
+                    <name>(GMT-03:30) Newfoundland and Labrador</name>
+                </options>
+                <options>
+                    <value>E. South America Standard Time</value>
+                    <name>(GMT-03:00) Brasilia</name>
+                </options>
+                <options>
+                    <value>S.A. Eastern Standard Time</value>
+                    <name>(GMT-03:00) Buenos Aires, Georgetown</name>
+                </options>
+                <options>
+                    <value>Greenland Standard Time</value>
+                    <name>(GMT-03:00) Greenland</name>
+                </options>
+                <options>
+                    <value>Mid-Atlantic Standard Time</value>
+                    <name>(GMT-02:00) Mid-Atlantic</name>
+                </options>
+                <options>
+                    <value>Azores Standard Time</value>
+                    <name>(GMT-01:00) Azores</name>
+                </options>
+                <options>
+                    <value>Cape Verde Standard Time</value>
+                    <name>(GMT-01:00) Cape Verde Islands</name>
+                </options>
+                <options>
+                    <value>GMT Standard Time</value>
+                    <name>(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London</name>
+                </options>
+                <options>
+                    <value>Greenwich Standard Time</value>
+                    <name>(GMT) Casablanca, Monrovia</name>
+                </options>
+                <options>
+                    <value>Central Europe Standard Time</value>
+                    <name>(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</name>
+                </options>
+                <options>
+                    <value>Central European Standard Time</value>
+                    <name>(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb</name>
+                </options>
+                <options>
+                    <value>Romance Standard Time</value>
+                    <name>(GMT+01:00) Brussels, Copenhagen, Madrid, Paris</name>
+                </options>
+                <options>
+                    <value>W. Europe Standard Time</value>
+                    <name>(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</name>
+                </options>
+                <options>
+                    <value>W. Central Africa Standard Time</value>
+                    <name>(GMT+01:00) West Central Africa</name>
+                </options>
+                <options>
+                    <value>E. Europe Standard Time</value>
+                    <name>(GMT+02:00) Bucharest</name>
+                </options>
+                <options>
+                    <value>Egypt Standard Time</value>
+                    <name>(GMT+02:00) Cairo</name>
+                </options>
+                <options>
+                    <value>FLE Standard Time</value>
+                    <name>(GMT+02:00) Helsinki, Kiev, Riga, Sofia, Tallinn, Vilnius</name>
+                </options>
+                <options>
+                    <value>GTB Standard Time</value>
+                    <name>(GMT+02:00) Athens, Istanbul, Minsk</name>
+                </options>
+                <options>
+                    <value>Israel Standard Time</value>
+                    <name>(GMT+02:00) Jerusalem</name>
+                </options>
+                <options>
+                    <value>South Africa Standard Time</value>
+                    <name>(GMT+02:00) Harare, Pretoria</name>
+                </options>
+                <options>
+                    <value>Russian Standard Time</value>
+                    <name>(GMT+03:00) Moscow, St. Petersburg, Volgograd</name>
+                </options>
+                <options>
+                    <value>Arab Standard Time</value>
+                    <name>(GMT+03:00) Kuwait, Riyadh</name>
+                </options>
+                <options>
+                    <value>E. Africa Standard Time</value>
+                    <name>(GMT+03:00) Nairobi</name>
+                </options>
+                <options>
+                    <value>Arabic Standard Time</value>
+                    <name>(GMT+03:00) Baghdad</name>
+                </options>
+                <options>
+                    <value>Iran Standard Time</value>
+                    <name>(GMT+03:30) Tehran</name>
+                </options>
+                <options>
+                    <value>Arabian Standard Time</value>
+                    <name>(GMT+04:00) Abu Dhabi, Muscat</name>
+                </options>
+                <options>
+                    <value>Caucasus Standard Time</value>
+                    <name>(GMT+04:00) Baku, Tbilisi, Yerevan</name>
+                </options>
+                <options>
+                    <value>Transitional Islamic State of Afghanistan Standard Time</value>
+                    <name>(GMT+04:30) Kabul</name>
+                </options>
+                <options>
+                    <value>Ekaterinburg Standard Time</value>
+                    <name>(GMT+05:00) Ekaterinburg</name>
+                </options>
+                <options>
+                    <value>West Asia Standard Time</value>
+                    <name>(GMT+05:00) Islamabad, Karachi, Tashkent</name>
+                </options>
+                <options>
+                    <value>India Standard Time</value>
+                    <name>(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</name>
+                </options>
+                <options>
+                    <value>Nepal Standard Time</value>
+                    <name>(GMT+05:45) Kathmandu</name>
+                </options>
+                <options>
+                    <value>Central Asia Standard Time</value>
+                    <name>(GMT+06:00) Astana, Dhaka</name>
+                </options>
+                <options>
+                    <value>Sri Lanka Standard Time</value>
+                    <name>(GMT+06:00) Sri Jayawardenepura</name>
+                </options>
+                <options>
+                    <value>N. Central Asia Standard Time</value>
+                    <name>(GMT+06:00) Almaty, Novosibirsk</name>
+                </options>
+                <options>
+                    <value>Myanmar Standard Time</value>
+                    <name>(GMT+06:30) Yangon Rangoon</name>
+                </options>
+                <options>
+                    <value>S.E. Asia Standard Time</value>
+                    <name>(GMT+07:00) Bangkok, Hanoi, Jakarta</name>
+                </options>
+                <options>
+                    <value>North Asia Standard Time</value>
+                    <name>(GMT+07:00) Krasnoyarsk</name>
+                </options>
+                <options>
+                    <value>China Standard Time</value>
+                    <name>(GMT+08:00) Beijing, Chongqing, Hong Kong SAR, Urumqi</name>
+                </options>
+                <options>
+                    <value>Singapore Standard Time</value>
+                    <name>(GMT+08:00) Kuala Lumpur, Singapore</name>
+                </options>
+                <options>
+                    <value>Taipei Standard Time</value>
+                    <name>(GMT+08:00) Taipei</name>
+                </options>
+                <options>
+                    <value>W. Australia Standard Time</value>
+                    <name>(GMT+08:00) Perth</name>
+                </options>
+                <options>
+                    <value>North Asia East Standard Time</value>
+                    <name>(GMT+08:00) Irkutsk, Ulaanbaatar</name>
+                </options>
+                <options>
+                    <value>Korea Standard Time</value>
+                    <name>(GMT+09:00) Seoul</name>
+                </options>
+                <options>
+                    <value>Tokyo Standard Time</value>
+                    <name>(GMT+09:00) Osaka, Sapporo, Tokyo</name>
+                </options>
+                <options>
+                    <value>Yakutsk Standard Time</value>
+                    <name>(GMT+09:00) Yakutsk</name>
+                </options>
+                <options>
+                    <value>A.U.S. Central Standard Time</value>
+                    <name>(GMT+09:30) Darwin</name>
+                </options>
+                <options>
+                    <value>Cen. Australia Standard Time</value>
+                    <name>(GMT+09:30) Adelaide</name>
+                </options>
+                <options>
+                    <value>A.U.S. Eastern Standard Time</value>
+                    <name>(GMT+10:00) Canberra, Melbourne, Sydney</name>
+                </options>
+                <options>
+                    <value>E. Australia Standard Time</value>
+                    <name>(GMT+10:00) Brisbane</name>
+                </options>
+                <options>
+                    <value>Tasmania Standard Time</value>
+                    <name>(GMT+10:00) Hobart</name>
+                </options>
+                <options>
+                    <value>Vladivostok Standard Time</value>
+                    <name>(GMT+10:00) Vladivostok</name>
+                </options>
+                <options>
+                    <value>West Pacific Standard Time</value>
+                    <name>(GMT+10:00) Guam, Port Moresby</name>
+                </options>
+                <options>
+                    <value>Central Pacific Standard Time</value>
+                    <name>(GMT+11:00) Magadan, Solomon Islands, New Caledonia</name>
+                </options>
+                <options>
+                    <value>Fiji Islands Standard Time</value>
+                    <name>(GMT+12:00) Fiji Islands, Kamchatka, Marshall Islands</name>
+                </options>
+                <options>
+                    <value>New Zealand Standard Time</value>
+                    <name>(GMT+12:00) Auckland, Wellington</name>
+                </options>
+                <options>
+                    <value>Tonga Standard Time</value>
+                    <name>(GMT+13:00) Nuku'alofa</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>time_zone</id>
+                <value>11</value>
+                <type>ENUMERATED</type>
+                <displayName>Timezone</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>redhat,redhat7</dependencyValue>
+                <options>
+                    <value>1</value>
+                    <name>(UTC-12:00) International Date Line West</name>
+                </options>
+                <options>
+                    <value>2</value>
+                    <name>(UTC-11:00) Coordinated Universal Time-11</name>
+                </options>
+                <options>
+                    <value>3</value>
+                    <name>(UTC-10:00) Hawaii</name>
+                </options>
+                <options>
+                    <value>4</value>
+                    <name>(UTC-09:00) Alaska</name>
+                </options>
+                <options>
+                    <value>5</value>
+                    <name>(UTC-08:00) Baja California</name>
+                </options>
+                <options>
+                    <value>6</value>
+                    <name>(UTC-08:00) Pacific Time (US &amp; Canada)</name>
+                </options>
+                <options>
+                    <value>7</value>
+                    <name>(UTC-07:00) Arizona</name>
+                </options>
+                <options>
+                    <value>8</value>
+                    <name>(UTC-07:00) Chihuahua, La Paz, Mazatlan</name>
+                </options>
+                <options>
+                    <value>9</value>
+                    <name>(UTC-07:00) Mountain Time (US &amp; Canada)</name>
+                </options>
+                <options>
+                    <value>10</value>
+                    <name>(UTC-06:00) Central America</name>
+                </options>
+                <options>
+                    <value>11</value>
+                    <name>(UTC-06:00) Central Time (US &amp; Canada)</name>
+                </options>
+                <options>
+                    <value>12</value>
+                    <name>(UTC-06:00) Guadalajara, Mexico City, Monterrey</name>
+                </options>
+                <options>
+                    <value>13</value>
+                    <name>(UTC-06:00) Saskatchewan</name>
+                </options>
+                <options>
+                    <value>14</value>
+                    <name>(UTC-05:00) Bogota, Lima, Quito</name>
+                </options>
+                <options>
+                    <value>15</value>
+                    <name>(UTC-05:00) Eastern Time (US &amp; Canada)</name>
+                </options>
+                <options>
+                    <value>16</value>
+                    <name>(UTC-05:00) Indiana (East)</name>
+                </options>
+                <options>
+                    <value>17</value>
+                    <name>(UTC-04:30) Caracas</name>
+                </options>
+                <options>
+                    <value>18</value>
+                    <name>(UTC-04:00) Asuncion</name>
+                </options>
+                <options>
+                    <value>19</value>
+                    <name>(UTC-04:00) Atlantic Time (Canada)</name>
+                </options>
+                <options>
+                    <value>20</value>
+                    <name>(UTC-04:00) Cuiaba</name>
+                </options>
+                <options>
+                    <value>21</value>
+                    <name>(UTC-04:00) Georgetown, La Paz, Manaus, San Juan</name>
+                </options>
+                <options>
+                    <value>22</value>
+                    <name>(UTC-04:00) Santiago</name>
+                </options>
+                <options>
+                    <value>23</value>
+                    <name>(UTC-03:30) Newfoundland</name>
+                </options>
+                <options>
+                    <value>24</value>
+                    <name>(UTC-03:00) Brasilia</name>
+                </options>
+                <options>
+                    <value>25</value>
+                    <name>(UTC-03:00) Buenos Aires</name>
+                </options>
+                <options>
+                    <value>26</value>
+                    <name>(UTC-03:00) Cayenne, Fortaleza</name>
+                </options>
+                <options>
+                    <value>27</value>
+                    <name>(UTC-03:00) Greenland</name>
+                </options>
+                <options>
+                    <value>28</value>
+                    <name>(UTC-03:00) Montevideo</name>
+                </options>
+                <options>
+                    <value>29</value>
+                    <name>(UTC-03:00) Salvador</name>
+                </options>
+                <options>
+                    <value>30</value>
+                    <name>(UTC-02:00) Coordinated Universal Time-02</name>
+                </options>
+                <options>
+                    <value>32</value>
+                    <name>(UTC-01:00) Azores</name>
+                </options>
+                <options>
+                    <value>33</value>
+                    <name>(UTC-01:00) Cape Verde Is.</name>
+                </options>
+                <options>
+                    <value>34</value>
+                    <name>(UTC) Casablanca</name>
+                </options>
+                <options>
+                    <value>35</value>
+                    <name>(UTC) Coordinated Universal Time</name>
+                </options>
+                <options>
+                    <value>36</value>
+                    <name>(UTC) Dublin, Edinburgh, Lisbon, London</name>
+                </options>
+                <options>
+                    <value>37</value>
+                    <name>(UTC) Monrovia, Reykjavik</name>
+                </options>
+                <options>
+                    <value>38</value>
+                    <name>(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</name>
+                </options>
+                <options>
+                    <value>39</value>
+                    <name>(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</name>
+                </options>
+                <options>
+                    <value>40</value>
+                    <name>(UTC+01:00) Brussels, Copenhagen, Madrid, Paris</name>
+                </options>
+                <options>
+                    <value>41</value>
+                    <name>(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb</name>
+                </options>
+                <options>
+                    <value>42</value>
+                    <name>(UTC+01:00) West Central Africa</name>
+                </options>
+                <options>
+                    <value>43</value>
+                    <name>(UTC+01:00) Windhoek</name>
+                </options>
+                <options>
+                    <value>44</value>
+                    <name>(UTC+02:00) Amman</name>
+                </options>
+                <options>
+                    <value>45</value>
+                    <name>(UTC+02:00) Athens, Bucharest</name>
+                </options>
+                <options>
+                    <value>46</value>
+                    <name>(UTC+02:00) Beirut</name>
+                </options>
+                <options>
+                    <value>47</value>
+                    <name>(UTC+02:00) Cairo</name>
+                </options>
+                <options>
+                    <value>48</value>
+                    <name>(UTC+02:00) Damascus</name>
+                </options>
+                <options>
+                    <value>49</value>
+                    <name>(UTC+02:00) Harare, Pretoria</name>
+                </options>
+                <options>
+                    <value>50</value>
+                    <name>(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius</name>
+                </options>
+                <options>
+                    <value>51</value>
+                    <name>(UTC+02:00) Istanbul</name>
+                </options>
+                <options>
+                    <value>52</value>
+                    <name>(UTC+02:00) Jerusalem</name>
+                </options>
+                <options>
+                    <value>53</value>
+                    <name>(UTC+02:00) Nicosia</name>
+                </options>
+                <options>
+                    <value>54</value>
+                    <name>(UTC+03:00) Baghdad</name>
+                </options>
+                <options>
+                    <value>55</value>
+                    <name>(UTC+03:00) Kaliningrad, Minsk</name>
+                </options>
+                <options>
+                    <value>56</value>
+                    <name>(UTC+03:00) Kuwait, Riyadh</name>
+                </options>
+                <options>
+                    <value>57</value>
+                    <name>(UTC+03:00) Nairobi</name>
+                </options>
+                <options>
+                    <value>58</value>
+                    <name>(UTC+03:30) Tehran</name>
+                </options>
+                <options>
+                    <value>59</value>
+                    <name>(UTC+04:00) Abu Dhabi, Muscat</name>
+                </options>
+                <options>
+                    <value>60</value>
+                    <name>(UTC+04:00) Baku</name>
+                </options>
+                <options>
+                    <value>61</value>
+                    <name>(UTC+04:00) Moscow, St. Petersburg, Volgograd</name>
+                </options>
+                <options>
+                    <value>62</value>
+                    <name>(UTC+04:00) Port Louis</name>
+                </options>
+                <options>
+                    <value>63</value>
+                    <name>(UTC+04:00) Tbilisi</name>
+                </options>
+                <options>
+                    <value>64</value>
+                    <name>(UTC+04:00) Yerevan</name>
+                </options>
+                <options>
+                    <value>65</value>
+                    <name>(UTC+04:30) Kabul</name>
+                </options>
+                <options>
+                    <value>66</value>
+                    <name>(UTC+05:00) Islamabad, Karachi</name>
+                </options>
+                <options>
+                    <value>67</value>
+                    <name>(UTC+05:00) Tashkent</name>
+                </options>
+                <options>
+                    <value>68</value>
+                    <name>(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi</name>
+                </options>
+                <options>
+                    <value>69</value>
+                    <name>(UTC+05:30) Sri Jayawardenepura</name>
+                </options>
+                <options>
+                    <value>70</value>
+                    <name>(UTC+05:45) Kathmandu</name>
+                </options>
+                <options>
+                    <value>71</value>
+                    <name>(UTC+06:00) Astana</name>
+                </options>
+                <options>
+                    <value>72</value>
+                    <name>(UTC+06:00) Dhaka</name>
+                </options>
+                <options>
+                    <value>73</value>
+                    <name>(UTC+06:00) Ekaterinburg</name>
+                </options>
+                <options>
+                    <value>74</value>
+                    <name>(UTC+06:30) Yangon (Rangoon)</name>
+                </options>
+                <options>
+                    <value>75</value>
+                    <name>(UTC+07:00) Bangkok, Hanoi, Jakarta</name>
+                </options>
+                <options>
+                    <value>76</value>
+                    <name>(UTC+07:00) Novosibirsk</name>
+                </options>
+                <options>
+                    <value>77</value>
+                    <name>(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi</name>
+                </options>
+                <options>
+                    <value>78</value>
+                    <name>(UTC+08:00) Krasnoyarsk</name>
+                </options>
+                <options>
+                    <value>79</value>
+                    <name>(UTC+08:00) Kuala Lumpur, Singapore</name>
+                </options>
+                <options>
+                    <value>80</value>
+                    <name>(UTC+08:00) Perth</name>
+                </options>
+                <options>
+                    <value>81</value>
+                    <name>(UTC+08:00) Taipei</name>
+                </options>
+                <options>
+                    <value>82</value>
+                    <name>(UTC+08:00) Ulaanbaatar</name>
+                </options>
+                <options>
+                    <value>83</value>
+                    <name>(UTC+09:00) Irkutsk</name>
+                </options>
+                <options>
+                    <value>84</value>
+                    <name>(UTC+09:00) Osaka, Sapporo, Tokyo</name>
+                </options>
+                <options>
+                    <value>85</value>
+                    <name>(UTC+09:00) Seoul</name>
+                </options>
+                <options>
+                    <value>86</value>
+                    <name>(UTC+09:30) Adelaide</name>
+                </options>
+                <options>
+                    <value>87</value>
+                    <name>(UTC+09:30) Darwin</name>
+                </options>
+                <options>
+                    <value>88</value>
+                    <name>(UTC+10:00) Brisbane</name>
+                </options>
+                <options>
+                    <value>89</value>
+                    <name>(UTC+10:00) Canberra, Melbourne, Sydney</name>
+                </options>
+                <options>
+                    <value>90</value>
+                    <name>(UTC+10:00) Guam, Port Moresby</name>
+                </options>
+                <options>
+                    <value>91</value>
+                    <name>(UTC+10:00) Hobart</name>
+                </options>
+                <options>
+                    <value>92</value>
+                    <name>(UTC+10:00) Yakutsk</name>
+                </options>
+                <options>
+                    <value>93</value>
+                    <name>(UTC+11:00) Solomon Is., New Caledonia</name>
+                </options>
+                <options>
+                    <value>94</value>
+                    <name>(UTC+11:00) Vladivostok</name>
+                </options>
+                <options>
+                    <value>95</value>
+                    <name>(UTC+12:00) Auckland, Wellington</name>
+                </options>
+                <options>
+                    <value>96</value>
+                    <name>(UTC+12:00) Coordinated Universal Time+12</name>
+                </options>
+                <options>
+                    <value>97</value>
+                    <name>(UTC+12:00) Fiji</name>
+                </options>
+                <options>
+                    <value>98</value>
+                    <name>(UTC+12:00) Magadan</name>
+                </options>
+                <options>
+                    <value>99</value>
+                    <name>(UTC+13:00) Nuku'alofa</name>
+                </options>
+                <options>
+                    <value>100</value>
+                    <name>(UTC+13:00) Samoa</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>ntp</id>
+                <type>STRING</type>
+                <displayName>NTP Server</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>hyperv</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>ntp_server</id>
+                <type>STRING</type>
+                <displayName>NTP Server</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>vmware_esxi,redhat,redhat7</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>language</id>
+                <value>en-US</value>
+                <type>ENUMERATED</type>
+                <displayName>Language</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>hyperv</dependencyValue>
+                <options>
+                    <value>en-US</value>
+                    <name>English (United States)</name>
+                </options>
+                <options>
+                    <value>de-DE</value>
+                    <name>German (Germany)</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>keyboard</id>
+                <value>00000409</value>
+                <type>ENUMERATED</type>
+                <displayName>Keyboard</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>hyperv</dependencyValue>
+                <options>
+                    <value>00000409</value>
+                    <name>U.S. English</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>domain_name</id>
+                <type>STRING</type>
+                <displayName>Domain Name</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>hyperv</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>fqdn</id>
+                <type>STRING</type>
+                <displayName>FQ Domain Name</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>hyperv</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>domain_admin_user</id>
+                <type>STRING</type>
+                <displayName>Domain Admin Username</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>hyperv</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>domain_admin_password</id>
+                <value>asm</value>
+                <type>PASSWORD</type>
+                <displayName>Domain Admin Password</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>hyperv</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>domain_admin_password_confirm</id>
+                <value>asm</value>
+                <type>PASSWORD</type>
+                <displayName>Domain Admin Password Confirm</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>hyperv</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>esx_mem</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>Install EqualLogic MEM</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>vmware_esxi</dependencyValue>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>true</value>
+                    <name>True</name>
+                </options>
+                <options>
+                    <value>false</value>
+                    <name>False</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>server_pool</id>
+                <value>-1</value>
+                <type>ENUMERATED</type>
+                <displayName>Server Pool</displayName>
+                <required>true</required>
+                <requiredAtDeployment>true</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value>-1</value>
+                    <name>Global</name>
+                </options>
+                <toolTip>Pool from which servers are selected during deployment</toolTip>
+            </parameters>
+            <parameters>
+                <id>ensure</id>
+                <value>present</value>
+                <type>STRING</type>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>true</hideFromTemplate>
+            </parameters>
+        </resources>
+        <manageFirmware>false</manageFirmware>
+    </components>
+    <components>
+        <id>component-cluster-vcenter-1</id>
+        <name>VMWare Cluster</name>
+        <type>CLUSTER</type>
+        <teardown>false</teardown>
+        <relatedComponents>
+            <entry>
+                <key>component-server-1</key>
+                <value>Server</value>
+            </entry>
+        </relatedComponents>
+        <resources>
+            <id>asm::cluster</id>
+            <displayName>Cluster Settings</displayName>
+            <parameters>
+                <id>asm_guid</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>Target Virtual Machine Manager</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>datacenter</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>Data Center Name</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>$new$</value>
+                    <name>Create New Datacenter...</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>$new$datacenter</id>
+                <type>STRING</type>
+                <displayName>New datacenter name</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>datacenter</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>cluster</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>Cluster Name</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>$new$</value>
+                    <name>Create New Cluster...</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>$new$cluster</id>
+                <type>STRING</type>
+                <displayName>New cluster name</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>cluster</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>ha_config</id>
+                <value>false</value>
+                <type>BOOLEAN</type>
+                <displayName>Cluster HA Enabled</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>cluster</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>drs_config</id>
+                <value>false</value>
+                <type>BOOLEAN</type>
+                <displayName>Cluster DRS Enabled</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>cluster</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>ensure</id>
+                <value>present</value>
+                <type>STRING</type>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>true</hideFromTemplate>
+            </parameters>
+        </resources>
+        <manageFirmware>false</manageFirmware>
+    </components>
+    <components>
+        <id>component-cluster-hyperv-1</id>
+        <name>Hyper-V Cluster</name>
+        <type>CLUSTER</type>
+        <teardown>false</teardown>
+        <relatedComponents>
+            <entry>
+                <key>component-server-1</key>
+                <value>Server</value>
+            </entry>
+        </relatedComponents>
+        <resources>
+            <id>asm::cluster::scvmm</id>
+            <displayName>Cluster Settings</displayName>
+            <parameters>
+                <id>asm_guid</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>Hypervisor Management Software</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>hostgroup</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>Host Group</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>name</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>$new$</value>
+                    <name>New Host Group...</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>$new$hostgroup</id>
+                <type>STRING</type>
+                <displayName>New host group name</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>hostgroup</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>name</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>Cluster Name</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>$new$</value>
+                    <name>New Cluster...</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>$new$name</id>
+                <type>STRING</type>
+                <displayName>New cluster name</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>name</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>ipaddress</id>
+                <type>STRING</type>
+                <displayName>Cluster IP Address</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>name</dependencyTarget>
+                <dependencyValue>$new$</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>ensure</id>
+                <value>present</value>
+                <type>STRING</type>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>true</hideFromTemplate>
+            </parameters>
+        </resources>
+        <manageFirmware>false</manageFirmware>
+    </components>
+    <components>
+        <id>component-virtualmachine-vcenter-1</id>
+        <name>vCenter Virtual Machine</name>
+        <type>VIRTUALMACHINE</type>
+        <teardown>false</teardown>
+        <relatedComponents>
+            <entry>
+                <key>component-cluster-vcenter-1</key>
+                <value>VMWare Cluster</value>
+            </entry>
+        </relatedComponents>
+        <resources>
+            <id>asm::server</id>
+            <displayName>Virtual Machine OS Settings</displayName>
+            <parameters>
+                <id>os_host_name</id>
+                <type>STRING</type>
+                <displayName>Host Name</displayName>
+                <required>true</required>
+                <requiredAtDeployment>true</requiredAtDeployment>
+                <hideFromTemplate>true</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>admin_password</id>
+                <type>PASSWORD</type>
+                <displayName>Administrator password</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <toolTip>OS administrator password set on the installed OS</toolTip>
+            </parameters>
+            <parameters>
+                <id>admin_confirm_password</id>
+                <type>PASSWORD</type>
+                <displayName>Confirm administrator password</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>razor_image</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>OS Image</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <toolTip>Location of OS image installation files</toolTip>
+            </parameters>
+            <parameters>
+                <id>os_image_type</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>OS Image Type</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>redhat</value>
+                    <name>Red Hat 6</name>
+                </options>
+                <options>
+                    <value>redhat7</value>
+                    <name>Red Hat 7</name>
+                </options>
+                <options>
+                    <value>windows2008</value>
+                    <name>Windows 2008</name>
+                </options>
+                <options>
+                    <value>windows2012</value>
+                    <name>Windows 2012</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>os_image_version</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>OS Image Version</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>windows2008,windows2012,hyperv</dependencyValue>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>windows2012datacenter</value>
+                    <name>Windows Server 2012 SERVERDATACENTER</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>hyperv,windows2012</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2012r2datacenter</value>
+                    <name>Windows Server 2012 R2 SERVERDATACENTER</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>hyperv,windows2012</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2012r2standard</value>
+                    <name>Windows Server 2012 R2 SERVERSTANDARD</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>hyperv,windows2012</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2012standard</value>
+                    <name>Windows Server 2012 SERVERSTANDARD</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>hyperv,windows2012</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2012datacentercore</value>
+                    <name>Windows Server 2012 SERVERDATACENTERCORE</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>windows2012,hyperv</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2012r2datacentercore</value>
+                    <name>Windows Server 2012 R2 SERVERDATACENTERCORE</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>windows2012,hyperv</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2012r2standardcore</value>
+                    <name>Windows Server 2012 R2 SERVERSTANDARDCORE</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>windows2012,hyperv</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2008r2datacenter</value>
+                    <name>Windows Server 2008 R2 Datacenter</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>hyperv,windows2008</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2008r2standard</value>
+                    <name>Windows Server 2008 R2 Standard</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>hyperv,windows2008</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2008r2enterprise</value>
+                    <name>Windows Server 2008 R2 Enterprise</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>windows2008,hyperv</dependencyValue>
+                </options>
+                <options>
+                    <value>windows2008r2web</value>
+                    <name>Windows Server 2008 R2 Web</name>
+                    <dependencyTarget>os_image_type</dependencyTarget>
+                    <dependencyValue>windows2008,hyperv</dependencyValue>
+                </options>
+            </parameters>
+            <parameters>
+                <id>product_key</id>
+                <type>STRING</type>
+                <displayName>Product Key</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <dependencyTarget>os_image_type</dependencyTarget>
+                <dependencyValue>hyperv,windows2008,windows2012</dependencyValue>
+            </parameters>
+            <parameters>
+                <id>ensure</id>
+                <value>present</value>
+                <type>STRING</type>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>true</hideFromTemplate>
+            </parameters>
+        </resources>
+        <resources>
+            <id>asm::vm::vcenter</id>
+            <displayName>Virtual Machine Settings</displayName>
+            <parameters>
+                <id>cpu_count</id>
+                <value>1</value>
+                <type>INTEGER</type>
+                <displayName>Number of CPUs</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <min>1</min>
+                <max>8</max>
+            </parameters>
+            <parameters>
+                <id>disksize_in_gb</id>
+                <value>32</value>
+                <type>INTEGER</type>
+                <displayName>Virtual Disk Size (GB)</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <min>1</min>
+                <max>2048</max>
+            </parameters>
+            <parameters>
+                <id>memory_in_mb</id>
+                <value>8192</value>
+                <type>INTEGER</type>
+                <displayName>Memory in MB</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <min>1024</min>
+                <max>262144</max>
+                <toolTip>Memory size should be in multiples of 4</toolTip>
+            </parameters>
+            <parameters>
+                <id>network_interfaces</id>
+                <value></value>
+                <type>LIST</type>
+                <displayName>Networks</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <toolTip>Networks associated with the VM</toolTip>
+            </parameters>
+            <parameters>
+                <id>ensure</id>
+                <value>present</value>
+                <type>STRING</type>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>true</hideFromTemplate>
+            </parameters>
+        </resources>
+        <manageFirmware>false</manageFirmware>
+    </components>
+    <components>
+        <id>component-virtualmachine-vcenter-1</id>
+        <name>Clone vCenter Virtual Machine</name>
+        <type>VIRTUALMACHINE</type>
+        <teardown>false</teardown>
+        <relatedComponents>
+            <entry>
+                <key>component-cluster-vcenter-1</key>
+                <value>VMWare Cluster</value>
+            </entry>
+        </relatedComponents>
+        <resources>
+            <id>asm::vm::vcenter</id>
+            <displayName>Virtual Machine Settings</displayName>
+            <parameters>
+                <id>cpu_count</id>
+                <value>1</value>
+                <type>INTEGER</type>
+                <displayName>Number of CPUs</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <min>1</min>
+                <max>8</max>
+            </parameters>
+            <parameters>
+                <id>disksize_in_gb</id>
+                <value>32</value>
+                <type>INTEGER</type>
+                <displayName>Virtual Disk Size (GB)</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <min>1</min>
+                <max>2048</max>
+            </parameters>
+            <parameters>
+                <id>memory_in_mb</id>
+                <value>8192</value>
+                <type>INTEGER</type>
+                <displayName>Memory in MB</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <min>1024</min>
+                <max>262144</max>
+                <toolTip>Memory size should be in multiples of 4</toolTip>
+            </parameters>
+            <parameters>
+                <id>network_interfaces</id>
+                <value></value>
+                <type>LIST</type>
+                <displayName>Networks</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <toolTip>Networks associated with the VM</toolTip>
+            </parameters>
+            <parameters>
+                <id>hostname</id>
+                <type>STRING</type>
+                <displayName>Name</displayName>
+                <required>true</required>
+                <requiredAtDeployment>true</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>clone_type</id>
+                <value>vm</value>
+                <type>ENUMERATED</type>
+                <displayName>Clone Type</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value>vm</value>
+                    <name>Virtual Machine</name>
+                </options>
+                <options>
+                    <value>template</value>
+                    <name>Virtual Machine Template</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>source</id>
+                <type>ENUMERATED</type>
+                <displayName>Source</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>source_datacenter</id>
+                <type>ENUMERATED</type>
+                <displayName>Source Datacenter</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>ensure</id>
+                <value>present</value>
+                <type>STRING</type>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>true</hideFromTemplate>
+            </parameters>
+        </resources>
+        <manageFirmware>false</manageFirmware>
+    </components>
+    <components>
+        <id>component-virtualmachine-hyperv-1</id>
+        <name>Clone Hyper-V Virtual Machine</name>
+        <type>VIRTUALMACHINE</type>
+        <teardown>false</teardown>
+        <relatedComponents>
+            <entry>
+                <key>component-cluster-hyperv-1</key>
+                <value>Hyper-V Cluster</value>
+            </entry>
+        </relatedComponents>
+        <resources>
+            <id>asm::vm::scvmm</id>
+            <displayName>Virtual Machine Settings</displayName>
+            <parameters>
+                <id>description</id>
+                <type>STRING</type>
+                <displayName>Description</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>hostname</id>
+                <type>STRING</type>
+                <displayName>Name</displayName>
+                <required>true</required>
+                <requiredAtDeployment>true</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>template</id>
+                <type>ENUMERATED</type>
+                <displayName>Template</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>path</id>
+                <type>STRING</type>
+                <displayName>Path</displayName>
+                <required>false</required>
+                <requiredAtDeployment>true</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>network_interfaces</id>
+                <value></value>
+                <type>LIST</type>
+                <displayName>Networks</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>block_dynamic_optimization</id>
+                <value>false</value>
+                <type>BOOLEAN</type>
+                <displayName>Block Dynamic Optimization</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>true</value>
+                    <name>True</name>
+                </options>
+                <options>
+                    <value>false</value>
+                    <name>False</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>highly_available</id>
+                <value>true</value>
+                <type>BOOLEAN</type>
+                <displayName>Highly Available</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>true</value>
+                    <name>True</name>
+                </options>
+                <options>
+                    <value>false</value>
+                    <name>False</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>cpu_count</id>
+                <value>1</value>
+                <type>INTEGER</type>
+                <displayName>Number of CPUs</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <min>1</min>
+                <max>8</max>
+            </parameters>
+            <parameters>
+                <id>memory_mb</id>
+                <value>8192</value>
+                <type>INTEGER</type>
+                <displayName>Memory in MB</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <min>1024</min>
+                <max>262144</max>
+            </parameters>
+            <parameters>
+                <id>start_action</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>Start Action</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>never_auto_turn_on_vm</value>
+                    <name>Never auto turn on VM</name>
+                </options>
+                <options>
+                    <value>always_auto_turn_on_vm</value>
+                    <name>Always auto turn on VM</name>
+                </options>
+                <options>
+                    <value>turn_on_vm_if_running_when_vs_stopped</value>
+                    <name>Turn on VM if running when VS stopped</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>stop_action</id>
+                <value></value>
+                <type>ENUMERATED</type>
+                <displayName>Stop Action</displayName>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>save_vm</value>
+                    <name>Save VM</name>
+                </options>
+                <options>
+                    <value>turn_off_vm</value>
+                    <name>Turn off VM</name>
+                </options>
+                <options>
+                    <value>shutdown_guest_os</value>
+                    <name>Shutdown guest OS</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>ensure</id>
+                <value>present</value>
+                <type>STRING</type>
+                <required>true</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>true</hideFromTemplate>
+            </parameters>
+        </resources>
+        <manageFirmware>false</manageFirmware>
+    </components>
+    <components>
+        <id>component-citrix_xd7-1</id>
+        <name>citrix_xd7</name>
+        <type>SERVICE</type>
+        <teardown>false</teardown>
+        <relatedComponents />
+        <associatedComponents />
+        <resources>
+            <id>citrix_xd7</id>
+            <displayName>Application Settings</displayName>
+            <parameters>
+                <id>source</id>
+                <value>D:\\x64\\XenDesktop Setup\\</value>
+                <type>STRING</type>
+                <displayName>source</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>sql</id>
+                <value>true</value>
+                <type>BOOLEAN</type>
+                <displayName>sql</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>true</value>
+                    <name>True</name>
+                </options>
+                <options>
+                    <value>false</value>
+                    <name>False</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>controller</id>
+                <value>true</value>
+                <type>BOOLEAN</type>
+                <displayName>controller</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>true</value>
+                    <name>True</name>
+                </options>
+                <options>
+                    <value>false</value>
+                    <name>False</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>desktopstudio</id>
+                <value>true</value>
+                <type>BOOLEAN</type>
+                <displayName>desktopstudio</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>true</value>
+                    <name>True</name>
+                </options>
+                <options>
+                    <value>false</value>
+                    <name>False</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>licenseserver</id>
+                <value>true</value>
+                <type>BOOLEAN</type>
+                <displayName>licenseserver</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>true</value>
+                    <name>True</name>
+                </options>
+                <options>
+                    <value>false</value>
+                    <name>False</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>desktopdirector</id>
+                <value>true</value>
+                <type>BOOLEAN</type>
+                <displayName>desktopdirector</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>true</value>
+                    <name>True</name>
+                </options>
+                <options>
+                    <value>false</value>
+                    <name>False</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>storefront</id>
+                <value>true</value>
+                <type>BOOLEAN</type>
+                <displayName>storefront</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>true</value>
+                    <name>True</name>
+                </options>
+                <options>
+                    <value>false</value>
+                    <name>False</name>
+                </options>
+            </parameters>
+        </resources>
+        <manageFirmware>false</manageFirmware>
+    </components>
+    <components>
+        <id>component-linux_postinstall-1</id>
+        <name>linux_postinstall</name>
+        <type>SERVICE</type>
+        <teardown>false</teardown>
+        <relatedComponents />
+        <associatedComponents />
+        <resources>
+            <id>linux_postinstall</id>
+            <displayName>Application Settings</displayName>
+            <parameters>
+                <id>install_packages</id>
+                <value></value>
+                <type>STRING</type>
+                <displayName>install_packages</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>upload_share</id>
+                <value></value>
+                <type>STRING</type>
+                <displayName>upload_share</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>upload_file</id>
+                <value></value>
+                <type>STRING</type>
+                <displayName>upload_file</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>upload_recursive</id>
+                <value>false</value>
+                <type>BOOLEAN</type>
+                <displayName>upload_recursive</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>true</value>
+                    <name>True</name>
+                </options>
+                <options>
+                    <value>false</value>
+                    <name>False</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>execute_file_command</id>
+                <value></value>
+                <type>STRING</type>
+                <displayName>execute_file_command</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>yum_proxy</id>
+                <value></value>
+                <type>STRING</type>
+                <displayName>yum_proxy</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+        </resources>
+        <manageFirmware>false</manageFirmware>
+    </components>
+    <components>
+        <id>component-mssql2012-1</id>
+        <name>mssql2012</name>
+        <type>SERVICE</type>
+        <teardown>false</teardown>
+        <relatedComponents />
+        <associatedComponents />
+        <resources>
+            <id>mssql2012</id>
+            <displayName>Application Settings</displayName>
+            <parameters>
+                <id>media</id>
+                <value>\\dellasm\razor\SQLServer2012</value>
+                <type>STRING</type>
+                <displayName>media</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>instancename</id>
+                <value>MSSQLSERVER</value>
+                <type>STRING</type>
+                <displayName>instancename</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>features</id>
+                <value>SQLENGINE,CONN,SSMS,ADV_SSMS</value>
+                <type>STRING</type>
+                <displayName>features</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>sapwd</id>
+                <value>Sql!@as#2012demo</value>
+                <type>STRING</type>
+                <displayName>sapwd</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>agtsvcaccount</id>
+                <value>SQLAGTSVC</value>
+                <type>STRING</type>
+                <displayName>agtsvcaccount</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>agtsvcpassword</id>
+                <value>Sql!@gt#2012demo</value>
+                <type>STRING</type>
+                <displayName>agtsvcpassword</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>assvcaccount</id>
+                <value>SQLASSVC</value>
+                <type>STRING</type>
+                <displayName>assvcaccount</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>assvcpassword</id>
+                <value>Sql!@s#2012demo</value>
+                <type>STRING</type>
+                <displayName>assvcpassword</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>rssvcaccount</id>
+                <value>SQLRSSVC</value>
+                <type>STRING</type>
+                <displayName>rssvcaccount</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>rssvcpassword</id>
+                <value>Sql!Rs#2012demo</value>
+                <type>STRING</type>
+                <displayName>rssvcpassword</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>sqlsvcaccount</id>
+                <value>SQLSVC</value>
+                <type>STRING</type>
+                <displayName>sqlsvcaccount</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>sqlsvcpassword</id>
+                <value>Sql!#2012demo</value>
+                <type>STRING</type>
+                <displayName>sqlsvcpassword</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>instancedir</id>
+                <value>C:\Program Files\Microsoft SQL Server\\</value>
+                <type>STRING</type>
+                <displayName>instancedir</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>ascollation</id>
+                <value>Latin1_General_CI_AS</value>
+                <type>STRING</type>
+                <displayName>ascollation</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>sqlcollation</id>
+                <value>SQL_Latin1_General_CP1_CI_AS</value>
+                <type>STRING</type>
+                <displayName>sqlcollation</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>admin</id>
+                <value>Administrator</value>
+                <type>STRING</type>
+                <displayName>admin</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>netfxsource</id>
+                <value>\\dellasm\razor\windows_install\sources\sxs</value>
+                <type>STRING</type>
+                <displayName>netfxsource</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+        </resources>
+        <manageFirmware>false</manageFirmware>
+    </components>
+    <components>
+        <id>component-windows_postinstall-1</id>
+        <name>windows_postinstall</name>
+        <type>SERVICE</type>
+        <teardown>false</teardown>
+        <relatedComponents />
+        <associatedComponents />
+        <resources>
+            <id>windows_postinstall</id>
+            <displayName>Application Settings</displayName>
+            <parameters>
+                <id>share</id>
+                <value></value>
+                <type>STRING</type>
+                <displayName>share</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>install_command</id>
+                <value></value>
+                <type>STRING</type>
+                <displayName>install_command</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>upload_file</id>
+                <value></value>
+                <type>STRING</type>
+                <displayName>upload_file</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+            <parameters>
+                <id>upload_recurse</id>
+                <value>false</value>
+                <type>BOOLEAN</type>
+                <displayName>upload_recurse</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+                <options>
+                    <value></value>
+                    <name>Select...</name>
+                </options>
+                <options>
+                    <value>true</value>
+                    <name>True</name>
+                </options>
+                <options>
+                    <value>false</value>
+                    <name>False</name>
+                </options>
+            </parameters>
+            <parameters>
+                <id>execute_file_command</id>
+                <value></value>
+                <type>STRING</type>
+                <displayName>execute_file_command</displayName>
+                <required>false</required>
+                <requiredAtDeployment>false</requiredAtDeployment>
+                <hideFromTemplate>false</hideFromTemplate>
+            </parameters>
+        </resources>
+        <manageFirmware>false</manageFirmware>
+    </components>
+    <enableApps>false</enableApps>
+    <enableCluster>false</enableCluster>
+    <enableServer>false</enableServer>
+    <enableStorage>false</enableStorage>
+    <enableVMs>false</enableVMs>
+    <allUsersAllowed>false</allUsersAllowed>
+    <manageFirmware>false</manageFirmware>
+</ServiceTemplate>

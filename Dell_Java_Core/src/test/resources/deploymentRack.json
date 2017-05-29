@@ -1,0 +1,938 @@
+{
+    "networkConfiguration" : {
+      "id": "82b02483-ae7e-4bdf-90f7-6e86a3595f48",
+      "fabrics": [
+        {
+          "id": "72249258-dd02-4c72-944f-fe32d4c6a55d",
+          "name": "Fabric A",
+          "interfaces": [
+            {
+              "id": "1e60fae0-2445-44e5-8772-6bc8e7fe5277",
+              "name": "Port 1",
+              "partitions": [
+                {
+                  "id": "cb8200d9-285f-4825-bb54-833840d6ecfa",
+                  "name": "1",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "b51e4ed9-91da-4195-88ac-3e04c43e7b39",
+                  "name": "2",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "15eec664-41d0-4ea4-902d-6a9d5db98510",
+                  "name": "3",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "c2c0904c-5961-4b99-b825-14e355f730eb",
+                  "name": "4",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                }
+              ],
+              "partitioned": true
+            },
+            {
+              "id": "7a097a84-6376-4d90-8c41-fdd92879a801",
+              "name": "Port 2",
+              "partitions": [
+                {
+                  "id": "dbf2e92c-4f1f-46ed-a31c-2fe7bbfe383b",
+                  "name": "1",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "e98ebe2f-1adc-4ab1-a2ee-f7b2cb109c72",
+                  "name": "2",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "319f70fd-d067-4fe3-9b9e-c0098b5efa64",
+                  "name": "3",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "01e72da9-dde0-43aa-b6bf-11ecc37db4f4",
+                  "name": "4",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                }
+              ],
+              "partitioned": true
+            },
+            {
+              "id": "eb811089-ed16-4e5a-9b56-6126ff5c547a",
+              "name": "Port 3",
+              "partitions": [
+                {
+                  "id": "90f307f2-b01c-41a8-aead-3940471ade1c",
+                  "name": "1",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "315ddc78-d57a-4496-a5f8-c82c36d359e7",
+                  "name": "2",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "ccaaca06-8a68-459e-a3d2-e3daac03195e",
+                  "name": "3",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "c481d1a0-40a5-4765-b056-b067bcf1e31c",
+                  "name": "4",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                }
+              ],
+              "partitioned": true
+            },
+            {
+              "id": "98386f24-071b-4c89-a123-d6d60a86d606",
+              "name": "Port 4",
+              "partitions": [
+                {
+                  "id": "9d6b9e41-39c4-40f2-a81c-d1d69ddf40d8",
+                  "name": "1",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "867f0a4a-5c9d-4e31-aac2-08e0fdbaf498",
+                  "name": "2",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "fbd8b12f-c2e1-41de-810f-1401107fb3fc",
+                  "name": "3",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "ad4bdc3c-8855-4b38-9009-f188d8fee5a6",
+                  "name": "4",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                }
+              ],
+              "partitioned": true
+            }
+          ],
+          "enabled": true,
+          "redundancy": true,
+          "nictype": "2",
+          "usedforfc": false
+        },
+        {
+          "id": "0801b97b-a268-40f5-a257-161594972e0c",
+          "name": "Fabric B",
+          "interfaces": [
+            {
+              "id": "2a9ce75f-93ea-4587-b404-f0467875d2a9",
+              "name": "Port 1",
+              "partitions": [
+                {
+                  "id": "0165b414-e7ff-4d04-8b43-235b6cc43b7b",
+                  "name": "1",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "f3f5e770-a683-4994-80fb-6cabcd3f1d00",
+                  "name": "2",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "50af419c-57e4-4f5f-bb9c-26730c0ea3e3",
+                  "name": "3",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "e6edabd5-fb81-4031-af2a-2fa6ceb80f96",
+                  "name": "4",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                }
+              ],
+              "partitioned": true
+            },
+            {
+              "id": "a1b14d0b-0168-4ec4-b9d1-18f0546fd4a3",
+              "name": "Port 2",
+              "partitions": [
+                {
+                  "id": "44a77921-a779-4a26-a5fb-69530d893b3a",
+                  "name": "1",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "70952cea-92d2-4131-8dd3-7a279cca9c45",
+                  "name": "2",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "16cd4855-756a-4e09-9865-1c0dbffaf3ec",
+                  "name": "3",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "8a069dbc-f301-4dcf-9e7a-067da1056b2a",
+                  "name": "4",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                }
+              ],
+              "partitioned": true
+            },
+            {
+              "id": "414242cf-5f13-4e94-aac4-747831b8010b",
+              "name": "Port 3",
+              "partitions": [
+                {
+                  "id": "aeb8cdae-62b8-44dc-b0da-d4bbed79e578",
+                  "name": "1",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "a83a2d75-9c0b-4427-9edb-9f74316d271f",
+                  "name": "2",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "e4164f10-db15-401c-9732-64db8197c59a",
+                  "name": "3",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "ebd7c1ad-201e-40e9-b132-d57bd5aab1b0",
+                  "name": "4",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                }
+              ],
+              "partitioned": true
+            },
+            {
+              "id": "8cb77466-e1c9-422b-bf12-beadaddf86af",
+              "name": "Port 4",
+              "partitions": [
+                {
+                  "id": "e31e550e-1bb5-4137-8672-5aa87ef5acc2",
+                  "name": "1",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "c6548bf2-0578-4961-bd66-d713f424e3a3",
+                  "name": "2",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "175cc9a9-1d81-49e3-a4ef-f65a6a877de0",
+                  "name": "3",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "4eb4495f-c51d-4ce0-bf5a-abdaae63cdaa",
+                  "name": "4",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                }
+              ],
+              "partitioned": true
+            }
+          ],
+          "enabled": false,
+          "redundancy": false,
+          "nictype": "2",
+          "usedforfc": false
+        },
+        {
+          "id": "afd686e7-eb25-4268-825d-d21feb653751",
+          "name": "Fabric C",
+          "interfaces": [
+            {
+              "id": "c3a50031-9a8a-4aa8-af87-cb1f5c27e395",
+              "name": "Port 1",
+              "partitions": [
+                {
+                  "id": "9ffb80b2-c720-456e-a4f3-903b9d7af867",
+                  "name": "1",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "3caccd88-e5d6-4c63-965f-25c42ddbca0f",
+                  "name": "2",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "b39bd356-fda1-4b4b-aac7-7d12aa9675f1",
+                  "name": "3",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "da10249b-629d-4762-8802-b11f1557f823",
+                  "name": "4",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                }
+              ],
+              "partitioned": true
+            },
+            {
+              "id": "e4120fbc-fbda-4d6b-818a-faaa693bae90",
+              "name": "Port 2",
+              "partitions": [
+                {
+                  "id": "a0ea370e-c375-4b35-8662-6d99212b7107",
+                  "name": "1",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "36f85a90-f893-49a8-b4af-bfd2b4c24d16",
+                  "name": "2",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "ca031d8b-b95a-46f7-84ea-64bc144b144a",
+                  "name": "3",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "54fc4abf-0cd9-4c8a-ad73-866e0097e8f5",
+                  "name": "4",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                }
+              ],
+              "partitioned": true
+            },
+            {
+              "id": "dd63c4f6-3c2b-4508-aab0-e90280179481",
+              "name": "Port 3",
+              "partitions": [
+                {
+                  "id": "b8e19ce2-f66b-4433-90b7-d2df86fdd856",
+                  "name": "1",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "292c96dc-63d8-4038-a720-eb343f95d84b",
+                  "name": "2",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "8a427d37-3745-4a41-8fdb-fd939be75bd0",
+                  "name": "3",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "78a3080b-09bf-450e-9050-96a890b34339",
+                  "name": "4",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                }
+              ],
+              "partitioned": true
+            },
+            {
+              "id": "bf9c9935-01c2-4379-a640-220d23dd17d1",
+              "name": "Port 4",
+              "partitions": [
+                {
+                  "id": "2bf3482b-a295-4eb3-9ad0-84fdf4f90d65",
+                  "name": "1",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "40cb43b6-d5cb-4ed8-a021-2547eda0ef9a",
+                  "name": "2",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "ab848b32-4945-431a-8f33-330fb9167574",
+                  "name": "3",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "28878b74-816e-430f-9476-f2bdcf89e3bb",
+                  "name": "4",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                }
+              ],
+              "partitioned": true
+            }
+          ],
+          "enabled": false,
+          "redundancy": false,
+          "nictype": "2",
+          "usedforfc": false
+        }
+      ],
+      "servertype": "rack",
+      "interfaces": [
+        {
+          "id": "9a665f06-677a-4a46-a853-217abadb8567",
+          "name": "Interface",
+          "interfaces": [
+            {
+              "id": "023041d3-b0d1-4620-b5e2-eabd4b2b0e23",
+              "name": "Port 1",
+              "partitions": [
+                {
+                  "id": "53d814cd-04fa-4be5-a8b5-3c77f1691484",
+                  "name": "1",
+                  "networks": [
+                    "ff80808146049860014604a35bad0000",
+                    "ff80808146049860014604a558a200cd"
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "5ef77787-180b-4a43-a34f-49914aaaa7fa",
+                  "name": "2",
+                  "networks": [
+                    "ff80808146049860014604a45f140066"
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "871a691e-d513-4544-8483-87a640cc3a76",
+                  "name": "3",
+                  "networks": [
+                    "ff80808146049860014604a4d70e00cc"
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "595ebd61-d3c4-4acf-ac57-a066f429793e",
+                  "name": "4",
+                  "networks": [
+                    "ff80808146049860014604a677f100ce"
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                }
+              ],
+              "partitioned": true
+            },
+            {
+              "id": "15bc0693-1fa4-4361-bdf1-c3659fc4349b",
+              "name": "Port 2",
+              "partitions": [
+                {
+                  "id": "fbff4542-4925-43cd-90a7-c4825f074897",
+                  "name": "1",
+                  "networks": [
+                    "ff80808146049860014604a35bad0000",
+                    "ff80808146049860014604a558a200cd"
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "1ee735d0-b2c4-4069-a934-080408a17862",
+                  "name": "2",
+                  "networks": [
+                    "ff80808146049860014604a45f140066"
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "538640dc-ab4d-4936-b6e9-6c6f37c02873",
+                  "name": "3",
+                  "networks": [
+                    "ff80808146049860014604a4d70e00cc"
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "2a4ae13e-ff9d-4e5d-addf-4c51c3d7622f",
+                  "name": "4",
+                  "networks": [
+                    "ff80808146049860014604a677f100ce"
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                }
+              ],
+              "partitioned": true
+            },
+            {
+              "id": "f811e581-771a-4ab8-ade1-2fed495c791c",
+              "name": "Port 3",
+              "partitions": [
+                {
+                  "id": "eab87af7-af83-4715-9dbc-16414c066df9",
+                  "name": "1",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "cd2f9e8e-9048-42fb-834a-fc9ec1bdd4eb",
+                  "name": "2",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "42fc3f77-327a-4a68-a8f6-214178fb9979",
+                  "name": "3",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "30a68950-4cb6-4c3d-95e0-15049603ee6a",
+                  "name": "4",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                }
+              ],
+              "partitioned": true
+            },
+            {
+              "id": "1ad7a798-3b4a-49aa-8693-bec0cce3c983",
+              "name": "Port 4",
+              "partitions": [
+                {
+                  "id": "c756b757-bcb7-47b2-93b6-40fb235bb0a4",
+                  "name": "1",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "4b17b495-80e0-48a4-9132-117c9d5744ac",
+                  "name": "2",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "69481123-767b-4bd8-ac16-d385fd40a2b9",
+                  "name": "3",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                },
+                {
+                  "id": "20aaa31c-4bbe-43b0-a3ad-0b664abf7fdf",
+                  "name": "4",
+                  "networks": [
+
+                  ],
+                  "virtualidentitypool": null,
+                  "minimum": 0,
+                  "maximum": 100,
+                  "boot": false,
+                  "personality": null
+                }
+              ],
+              "partitioned": true
+            }
+          ],
+          "enabled": true,
+          "redundancy": false,
+          "nictype": "2",
+          "usedforfc": false
+        }
+      ],
+      "teams": [
+
+      ],
+      "vswitches": [
+
+      ]
+    }
+}

@@ -1,0 +1,223 @@
+{
+	"Template":
+			{
+				"Name":"ESXI_EQL_CONVERGED_2_REDUNDANCY_PARTITION_4458",
+				"Description":"Deploy a template ESXi EqualLogic Converged 2 port with Redundancy partition",
+				"Flow":"esxi",
+				"retryOnFailure":"false"
+			},
+	"Server":
+			{
+				"Instances":1,
+				"target_boot_device_value":"HD",
+				"OSImage_Value": ["esxi-5.5"],
+				"install_HyperV": "false",
+				"iSCSI_Initiator":"hardware",
+				"HostNameTemplate":"server${num}",
+				"ServerPoolName":"Global",
+				"ServersIPForPool": ["172.31.60.237"],
+				"memEnabled":"false",
+				"Os_Image_Version":"",
+				"Product_Key":"",
+				"domain_name":"",
+				"Domain_Admin_Username":"",
+				"Domain_Admin_Password":"Dell1234",
+				"FQ_Domain_Name":""	,
+				"Raid_Type":"Basic",
+				"Raid_Basic":"RAID 1",
+				"Raid_Advance":"RAID_ADVANCE",
+				"Networks": "ESXI_EQL_CONVERGED_2_REDUNDANCY_PARTITION",
+				"Static Network Default Gateway":"autoPublicLAN"					
+			},
+	"Storage":
+			{
+				"Instances":1,
+				"Type":"EqualLogic",
+				"Size":["100GB"],
+				"IPAddress":"172.31.32.108",
+				"Initiator_IQN_IP_Addresses":"",
+				"Auth_Type":"IQN/IP",
+				"CHAP_User":"grpadmin",
+				"CHAP_Password":"dell1234",
+				"Operating_SystemName_Compellent":"VMware ESX 5.5",
+				"PortType_Compellent":"FibreChannel",
+				"Aggregate_Name":"Aggregate2RAID4",
+				"Snapshot_Space":"2",
+				"NFS_IP":"172.31.32.81"
+			},
+	"Cluster":
+			{
+				"Instances":1,
+				"Type":"VMWare",
+				"IPAddress":"172.31.61.244",
+				"DCName":"hcldcn22091",
+				"ExistingClusterName":"",
+				"HGName":"hclhgn22091",
+				"ClusterName":"hclclsn22091",
+				"SwitchType":"Standard",	
+				"HA_Config":"false",
+				"DRS_Config":"false",
+				"VSAN_Enabled":"false",
+				"ClusterIP":"",
+				"storage_drs_enabled":"true"
+			},
+		"VM":
+			{
+				"Instances":1,
+				"Type":"VMWareVM",
+				"AutoGenerateHostName":"true",
+				"HostNameTemplate":"vm${num}",
+				"OS_Image":"windowR2",
+				"OS_Image_Version":"Windows Server 2012 R2 SERVERDATACENTER",
+				"OS_Image_Type" : "Windows 2012",
+				"Product_Key":"FNY7W-693QP-VHGKR-6JPHH-R898Y",
+				"CPU_Count":"2",
+				"Memory_MB":"2048",
+				"vm_template_name":"HCLAman01",
+				"path":"C:\\ClusterStorage\\Volume1",
+				"start_action":"Always auto turn on VM",
+				"stop_action":"Turn off VM",
+				"Static Network Default Gateway":"autoPublicLAN"
+			},
+		"Application":
+			{
+				"Instances":1,
+				"Type":"WindowsPostInstall",
+				"yum_proxy":"",	
+				"install_packages":"",
+				"upload_share":"",
+				"upload_file":"window.ps1",
+				"execute_file_command":"powershell get-date",
+				"windows_postinstall_share":"",
+				"windows_install_command":"",
+				"citrix_source_location":""
+			},
+			
+			
+	"Scaleup":
+		{
+			"Server":
+			{
+				"Instances":0,
+				"target_boot_device_value":"HD",
+				"OSImage_Value": ["esxi-5.5"],
+				"install_HyperV": "false",
+				"iSCSI_Initiator":"hardware",
+				"HostNameTemplate":"server${num}",
+				"ServerPoolName":"autoPool",
+				"ServersIPForPool": ["172.31.60.138"],
+				"memEnabled":"false",
+				"Networks": "ESXI_EQL_CONVERGED_2_REDUNDANCY_PARTITION",
+				"Os_Image_Version":"",
+				"Product_Key":"",
+				"domain_name":"",
+				"Domain_Admin_Username":"",
+				"Domain_Admin_Password":"Dell1234",
+				"FQ_Domain_Name":"",
+				"Static Network Default Gateway":"autoPublicLAN"						
+			},
+			
+			"Storage":
+			{
+				"Instances":0,
+				"Type":"EqualLogic",
+				"Size":["100GB"],
+				"IPAddress":"172.31.32.108",
+				"Initiator_IQN_IP_Addresses":"",
+				"Auth_Type":"CHAP",
+				"CHAP_User":"grpadmin",
+				"CHAP_Password":"dell1234",
+				"Operating_SystemName_Compellent":"VMware ESX 5.5",
+				"PortType_Compellent":"FibreChannel",
+				"Aggregate_Name":"Aggregate2RAID4",
+				"Snapshot_Space":"2",
+				"NFS_IP":"172.31.32.81"
+			},
+			
+			"Cluster":
+			{
+				"Instances":0,
+				"Type":"vmware",
+				"IPAddress":"172.31.61.244",
+				"DCName":"",
+				"ExistingClusterName":"",
+				"HGName":"",
+				"ClusterName":"autoCluster",
+				"SwitchType":"Standard",	
+				"HA_Config":"false",
+				"DRS_Config":"false",
+				"VSAN_Enabled":"false",
+				"ClusterIP":""
+			},
+			
+			"VM":
+			{
+				"Instances":0,
+				"Type":"VMWareVM",
+				"AutoGenerateHostName":"true",
+				"HostNameTemplate":"vm${num}",
+				"OS_Image":"red7",
+				"OS_Image_Version":"Windows Server 2012 R2 SERVERDATACENTER",
+				"OS_Image_Type" : "redhat7",
+				"Product_Key":"",
+				"CPU_Count":"2",
+				"Memory_MB":"2048",
+				"vm_template_name":"HCLAman01",
+				"path":"C:\\ClusterStorage\\Volume1",
+				"start_action":"Always auto turn on VM",
+				"stop_action":"Turn off VM",
+				"Static Network Default Gateway":"autoPublicLAN"
+			},
+			
+			"Application":
+			{
+				"Instances":0,
+				"Type":"say_something",
+				"yum_proxy":"",	
+				"install_packages":"",
+				"upload_share":"",
+				"upload_file":"hello.sh",
+				"execute_file_command":"sh",
+				"windows_postinstall_share":"",
+				"windows_install_command":"",
+				"citrix_source_location":"",
+				"addOn_modle_string":"AddOn Module Application"
+			},
+			
+			"Network": 
+			{
+				"Instances":0,
+				"select_network":["CustomPublic", "test_hcl"],
+				"select_resource":["host", "host"]			
+			}	
+		},
+	"Scaledown":
+		{
+			"Storage":
+			{
+				"Instances":0,
+				"storgae_ip":["172.31.32.106","172.31.32.108"],	
+				"volume_name":["atVolume1602110", "autoVolume0"]
+			},
+			"Server":
+			{
+				"Instances":0,
+				"server_ip":["172.31.60.138"]
+			},
+			"Cluster": 
+			{
+				"Instances":0,
+				"cluster_ip":["172.31.32.195"]
+			},
+			"VM": 
+			{
+				"Instances":0, 
+				"vm_hostName":["vm1"]
+			},
+			"Application": 
+			{
+				"Instances":0,
+				"Type":["linux_postinstall"]
+			}
+		}
+}

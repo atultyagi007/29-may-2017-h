@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ManagedDevice>
+	<compliance>COMPLIANT</compliance>
+	<complianceCheckDate>2015-10-01T00:00:03.789Z</complianceCheckDate>
+	<credId>ff8080814fb3f6cc014fb4081aa8004c</credId>
+	<deviceGroupList>
+		<DeviceGroup>
+			<groupSeqId>-1</groupSeqId>
+			<groupName>Global</groupName>
+			<createdBy>admin</createdBy>
+		</DeviceGroup>
+		<totalRecords>0</totalRecords>
+	</deviceGroupList>
+	<deviceType>equallogic</deviceType>
+	<discoverDeviceType>EQUALLOGIC</discoverDeviceType>
+	<discoveredDate>2015-09-09T21:34:48.144Z</discoveredDate>
+	<displayName>AS800-Env04</displayName>
+	<facts>{"certname":"equallogic-172.17.4.10","device_type":"script","update_time":"2015-09-30
+		02:15:52 +0000","Group Name":"AS800-Env04","Management
+		IP":"172.17.4.10","Member
+		Model":"{\n}","Status":"{\n}","Version":"{\n}","General Settings":"{\n
+		\"Group Name\": \"AS800-Env04\",\n \"IP Address\": \"172.16.4.10\",\n
+		\"Location\": \"default\"\n}","Storage Pools":"{\n}","Group
+		Members":"0","Collections":"{\n \"Volume Collections\": \"0\",\n
+		\"Custom Snapshot Collections\": \"0\",\n \"Snapshot Collections\":
+		\"\"\n}","Model":"EqualLogic","Group Disk Space":"{\n \"Snapshot
+		Reserve\": \"158730\",\n \"Replication Reserve\": \"0\",\n
+		\"Delegated\": \"0\",\n \"Free\": \"55935\",\n \"Volume Reserve\":
+		\"1969455\"\n}","Free Group
+		Space":"55935","Volume_IQN_Information":"{\n}","VolumesProperties":"{\n
+		\"Env04-mgmtHost02\": \"{\\n \\\"Storage Pool\\\": \\\"default\\\",\\n
+		\\\"Reported Size\\\": \\\"500.0GB\\\",\\n \\\"Volume Reserve\\\":
+		\\\"0.0GB\\\",\\n \\\"Snapshot Reserve\\\": \\\"0%\\\",\\n
+		\\\"Borrowed Space\\\": \\\"0MB\\\",\\n \\\"Volume Status\\\":
+		\\\"online\\\",\\n \\\"Volume Use\\\": \\\"1\\\",\\n \\\"Replication
+		Partner\\\": \\\"\\\",\\n \\\"SyncRep Status\\\": \\\"\\\",\\n
+		\\\"Number of Snapshot\\\": \\\"0\\\",\\n \\\"Number of Online
+		Snapshots\\\": \\\"0\\\",\\n \\\"ISCSI Connections\\\": \\\"1\\\",\\n
+		\\\"Snapshots in Use\\\": \\\"0\\\",\\n \\\"TargetIscsiName\\\":
+		\\\"iqn.2001-05.com.equallogic:0-1cb196-8b1da622f-4930000001151809-env04-mgmthost02\\\"\\n}\",\n
+		\"ASM-Host-Datastore-01\": \"{\\n \\\"Storage Pool\\\":
+		\\\"default\\\",\\n \\\"Reported Size\\\": \\\"1024.0GB\\\",\\n
+		\\\"Volume Reserve\\\": \\\"0.0GB\\\",\\n \\\"Snapshot Reserve\\\":
+		\\\"0%\\\",\\n \\\"Borrowed Space\\\": \\\"0MB\\\",\\n \\\"Volume
+		Status\\\": \\\"online\\\",\\n \\\"Volume Use\\\": \\\"2\\\",\\n
+		\\\"Replication Partner\\\": \\\"\\\",\\n \\\"SyncRep Status\\\":
+		\\\"\\\",\\n \\\"Number of Snapshot\\\": \\\"0\\\",\\n \\\"Number of
+		Online Snapshots\\\": \\\"0\\\",\\n \\\"ISCSI Connections\\\":
+		\\\"2\\\",\\n \\\"Snapshots in Use\\\": \\\"0\\\",\\n
+		\\\"TargetIscsiName\\\":
+		\\\"iqn.2001-05.com.equallogic:0-1cb196-6c0da622f-aab0000003351e5b-asm-host-datastore\\\"\\n}\",\n
+		\"ASM-Host-Datastore-02\": \"{\\n \\\"Storage Pool\\\":
+		\\\"default\\\",\\n \\\"Reported Size\\\": \\\"1024.0GB\\\",\\n
+		\\\"Volume Reserve\\\": \\\"10.4296875GB\\\",\\n \\\"Snapshot
+		Reserve\\\": \\\"2%\\\",\\n \\\"Borrowed Space\\\": \\\"0MB\\\",\\n
+		\\\"Volume Status\\\": \\\"online\\\",\\n \\\"Volume Use\\\":
+		\\\"2\\\",\\n \\\"Replication Partner\\\": \\\"\\\",\\n \\\"SyncRep
+		Status\\\": \\\"\\\",\\n \\\"Number of Snapshot\\\": \\\"0\\\",\\n
+		\\\"Number of Online Snapshots\\\": \\\"0\\\",\\n \\\"ISCSI
+		Connections\\\": \\\"2\\\",\\n \\\"Snapshots in Use\\\": \\\"0\\\",\\n
+		\\\"TargetIscsiName\\\":
+		\\\"iqn.2001-05.com.equallogic:0-1cb196-87ada622f-d384e37e64154496-asm-host-datastore-02\\\"\\n}\",\n
+		\"ClusterSharedVolume\": \"{\\n \\\"Storage Pool\\\":
+		\\\"default\\\",\\n \\\"Reported Size\\\": \\\"300.0GB\\\",\\n
+		\\\"Volume Reserve\\\": \\\"30.0GB\\\",\\n \\\"Snapshot Reserve\\\":
+		\\\"100%\\\",\\n \\\"Borrowed Space\\\": \\\"0MB\\\",\\n \\\"Volume
+		Status\\\": \\\"online\\\",\\n \\\"Volume Use\\\": \\\"0\\\",\\n
+		\\\"Replication Partner\\\": \\\"\\\",\\n \\\"SyncRep Status\\\":
+		\\\"\\\",\\n \\\"Number of Snapshot\\\": \\\"0\\\",\\n \\\"Number of
+		Online Snapshots\\\": \\\"0\\\",\\n \\\"ISCSI Connections\\\":
+		\\\"0\\\",\\n \\\"Snapshots in Use\\\": \\\"0\\\",\\n
+		\\\"TargetIscsiName\\\":
+		\\\"iqn.2001-05.com.equallogic:0-1cb196-d0ada622f-4d64e37e68155036-clustersharedvolume\\\"\\n}\",\n
+		\"ApplicationDataStorage\": \"{\\n \\\"Storage Pool\\\":
+		\\\"default\\\",\\n \\\"Reported Size\\\": \\\"300.0GB\\\",\\n
+		\\\"Volume Reserve\\\": \\\"30.0GB\\\",\\n \\\"Snapshot Reserve\\\":
+		\\\"100%\\\",\\n \\\"Borrowed Space\\\": \\\"0MB\\\",\\n \\\"Volume
+		Status\\\": \\\"online\\\",\\n \\\"Volume Use\\\": \\\"0\\\",\\n
+		\\\"Replication Partner\\\": \\\"\\\",\\n \\\"SyncRep Status\\\":
+		\\\"\\\",\\n \\\"Number of Snapshot\\\": \\\"0\\\",\\n \\\"Number of
+		Online Snapshots\\\": \\\"0\\\",\\n \\\"ISCSI Connections\\\":
+		\\\"0\\\",\\n \\\"Snapshots in Use\\\": \\\"0\\\",\\n
+		\\\"TargetIscsiName\\\":
+		\\\"iqn.2001-05.com.equallogic:0-1cb196-d57da622f-bf14e37e68455036-applicationdatastorage\\\"\\n}\",\n
+		\"AlexTestVol1\": \"{\\n \\\"Storage Pool\\\": \\\"default\\\",\\n
+		\\\"Reported Size\\\": \\\"50.0GB\\\",\\n \\\"Volume Reserve\\\":
+		\\\"5.009765625GB\\\",\\n \\\"Snapshot Reserve\\\": \\\"100%\\\",\\n
+		\\\"Borrowed Space\\\": \\\"0MB\\\",\\n \\\"Volume Status\\\":
+		\\\"online\\\",\\n \\\"Volume Use\\\": \\\"0\\\",\\n \\\"Replication
+		Partner\\\": \\\"\\\",\\n \\\"SyncRep Status\\\": \\\"\\\",\\n
+		\\\"Number of Snapshot\\\": \\\"0\\\",\\n \\\"Number of Online
+		Snapshots\\\": \\\"0\\\",\\n \\\"ISCSI Connections\\\": \\\"0\\\",\\n
+		\\\"Snapshots in Use\\\": \\\"0\\\",\\n \\\"TargetIscsiName\\\":
+		\\\"iqn.2001-05.com.equallogic:0-1cb196-b21da622f-a854e37e6a955845-alextestvol1\\\"\\n}\",\n
+		\"JimsSmallerVol\": \"{\\n \\\"Storage Pool\\\": \\\"default\\\",\\n
+		\\\"Reported Size\\\": \\\"0.5GB\\\",\\n \\\"Volume Reserve\\\":
+		\\\"0.5126953125GB\\\",\\n \\\"Snapshot Reserve\\\": \\\"100%\\\",\\n
+		\\\"Borrowed Space\\\": \\\"0MB\\\",\\n \\\"Volume Status\\\":
+		\\\"online\\\",\\n \\\"Volume Use\\\": \\\"0\\\",\\n \\\"Replication
+		Partner\\\": \\\"\\\",\\n \\\"SyncRep Status\\\": \\\"\\\",\\n
+		\\\"Number of Snapshot\\\": \\\"0\\\",\\n \\\"Number of Online
+		Snapshots\\\": \\\"0\\\",\\n \\\"ISCSI Connections\\\": \\\"0\\\",\\n
+		\\\"Snapshots in Use\\\": \\\"0\\\",\\n \\\"TargetIscsiName\\\":
+		\\\"iqn.2001-05.com.equallogic:0-1cb196-f02da622f-a784e320af255d37-jimssmallervol\\\"\\n}\",\n
+		\"JimsVolume\": \"{\\n \\\"Storage Pool\\\": \\\"default\\\",\\n
+		\\\"Reported Size\\\": \\\"200.0GB\\\",\\n \\\"Volume Reserve\\\":
+		\\\"20.009765625GB\\\",\\n \\\"Snapshot Reserve\\\": \\\"100%\\\",\\n
+		\\\"Borrowed Space\\\": \\\"0MB\\\",\\n \\\"Volume Status\\\":
+		\\\"online\\\",\\n \\\"Volume Use\\\": \\\"0\\\",\\n \\\"Replication
+		Partner\\\": \\\"\\\",\\n \\\"SyncRep Status\\\": \\\"\\\",\\n
+		\\\"Number of Snapshot\\\": \\\"0\\\",\\n \\\"Number of Online
+		Snapshots\\\": \\\"0\\\",\\n \\\"ISCSI Connections\\\": \\\"0\\\",\\n
+		\\\"Snapshots in Use\\\": \\\"0\\\",\\n \\\"TargetIscsiName\\\":
+		\\\"iqn.2001-05.com.equallogic:0-1cb196-f30da622f-1a24e320af555d37-jimsvolume\\\"\\n}\",\n
+		\"rbvol81Two\": \"{\\n \\\"Storage Pool\\\": \\\"default\\\",\\n
+		\\\"Reported Size\\\": \\\"60.0GB\\\",\\n \\\"Volume Reserve\\\":
+		\\\"10.7373046875GB\\\",\\n \\\"Snapshot Reserve\\\": \\\"100%\\\",\\n
+		\\\"Borrowed Space\\\": \\\"0MB\\\",\\n \\\"Volume Status\\\":
+		\\\"online\\\",\\n \\\"Volume Use\\\": \\\"3\\\",\\n \\\"Replication
+		Partner\\\": \\\"\\\",\\n \\\"SyncRep Status\\\": \\\"\\\",\\n
+		\\\"Number of Snapshot\\\": \\\"0\\\",\\n \\\"Number of Online
+		Snapshots\\\": \\\"0\\\",\\n \\\"ISCSI Connections\\\": \\\"3\\\",\\n
+		\\\"Snapshots in Use\\\": \\\"0\\\",\\n \\\"TargetIscsiName\\\":
+		\\\"iqn.2001-05.com.equallogic:0-1cb196-215da622f-9804e320b1a55d77-rbvol81two\\\"\\n}\",\n
+		\"rbvol81One\": \"{\\n \\\"Storage Pool\\\": \\\"default\\\",\\n
+		\\\"Reported Size\\\": \\\"60.0GB\\\",\\n \\\"Volume Reserve\\\":
+		\\\"13.095703125GB\\\",\\n \\\"Snapshot Reserve\\\": \\\"100%\\\",\\n
+		\\\"Borrowed Space\\\": \\\"0MB\\\",\\n \\\"Volume Status\\\":
+		\\\"online\\\",\\n \\\"Volume Use\\\": \\\"3\\\",\\n \\\"Replication
+		Partner\\\": \\\"\\\",\\n \\\"SyncRep Status\\\": \\\"\\\",\\n
+		\\\"Number of Snapshot\\\": \\\"0\\\",\\n \\\"Number of Online
+		Snapshots\\\": \\\"0\\\",\\n \\\"ISCSI Connections\\\": \\\"3\\\",\\n
+		\\\"Snapshots in Use\\\": \\\"0\\\",\\n \\\"TargetIscsiName\\\":
+		\\\"iqn.2001-05.com.equallogic:0-1cb196-257da622f-f664e320b1d55d77-rbvol81one\\\"\\n}\",\n
+		\"rbvol811Three\": \"{\\n \\\"Storage Pool\\\": \\\"default\\\",\\n
+		\\\"Reported Size\\\": \\\"60.0GB\\\",\\n \\\"Volume Reserve\\\":
+		\\\"30.1611328125GB\\\",\\n \\\"Snapshot Reserve\\\": \\\"100%\\\",\\n
+		\\\"Borrowed Space\\\": \\\"0MB\\\",\\n \\\"Volume Status\\\":
+		\\\"online\\\",\\n \\\"Volume Use\\\": \\\"3\\\",\\n \\\"Replication
+		Partner\\\": \\\"\\\",\\n \\\"SyncRep Status\\\": \\\"\\\",\\n
+		\\\"Number of Snapshot\\\": \\\"0\\\",\\n \\\"Number of Online
+		Snapshots\\\": \\\"0\\\",\\n \\\"ISCSI Connections\\\": \\\"3\\\",\\n
+		\\\"Snapshots in Use\\\": \\\"0\\\",\\n \\\"TargetIscsiName\\\":
+		\\\"iqn.2001-05.com.equallogic:0-1cb196-1f3da622f-4714e320b2055db2-rbvol811three\\\"\\n}\",\n
+		\"JimsVol1\": \"{\\n \\\"Storage Pool\\\": \\\"default\\\",\\n
+		\\\"Reported Size\\\": \\\"10.0GB\\\",\\n \\\"Volume Reserve\\\":
+		\\\"1.0107421875GB\\\",\\n \\\"Snapshot Reserve\\\": \\\"100%\\\",\\n
+		\\\"Borrowed Space\\\": \\\"0MB\\\",\\n \\\"Volume Status\\\":
+		\\\"online\\\",\\n \\\"Volume Use\\\": \\\"0\\\",\\n \\\"Replication
+		Partner\\\": \\\"\\\",\\n \\\"SyncRep Status\\\": \\\"\\\",\\n
+		\\\"Number of Snapshot\\\": \\\"0\\\",\\n \\\"Number of Online
+		Snapshots\\\": \\\"0\\\",\\n \\\"ISCSI Connections\\\": \\\"0\\\",\\n
+		\\\"Snapshots in Use\\\": \\\"0\\\",\\n \\\"TargetIscsiName\\\":
+		\\\"iqn.2001-05.com.equallogic:0-1cb196-17bda622f-7664e320b3f560ae-jimsvol1\\\"\\n}\",\n
+		\"JimsVol3\": \"{\\n \\\"Storage Pool\\\": \\\"default\\\",\\n
+		\\\"Reported Size\\\": \\\"10.0GB\\\",\\n \\\"Volume Reserve\\\":
+		\\\"1.0107421875GB\\\",\\n \\\"Snapshot Reserve\\\": \\\"100%\\\",\\n
+		\\\"Borrowed Space\\\": \\\"0MB\\\",\\n \\\"Volume Status\\\":
+		\\\"online\\\",\\n \\\"Volume Use\\\": \\\"0\\\",\\n \\\"Replication
+		Partner\\\": \\\"\\\",\\n \\\"SyncRep Status\\\": \\\"\\\",\\n
+		\\\"Number of Snapshot\\\": \\\"0\\\",\\n \\\"Number of Online
+		Snapshots\\\": \\\"0\\\",\\n \\\"ISCSI Connections\\\": \\\"0\\\",\\n
+		\\\"Snapshots in Use\\\": \\\"0\\\",\\n \\\"TargetIscsiName\\\":
+		\\\"iqn.2001-05.com.equallogic:0-1cb196-23ada622f-b054e320b42560ae-jimsvol3\\\"\\n}\",\n
+		\"JimsVol2\": \"{\\n \\\"Storage Pool\\\": \\\"default\\\",\\n
+		\\\"Reported Size\\\": \\\"10.0GB\\\",\\n \\\"Volume Reserve\\\":
+		\\\"1.0107421875GB\\\",\\n \\\"Snapshot Reserve\\\": \\\"100%\\\",\\n
+		\\\"Borrowed Space\\\": \\\"0MB\\\",\\n \\\"Volume Status\\\":
+		\\\"online\\\",\\n \\\"Volume Use\\\": \\\"0\\\",\\n \\\"Replication
+		Partner\\\": \\\"\\\",\\n \\\"SyncRep Status\\\": \\\"\\\",\\n
+		\\\"Number of Snapshot\\\": \\\"0\\\",\\n \\\"Number of Online
+		Snapshots\\\": \\\"0\\\",\\n \\\"ISCSI Connections\\\": \\\"0\\\",\\n
+		\\\"Snapshots in Use\\\": \\\"0\\\",\\n \\\"TargetIscsiName\\\":
+		\\\"iqn.2001-05.com.equallogic:0-1cb196-26dda622f-b914e320b45560ae-jimsvol2\\\"\\n}\",\n
+		\"JJsVolA\": \"{\\n \\\"Storage Pool\\\": \\\"default\\\",\\n
+		\\\"Reported Size\\\": \\\"10.0GB\\\",\\n \\\"Volume Reserve\\\":
+		\\\"1.0107421875GB\\\",\\n \\\"Snapshot Reserve\\\": \\\"100%\\\",\\n
+		\\\"Borrowed Space\\\": \\\"0MB\\\",\\n \\\"Volume Status\\\":
+		\\\"online\\\",\\n \\\"Volume Use\\\": \\\"0\\\",\\n \\\"Replication
+		Partner\\\": \\\"\\\",\\n \\\"SyncRep Status\\\": \\\"\\\",\\n
+		\\\"Number of Snapshot\\\": \\\"0\\\",\\n \\\"Number of Online
+		Snapshots\\\": \\\"0\\\",\\n \\\"ISCSI Connections\\\": \\\"0\\\",\\n
+		\\\"Snapshots in Use\\\": \\\"0\\\",\\n \\\"TargetIscsiName\\\":
+		\\\"iqn.2001-05.com.equallogic:0-1cb196-404da622f-6964e320b52560b4-jjsvola\\\"\\n}\",\n
+		\"JJsVolB\": \"{\\n \\\"Storage Pool\\\": \\\"default\\\",\\n
+		\\\"Reported Size\\\": \\\"10.0GB\\\",\\n \\\"Volume Reserve\\\":
+		\\\"1.0107421875GB\\\",\\n \\\"Snapshot Reserve\\\": \\\"100%\\\",\\n
+		\\\"Borrowed Space\\\": \\\"0MB\\\",\\n \\\"Volume Status\\\":
+		\\\"online\\\",\\n \\\"Volume Use\\\": \\\"0\\\",\\n \\\"Replication
+		Partner\\\": \\\"\\\",\\n \\\"SyncRep Status\\\": \\\"\\\",\\n
+		\\\"Number of Snapshot\\\": \\\"0\\\",\\n \\\"Number of Online
+		Snapshots\\\": \\\"0\\\",\\n \\\"ISCSI Connections\\\": \\\"0\\\",\\n
+		\\\"Snapshots in Use\\\": \\\"0\\\",\\n \\\"TargetIscsiName\\\":
+		\\\"iqn.2001-05.com.equallogic:0-1cb196-438da622f-cce4e320b55560b4-jjsvolb\\\"\\n}\"\n}","VolumesInfo":"{\n
+		\"Total Volumes\": \"16\",\n \"Online\": \"16\",\n \"ISCSI
+		Connections\": \"14\",\n \"In Use\":
+		\"6\"\n}","Volumes":"16","Snapshots":"0","SnapshotsInfo":"{\n
+		\"Online\": \"0\",\n \"In Use\":
+		\"0\"\n}","name":"equallogic-172.17.4.10","fwversion":"{\n}"}</facts>
+	<failuresCount>0</failuresCount>
+	<firmwareDeviceInventories>
+		<id>ff808081501fdb0b015020b2d9a9008e</id>
+		<ipaddress>172.17.4.10</ipaddress>
+		<jobId>Job-752cd0d6-7c2e-4181-9b3a-bd8ba91ad5a3=172.17.4.10</jobId>
+		<name>Dell</name>
+		<parent_job_id>Job-752cd0d6-7c2e-4181-9b3a-bd8ba91ad5a3
+		</parent_job_id>
+		<servicetag>AS800-Env04</servicetag>
+	</firmwareDeviceInventories>
+	<health>GREEN</health>
+	<inventoryDate>2015-10-01T00:00:00.538Z</inventoryDate>
+	<ipAddress>172.17.4.10</ipAddress>
+	<manufacturer>Dell</manufacturer>
+	<memoryInGB>0</memoryInGB>
+	<model>EqualLogic</model>
+	<nics>0</nics>
+	<numberOfCPUs>0</numberOfCPUs>
+	<operatingSystem>N/A</operatingSystem>
+	<refId>equallogic-172.17.4.10</refId>
+	<serviceTag>AS800-Env04</serviceTag>
+	<state>READY</state>
+</ManagedDevice>

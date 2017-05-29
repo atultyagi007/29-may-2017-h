@@ -1,0 +1,930 @@
+{
+   "url": {
+      "title": "Server",
+      "href": "http://localhost:9080/AsmManager/Server/ff8080814faeef51014fcba878a5076d",
+      "rel": "self",
+      "type": "Server"
+   },
+   "refId": "ff8080814faeef51014fcba878a5076d",
+   "refType": "serverRefType",
+   "displayName": "Server - JV7QQV1",
+   "deviceType": "server",
+   "managementIP": "172.31.64.4",
+   "assetTag": "",
+   "health": "GREEN",
+   "powerState": "ON",
+   "discoveryTime": "2015-05-29T18:36:18.020+0000",
+   "inventoryTime": "2015-06-11T00:03:18.104+0000",
+   "idracName": "",
+   "serverType": "BLADE",
+   "idracMACAddress": "5C:F9:DD:D6:B4:A0",
+   "operatingSystemName": "VMware ESXi 5.5.0 build-2068190",
+   "harddisk": 2,
+   "sdcard": 1,
+   "noOfControllers": 2,
+   "sdState": "SD_PRESENT",
+   "memory": 32768,
+   "serviceTag": "JV7QQV1",
+   "model": "PowerEdge M620",
+   "deviceId": "1243",
+   "hostName": "s26",
+   "credentialId": "ff8080814d67c65a014d67c72ebc0009",
+   "firmwareList": [
+      {
+         "firmwareId": "ff8080814ddef25b014ddfed925404c4",
+         "version": "2.4.3",
+         "bPresent": true,
+         "deviceRef": "ff8080814d9c4382014da0f5e11f40a2",
+         "name": "BIOS",
+         "lastUpdateTime": "2015-04-01T23:41:34.000+0000",
+         "fqdd": "DCIM:INSTALLED#741__BIOS.Setup.1-1",
+         "componentID": "159",
+         "componentType": "BIOS",
+         "updateable": true
+      },
+      {
+         "firmwareId": "ff8080814ddef25b014ddfed925304c1",
+         "version": "1.00",
+         "bPresent": true,
+         "deviceRef": "ff8080814d9c4382014da0f5e11f40a2",
+         "name": "BP12G+ 0:1",
+         "lastUpdateTime": "2012-10-16T17:04:00.000+0000",
+         "fqdd": "DCIM:INSTALLED#308_C_Enclosure.Internal.0-1:RAID.Integrated.1-1",
+         "componentID": "26018",
+         "componentType": "FRMW",
+         "updateable": true
+      },
+      {
+         "firmwareId": "ff8080814ddef25b014ddfed925304c2",
+         "version": "7.10.18",
+         "bPresent": true,
+         "deviceRef": "ff8080814d9c4382014da0f5e11f40a2",
+         "name": "Broadcom NetXtreme II 10 Gb Ethernet BCM57810 - 00:10:18:E7:07:20",
+         "lastUpdateTime": "2015-04-01T23:42:23.000+0000",
+         "fqdd": "DCIM:INSTALLED#701__NIC.Mezzanine.2B-1-1",
+         "componentType": "FRMW",
+         "deviceID": "168E",
+         "vendorID": "14E4",
+         "subdeviceID": "1007",
+         "subvendorID": "14E4",
+         "updateable": true
+      },
+      {
+         "firmwareId": "ff8080814ddef25b014ddfed925404c7",
+         "version": "7.10.18",
+         "bPresent": true,
+         "deviceRef": "ff8080814d9c4382014da0f5e11f40a2",
+         "name": "Broadcom NetXtreme II 10 Gb Ethernet BCM57810 - 00:10:18:E7:07:22",
+         "lastUpdateTime": "2015-04-01T23:42:30.000+0000",
+         "fqdd": "DCIM:INSTALLED#701__NIC.Mezzanine.2B-2-1",
+         "componentType": "FRMW",
+         "deviceID": "168E",
+         "vendorID": "14E4",
+         "subdeviceID": "1007",
+         "subvendorID": "14E4",
+         "updateable": true
+      },
+      {
+         "firmwareId": "ff8080814ddef25b014ddfed925304bf",
+         "version": "7.10.18",
+         "bPresent": true,
+         "deviceRef": "ff8080814d9c4382014da0f5e11f40a2",
+         "name": "Broadcom NetXtreme II 10 Gb Ethernet BCM57810 - E0:DB:55:10:5A:82",
+         "lastUpdateTime": "2015-04-01T23:41:43.000+0000",
+         "fqdd": "DCIM:INSTALLED#701__NIC.Integrated.1-1-1",
+         "componentType": "FRMW",
+         "deviceID": "16AE",
+         "vendorID": "14E4",
+         "subdeviceID": "1F5F",
+         "subvendorID": "1028",
+         "updateable": true
+      },
+      {
+         "firmwareId": "ff8080814ddef25b014ddfed925404ca",
+         "version": "7.10.18",
+         "bPresent": true,
+         "deviceRef": "ff8080814d9c4382014da0f5e11f40a2",
+         "name": "Broadcom NetXtreme II 10 Gb Ethernet BCM57810 - E0:DB:55:10:5A:84",
+         "lastUpdateTime": "2015-04-01T23:42:04.000+0000",
+         "fqdd": "DCIM:INSTALLED#701__NIC.Integrated.1-2-1",
+         "componentType": "FRMW",
+         "deviceID": "16AE",
+         "vendorID": "14E4",
+         "subdeviceID": "1F5F",
+         "subvendorID": "1028",
+         "updateable": true
+      },
+      {
+         "firmwareId": "ff8080814ddef25b014ddfed925404c8",
+         "version": "4243A1",
+         "bPresent": true,
+         "deviceRef": "ff8080814d9c4382014da0f5e11f40a2",
+         "name": "Enterprise UEFI Diagnostics, 4243A1, 4243.2",
+         "lastUpdateTime": "2015-04-01T23:23:06.000+0000",
+         "fqdd": "DCIM:INSTALLED#802__Diagnostics.Embedded.1:LC.Embedded.1",
+         "componentID": "25806",
+         "componentType": "APAC",
+         "updateable": true
+      },
+      {
+         "firmwareId": "ff8080814ddef25b014ddfed925404c3",
+         "version": "1.66.65",
+         "bPresent": true,
+         "deviceRef": "ff8080814d9c4382014da0f5e11f40a2",
+         "name": "Integrated Dell Remote Access Controller",
+         "lastUpdateTime": "2015-04-02T01:46:27.000+0000",
+         "fqdd": "DCIM:INSTALLED#iDRAC.Embedded.1-1#IDRACinfo",
+         "componentID": "25227",
+         "componentType": "FRMW",
+         "updateable": true
+      },
+      {
+         "firmwareId": "ff8080814ddef25b014ddfed925404c9",
+         "version": "1.4.2.12",
+         "bPresent": true,
+         "deviceRef": "ff8080814d9c4382014da0f5e11f40a2",
+         "name": "Lifecycle Controller, 1.4.2.12, A00",
+         "lastUpdateTime": "2014-08-27T18:57:39.000+0000",
+         "fqdd": "DCIM:INSTALLED#802__USC.Embedded.1:LC.Embedded.1",
+         "componentID": "28897",
+         "componentType": "APAC",
+         "updateable": true
+      },
+      {
+         "firmwareId": "ff8080814ddef25b014ddfed925304bd",
+         "version": "0",
+         "bPresent": true,
+         "deviceRef": "ff8080814d9c4382014da0f5e11f40a2",
+         "name": "OS Drivers Pack",
+         "lastUpdateTime": "2012-10-16T15:16:20.000+0000",
+         "fqdd": "DCIM:INSTALLED#802__DriverPack.Embedded.1:LC.Embedded.1",
+         "componentID": "18981",
+         "componentType": "APAC",
+         "updateable": true
+      },
+      {
+         "firmwareId": "ff8080814ddef25b014ddfed925404c6",
+         "version": "20.13.0-0007",
+         "bPresent": true,
+         "deviceRef": "ff8080814d9c4382014da0f5e11f40a2",
+         "name": "PERC H310 Mini",
+         "lastUpdateTime": "2015-05-30T01:49:57.000+0000",
+         "fqdd": "DCIM:INSTALLED#301_C_RAID.Integrated.1-1",
+         "componentType": "FRMW",
+         "deviceID": "0073",
+         "vendorID": "1000",
+         "subdeviceID": "1F50",
+         "subvendorID": "1028",
+         "updateable": true
+      },
+      {
+         "firmwareId": "ff8080814ddef25b014ddfed925304be",
+         "version": "3.0.0-0139",
+         "bPresent": true,
+         "deviceRef": "ff8080814d9c4382014da0f5e11f40a2",
+         "name": "PERC S110 Controller",
+         "lastUpdateTime": "2012-10-16T21:31:07.000+0000",
+         "fqdd": "DCIM:INSTALLED#301_C_RAID.Embedded.1-1",
+         "componentType": "FRMW",
+         "deviceID": "1D04",
+         "vendorID": "8086",
+         "subdeviceID": "04DB",
+         "subvendorID": "1028",
+         "updateable": true
+      },
+      {
+         "firmwareId": "ff8080814ddef25b014ddfed925404cb",
+         "version": "YS09",
+         "bPresent": true,
+         "deviceRef": "ff8080814d9c4382014da0f5e11f40a2",
+         "name": "Physical Disk 0:1:0",
+         "lastUpdateTime": "2012-10-16T17:04:01.000+0000",
+         "fqdd": "DCIM:INSTALLED#304_C_Disk.Bay.0:Enclosure.Internal.0-1:RAID.Integrated.1-1",
+         "componentID": "25851",
+         "componentType": "FRMW",
+         "updateable": false
+      },
+      {
+         "firmwareId": "ff8080814ddef25b014ddfed925404c5",
+         "version": "YS09",
+         "bPresent": true,
+         "deviceRef": "ff8080814d9c4382014da0f5e11f40a2",
+         "name": "Physical Disk 0:1:1",
+         "lastUpdateTime": "2012-10-16T17:04:02.000+0000",
+         "fqdd": "DCIM:INSTALLED#304_C_Disk.Bay.1:Enclosure.Internal.0-1:RAID.Integrated.1-1",
+         "componentID": "25851",
+         "componentType": "FRMW",
+         "updateable": false
+      },
+      {
+         "firmwareId": "ff8080814ddef25b014ddfed925304c0",
+         "version": "1.0.4",
+         "bPresent": true,
+         "deviceRef": "ff8080814d9c4382014da0f5e11f40a2",
+         "name": "System CPLD",
+         "lastUpdateTime": "2012-10-16T15:16:20.000+0000",
+         "fqdd": "DCIM:INSTALLED#803__CPLD.Embedded.1",
+         "componentID": "28125",
+         "componentType": "FRMW",
+         "updateable": true
+      }
+   ],
+   "processorList": [
+      {
+         "id": "ff8080814ddef25b014ddfed925604d0",
+         "fqdd": "CPU.Socket.1",
+         "manufacturer": "Intel",
+         "model": "Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz",
+         "cores": 4,
+         "enabledCores": 4,
+         "maxClockSpeed": 3600,
+         "currentClockSpeed": 1800,
+         "present": false
+      },
+      {
+         "id": "ff8080814ddef25b014ddfed925604d1",
+         "fqdd": "CPU.Socket.2",
+         "manufacturer": "Intel",
+         "model": "Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz",
+         "cores": 4,
+         "enabledCores": 4,
+         "maxClockSpeed": 3600,
+         "currentClockSpeed": 1800,
+         "present": false
+      }
+   ],
+   "memoryList": [
+      {
+         "id": "ff8080814ddef25b014ddfed925404cf",
+         "bankLabel": "B",
+         "currentOperatingSpeed": 1066,
+         "fqdd": "DIMM.Socket.B2",
+         "instanceID": "DIMM.Socket.B2",
+         "lastSystemInventoryTime": "2015-05-30T06:49:29.000+0000",
+         "lastUpdateTime": "2014-08-26T20:40:13.000+0000",
+         "manufactureDate": "2012-07-16T07:00:00.000+0000",
+         "manufacturer": "Samsung",
+         "memoryType": "DDR-3",
+         "model": "DDR3 DIMM",
+         "partNumber": "M393B1K70DH0-YH9",
+         "primaryStatus": "Ok",
+         "rank": "2",
+         "serialNumber": "1273FB34",
+         "size": 8192,
+         "speed": 1333
+      },
+      {
+         "id": "ff8080814ddef25b014ddfed925404ce",
+         "bankLabel": "A",
+         "currentOperatingSpeed": 1066,
+         "fqdd": "DIMM.Socket.A1",
+         "instanceID": "DIMM.Socket.A1",
+         "lastSystemInventoryTime": "2015-05-30T06:49:29.000+0000",
+         "lastUpdateTime": "2014-08-26T20:40:13.000+0000",
+         "manufactureDate": "2012-07-16T07:00:00.000+0000",
+         "manufacturer": "Samsung",
+         "memoryType": "DDR-3",
+         "model": "DDR3 DIMM",
+         "partNumber": "M393B1K70DH0-YH9",
+         "primaryStatus": "Ok",
+         "rank": "2",
+         "serialNumber": "1273FB4A",
+         "size": 8192,
+         "speed": 1333
+      },
+      {
+         "id": "ff8080814ddef25b014ddfed925404cc",
+         "bankLabel": "A",
+         "currentOperatingSpeed": 1066,
+         "fqdd": "DIMM.Socket.A2",
+         "instanceID": "DIMM.Socket.A2",
+         "lastSystemInventoryTime": "2015-05-30T06:49:29.000+0000",
+         "lastUpdateTime": "2014-08-26T20:40:13.000+0000",
+         "manufactureDate": "2012-07-16T07:00:00.000+0000",
+         "manufacturer": "Samsung",
+         "memoryType": "DDR-3",
+         "model": "DDR3 DIMM",
+         "partNumber": "M393B1K70DH0-YH9",
+         "primaryStatus": "Ok",
+         "rank": "2",
+         "serialNumber": "1273FB0C",
+         "size": 8192,
+         "speed": 1333
+      },
+      {
+         "id": "ff8080814ddef25b014ddfed925404cd",
+         "bankLabel": "B",
+         "currentOperatingSpeed": 1066,
+         "fqdd": "DIMM.Socket.B1",
+         "instanceID": "DIMM.Socket.B1",
+         "lastSystemInventoryTime": "2015-05-30T06:49:29.000+0000",
+         "lastUpdateTime": "2014-08-26T20:40:13.000+0000",
+         "manufactureDate": "2012-07-16T07:00:00.000+0000",
+         "manufacturer": "Samsung",
+         "memoryType": "DDR-3",
+         "model": "DDR3 DIMM",
+         "partNumber": "M393B1K70DH0-YH9",
+         "primaryStatus": "Ok",
+         "rank": "2",
+         "serialNumber": "1273FB06",
+         "size": 8192,
+         "speed": 1333
+      }
+   ],
+   "networkInterfaceList": [
+      {
+         "id": "ff8080814d9c4382014da0f5e12140c8",
+         "identityList": [
+            {
+               "id": "ff8080814d9c4382014da0f5e12140cf",
+               "identityType": "WWNN",
+               "permanentIdentity": "20:00:E0:DB:55:10:5A:83",
+               "currentIdentity": "20:00:E0:DB:55:10:5A:83",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da0f5e12140cb",
+               "identityType": "FIPS_MAC",
+               "permanentIdentity": "E0:DB:55:10:5A:83",
+               "currentIdentity": "E0:DB:55:10:5A:83",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da0f5e12140ca",
+               "identityType": "IQN_INITIATOR",
+               "permanentIdentity": "",
+               "currentIdentity": "iqn.1995-05.com.broadcom.iscsiboot",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da0f5e12140d2",
+               "identityType": "WWPN",
+               "permanentIdentity": "20:01:E0:DB:55:10:5A:83",
+               "currentIdentity": "20:01:E0:DB:55:10:5A:83",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da0f5e12140cd",
+               "identityType": "LAN_MAC",
+               "permanentIdentity": "E0:DB:55:10:5A:82",
+               "currentIdentity": "E0:DB:55:10:5A:82",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da0f5e12140d0",
+               "identityType": "ISCSI_MAC",
+               "permanentIdentity": "E0:DB:55:10:5A:83",
+               "currentIdentity": "E0:DB:55:10:5A:83",
+               "bPresent": true
+            }
+         ],
+         "vendorName": "Broadcom",
+         "vendorId": "14e4",
+         "productName": "Broadcom NetXtreme II 10 Gb Ethernet BCM57810 - E0:DB:55:10:5A:82",
+         "productId": "1f5f",
+         "fqdd": "NIC.Integrated.1-1-1",
+         "networkMode": "LAN",
+         "relativeBandwidthWeight": 0,
+         "maxBandwidth": 10,
+         "portId": "NIC.Integrated.1-1-1",
+         "bPresent": true
+      },
+      {
+         "id": "ff8080814d9c4382014da298400c73c7",
+         "identityList": [
+            {
+               "id": "ff8080814d9c4382014da298400c73c9",
+               "identityType": "LAN_MAC",
+               "permanentIdentity": "E0:DB:55:10:5A:86",
+               "currentIdentity": "E0:DB:55:10:5A:86",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da298400c73cd",
+               "identityType": "WWNN",
+               "permanentIdentity": "20:00:E0:DB:55:10:5A:87",
+               "currentIdentity": "20:00:E0:DB:55:10:5A:87",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da298400c73cf",
+               "identityType": "WWPN",
+               "permanentIdentity": "20:01:E0:DB:55:10:5A:87",
+               "currentIdentity": "20:01:E0:DB:55:10:5A:87",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da298400c73c8",
+               "identityType": "FIPS_MAC",
+               "permanentIdentity": "E0:DB:55:10:5A:87",
+               "currentIdentity": "E0:DB:55:10:5A:87",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da298400c73d1",
+               "identityType": "ISCSI_MAC",
+               "permanentIdentity": "E0:DB:55:10:5A:87",
+               "currentIdentity": "E0:DB:55:10:5A:87",
+               "bPresent": true
+            }
+         ],
+         "vendorName": "Broadcom",
+         "vendorId": "14e4",
+         "productName": "Broadcom NetXtreme II 10 Gb Ethernet BCM57810 - E0:DB:55:10:5A:86",
+         "productId": "1f5f",
+         "fqdd": "NIC.Integrated.1-1-2",
+         "networkMode": "LAN",
+         "relativeBandwidthWeight": 0,
+         "maxBandwidth": 10,
+         "portId": "NIC.Integrated.1-1-1",
+         "bPresent": true
+      },
+      {
+         "id": "ff8080814d9c4382014da298400b73af",
+         "identityList": [
+            {
+               "id": "ff8080814d9c4382014da298400b73b9",
+               "identityType": "WWPN",
+               "permanentIdentity": "20:01:E0:DB:55:10:5A:8B",
+               "currentIdentity": "20:01:E0:DB:55:10:5A:8B",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da298400b73b4",
+               "identityType": "ISCSI_MAC",
+               "permanentIdentity": "E0:DB:55:10:5A:8B",
+               "currentIdentity": "E0:DB:55:10:5A:8B",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da298400b73b6",
+               "identityType": "LAN_MAC",
+               "permanentIdentity": "E0:DB:55:10:5A:8A",
+               "currentIdentity": "E0:DB:55:10:5A:8A",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da298400b73b3",
+               "identityType": "WWNN",
+               "permanentIdentity": "20:00:E0:DB:55:10:5A:8B",
+               "currentIdentity": "20:00:E0:DB:55:10:5A:8B",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da298400b73ba",
+               "identityType": "FIPS_MAC",
+               "permanentIdentity": "E0:DB:55:10:5A:8B",
+               "currentIdentity": "E0:DB:55:10:5A:8B",
+               "bPresent": true
+            }
+         ],
+         "vendorName": "Broadcom",
+         "vendorId": "14e4",
+         "productName": "Broadcom NetXtreme II 10 Gb Ethernet BCM57810 - E0:DB:55:10:5A:8A",
+         "productId": "1f5f",
+         "fqdd": "NIC.Integrated.1-1-3",
+         "networkMode": "LAN",
+         "relativeBandwidthWeight": 0,
+         "maxBandwidth": 10,
+         "portId": "NIC.Integrated.1-1-1",
+         "bPresent": true
+      },
+      {
+         "id": "ff8080814d9c4382014da298400a7397",
+         "identityList": [
+            {
+               "id": "ff8080814d9c4382014da298400a73a0",
+               "identityType": "WWNN",
+               "permanentIdentity": "20:00:E0:DB:55:10:5A:8F",
+               "currentIdentity": "20:00:E0:DB:55:10:5A:8F",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da298400a739d",
+               "identityType": "FIPS_MAC",
+               "permanentIdentity": "E0:DB:55:10:5A:8F",
+               "currentIdentity": "E0:DB:55:10:5A:8F",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da298400a73a2",
+               "identityType": "LAN_MAC",
+               "permanentIdentity": "E0:DB:55:10:5A:8E",
+               "currentIdentity": "E0:DB:55:10:5A:8E",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da298400a73a1",
+               "identityType": "WWPN",
+               "permanentIdentity": "20:01:E0:DB:55:10:5A:8F",
+               "currentIdentity": "20:01:E0:DB:55:10:5A:8F",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da298400a739e",
+               "identityType": "ISCSI_MAC",
+               "permanentIdentity": "E0:DB:55:10:5A:8F",
+               "currentIdentity": "E0:DB:55:10:5A:8F",
+               "bPresent": true
+            }
+         ],
+         "vendorName": "Broadcom",
+         "vendorId": "14e4",
+         "productName": "Broadcom NetXtreme II 10 Gb Ethernet BCM57810 - E0:DB:55:10:5A:8E",
+         "productId": "1f5f",
+         "fqdd": "NIC.Integrated.1-1-4",
+         "networkMode": "UNKNOWN",
+         "relativeBandwidthWeight": 0,
+         "maxBandwidth": 10,
+         "portId": "NIC.Integrated.1-1-1",
+         "bPresent": true
+      },
+      {
+         "id": "ff8080814d9c4382014da0f5e12040bc",
+         "identityList": [
+            {
+               "id": "ff8080814d9c4382014da0f5e12140c4",
+               "identityType": "ISCSI_MAC",
+               "permanentIdentity": "E0:DB:55:10:5A:85",
+               "currentIdentity": "E0:DB:55:10:5A:85",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da0f5e12140c3",
+               "identityType": "IQN_INITIATOR",
+               "permanentIdentity": "",
+               "currentIdentity": "iqn.1995-05.com.broadcom.iscsiboot",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da0f5e12140bf",
+               "identityType": "WWPN",
+               "permanentIdentity": "20:01:E0:DB:55:10:5A:85",
+               "currentIdentity": "20:01:E0:DB:55:10:5A:85",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da0f5e12140c0",
+               "identityType": "LAN_MAC",
+               "permanentIdentity": "E0:DB:55:10:5A:84",
+               "currentIdentity": "E0:DB:55:10:5A:84",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da0f5e12140c5",
+               "identityType": "FIPS_MAC",
+               "permanentIdentity": "E0:DB:55:10:5A:85",
+               "currentIdentity": "E0:DB:55:10:5A:85",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da0f5e12140c1",
+               "identityType": "WWNN",
+               "permanentIdentity": "20:00:E0:DB:55:10:5A:85",
+               "currentIdentity": "20:00:E0:DB:55:10:5A:85",
+               "bPresent": true
+            }
+         ],
+         "vendorName": "Broadcom",
+         "vendorId": "14e4",
+         "productName": "Broadcom NetXtreme II 10 Gb Ethernet BCM57810 - E0:DB:55:10:5A:84",
+         "productId": "1f5f",
+         "fqdd": "NIC.Integrated.1-2-1",
+         "networkMode": "LAN",
+         "relativeBandwidthWeight": 0,
+         "maxBandwidth": 10,
+         "portId": "NIC.Integrated.1-2-1",
+         "bPresent": true
+      },
+      {
+         "id": "ff8080814d9c4382014da298400b73bb",
+         "identityList": [
+            {
+               "id": "ff8080814d9c4382014da298400b73bf",
+               "identityType": "WWPN",
+               "permanentIdentity": "20:01:E0:DB:55:10:5A:89",
+               "currentIdentity": "20:01:E0:DB:55:10:5A:89",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da298400b73c5",
+               "identityType": "FIPS_MAC",
+               "permanentIdentity": "E0:DB:55:10:5A:89",
+               "currentIdentity": "E0:DB:55:10:5A:89",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da298400b73bd",
+               "identityType": "WWNN",
+               "permanentIdentity": "20:00:E0:DB:55:10:5A:89",
+               "currentIdentity": "20:00:E0:DB:55:10:5A:89",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da298400b73c2",
+               "identityType": "ISCSI_MAC",
+               "permanentIdentity": "E0:DB:55:10:5A:89",
+               "currentIdentity": "E0:DB:55:10:5A:89",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da298400b73c0",
+               "identityType": "LAN_MAC",
+               "permanentIdentity": "E0:DB:55:10:5A:88",
+               "currentIdentity": "E0:DB:55:10:5A:88",
+               "bPresent": true
+            }
+         ],
+         "vendorName": "Broadcom",
+         "vendorId": "14e4",
+         "productName": "Broadcom NetXtreme II 10 Gb Ethernet BCM57810 - E0:DB:55:10:5A:88",
+         "productId": "1f5f",
+         "fqdd": "NIC.Integrated.1-2-2",
+         "networkMode": "LAN",
+         "relativeBandwidthWeight": 0,
+         "maxBandwidth": 10,
+         "portId": "NIC.Integrated.1-2-1",
+         "bPresent": true
+      },
+      {
+         "id": "ff8080814d9c4382014da298400a73a3",
+         "identityList": [
+            {
+               "id": "ff8080814d9c4382014da298400b73ac",
+               "identityType": "FIPS_MAC",
+               "permanentIdentity": "E0:DB:55:10:5A:8D",
+               "currentIdentity": "E0:DB:55:10:5A:8D",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da298400a73a8",
+               "identityType": "LAN_MAC",
+               "permanentIdentity": "E0:DB:55:10:5A:8C",
+               "currentIdentity": "E0:DB:55:10:5A:8C",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da298400b73ab",
+               "identityType": "WWNN",
+               "permanentIdentity": "20:00:E0:DB:55:10:5A:8D",
+               "currentIdentity": "20:00:E0:DB:55:10:5A:8D",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da298400a73aa",
+               "identityType": "WWPN",
+               "permanentIdentity": "20:01:E0:DB:55:10:5A:8D",
+               "currentIdentity": "20:01:E0:DB:55:10:5A:8D",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da298400b73ad",
+               "identityType": "ISCSI_MAC",
+               "permanentIdentity": "E0:DB:55:10:5A:8D",
+               "currentIdentity": "E0:DB:55:10:5A:8D",
+               "bPresent": true
+            }
+         ],
+         "vendorName": "Broadcom",
+         "vendorId": "14e4",
+         "productName": "Broadcom NetXtreme II 10 Gb Ethernet BCM57810 - E0:DB:55:10:5A:8C",
+         "productId": "1f5f",
+         "fqdd": "NIC.Integrated.1-2-3",
+         "networkMode": "LAN",
+         "relativeBandwidthWeight": 0,
+         "maxBandwidth": 10,
+         "portId": "NIC.Integrated.1-2-1",
+         "bPresent": true
+      },
+      {
+         "id": "ff8080814d9c4382014da298400d73d3",
+         "identityList": [
+            {
+               "id": "ff8080814d9c4382014da298400d73db",
+               "identityType": "WWNN",
+               "permanentIdentity": "20:00:E0:DB:55:10:5A:91",
+               "currentIdentity": "20:00:E0:DB:55:10:5A:91",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da298400d73de",
+               "identityType": "ISCSI_MAC",
+               "permanentIdentity": "E0:DB:55:10:5A:91",
+               "currentIdentity": "E0:DB:55:10:5A:91",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da298400d73d6",
+               "identityType": "FIPS_MAC",
+               "permanentIdentity": "E0:DB:55:10:5A:91",
+               "currentIdentity": "E0:DB:55:10:5A:91",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da298400d73dc",
+               "identityType": "LAN_MAC",
+               "permanentIdentity": "E0:DB:55:10:5A:90",
+               "currentIdentity": "E0:DB:55:10:5A:90",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da298400d73d8",
+               "identityType": "WWPN",
+               "permanentIdentity": "20:01:E0:DB:55:10:5A:91",
+               "currentIdentity": "20:01:E0:DB:55:10:5A:91",
+               "bPresent": true
+            }
+         ],
+         "vendorName": "Broadcom",
+         "vendorId": "14e4",
+         "productName": "Broadcom NetXtreme II 10 Gb Ethernet BCM57810 - E0:DB:55:10:5A:90",
+         "productId": "1f5f",
+         "fqdd": "NIC.Integrated.1-2-4",
+         "networkMode": "UNKNOWN",
+         "relativeBandwidthWeight": 0,
+         "maxBandwidth": 10,
+         "portId": "NIC.Integrated.1-2-1",
+         "bPresent": true
+      },
+      {
+         "id": "ff8080814d9c4382014da0f5e12140d4",
+         "identityList": [
+            {
+               "id": "ff8080814d9c4382014da0f5e12140dc",
+               "identityType": "IQN_INITIATOR",
+               "permanentIdentity": "",
+               "currentIdentity": "iqn.1995-05.com.broadcom.iscsiboot",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da0f5e12140da",
+               "identityType": "WWNN",
+               "permanentIdentity": "20:00:00:10:18:E7:07:21",
+               "currentIdentity": "20:00:00:10:18:E7:07:21",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da0f5e12140df",
+               "identityType": "WWPN",
+               "permanentIdentity": "20:01:00:10:18:E7:07:21",
+               "currentIdentity": "20:01:00:10:18:E7:07:21",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da0f5e12140db",
+               "identityType": "LAN_MAC",
+               "permanentIdentity": "00:10:18:E7:07:20",
+               "currentIdentity": "00:10:18:E7:07:20",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da0f5e12140d8",
+               "identityType": "FIPS_MAC",
+               "permanentIdentity": "00:10:18:E7:07:21",
+               "currentIdentity": "00:10:18:E7:07:21",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da0f5e12140d7",
+               "identityType": "ISCSI_MAC",
+               "permanentIdentity": "00:10:18:E7:07:21",
+               "currentIdentity": "00:10:18:E7:07:21",
+               "bPresent": true
+            }
+         ],
+         "vendorName": "Broadcom",
+         "vendorId": "14e4",
+         "productName": "Broadcom NetXtreme II 10 Gb Ethernet BCM57810 - 00:10:18:E7:07:20",
+         "productId": "1007",
+         "fqdd": "NIC.Mezzanine.2B-1-1",
+         "networkMode": "LAN",
+         "relativeBandwidthWeight": 0,
+         "maxBandwidth": 10,
+         "portId": "NIC.Mezzanine.2B-1-1",
+         "bPresent": true
+      },
+      {
+         "id": "ff8080814d9c4382014da0f5e12140e0",
+         "identityList": [
+            {
+               "id": "ff8080814d9c4382014da0f5e12240e8",
+               "identityType": "WWNN",
+               "permanentIdentity": "20:00:00:10:18:E7:07:23",
+               "currentIdentity": "20:00:00:10:18:E7:07:23",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da0f5e12240e6",
+               "identityType": "LAN_MAC",
+               "permanentIdentity": "00:10:18:E7:07:22",
+               "currentIdentity": "00:10:18:E7:07:22",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da0f5e12140e2",
+               "identityType": "WWPN",
+               "permanentIdentity": "20:01:00:10:18:E7:07:23",
+               "currentIdentity": "20:01:00:10:18:E7:07:23",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da0f5e12240eb",
+               "identityType": "ISCSI_MAC",
+               "permanentIdentity": "00:10:18:E7:07:23",
+               "currentIdentity": "00:10:18:E7:07:23",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da0f5e12240e7",
+               "identityType": "FIPS_MAC",
+               "permanentIdentity": "00:10:18:E7:07:23",
+               "currentIdentity": "00:10:18:E7:07:23",
+               "bPresent": true
+            },
+            {
+               "id": "ff8080814d9c4382014da0f5e12240e9",
+               "identityType": "IQN_INITIATOR",
+               "permanentIdentity": "",
+               "currentIdentity": "iqn.1995-05.com.broadcom.iscsiboot",
+               "bPresent": true
+            }
+         ],
+         "vendorName": "Broadcom",
+         "vendorId": "14e4",
+         "productName": "Broadcom NetXtreme II 10 Gb Ethernet BCM57810 - 00:10:18:E7:07:22",
+         "productId": "1007",
+         "fqdd": "NIC.Mezzanine.2B-2-1",
+         "networkMode": "LAN",
+         "relativeBandwidthWeight": 0,
+         "maxBandwidth": 10,
+         "portId": "NIC.Mezzanine.2B-2-1",
+         "bPresent": true
+      }
+   ],
+   "config": "Unable to export one or more component configurations.",
+   "bios": "[{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"System Memory Testing\",\"attributeName\":\"MemTest\",\"caption\":null,\"currentValue\":\"[\\\"Disabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":306,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Memory Settings\",\"groupID\":\"MemSettings\",\"instanceID\":\"BIOS.Setup.1-1:MemTest\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Memory Operating Mode\",\"attributeName\":\"MemOpMode\",\"caption\":null,\"currentValue\":\"[\\\"OptimizerMode\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":310,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Memory Settings\",\"groupID\":\"MemSettings\",\"instanceID\":\"BIOS.Setup.1-1:MemOpMode\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"OptimizerMode\\\",\\\"MirrorMode\\\",\\\"AdvEccMode\\\",\\\"FaultResilientMode\\\"]\",\"possibleValuesDescription\":\"[\\\"Optimizer Mode\\\",\\\"Mirror Mode\\\",\\\"Advanced ECC Mode\\\",\\\"Dell Fault Resilient Mode\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Node Interleaving\",\"attributeName\":\"NodeInterleave\",\"caption\":null,\"currentValue\":\"[\\\"Enabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":312,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Memory Settings\",\"groupID\":\"MemSettings\",\"instanceID\":\"BIOS.Setup.1-1:NodeInterleave\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"QPI Speed\",\"attributeName\":\"QpiSpeed\",\"caption\":null,\"currentValue\":\"[\\\"6GTps\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":405,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Processor Settings\",\"groupID\":\"ProcSettings\",\"instanceID\":\"BIOS.Setup.1-1:QpiSpeed\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"MaxDataRate\\\",\\\"6GTps\\\"]\",\"possibleValuesDescription\":\"[\\\"Maximum data rate\\\",\\\"6.4 GT\\\\/s\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Alternate RTID (Requestor Transaction ID) Setting\",\"attributeName\":\"RtidSetting\",\"caption\":null,\"currentValue\":\"[\\\"Disabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":407,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Processor Settings\",\"groupID\":\"ProcSettings\",\"instanceID\":\"BIOS.Setup.1-1:RtidSetting\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Virtualization Technology\",\"attributeName\":\"ProcVirtualization\",\"caption\":null,\"currentValue\":\"[\\\"Enabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":409,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Processor Settings\",\"groupID\":\"ProcSettings\",\"instanceID\":\"BIOS.Setup.1-1:ProcVirtualization\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Adjacent Cache Line Prefetch\",\"attributeName\":\"ProcAdjCacheLine\",\"caption\":null,\"currentValue\":\"[\\\"Enabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":411,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Processor Settings\",\"groupID\":\"ProcSettings\",\"instanceID\":\"BIOS.Setup.1-1:ProcAdjCacheLine\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Hardware Prefetcher\",\"attributeName\":\"ProcHwPrefetcher\",\"caption\":null,\"currentValue\":\"[\\\"Enabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":413,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Processor Settings\",\"groupID\":\"ProcSettings\",\"instanceID\":\"BIOS.Setup.1-1:ProcHwPrefetcher\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"DCU Streamer Prefetcher\",\"attributeName\":\"DcuStreamerPrefetcher\",\"caption\":null,\"currentValue\":\"[\\\"Enabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":415,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Processor Settings\",\"groupID\":\"ProcSettings\",\"instanceID\":\"BIOS.Setup.1-1:DcuStreamerPrefetcher\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"DCU IP Prefetcher\",\"attributeName\":\"DcuIpPrefetcher\",\"caption\":null,\"currentValue\":\"[\\\"Enabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":417,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Processor Settings\",\"groupID\":\"ProcSettings\",\"instanceID\":\"BIOS.Setup.1-1:DcuIpPrefetcher\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Execute Disable\",\"attributeName\":\"ProcExecuteDisable\",\"caption\":null,\"currentValue\":\"[\\\"Enabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":419,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Processor Settings\",\"groupID\":\"ProcSettings\",\"instanceID\":\"BIOS.Setup.1-1:ProcExecuteDisable\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Logical Processor Idling\",\"attributeName\":\"DynamicCoreAllocation\",\"caption\":null,\"currentValue\":\"[\\\"Disabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":421,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Processor Settings\",\"groupID\":\"ProcSettings\",\"instanceID\":\"BIOS.Setup.1-1:DynamicCoreAllocation\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Number of Cores per Processor\",\"attributeName\":\"ProcCores\",\"caption\":null,\"currentValue\":\"[\\\"All\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":434,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Processor Settings\",\"groupID\":\"ProcSettings\",\"instanceID\":\"BIOS.Setup.1-1:ProcCores\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"All\\\",\\\"1\\\",\\\"2\\\"]\",\"possibleValuesDescription\":\"[\\\"All\\\",\\\"1\\\",\\\"2\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Embedded SATA\",\"attributeName\":\"EmbSata\",\"caption\":null,\"currentValue\":\"[\\\"RaidMode\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":501,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"SATA Settings\",\"groupID\":\"SataSettings\",\"instanceID\":\"BIOS.Setup.1-1:EmbSata\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"AtaMode\\\",\\\"AhciMode\\\",\\\"RaidMode\\\",\\\"Off\\\"]\",\"possibleValuesDescription\":\"[\\\"ATA Mode\\\",\\\"AHCI Mode\\\",\\\"RAID Mode\\\",\\\"Off\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Port A\",\"attributeName\":\"SataPortA\",\"caption\":null,\"currentValue\":\"[\\\"Auto\\\"]\",\"defaultValue\":\"[]\",\"dependency\":\"<Dep><AttrLev Op=\\\"OR\\\"><ROIf Op=\\\"NOT\\\" Name=\\\"EmbSata\\\">AtaMode<\/ROIf><\/AttrLev><ValLev Val=\\\"Auto\\\" Op=\\\"OR\\\"><ForceIf Name=\\\"EmbSata\\\">AhciMode<\/ForceIf><ForceIf Name=\\\"EmbSata\\\">RaidMode<\/ForceIf><\/ValLev><ValLev Val=\\\"Off\\\" Op=\\\"OR\\\"><SupIf Name=\\\"EmbSata\\\">AhciMode<\/SupIf><SupIf Name=\\\"EmbSata\\\">RaidMode<\/SupIf><\/ValLev><\/Dep>\",\"description\":null,\"displayOrder\":506,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"SATA Settings\",\"groupID\":\"SataSettings\",\"instanceID\":\"BIOS.Setup.1-1:SataPortA\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Auto\\\",\\\"Off\\\"]\",\"possibleValuesDescription\":\"[\\\"Auto\\\",\\\"Off\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":true},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Port B\",\"attributeName\":\"SataPortB\",\"caption\":null,\"currentValue\":\"[\\\"Auto\\\"]\",\"defaultValue\":\"[]\",\"dependency\":\"<Dep><AttrLev Op=\\\"OR\\\"><ROIf Op=\\\"NOT\\\" Name=\\\"EmbSata\\\">AtaMode<\/ROIf><\/AttrLev><ValLev Val=\\\"Auto\\\" Op=\\\"OR\\\"><ForceIf Name=\\\"EmbSata\\\">AhciMode<\/ForceIf><ForceIf Name=\\\"EmbSata\\\">RaidMode<\/ForceIf><\/ValLev><ValLev Val=\\\"Off\\\" Op=\\\"OR\\\"><SupIf Name=\\\"EmbSata\\\">AhciMode<\/SupIf><SupIf Name=\\\"EmbSata\\\">RaidMode<\/SupIf><\/ValLev><\/Dep>\",\"description\":null,\"displayOrder\":512,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"SATA Settings\",\"groupID\":\"SataSettings\",\"instanceID\":\"BIOS.Setup.1-1:SataPortB\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Auto\\\",\\\"Off\\\"]\",\"possibleValuesDescription\":\"[\\\"Auto\\\",\\\"Off\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":true},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Boot Mode\",\"attributeName\":\"BootMode\",\"caption\":null,\"currentValue\":\"[\\\"Bios\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":602,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Boot Settings\",\"groupID\":\"BootSettings\",\"instanceID\":\"BIOS.Setup.1-1:BootMode\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Bios\\\",\\\"Uefi\\\"]\",\"possibleValuesDescription\":\"[\\\"BIOS\\\",\\\"UEFI\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Boot Sequence Retry\",\"attributeName\":\"BootSeqRetry\",\"caption\":null,\"currentValue\":\"[\\\"Disabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":604,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Boot Settings\",\"groupID\":\"BootSettings\",\"instanceID\":\"BIOS.Setup.1-1:BootSeqRetry\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"UEFI PXE boot protocol\",\"attributeName\":\"UefiPxeIpVersion\",\"caption\":null,\"currentValue\":\"[\\\"IPv4\\\"]\",\"defaultValue\":\"[]\",\"dependency\":\"<Dep><AttrLev Op=\\\"OR\\\"><ROIf Name=\\\"BootMode\\\">Bios<\/ROIf><\/AttrLev><\/Dep>\",\"description\":null,\"displayOrder\":809,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"UEFI Boot Settings\",\"groupID\":\"UefiBootSettings\",\"instanceID\":\"BIOS.Setup.1-1:UefiPxeIpVersion\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"IPv4\\\",\\\"IPv6\\\"]\",\"possibleValuesDescription\":\"[\\\"IPv4\\\",\\\"IPv6\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":true},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"One-Time Boot Device List\",\"attributeName\":\"OneTimeBootMode\",\"caption\":null,\"currentValue\":\"[\\\"Disabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":900,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"One-Time Boot\",\"groupID\":\"OneTimeBoot\",\"instanceID\":\"BIOS.Setup.1-1:OneTimeBootMode\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Disabled\\\",\\\"OneTimeBootSeq\\\",\\\"OneTimeHddSeq\\\",\\\"OneTimeUefiBootSeq\\\"]\",\"possibleValuesDescription\":\"[\\\"Disabled\\\",\\\"BIOS Boot Sequence Device\\\",\\\"BIOS Hard-Disk Drive Sequence Device\\\",\\\"UEFI Boot Sequence Device\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"BIOS Boot Sequence Device\",\"attributeName\":\"OneTimeBootSeqDev\",\"caption\":null,\"currentValue\":\"[\\\"Floppy.USBFront.1-1\\\"]\",\"defaultValue\":\"[]\",\"dependency\":\"<Dep><AttrLev Op=\\\"OR\\\"><ROIf Op=\\\"NOT\\\" Name=\\\"OneTimeBootMode\\\">OneTimeBootSeq<\/ROIf><\/AttrLev><\/Dep>\",\"description\":null,\"displayOrder\":901,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"One-Time Boot\",\"groupID\":\"OneTimeBoot\",\"instanceID\":\"BIOS.Setup.1-1:OneTimeBootSeqDev\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Floppy.USBFront.1-1\\\",\\\"Optical.USBFront.2-1\\\",\\\"HardDisk.List.1-1\\\",\\\"NIC.Integrated.1-1-1\\\",\\\"NIC.Integrated.1-2-1\\\"]\",\"possibleValuesDescription\":\"[\\\"Permanent Device: USB Floppy (N\\\\/A)\\\",\\\"Permanent Device: USB CD-ROM (N\\\\/A)\\\",\\\"Hard drive C:\\\",\\\"Integrated NIC 1 Port 1 Partition 1: BRCM MBA Slot 0100 v7.10.5\\\",\\\"Integrated NIC 1 Port 2 Partition 1: BRCM MBA Slot 0101 v7.10.5\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":true},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"BIOS Hard-Disk Drive Sequence Device\",\"attributeName\":\"OneTimeHddSeqDev\",\"caption\":null,\"currentValue\":\"[\\\"Disk.SDInternal.1-1\\\"]\",\"defaultValue\":\"[]\",\"dependency\":\"<Dep><AttrLev Op=\\\"OR\\\"><ROIf Op=\\\"NOT\\\" Name=\\\"OneTimeBootMode\\\">OneTimeHddSeq<\/ROIf><\/AttrLev><\/Dep>\",\"description\":null,\"displayOrder\":902,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"One-Time Boot\",\"groupID\":\"OneTimeBoot\",\"instanceID\":\"BIOS.Setup.1-1:OneTimeHddSeqDev\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Disk.SDInternal.1-1\\\"]\",\"possibleValuesDescription\":\"[\\\"Internal SD: Internal Dual SD\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":true},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"UEFI Boot Sequence Device\",\"attributeName\":\"OneTimeUefiBootSeqDev\",\"caption\":null,\"currentValue\":\"[\\\"NIC.Integrated.1-1-1\\\"]\",\"defaultValue\":\"[]\",\"dependency\":\"<Dep><AttrLev Op=\\\"OR\\\"><ROIf Op=\\\"NOT\\\" Name=\\\"OneTimeBootMode\\\">OneTimeUefiBootSeq<\/ROIf><\/AttrLev><\/Dep>\",\"description\":null,\"displayOrder\":903,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"One-Time Boot\",\"groupID\":\"OneTimeBoot\",\"instanceID\":\"BIOS.Setup.1-1:OneTimeUefiBootSeqDev\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"NIC.Integrated.1-1-1\\\",\\\"NIC.Integrated.1-2-1\\\",\\\"NIC.Mezzanine.2B-1-1\\\",\\\"NIC.Mezzanine.2B-2-1\\\",\\\"Disk.SDInternal.1-1\\\"]\",\"possibleValuesDescription\":\"[\\\"Integrated NIC 1 Port 1 Partition 1: EFI Network 1\\\",\\\"Integrated NIC 1 Port 2 Partition 1: EFI Network 2\\\",\\\"NIC in Mezzanine 2B Port 1 Partition 1: EFI Network 3\\\",\\\"NIC in Mezzanine 2B Port 2 Partition 1: EFI Network 4\\\",\\\"Internal SD: EFI Fixed Disk Boot Device 1\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":true},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Integrated RAID Controller\",\"attributeName\":\"IntegratedRaid\",\"caption\":null,\"currentValue\":\"[\\\"Disabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1003,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Integrated Devices\",\"groupID\":\"IntegratedDevices\",\"instanceID\":\"BIOS.Setup.1-1:IntegratedRaid\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"User Accessible USB Ports\",\"attributeName\":\"UsbPorts\",\"caption\":null,\"currentValue\":\"[\\\"AllOn\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1005,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Integrated Devices\",\"groupID\":\"IntegratedDevices\",\"instanceID\":\"BIOS.Setup.1-1:UsbPorts\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"AllOn\\\",\\\"AllOff\\\"]\",\"possibleValuesDescription\":\"[\\\"All Ports On\\\",\\\"All Ports Off\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Internal USB Port\",\"attributeName\":\"InternalUsb\",\"caption\":null,\"currentValue\":\"[\\\"On\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1007,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Integrated Devices\",\"groupID\":\"IntegratedDevices\",\"instanceID\":\"BIOS.Setup.1-1:InternalUsb\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"On\\\",\\\"Off\\\"]\",\"possibleValuesDescription\":\"[\\\"On\\\",\\\"Off\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Internal SD Card Port\",\"attributeName\":\"InternalSdCard\",\"caption\":null,\"currentValue\":\"[\\\"On\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1010,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Integrated Devices\",\"groupID\":\"IntegratedDevices\",\"instanceID\":\"BIOS.Setup.1-1:InternalSdCard\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"On\\\",\\\"Off\\\"]\",\"possibleValuesDescription\":\"[\\\"On\\\",\\\"Off\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Internal SD Card Redundancy\",\"attributeName\":\"InternalSdCardRedundancy\",\"caption\":null,\"currentValue\":\"[\\\"Disabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":\"<Dep><AttrLev Op=\\\"OR\\\"><ROIf Name=\\\"InternalSdCard\\\">Off<\/ROIf><\/AttrLev><\/Dep>\",\"description\":null,\"displayOrder\":1014,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Integrated Devices\",\"groupID\":\"IntegratedDevices\",\"instanceID\":\"BIOS.Setup.1-1:InternalSdCardRedundancy\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Disabled\\\",\\\"Mirror\\\"]\",\"possibleValuesDescription\":\"[\\\"Disabled\\\",\\\"Mirror\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Integrated Network Card 1\",\"attributeName\":\"IntegratedNetwork1\",\"caption\":null,\"currentValue\":\"[\\\"Enabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1017,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Integrated Devices\",\"groupID\":\"IntegratedDevices\",\"instanceID\":\"BIOS.Setup.1-1:IntegratedNetwork1\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"DisabledOs\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled (OS)\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"OS Watchdog Timer\",\"attributeName\":\"OsWatchdogTimer\",\"caption\":null,\"currentValue\":\"[\\\"Disabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1021,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Integrated Devices\",\"groupID\":\"IntegratedDevices\",\"instanceID\":\"BIOS.Setup.1-1:OsWatchdogTimer\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"I/OAT DMA Engine\",\"attributeName\":\"IoatEngine\",\"caption\":null,\"currentValue\":\"[\\\"Disabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1023,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Integrated Devices\",\"groupID\":\"IntegratedDevices\",\"instanceID\":\"BIOS.Setup.1-1:IoatEngine\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Embedded Video Controller\",\"attributeName\":\"EmbVideo\",\"caption\":null,\"currentValue\":\"[\\\"Enabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1025,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Integrated Devices\",\"groupID\":\"IntegratedDevices\",\"instanceID\":\"BIOS.Setup.1-1:EmbVideo\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":true},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"SR-IOV Global Enable\",\"attributeName\":\"SriovGlobalEnable\",\"caption\":null,\"currentValue\":\"[\\\"Disabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1027,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Integrated Devices\",\"groupID\":\"IntegratedDevices\",\"instanceID\":\"BIOS.Setup.1-1:SriovGlobalEnable\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Memory Mapped I/O above 4GB\",\"attributeName\":\"MmioAbove4Gb\",\"caption\":null,\"currentValue\":\"[\\\"Disabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1029,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Integrated Devices\",\"groupID\":\"IntegratedDevices\",\"instanceID\":\"BIOS.Setup.1-1:MmioAbove4Gb\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Mezzanine Slot 1C\",\"attributeName\":\"Slot1\",\"caption\":null,\"currentValue\":\"[\\\"Enabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1102,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Mezzanine Slot Disablement\",\"groupID\":\"SlotDisablement\",\"instanceID\":\"BIOS.Setup.1-1:Slot1\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\",\\\"BootDriverDisabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\",\\\"Boot Driver Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Mezzanine Slot 2B\",\"attributeName\":\"Slot2\",\"caption\":null,\"currentValue\":\"[\\\"Enabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1105,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Mezzanine Slot Disablement\",\"groupID\":\"SlotDisablement\",\"instanceID\":\"BIOS.Setup.1-1:Slot2\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\",\\\"BootDriverDisabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\",\\\"Boot Driver Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Serial Communication\",\"attributeName\":\"SerialComm\",\"caption\":null,\"currentValue\":\"[\\\"Off\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1201,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Serial Communication\",\"groupID\":\"SerialCommSettings\",\"instanceID\":\"BIOS.Setup.1-1:SerialComm\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Off\\\",\\\"OnNoConRedir\\\",\\\"OnConRedir\\\"]\",\"possibleValuesDescription\":\"[\\\"Off\\\",\\\"On without Console Redirection\\\",\\\"On with Console Redirection\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Serial Port Address\",\"attributeName\":\"SerialPortAddress\",\"caption\":null,\"currentValue\":\"[\\\"Com1\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1203,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Serial Communication\",\"groupID\":\"SerialCommSettings\",\"instanceID\":\"BIOS.Setup.1-1:SerialPortAddress\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Com1\\\",\\\"Com2\\\"]\",\"possibleValuesDescription\":\"[\\\"COM1\\\",\\\"COM2\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Failsafe Baud Rate\",\"attributeName\":\"FailSafeBaud\",\"caption\":null,\"currentValue\":\"[\\\"115200\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1207,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Serial Communication\",\"groupID\":\"SerialCommSettings\",\"instanceID\":\"BIOS.Setup.1-1:FailSafeBaud\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"115200\\\",\\\"57600\\\",\\\"19200\\\",\\\"9600\\\"]\",\"possibleValuesDescription\":\"[\\\"115200\\\",\\\"57600\\\",\\\"19200\\\",\\\"9600\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Remote Terminal Type\",\"attributeName\":\"ConTermType\",\"caption\":null,\"currentValue\":\"[\\\"Vt100Vt220\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1209,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Serial Communication\",\"groupID\":\"SerialCommSettings\",\"instanceID\":\"BIOS.Setup.1-1:ConTermType\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Vt100Vt220\\\",\\\"Ansi\\\"]\",\"possibleValuesDescription\":\"[\\\"VT100\\\\/VT220\\\",\\\"ANSI\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Redirection After Boot\",\"attributeName\":\"RedirAfterBoot\",\"caption\":null,\"currentValue\":\"[\\\"Enabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1211,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Serial Communication\",\"groupID\":\"SerialCommSettings\",\"instanceID\":\"BIOS.Setup.1-1:RedirAfterBoot\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"System Profile\",\"attributeName\":\"SysProfile\",\"caption\":null,\"currentValue\":\"[\\\"PerfOptimized\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1301,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"System Profile Settings\",\"groupID\":\"SysProfileSettings\",\"instanceID\":\"BIOS.Setup.1-1:SysProfile\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"PerfPerWattOptimizedDapc\\\",\\\"PerfPerWattOptimizedOs\\\",\\\"PerfOptimized\\\",\\\"DenseCfgOptimized\\\",\\\"Custom\\\"]\",\"possibleValuesDescription\":\"[\\\"Performance Per Watt (DAPC)\\\",\\\"Performance Per Watt (OS)\\\",\\\"Performance\\\",\\\"Dense Configuration\\\",\\\"Custom\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"CPU Power Management\",\"attributeName\":\"ProcPwrPerf\",\"caption\":null,\"currentValue\":\"[\\\"MaxPerf\\\"]\",\"defaultValue\":\"[]\",\"dependency\":\"<Dep><AttrLev Op=\\\"OR\\\"><ROIf Op=\\\"NOT\\\" Name=\\\"SysProfile\\\">Custom<\/ROIf><\/AttrLev><ValLev Val=\\\"SysDbpm\\\" Op=\\\"OR\\\"><ForceIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedDapc<\/ForceIf><ForceIf Name=\\\"SysProfile\\\">DenseCfgOptimized<\/ForceIf><SupIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedOs<\/SupIf><SupIf Name=\\\"SysProfile\\\">PerfOptimized<\/SupIf><\/ValLev><ValLev Val=\\\"MaxPerf\\\" Op=\\\"OR\\\"><ForceIf Name=\\\"SysProfile\\\">PerfOptimized<\/ForceIf><SupIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedDapc<\/SupIf><SupIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedOs<\/SupIf><SupIf Name=\\\"SysProfile\\\">DenseCfgOptimized<\/SupIf><\/ValLev><ValLev Val=\\\"OsDbpm\\\" Op=\\\"OR\\\"><ForceIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedOs<\/ForceIf><SupIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedDapc<\/SupIf><SupIf Name=\\\"SysProfile\\\">PerfOptimized<\/SupIf><SupIf Name=\\\"SysProfile\\\">DenseCfgOptimized<\/SupIf><\/ValLev><\/Dep>\",\"description\":null,\"displayOrder\":1303,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"System Profile Settings\",\"groupID\":\"SysProfileSettings\",\"instanceID\":\"BIOS.Setup.1-1:ProcPwrPerf\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"SysDbpm\\\",\\\"MaxPerf\\\",\\\"OsDbpm\\\"]\",\"possibleValuesDescription\":\"[\\\"System DBPM (DAPC)\\\",\\\"Maximum Performance\\\",\\\"OS DBPM\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":true},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Memory Frequency\",\"attributeName\":\"MemFrequency\",\"caption\":null,\"currentValue\":\"[\\\"MaxPerf\\\"]\",\"defaultValue\":\"[]\",\"dependency\":\"<Dep><AttrLev Op=\\\"OR\\\"><ROIf Op=\\\"NOT\\\" Name=\\\"SysProfile\\\">Custom<\/ROIf><\/AttrLev><ValLev Val=\\\"MaxPerf\\\" Op=\\\"OR\\\"><ForceIf Op=\\\"NOT\\\" Name=\\\"SysProfile\\\">Custom<\/ForceIf><\/ValLev><ValLev Val=\\\"MaxReliability\\\" Op=\\\"OR\\\"><SupIf Op=\\\"NOT\\\" Name=\\\"SysProfile\\\">Custom<\/SupIf><\/ValLev><ValLev Val=\\\"1866MHz\\\" Op=\\\"OR\\\"><SupIf Op=\\\"NOT\\\" Name=\\\"SysProfile\\\">Custom<\/SupIf><\/ValLev><ValLev Val=\\\"1600MHz\\\" Op=\\\"OR\\\"><SupIf Op=\\\"NOT\\\" Name=\\\"SysProfile\\\">Custom<\/SupIf><\/ValLev><ValLev Val=\\\"1333MHz\\\" Op=\\\"OR\\\"><SupIf Op=\\\"NOT\\\" Name=\\\"SysProfile\\\">Custom<\/SupIf><\/ValLev><ValLev Val=\\\"1067MHz\\\" Op=\\\"OR\\\"><SupIf Op=\\\"NOT\\\" Name=\\\"SysProfile\\\">Custom<\/SupIf><\/ValLev><ValLev Val=\\\"800MHz\\\" Op=\\\"OR\\\"><SupIf Op=\\\"NOT\\\" Name=\\\"SysProfile\\\">Custom<\/SupIf><\/ValLev><\/Dep>\",\"description\":null,\"displayOrder\":1310,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"System Profile Settings\",\"groupID\":\"SysProfileSettings\",\"instanceID\":\"BIOS.Setup.1-1:MemFrequency\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"MaxPerf\\\",\\\"MaxReliability\\\",\\\"1866MHz\\\",\\\"1600MHz\\\",\\\"1333MHz\\\",\\\"1067MHz\\\",\\\"800MHz\\\"]\",\"possibleValuesDescription\":\"[\\\"Maximum Performance\\\",\\\"Maximum Reliability\\\",\\\"1866MHz\\\",\\\"1600MHz\\\",\\\"1333MHz\\\",\\\"1067MHz\\\",\\\"800MHz\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":true},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"C1E\",\"attributeName\":\"ProcC1E\",\"caption\":null,\"currentValue\":\"[\\\"Disabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":\"<Dep><AttrLev Op=\\\"OR\\\"><ROIf Op=\\\"NOT\\\" Name=\\\"SysProfile\\\">Custom<\/ROIf><\/AttrLev><ValLev Val=\\\"Enabled\\\" Op=\\\"OR\\\"><ForceIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedDapc<\/ForceIf><ForceIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedOs<\/ForceIf><ForceIf Name=\\\"SysProfile\\\">DenseCfgOptimized<\/ForceIf><SupIf Name=\\\"SysProfile\\\">PerfOptimized<\/SupIf><\/ValLev><ValLev Val=\\\"Disabled\\\" Op=\\\"OR\\\"><ForceIf Name=\\\"SysProfile\\\">PerfOptimized<\/ForceIf><SupIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedDapc<\/SupIf><SupIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedOs<\/SupIf><SupIf Name=\\\"SysProfile\\\">DenseCfgOptimized<\/SupIf><\/ValLev><\/Dep>\",\"description\":null,\"displayOrder\":1314,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"System Profile Settings\",\"groupID\":\"SysProfileSettings\",\"instanceID\":\"BIOS.Setup.1-1:ProcC1E\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":true},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"C States\",\"attributeName\":\"ProcCStates\",\"caption\":null,\"currentValue\":\"[\\\"Disabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":\"<Dep><AttrLev Op=\\\"OR\\\"><ROIf Op=\\\"NOT\\\" Name=\\\"SysProfile\\\">Custom<\/ROIf><\/AttrLev><ValLev Val=\\\"Enabled\\\" Op=\\\"OR\\\"><ForceIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedDapc<\/ForceIf><ForceIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedOs<\/ForceIf><ForceIf Name=\\\"SysProfile\\\">DenseCfgOptimized<\/ForceIf><SupIf Name=\\\"SysProfile\\\">PerfOptimized<\/SupIf><\/ValLev><ValLev Val=\\\"Disabled\\\" Op=\\\"OR\\\"><ForceIf Name=\\\"SysProfile\\\">PerfOptimized<\/ForceIf><SupIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedDapc<\/SupIf><SupIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedOs<\/SupIf><SupIf Name=\\\"SysProfile\\\">DenseCfgOptimized<\/SupIf><\/ValLev><\/Dep>\",\"description\":null,\"displayOrder\":1316,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"System Profile Settings\",\"groupID\":\"SysProfileSettings\",\"instanceID\":\"BIOS.Setup.1-1:ProcCStates\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":true},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Monitor/Mwait\",\"attributeName\":\"MonitorMwait\",\"caption\":null,\"currentValue\":\"[\\\"Enabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":\"<Dep><AttrLev Op=\\\"OR\\\"><ROIf Op=\\\"NOT\\\" Name=\\\"SysProfile\\\">Custom<\/ROIf><\/AttrLev><ValLev Val=\\\"Enabled\\\" Op=\\\"OR\\\"><ForceIf Op=\\\"NOT\\\" Name=\\\"SysProfile\\\">Custom<\/ForceIf><\/ValLev><ValLev Val=\\\"Disabled\\\" Op=\\\"OR\\\"><SupIf Op=\\\"NOT\\\" Name=\\\"SysProfile\\\">Custom<\/SupIf><\/ValLev><\/Dep>\",\"description\":null,\"displayOrder\":1318,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"System Profile Settings\",\"groupID\":\"SysProfileSettings\",\"instanceID\":\"BIOS.Setup.1-1:MonitorMwait\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":true},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Memory Patrol Scrub\",\"attributeName\":\"MemPatrolScrub\",\"caption\":null,\"currentValue\":\"[\\\"Standard\\\"]\",\"defaultValue\":\"[]\",\"dependency\":\"<Dep><AttrLev Op=\\\"OR\\\"><ROIf Op=\\\"NOT\\\" Name=\\\"SysProfile\\\">Custom<\/ROIf><\/AttrLev><ValLev Val=\\\"Extended\\\" Op=\\\"OR\\\"><ForceIf Name=\\\"SysProfile\\\">DenseCfgOptimized<\/ForceIf><SupIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedDapc<\/SupIf><SupIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedOs<\/SupIf><SupIf Name=\\\"SysProfile\\\">PerfOptimized<\/SupIf><\/ValLev><ValLev Val=\\\"Standard\\\" Op=\\\"OR\\\"><ForceIf Name=\\\"SysProfile\\\">PerfOptimized<\/ForceIf><ForceIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedOs<\/ForceIf><ForceIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedDapc<\/ForceIf><SupIf Name=\\\"SysProfile\\\">DenseCfgOptimized<\/SupIf><\/ValLev><ValLev Val=\\\"Disabled\\\" Op=\\\"OR\\\"><SupIf Op=\\\"NOT\\\" Name=\\\"SysProfile\\\">Custom<\/SupIf><\/ValLev><\/Dep>\",\"description\":null,\"displayOrder\":1320,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"System Profile Settings\",\"groupID\":\"SysProfileSettings\",\"instanceID\":\"BIOS.Setup.1-1:MemPatrolScrub\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Extended\\\",\\\"Standard\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Extended\\\",\\\"Standard\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":true},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Memory Refresh Rate\",\"attributeName\":\"MemRefreshRate\",\"caption\":null,\"currentValue\":\"[\\\"1x\\\"]\",\"defaultValue\":\"[]\",\"dependency\":\"<Dep><AttrLev Op=\\\"OR\\\"><ROIf Op=\\\"NOT\\\" Name=\\\"SysProfile\\\">Custom<\/ROIf><\/AttrLev><ValLev Val=\\\"1x\\\" Op=\\\"OR\\\"><ForceIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedDapc<\/ForceIf><ForceIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedOs<\/ForceIf><ForceIf Name=\\\"SysProfile\\\">PerfOptimized<\/ForceIf><SupIf Name=\\\"SysProfile\\\">DenseCfgOptimized<\/SupIf><\/ValLev><ValLev Val=\\\"2x\\\" Op=\\\"OR\\\"><ForceIf Name=\\\"SysProfile\\\">DenseCfgOptimized<\/ForceIf><SupIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedDapc<\/SupIf><SupIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedOs<\/SupIf><SupIf Name=\\\"SysProfile\\\">PerfOptimized<\/SupIf><\/ValLev><\/Dep>\",\"description\":null,\"displayOrder\":1322,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"System Profile Settings\",\"groupID\":\"SysProfileSettings\",\"instanceID\":\"BIOS.Setup.1-1:MemRefreshRate\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"1x\\\",\\\"2x\\\"]\",\"possibleValuesDescription\":\"[\\\"1x\\\",\\\"2x\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":true},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Memory Operating Voltage\",\"attributeName\":\"MemVolt\",\"caption\":null,\"currentValue\":\"[\\\"AutoVolt\\\"]\",\"defaultValue\":\"[]\",\"dependency\":\"<Dep><AttrLev Op=\\\"OR\\\"><ROIf Op=\\\"NOT\\\" Name=\\\"SysProfile\\\">Custom<\/ROIf><\/AttrLev><ValLev Val=\\\"AutoVolt\\\" Op=\\\"OR\\\"><ForceIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedDapc<\/ForceIf><ForceIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedOs<\/ForceIf><ForceIf Name=\\\"SysProfile\\\">PerfOptimized<\/ForceIf><SupIf Name=\\\"SysProfile\\\">DenseCfgOptimized<\/SupIf><\/ValLev><ValLev Val=\\\"Volt15V\\\" Op=\\\"OR\\\"><ForceIf Name=\\\"SysProfile\\\">DenseCfgOptimized<\/ForceIf><SupIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedDapc<\/SupIf><SupIf Name=\\\"SysProfile\\\">PerfPerWattOptimizedOs<\/SupIf><SupIf Name=\\\"SysProfile\\\">PerfOptimized<\/SupIf><\/ValLev><\/Dep>\",\"description\":null,\"displayOrder\":1325,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"System Profile Settings\",\"groupID\":\"SysProfileSettings\",\"instanceID\":\"BIOS.Setup.1-1:MemVolt\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"AutoVolt\\\",\\\"Volt15V\\\"]\",\"possibleValuesDescription\":\"[\\\"Auto\\\",\\\"1.5V\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":true},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Collaborative CPU Performance Control\",\"attributeName\":\"CollaborativeCpuPerfCtrl\",\"caption\":null,\"currentValue\":\"[\\\"Disabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":\"<Dep><AttrLev Op=\\\"OR\\\"><ROIf Op=\\\"NOT\\\" Name=\\\"SysProfile\\\">Custom<\/ROIf><\/AttrLev><ValLev Val=\\\"Disabled\\\" Op=\\\"OR\\\"><ForceIf Op=\\\"NOT\\\" Name=\\\"SysProfile\\\">Custom<\/ForceIf><\/ValLev><ValLev Val=\\\"Enabled\\\" Op=\\\"OR\\\"><SupIf Op=\\\"NOT\\\" Name=\\\"SysProfile\\\">Custom<\/SupIf><\/ValLev><\/Dep>\",\"description\":null,\"displayOrder\":1327,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"System Profile Settings\",\"groupID\":\"SysProfileSettings\",\"instanceID\":\"BIOS.Setup.1-1:CollaborativeCpuPerfCtrl\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Disabled\\\",\\\"Enabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Disabled\\\",\\\"Enabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":true},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Password Status\",\"attributeName\":\"PasswordStatus\",\"caption\":null,\"currentValue\":\"[\\\"Unlocked\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1405,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"System Security\",\"groupID\":\"SysSecurity\",\"instanceID\":\"BIOS.Setup.1-1:PasswordStatus\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Unlocked\\\",\\\"Locked\\\"]\",\"possibleValuesDescription\":\"[\\\"Unlocked\\\",\\\"Locked\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"TPM Security\",\"attributeName\":\"TpmSecurity\",\"caption\":null,\"currentValue\":\"[\\\"Off\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1408,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"System Security\",\"groupID\":\"SysSecurity\",\"instanceID\":\"BIOS.Setup.1-1:TpmSecurity\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Off\\\",\\\"OnPbm\\\",\\\"OnNoPbm\\\"]\",\"possibleValuesDescription\":\"[\\\"Off\\\",\\\"On with Pre-boot Measurements\\\",\\\"On without Pre-boot Measurements\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"TPM Activation\",\"attributeName\":\"TpmActivation\",\"caption\":null,\"currentValue\":\"[\\\"NoChange\\\"]\",\"defaultValue\":\"[]\",\"dependency\":\"<Dep><AttrLev Op=\\\"OR\\\"><ROIf Name=\\\"TpmSecurity\\\">Off<\/ROIf><\/AttrLev><ValLev Val=\\\"NoChange\\\" Op=\\\"OR\\\"><ForceIf Name=\\\"TpmSecurity\\\">Off<\/ForceIf><\/ValLev><ValLev Val=\\\"Activate\\\" Op=\\\"OR\\\"><SupIf Name=\\\"TpmSecurity\\\">Off<\/SupIf><\/ValLev><ValLev Val=\\\"Deactivate\\\" Op=\\\"OR\\\"><SupIf Name=\\\"TpmSecurity\\\">Off<\/SupIf><\/ValLev><\/Dep>\",\"description\":null,\"displayOrder\":1412,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"System Security\",\"groupID\":\"SysSecurity\",\"instanceID\":\"BIOS.Setup.1-1:TpmActivation\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"NoChange\\\",\\\"Activate\\\",\\\"Deactivate\\\"]\",\"possibleValuesDescription\":\"[\\\"No Change\\\",\\\"Activate\\\",\\\"Deactivate\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":true},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"TPM Clear\",\"attributeName\":\"TpmClear\",\"caption\":null,\"currentValue\":\"[\\\"No\\\"]\",\"defaultValue\":\"[]\",\"dependency\":\"<Dep><AttrLev Op=\\\"OR\\\"><ROIf Name=\\\"TpmSecurity\\\">Off<\/ROIf><\/AttrLev><ValLev Val=\\\"No\\\" Op=\\\"OR\\\"><ForceIf Name=\\\"TpmSecurity\\\">Off<\/ForceIf><\/ValLev><ValLev Val=\\\"Yes\\\" Op=\\\"OR\\\"><SupIf Name=\\\"TpmSecurity\\\">Off<\/SupIf><\/ValLev><\/Dep>\",\"description\":null,\"displayOrder\":1417,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"System Security\",\"groupID\":\"SysSecurity\",\"instanceID\":\"BIOS.Setup.1-1:TpmClear\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"No\\\",\\\"Yes\\\"]\",\"possibleValuesDescription\":\"[\\\"No\\\",\\\"Yes\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":true},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Intel(R) TXT\",\"attributeName\":\"IntelTxt\",\"caption\":null,\"currentValue\":\"[\\\"Off\\\"]\",\"defaultValue\":\"[]\",\"dependency\":\"<Dep><AttrLev Op=\\\"OR\\\"><ROIf Name=\\\"ProcVirtualization\\\">Disabled<\/ROIf><ROIf Name=\\\"TpmActivation\\\">Deactivate<\/ROIf><ROIf Name=\\\"TpmClear\\\">Yes<\/ROIf><ROIf Op=\\\"NOT\\\" Name=\\\"TpmSecurity\\\">OnPbm<\/ROIf><\/AttrLev><ValLev Val=\\\"Off\\\" Op=\\\"OR\\\"><ForceIf Name=\\\"ProcVirtualization\\\">Disabled<\/ForceIf><ForceIf Name=\\\"TpmActivation\\\">Deactivate<\/ForceIf><ForceIf Name=\\\"TpmClear\\\">Yes<\/ForceIf><ForceIf Op=\\\"NOT\\\" Name=\\\"TpmSecurity\\\">OnPbm<\/ForceIf><\/ValLev><ValLev Val=\\\"On\\\" Op=\\\"OR\\\"><SupIf Name=\\\"ProcVirtualization\\\">Disabled<\/SupIf><SupIf Name=\\\"TpmActivation\\\">Deactivate<\/SupIf><SupIf Name=\\\"TpmClear\\\">Yes<\/SupIf><SupIf Op=\\\"NOT\\\" Name=\\\"TpmSecurity\\\">OnPbm<\/SupIf><\/ValLev><\/Dep>\",\"description\":null,\"displayOrder\":1421,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"System Security\",\"groupID\":\"SysSecurity\",\"instanceID\":\"BIOS.Setup.1-1:IntelTxt\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Off\\\",\\\"On\\\"]\",\"possibleValuesDescription\":\"[\\\"Off\\\",\\\"On\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":true},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Power Button\",\"attributeName\":\"PwrButton\",\"caption\":null,\"currentValue\":\"[\\\"Enabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1423,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"System Security\",\"groupID\":\"SysSecurity\",\"instanceID\":\"BIOS.Setup.1-1:PwrButton\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"AC Power Recovery\",\"attributeName\":\"AcPwrRcvry\",\"caption\":null,\"currentValue\":\"[\\\"Last\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1427,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"System Security\",\"groupID\":\"SysSecurity\",\"instanceID\":\"BIOS.Setup.1-1:AcPwrRcvry\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Last\\\",\\\"On\\\",\\\"Off\\\"]\",\"possibleValuesDescription\":\"[\\\"Last\\\",\\\"On\\\",\\\"Off\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Keyboard NumLock\",\"attributeName\":\"NumLock\",\"caption\":null,\"currentValue\":\"[\\\"On\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1506,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Miscellaneous Settings\",\"groupID\":\"MiscSettings\",\"instanceID\":\"BIOS.Setup.1-1:NumLock\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"On\\\",\\\"Off\\\"]\",\"possibleValuesDescription\":\"[\\\"On\\\",\\\"Off\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"Report Keyboard Errors\",\"attributeName\":\"ReportKbdErr\",\"caption\":null,\"currentValue\":\"[\\\"Report\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1508,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Miscellaneous Settings\",\"groupID\":\"MiscSettings\",\"instanceID\":\"BIOS.Setup.1-1:ReportKbdErr\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Report\\\",\\\"NoReport\\\"]\",\"possibleValuesDescription\":\"[\\\"Report\\\",\\\"Do Not Report\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"F1/F2 Prompt on Error\",\"attributeName\":\"ErrPrompt\",\"caption\":null,\"currentValue\":\"[\\\"Enabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1510,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Miscellaneous Settings\",\"groupID\":\"MiscSettings\",\"instanceID\":\"BIOS.Setup.1-1:ErrPrompt\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false},{\"attributeId\":0,\"serviceTag\":null,\"lastRetrievalTime\":null,\"attributeDisplayName\":\"In-System Characterization\",\"attributeName\":\"InSystemCharacterization\",\"caption\":null,\"currentValue\":\"[\\\"Enabled\\\"]\",\"defaultValue\":\"[]\",\"dependency\":null,\"description\":null,\"displayOrder\":1511,\"elementName\":null,\"fqdd\":\"BIOS.Setup.1-1\",\"groupDisplayName\":\"Miscellaneous Settings\",\"groupID\":\"MiscSettings\",\"instanceID\":\"BIOS.Setup.1-1:InSystemCharacterization\",\"pendingValue\":\"[]\",\"possibleValues\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"possibleValuesDescription\":\"[\\\"Enabled\\\",\\\"Disabled\\\"]\",\"any\":[],\"otherAttributes\":{},\"orderedList\":false,\"readOnly\":false}]",
+   "controllers": [
+      {
+         "id": "ff8080814ddef25b014ddfed924a04b7",
+         "fqdd": "RAID.Embedded.1-1",
+         "numPhysDisks": 0,
+         "physicalDisks": [],
+         "virtualDisks": [],
+         "enclosures": [
+            {
+               "fqdd": "Enclosure.Internal.0-1:RAID.Embedded.1-1",
+               "productName": "BP13G+ 0:1"
+            }
+         ]
+      },
+      {
+         "id": "ff8080814ddef25b014ddfed924a04b8",
+         "fqdd": "RAID.Integrated.1-1",
+         "numPhysDisks": 2,
+         "enclosures": [
+            {
+               "fqdd": "Enclosure.Internal.0-1:RAID.Integrated.1-1",
+               "productName": "BP13G+ 0:1"
+            }
+         ],
+         "physicalDisks": [
+            {
+               "fqdd": "Disk.Bay.1:Enclosure.Internal.0-1:RAID.Integrated.1-1",
+               "mediaType": "HDD",
+               "size": 146163105792,
+               "driveNumber": 1,
+               "hotSpareStatus": "No"
+            },
+            {
+               "fqdd": "Disk.Bay.0:Enclosure.Internal.0-1:RAID.Integrated.1-1",
+               "mediaType": "HDD",
+               "size": 146163105792,
+               "driveNumber": 0,
+               "hotSpareStatus": "No"
+            }
+         ],
+         "virtualDisks": [
+            {
+               "fqdd": "Disk.Virtual.0:RAID.Integrated.1-1",
+               "raidLevel": "RAID_1",
+               "physicalDisks": [
+                  {
+                     "fqdd": "Disk.Bay.1:Enclosure.Internal.0-1:RAID.Integrated.1-1",
+                     "mediaType": "HDD",
+                     "size": 146163105792,
+                     "driveNumber": 1,
+                     "hotSpareStatus": "No"
+                  },
+                  {
+                     "fqdd": "Disk.Bay.0:Enclosure.Internal.0-1:RAID.Integrated.1-1",
+                     "mediaType": "HDD",
+                     "size": 146163105792,
+                     "driveNumber": 0,
+                     "hotSpareStatus": "No"
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}

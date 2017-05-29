@@ -1,0 +1,72 @@
+{
+	"chassisSetting":
+		{
+			"chassisIpConfig":
+			{
+				"chassisIP":"172.31.60.78"
+			},
+		
+			"cmcUser":
+			{
+			"username":"hclCmcUser",
+			"password":"pass123",
+			"enableUser":false,
+			"userGroup": "Administrator"
+			},
+		
+			"idracUser":
+			{
+			"userNames":["hclIdracUser"],
+			"password":"pass123",
+			"enableUser":"False",
+			"roles": ["Administrator"],
+			"lanRoles": ["Admin"]
+			},
+			
+			"ntp":
+			{
+			"timezone": "(UTC-06:00) Central Time (US & Canada)",
+			"ntpServer": "172.20.0.8"
+			},
+			
+			"powerConfig":
+			{
+			"policy": "No Redundancy"
+			},
+			
+			"Networking":
+			{
+			"enableChassis": false,
+			"enableiDrac": false,
+			"enaleIpmi": true
+			}
+		},
+	
+	"uniqueChassisSetting":
+		{
+			"chassisName": "HCLUniqueChassis",
+			"chassisDnsName": "HClChassisDNS",
+			"storageMode": "single",
+			"inputPowerCap":"Watts",
+			"locDetailsDc":"HCLUniqueChassisLocation",
+			"locDetailsAsile":"HCLSlotLocation",
+			"locDetailsRack": "row",
+			"locDetailsRs": "1"
+		},
+	"uniqueServerSetting":
+		{
+			"hostname": "HCLHost1"
+		},
+	"UniqueIOModule":
+		{
+			"defineUplink": false
+			"IoModuleHostName": "HCLIOModuleHost",
+			"uplinkName": "HCLUplink",
+			"portChannel": "128"
+		}
+	
+}	
+	
+	
+	
+	

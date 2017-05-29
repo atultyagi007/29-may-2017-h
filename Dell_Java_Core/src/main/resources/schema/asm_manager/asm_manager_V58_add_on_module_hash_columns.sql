@@ -1,0 +1,2 @@
+ALTER TABLE add_on_module ADD COLUMN asm_input_hash CHARACTER VARYING(255);
+ALTER TABLE add_on_module ADD COLUMN metadata_hash CHARACTER VARYING(255);

@@ -1,0 +1,61 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         metadata-complete="false"
+         version="3.0">
+
+        <display-name>ASM Manager</display-name>
+
+	<servlet>
+		<servlet-name>Admin</servlet-name>
+		<servlet-class>com.dell.asm.asmcore.admin.app.InitServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>ChassisRA</servlet-name>
+		<servlet-class>com.dell.pg.asm.chassis.app.ChassisApp</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>ServerRA</servlet-name>
+		<servlet-class>com.dell.asm.server.app.ServerApp</servlet-class>
+		<load-on-startup>3</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>AsmManager</servlet-name>
+		<servlet-class>com.dell.asm.asmcore.asmmanager.app.AsmManagerApp</servlet-class>
+		<load-on-startup>4</load-on-startup>
+	</servlet>
+
+
+	<!-- The locations do not exist but necessary to avoid Tomcat startap errors  -->
+	<servlet-mapping>
+		<servlet-name>Admin</servlet-name>
+		<url-pattern>/admin.servlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AsmManager</servlet-name>
+		<url-pattern>/asmnanager.servlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ChassisRA</servlet-name>
+		<url-pattern>/chassisra.servlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ServerRA</servlet-name>
+		<url-pattern>/serverra.servlet</url-pattern>
+	</servlet-mapping>
+
+	<context-param>
+	    <param-name>contextConfigLocation</param-name>
+	    <param-value>/WEB-INF/applicationContext*.xml</param-value>
+	</context-param>
+
+	<listener>
+	   <listener-class>
+	        org.springframework.web.context.ContextLoaderListener
+	   </listener-class>
+	</listener> 
+
+</web-app>
+

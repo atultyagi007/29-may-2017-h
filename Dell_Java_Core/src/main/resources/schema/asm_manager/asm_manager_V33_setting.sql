@@ -1,0 +1,1 @@
+ALTER TABLE os_repository ADD COLUMN razor_name character varying(255);

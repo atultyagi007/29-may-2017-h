@@ -1,0 +1,5 @@
+<RepoConfig>
+	<Key name="Version" value="@RELEASE_VERSION@" />
+	<Key name="MinVersion" value="@MIN_VERSION@" />
+	<Key name="ReleaseNotesLink" value="@RELEASE_NOTES_LINK@" />
+</RepoConfig>

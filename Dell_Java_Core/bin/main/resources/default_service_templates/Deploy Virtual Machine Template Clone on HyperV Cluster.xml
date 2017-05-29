@@ -1,0 +1,1108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceTemplate>
+   <id>ff80808156806f8201568e8e318e00cc</id>
+   <templateName>Deploy Virtual Machine Template Clone on HyperV Cluster</templateName>
+   <templateDescription>This template deploys a clone of a virtual machine template from an SCVMM library.</templateDescription>
+   <templateVersion>8.3.1-7000</templateVersion>
+   <templateValid>
+      <valid>true</valid>
+   </templateValid>
+   <templateLocked>true</templateLocked>
+   <draft>false</draft>
+   <createdDate>2016-08-15T14:14:58.702Z</createdDate>
+   <createdBy>admin</createdBy>
+   <components>
+      <id>A6ECDB64-A3C4-4065-9706-58622991399B</id>
+      <componentID>component-virtualmachine-clonehyperv-1</componentID>
+      <componentValid>
+         <valid>true</valid>
+      </componentValid>
+      <name>Clone Hyper-V Virtual Machine</name>
+      <type>VIRTUALMACHINE</type>
+      <teardown>false</teardown>
+      <relatedComponents>
+         <entry>
+            <key>3B4F119E-7019-473C-B92C-36EC145D4FF5</key>
+            <value>Hyper-V Cluster</value>
+         </entry>
+      </relatedComponents>
+      <associatedComponents>
+         <entry>
+            <key>3B4F119E-7019-473C-B92C-36EC145D4FF5</key>
+            <value>
+               <entry>
+                  <key>service_type</key>
+                  <value>class</value>
+               </entry>
+               <entry>
+                  <key>name</key>
+                  <value>Hyper-V Cluster</value>
+               </entry>
+            </value>
+         </entry>
+      </associatedComponents>
+      <resources>
+         <id>asm::vm::scvmm</id>
+         <displayName>Virtual Machine Settings</displayName>
+         <parameters>
+            <id>vm_generate_name_id</id>
+            <value>true</value>
+            <type>BOOLEAN</type>
+            <displayName>Auto-generate Name</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <toolTip>Use the VM Name Template field to auto-generate VM names at deployment time. If not selected, a unique name will be requested when the template is deployed.</toolTip>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>vm_name_template</id>
+            <value>vm${num}</value>
+            <type>STRING</type>
+            <displayName>VM Name Template</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>vm_generate_name_id</dependencyTarget>
+            <dependencyValue>true</dependencyValue>
+            <toolTip>Template used to generate VM names at deployment time. Must contain variables that will produce a unique VM name. Allowed variables  are ${num} (an auto-generated unique number).</toolTip>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>hostname</id>
+            <type>STRING</type>
+            <displayName>Name</displayName>
+            <required>true</required>
+            <requiredAtDeployment>true</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <dependencyTarget>vm_generate_name_id</dependencyTarget>
+            <dependencyValue>false</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>description</id>
+            <type>STRING</type>
+            <displayName>Description</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>template</id>
+            <value>Wind2012-79</value>
+            <type>ENUMERATED</type>
+            <displayName>Template</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value />
+               <name>Select...</name>
+            </options>
+            <options>
+               <value>Wind2012-79</value>
+               <name>Wind2012-79</name>
+            </options>
+            <options>
+               <value>SushilWinTwmplate</value>
+               <name>SushilWinTwmplate</name>
+            </options>
+            <options>
+               <value>a3242016centos</value>
+               <name>a3242016centos</name>
+            </options>
+            <options>
+               <value>newsharVM</value>
+               <name>newsharVM</name>
+            </options>
+            <options>
+               <value>SushilCentOS-79</value>
+               <name>SushilCentOS-79</name>
+            </options>
+            <options>
+               <value>AmyEnv15-1027</value>
+               <name>AmyEnv15-1027</name>
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>path</id>
+            <value>C:\ClusterStorage\Volume1</value>
+            <type>STRING</type>
+            <displayName>Path</displayName>
+            <required>true</required>
+            <requiredAtDeployment>true</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>network_interfaces</id>
+            <value>ff808081562ee08801562ee1e9950049</value>
+            <type>LIST</type>
+            <displayName>Networks</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <networks>
+               <id>ff808081562ee08801562ee1e9950049</id>
+               <name>ASM_Public</name>
+               <type>PRIVATE_LAN</type>
+               <vlanId>20</vlanId>
+               <static>false</static>
+            </networks>
+            <options>
+               <value>ff808081562ee08801562ee1e9950049</value>
+               <name>ASM_Public</name>
+            </options>
+            <options>
+               <value>ff808081566b87810156724fdc75007a</value>
+               <name>ASM_Private</name>
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>default_gateway</id>
+            <value>dhcp_workload</value>
+            <type>STRING</type>
+            <displayName>Static Network Default Gateway</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value />
+               <name>Select...</name>
+            </options>
+            <options>
+               <value>dhcp_workload</value>
+               <name>DHCP / No Gateway</name>
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>block_dynamic_optimization</id>
+            <value>false</value>
+            <type>BOOLEAN</type>
+            <displayName>Block Dynamic Optimization</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value />
+               <name>Select...</name>
+            </options>
+            <options>
+               <value>true</value>
+               <name>True</name>
+            </options>
+            <options>
+               <value>false</value>
+               <name>False</name>
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>highly_available</id>
+            <value>true</value>
+            <type>BOOLEAN</type>
+            <displayName>Highly Available</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value />
+               <name>Select...</name>
+            </options>
+            <options>
+               <value>true</value>
+               <name>True</name>
+            </options>
+            <options>
+               <value>false</value>
+               <name>False</name>
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>cpu_count</id>
+            <value>1</value>
+            <type>INTEGER</type>
+            <displayName>Number of CPUs</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <min>1</min>
+            <max>8</max>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>memory_mb</id>
+            <value>8192</value>
+            <type>INTEGER</type>
+            <displayName>Memory in MB</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <min>1024</min>
+            <max>262144</max>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>start_action</id>
+            <value>never_auto_turn_on_vm</value>
+            <type>ENUMERATED</type>
+            <displayName>Start Action</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value />
+               <name>Select...</name>
+            </options>
+            <options>
+               <value>never_auto_turn_on_vm</value>
+               <name>Never auto turn on VM</name>
+            </options>
+            <options>
+               <value>always_auto_turn_on_vm</value>
+               <name>Always auto turn on VM</name>
+            </options>
+            <options>
+               <value>turn_on_vm_if_running_when_vs_stopped</value>
+               <name>Turn on VM if running when VS stopped</name>
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>stop_action</id>
+            <value>shutdown_guest_os</value>
+            <type>ENUMERATED</type>
+            <displayName>Stop Action</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value />
+               <name>Select...</name>
+            </options>
+            <options>
+               <value>save_vm</value>
+               <name>Save VM</name>
+            </options>
+            <options>
+               <value>turn_off_vm</value>
+               <name>Turn off VM</name>
+            </options>
+            <options>
+               <value>shutdown_guest_os</value>
+               <name>Shutdown guest OS</name>
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>ensure</id>
+            <value>present</value>
+            <type>STRING</type>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <group>none</group>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+      </resources>
+      <cloned>false</cloned>
+      <manageFirmware>false</manageFirmware>
+      <brownfield>false</brownfield>
+   </components>
+   <components>
+      <id>4AB39E0C-C0DF-413E-92F8-6DE9C25AC482</id>
+      <componentID>component-virtualmachine-clonehyperv-1</componentID>
+      <componentValid>
+         <valid>true</valid>
+      </componentValid>
+      <name>Clone Hyper-V Virtual Machine (2)</name>
+      <type>VIRTUALMACHINE</type>
+      <teardown>false</teardown>
+      <relatedComponents>
+         <entry>
+            <key>3B4F119E-7019-473C-B92C-36EC145D4FF5</key>
+            <value>Hyper-V Cluster</value>
+         </entry>
+      </relatedComponents>
+      <associatedComponents>
+         <entry>
+            <key>3B4F119E-7019-473C-B92C-36EC145D4FF5</key>
+            <value>
+               <entry>
+                  <key>service_type</key>
+                  <value>class</value>
+               </entry>
+               <entry>
+                  <key>name</key>
+                  <value>Hyper-V Cluster</value>
+               </entry>
+            </value>
+         </entry>
+      </associatedComponents>
+      <resources>
+         <id>asm::vm::scvmm</id>
+         <displayName>Virtual Machine Settings</displayName>
+         <parameters>
+            <id>vm_generate_name_id</id>
+            <value>true</value>
+            <type>BOOLEAN</type>
+            <displayName>Auto-generate Name</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <toolTip>Use the VM Name Template field to auto-generate VM names at deployment time. If not selected, a unique name will be requested when the template is deployed.</toolTip>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>vm_name_template</id>
+            <value>vm${num}</value>
+            <type>STRING</type>
+            <displayName>VM Name Template</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>vm_generate_name_id</dependencyTarget>
+            <dependencyValue>true</dependencyValue>
+            <toolTip>Template used to generate VM names at deployment time. Must contain variables that will produce a unique VM name. Allowed variables  are ${num} (an auto-generated unique number).</toolTip>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>hostname</id>
+            <type>STRING</type>
+            <displayName>Name</displayName>
+            <required>true</required>
+            <requiredAtDeployment>true</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <dependencyTarget>vm_generate_name_id</dependencyTarget>
+            <dependencyValue>false</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>description</id>
+            <type>STRING</type>
+            <displayName>Description</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>template</id>
+            <value>Wind2012-79</value>
+            <type>ENUMERATED</type>
+            <displayName>Template</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value />
+               <name>Select...</name>
+            </options>
+            <options>
+               <value>Wind2012-79</value>
+               <name>Wind2012-79</name>
+            </options>
+            <options>
+               <value>SushilWinTwmplate</value>
+               <name>SushilWinTwmplate</name>
+            </options>
+            <options>
+               <value>a3242016centos</value>
+               <name>a3242016centos</name>
+            </options>
+            <options>
+               <value>newsharVM</value>
+               <name>newsharVM</name>
+            </options>
+            <options>
+               <value>SushilCentOS-79</value>
+               <name>SushilCentOS-79</name>
+            </options>
+            <options>
+               <value>AmyEnv15-1027</value>
+               <name>AmyEnv15-1027</name>
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>path</id>
+            <value>C:\ClusterStorage\Volume1</value>
+            <type>STRING</type>
+            <displayName>Path</displayName>
+            <required>true</required>
+            <requiredAtDeployment>true</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>network_interfaces</id>
+            <value>ff808081562ee08801562ee1e9950049</value>
+            <type>LIST</type>
+            <displayName>Networks</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <networks>
+               <id>ff808081562ee08801562ee1e9950049</id>
+               <name>ASM_Public</name>
+               <type>PRIVATE_LAN</type>
+               <vlanId>20</vlanId>
+               <static>false</static>
+            </networks>
+            <options>
+               <value>ff808081562ee08801562ee1e9950049</value>
+               <name>ASM_Public</name>
+            </options>
+            <options>
+               <value>ff808081566b87810156724fdc75007a</value>
+               <name>ASM_Private</name>
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>default_gateway</id>
+            <value>dhcp_workload</value>
+            <type>STRING</type>
+            <displayName>Static Network Default Gateway</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value />
+               <name>Select...</name>
+            </options>
+            <options>
+               <value>dhcp_workload</value>
+               <name>DHCP / No Gateway</name>
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>block_dynamic_optimization</id>
+            <value>false</value>
+            <type>BOOLEAN</type>
+            <displayName>Block Dynamic Optimization</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value />
+               <name>Select...</name>
+            </options>
+            <options>
+               <value>true</value>
+               <name>True</name>
+            </options>
+            <options>
+               <value>false</value>
+               <name>False</name>
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>highly_available</id>
+            <value>true</value>
+            <type>BOOLEAN</type>
+            <displayName>Highly Available</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value />
+               <name>Select...</name>
+            </options>
+            <options>
+               <value>true</value>
+               <name>True</name>
+            </options>
+            <options>
+               <value>false</value>
+               <name>False</name>
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>cpu_count</id>
+            <value>1</value>
+            <type>INTEGER</type>
+            <displayName>Number of CPUs</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <min>1</min>
+            <max>8</max>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>memory_mb</id>
+            <value>8192</value>
+            <type>INTEGER</type>
+            <displayName>Memory in MB</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <min>1024</min>
+            <max>262144</max>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>start_action</id>
+            <value>never_auto_turn_on_vm</value>
+            <type>ENUMERATED</type>
+            <displayName>Start Action</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value />
+               <name>Select...</name>
+            </options>
+            <options>
+               <value>never_auto_turn_on_vm</value>
+               <name>Never auto turn on VM</name>
+            </options>
+            <options>
+               <value>always_auto_turn_on_vm</value>
+               <name>Always auto turn on VM</name>
+            </options>
+            <options>
+               <value>turn_on_vm_if_running_when_vs_stopped</value>
+               <name>Turn on VM if running when VS stopped</name>
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>stop_action</id>
+            <value>shutdown_guest_os</value>
+            <type>ENUMERATED</type>
+            <displayName>Stop Action</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value />
+               <name>Select...</name>
+            </options>
+            <options>
+               <value>save_vm</value>
+               <name>Save VM</name>
+            </options>
+            <options>
+               <value>turn_off_vm</value>
+               <name>Turn off VM</name>
+            </options>
+            <options>
+               <value>shutdown_guest_os</value>
+               <name>Shutdown guest OS</name>
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>ensure</id>
+            <value>present</value>
+            <type>STRING</type>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <group>none</group>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+      </resources>
+      <cloned>false</cloned>
+      <manageFirmware>false</manageFirmware>
+      <brownfield>false</brownfield>
+   </components>
+   <components>
+      <id>3B4F119E-7019-473C-B92C-36EC145D4FF5</id>
+      <componentID>component-cluster-hyperv-1</componentID>
+      <componentValid>
+         <valid>true</valid>
+      </componentValid>
+      <name>Hyper-V Cluster</name>
+      <type>CLUSTER</type>
+      <teardown>false</teardown>
+      <relatedComponents>
+         <entry>
+            <key>A6ECDB64-A3C4-4065-9706-58622991399B</key>
+            <value>Clone Hyper-V Virtual Machine</value>
+         </entry>
+      </relatedComponents>
+      <associatedComponents>
+         <entry>
+            <key>A6ECDB64-A3C4-4065-9706-58622991399B</key>
+            <value>
+               <entry>
+                  <key>service_type</key>
+                  <value>class</value>
+               </entry>
+               <entry>
+                  <key>name</key>
+                  <value>Clone Hyper-V Virtual Machine</value>
+               </entry>
+            </value>
+         </entry>
+      </associatedComponents>
+      <resources>
+         <id>asm::cluster::scvmm</id>
+         <displayName>Cluster Settings</displayName>
+         <parameters>
+            <id>asm_guid</id>
+            <value>scvmm-172.28.4.173</value>
+            <type>ENUMERATED</type>
+            <displayName>Target Virtual Machine Manager</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value />
+               <name>Select...</name>
+            </options>
+            <options>
+               <value>scvmm-172.28.4.173</value>
+               <name>scvmm-172.28.4.173</name>
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>hostgroup</id>
+            <value>All Hosts\EMCFCNew</value>
+            <type>ENUMERATED</type>
+            <displayName>Host Group</displayName>
+            <required>true</required>
+            <requiredAtDeployment>true</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value />
+               <name>Select...</name>
+            </options>
+            <options>
+               <value>$new$</value>
+               <name>New Host Group...</name>
+            </options>
+            <options>
+               <value>All Hosts\IntelNIC</value>
+               <name>All Hosts\IntelNIC</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>scvmm-172.28.4.173</dependencyValue>
+            </options>
+            <options>
+               <value>All Hosts</value>
+               <name>All Hosts</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>scvmm-172.28.4.173</dependencyValue>
+            </options>
+            <options>
+               <value>All Hosts\Oleg_HyperV_Test</value>
+               <name>All Hosts\Oleg_HyperV_Test</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>scvmm-172.28.4.173</dependencyValue>
+            </options>
+            <options>
+               <value>All Hosts\iSCSIComp</value>
+               <name>All Hosts\iSCSIComp</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>scvmm-172.28.4.173</dependencyValue>
+            </options>
+            <options>
+               <value>All Hosts\EMC1</value>
+               <name>All Hosts\EMC1</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>scvmm-172.28.4.173</dependencyValue>
+            </options>
+            <options>
+               <value>All Hosts\FCCluster</value>
+               <name>All Hosts\FCCluster</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>scvmm-172.28.4.173</dependencyValue>
+            </options>
+            <options>
+               <value>All Hosts\MirandaHyperV2</value>
+               <name>All Hosts\MirandaHyperV2</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>scvmm-172.28.4.173</dependencyValue>
+            </options>
+            <options>
+               <value>All Hosts\EMCFC</value>
+               <name>All Hosts\EMCFC</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>scvmm-172.28.4.173</dependencyValue>
+            </options>
+            <options>
+               <value>All Hosts\EQLSingleFab2</value>
+               <name>All Hosts\EQLSingleFab2</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>scvmm-172.28.4.173</dependencyValue>
+            </options>
+            <options>
+               <value>All Hosts\EmcRack</value>
+               <name>All Hosts\EmcRack</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>scvmm-172.28.4.173</dependencyValue>
+            </options>
+            <options>
+               <value>All Hosts\iSCSConvergedEQL</value>
+               <name>All Hosts\iSCSConvergedEQL</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>scvmm-172.28.4.173</dependencyValue>
+            </options>
+            <options>
+               <value>All Hosts\HG1</value>
+               <name>All Hosts\HG1</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>scvmm-172.28.4.173</dependencyValue>
+            </options>
+            <options>
+               <value>All Hosts\iSCSICompBlade</value>
+               <name>All Hosts\iSCSICompBlade</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>scvmm-172.28.4.173</dependencyValue>
+            </options>
+            <options>
+               <value>All Hosts\a5877hg</value>
+               <name>All Hosts\a5877hg</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>scvmm-172.28.4.173</dependencyValue>
+            </options>
+            <options>
+               <value>All Hosts\NewEMC</value>
+               <name>All Hosts\NewEMC</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>scvmm-172.28.4.173</dependencyValue>
+            </options>
+            <options>
+               <value>All Hosts\a5863hg</value>
+               <name>All Hosts\a5863hg</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>scvmm-172.28.4.173</dependencyValue>
+            </options>
+            <options>
+               <value>All Hosts\icsidiverged</value>
+               <name>All Hosts\icsidiverged</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>scvmm-172.28.4.173</dependencyValue>
+            </options>
+            <options>
+               <value>All Hosts\SCV2000</value>
+               <name>All Hosts\SCV2000</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>scvmm-172.28.4.173</dependencyValue>
+            </options>
+            <options>
+               <value>All Hosts\EMCFCNew</value>
+               <name>All Hosts\EMCFCNew</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>scvmm-172.28.4.173</dependencyValue>
+            </options>
+            <options>
+               <value>All Hosts\TestInventory1</value>
+               <name>All Hosts\TestInventory1</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>scvmm-172.28.4.173</dependencyValue>
+            </options>
+            <options>
+               <value>All Hosts\a5867hg</value>
+               <name>All Hosts\a5867hg</name>
+               <dependencyTarget>asm_guid</dependencyTarget>
+               <dependencyValue>scvmm-172.28.4.173</dependencyValue>
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>$new$hostgroup</id>
+            <type>STRING</type>
+            <displayName>New host group name</displayName>
+            <required>true</required>
+            <requiredAtDeployment>true</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>hostgroup</dependencyTarget>
+            <dependencyValue>$new$</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>name</id>
+            <value>EMCFCNew</value>
+            <type>ENUMERATED</type>
+            <displayName>Cluster Name</displayName>
+            <required>true</required>
+            <requiredAtDeployment>true</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <options>
+               <value />
+               <name>Select...</name>
+            </options>
+            <options>
+               <value>$new$</value>
+               <name>New Cluster...</name>
+            </options>
+            <options>
+               <value>iSCSICompellent</value>
+               <name>iSCSICompellent</name>
+               <dependencyTarget>hostgroup</dependencyTarget>
+               <dependencyValue>All Hosts\iSCSIComp</dependencyValue>
+            </options>
+            <options>
+               <value>MirandaCluster2</value>
+               <name>MirandaCluster2</name>
+               <dependencyTarget>hostgroup</dependencyTarget>
+               <dependencyValue>All Hosts\MirandaHyperV2</dependencyValue>
+            </options>
+            <options>
+               <value>SSTCluster001</value>
+               <name>SSTCluster001</name>
+               <dependencyTarget>hostgroup</dependencyTarget>
+               <dependencyValue>All Hosts\HG1,All Hosts\HG1</dependencyValue>
+            </options>
+            <options>
+               <value>a5877cl</value>
+               <name>a5877cl</name>
+               <dependencyTarget>hostgroup</dependencyTarget>
+               <dependencyValue>All Hosts\a5877hg</dependencyValue>
+            </options>
+            <options>
+               <value>iscsidiverged</value>
+               <name>iscsidiverged</name>
+               <dependencyTarget>hostgroup</dependencyTarget>
+               <dependencyValue>All Hosts\icsidiverged</dependencyValue>
+            </options>
+            <options>
+               <value>EMCFCNew</value>
+               <name>EMCFCNew</name>
+               <dependencyTarget>hostgroup</dependencyTarget>
+               <dependencyValue>All Hosts\EMCFCNew,All Hosts\EMCFCNew</dependencyValue>
+            </options>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>$new$name</id>
+            <type>STRING</type>
+            <displayName>New cluster name</displayName>
+            <required>true</required>
+            <requiredAtDeployment>true</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <dependencyTarget>name</dependencyTarget>
+            <dependencyValue>$new$</dependencyValue>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>15</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>ipaddress</id>
+            <type>STRING</type>
+            <displayName>Cluster IP Address</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+         <parameters>
+            <id>ensure</id>
+            <value>present</value>
+            <type>STRING</type>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+            <readOnly>false</readOnly>
+            <generated>false</generated>
+            <group>none</group>
+            <infoIcon>false</infoIcon>
+            <maxLength>256</maxLength>
+            <step>1</step>
+            <optionsSortable>true</optionsSortable>
+         </parameters>
+      </resources>
+      <cloned>false</cloned>
+      <manageFirmware>false</manageFirmware>
+      <brownfield>false</brownfield>
+   </components>
+   <category>SampleTemplates</category>
+   <enableApps>false</enableApps>
+   <enableCluster>false</enableCluster>
+   <enableServer>false</enableServer>
+   <enableStorage>false</enableStorage>
+   <enableVMs>false</enableVMs>
+   <allUsersAllowed>false</allUsersAllowed>
+   <manageFirmware>false</manageFirmware>
+</ServiceTemplate>

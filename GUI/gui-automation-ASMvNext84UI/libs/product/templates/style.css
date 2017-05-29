@@ -1,0 +1,85 @@
+body {
+    background-color: #eee;
+    color: #503e2b;
+}
+
+.jumbotron {
+  position: relative;
+  padding: 10px 10px;
+  margin: 0px 0px 40px;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
+  background: #0085c3;
+}
+
+.jumbotron h1 {
+  font-size: 45px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.version {
+    float: right;
+    text-align: right;
+    font-size: small;
+}
+
+.span12 {
+    border-top: 2px solid #0085c3;
+    padding-top: 20px;
+}
+
+.testcase {
+    padding-left: 20px;
+}
+
+.table th {
+    text-align: center;
+}
+
+table tbody tr.fail {
+    background-color: #ff9999;
+}
+
+table tbody tr.pass {
+    background-color: #ccff99;
+}
+
+table tbody tr.mixed {
+    background-color: #ffff99;
+}
+
+.table tbody tr.error > td {
+    background-color: #ff0000;
+}
+caption {
+    font-size: +2;
+    font-weight: bold;
+}
+
+.footer {
+    font-size: 8pt;
+    text-align: center;
+}
+
+.pass.output {
+    display: none;
+}
+
+.error.output {
+    display: none;
+}
+
+.fail.output {
+    display: none;
+}
+
+.pass.test_group {
+    display: none;
+}
+
+.fail.test_group {
+    display: table-row-group;
+}
+

@@ -1,0 +1,42 @@
+{
+   "refId":"ff808081575807740157581ebe1c0084",
+   "ipAddress":"172.17.12.63",
+   "serviceTag":"2SPJ382",
+   "model":"PowerEdge R630",
+   "deviceType":"RackServer",
+   "discoverDeviceType":"IDRAC7",
+   "displayName":"idrac-2SPJ382",
+   "managedState":"MANAGED",
+   "state":"READY",
+   "manufacturer":"Dell",
+   "systemId":"1243",
+   "health":"GREEN",
+   "healthMessage":"OK",
+   "operatingSystem":"N/A",
+   "numberOfCPUs":2,
+   "cpuType":"Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz",
+   "nics":2,
+   "memoryInGB":32,
+   "complianceCheckDate":"2015-09-14T11:50:56.626+0000",
+   "discoveredDate":"2015-09-14T11:50:56.524+0000",
+   "deviceGroupList":{
+      "deviceGroup":[
+         {
+            "groupSeqId":-1,
+            "groupName":"Global",
+            "createdBy":"admin"
+         }
+      ],
+      "totalCount":0
+   },
+   "detailLink":{
+      "title":"ff8080814faeef51014fcba878a5076d",
+      "href":"http://172.27.15.171:9080/AsmManager/Server/ff8080814faeef51014fcba878a5076d",
+      "rel":"describedby"
+   },
+   "credId":"ff8080814de8b664014de8b7df15008b",
+   "compliance":"COMPLIANT",
+   "failuresCount":0,
+   "chassisId":"ff8080814faeef51014fcba5efe0072d",
+   "facts":"memoryInGB=32;nics=2;numberOfCPUs=2;cpuType=Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz;"
+}

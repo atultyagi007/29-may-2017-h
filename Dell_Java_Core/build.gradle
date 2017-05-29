@@ -1,0 +1,357 @@
+if (parent.path.equals(":")) ext.PARENTPATH = ''; else ext.PARENTPATH = parent.path
+/* Build Orion Commons
+
+Command Line Options
+--------------------   
+To generate and build all source and test code:
+
+  > gradle build compileTestJava -x test 
+    
+To generate and build all source and test code, and to run the test code: 
+
+  > gradle build
+    
+To clean the build directory but leave the generated code untouched:
+
+  > gradle clean
+
+To clean both the build directory and the generated code:
+
+  > gradle cleanAll
+
+To force your local gradle cache to refresh from artifactory
+  > gradle --refresh-dependencies build
+
+*/
+
+// WAR file plugin
+apply plugin: 'war'
+
+ext {
+    rpm_packageName = env.RPM_PACKAGENAME ? env.RPM_PACKAGENAME : 'Dell-ASM-AsmManager'
+    rpm_description = env.RPM_DESCRIPTION ? env.RPM_DESCRIPTION : 'Dell Active System Manager AsmManager'
+    rpm_summary = env.RPM_SUMMARY ? env.RPM_SUMMARY : 'Dell Active System Manager AsmManager'
+    rpm_version = env.RPM_VERSION ? env.RPM_VERSION : '8.3.1'
+    rpm_vendor = env.RPM_VENDOR ? env.RPM_VENDOR : 'Dell, Inc.'
+    rpm_url = env.RPM_URL ? env.RPM_URL : 'http://www.dell.com/'
+    rpm_license = env.RPM_LICENSE ? env.RPM_LICENSE : 'DELL END USER LICENSE AGREEMENT - TYPE A'
+    rpm_packager = env.RPM_PACKAGER ? env.RPM_PACKAGER : 'vsd_buildmeisters'
+    repo_minVersion = env.REPO_MIN_VERSION ? env.REPO_MIN_VERSION : '8.0.1.0'
+    repo_releaseNotesLink = env.RELEASE_NOTES_LINK ? env.RELEASE_NOTES_LINK : 'http://www.dell.com/asmdocs/'
+}
+
+// Do not run integration tests during normal builds
+test {
+    exclude '**/*IT.class'
+    exclude '**/integration*/**'
+
+    maxHeapSize = "1g"
+}
+
+// --------------------------------------------------------------------------
+// Customize the WAR task
+// --------------------------------------------------------------------------
+//war {
+// Override name of war to avoid change existing URLs after renaming
+// this module to JRAF-App. The renaming was done to avoid an Eclipse
+// project name clash with the top-level jraf/ directory.
+//baseName = 'JRAF'
+//}
+war {
+    manifest {
+        attributes("AsmManager-Version": project.version, 
+           "AsmManager-Build-Id": project.buildId, 
+           "AsmManager-Build-Number": project.buildNumber,
+           "RA-Version": project.version, 
+           "RA-Build-Id": project.buildId, 
+           "RA-Build-Number": project.buildNumber)
+    }
+    appendix = ''
+    version = ''
+    classifier = ''
+    //baseName = 'api#AsmManager'
+}
+
+import org.freecompany.redline.payload.*
+import org.freecompany.redline.header.*
+
+task rpm(dependsOn: 'war') << {
+    File rpmDestinationDirectory = new File("${buildDir}/distributions")
+    if (!rpmDestinationDirectory.isDirectory()) {
+        rpmDestinationDirectory.mkdirs()
+    }
+
+    // write dell product version and release to a properties file 
+    // and to a profile.d file and include that file in the rpm
+    File productPropertiesFile = new File("${buildDir}/${project.rpm_packageName}.properties")
+    productPropertiesFile << "VERSION=$project.rpm_version\n"
+    productPropertiesFile << "RELEASE=$project.buildNumber\n"
+    File profile_d_file = new File("${buildDir}/${project.rpm_packageName}.sh")
+    profile_d_file << "${project.rpm_packageName.tr('-', '_')}_VERSION=$project.rpm_version\n"
+    profile_d_file << "export ${project.rpm_packageName.tr('-', '_')}_VERSION\n"
+    profile_d_file << "${project.rpm_packageName.tr('-', '_')}_RELEASE=$project.buildNumber\n"
+    profile_d_file << "export ${project.rpm_packageName.tr('-', '_')}_RELEASE\n"
+
+    org.freecompany.redline.Builder rpmBuilder = new org.freecompany.redline.Builder()
+    rpmBuilder.addFile("/opt/Dell/ASM/webapps/${war.archiveName}", new File("${war.destinationDir}/${war.archiveName}"), 0644, Directive.NONE, 'tomcat', 'tomcat')
+    rpmBuilder.addFile("/opt/Dell/conf/${project.rpm_packageName}.properties", file("${buildDir}/${project.rpm_packageName}.properties"), 0644, Directive.NONE, 'root', 'root')
+    rpmBuilder.addFile("/etc/profile.d/${project.rpm_packageName}.sh", file("${buildDir}/${project.rpm_packageName}.sh"), 0644, Directive.NONE, 'root', 'root')
+    rpmBuilder.setPackage(project.rpm_packageName, project.rpm_version, project.buildNumber.toString())
+    rpmBuilder.setType(RpmType.BINARY)
+    rpmBuilder.setPlatform(Architecture.NOARCH, 'LINUX')
+    rpmBuilder.setSummary(project.rpm_summary)
+    rpmBuilder.setDescription(project.rpm_description)
+    rpmBuilder.setBuildHost('localhost')
+    rpmBuilder.setLicense(project.rpm_license)
+    rpmBuilder.setGroup('Enterprise Systems Management')
+    rpmBuilder.setDistribution('')
+    rpmBuilder.setVendor(project.rpm_vendor)
+    rpmBuilder.setPackager(project.rpm_packager)
+    rpmBuilder.setUrl(project.rpm_url)
+    rpmBuilder.setPrefixes('/opt/Dell/ASM/webapps')
+    // BMC tool dependency
+    rpmBuilder.addDependencyMore('dell-pec-bmc-tool','2014.10.15')
+
+    println rpmBuilder.build(rpmDestinationDirectory)
+
+}
+
+// --------------------------------------------------------------------------
+// TASK: Make sure target directories exist
+// --------------------------------------------------------------------------
+// This task executes as part of the configuration phase 
+// that runs every time this file is invoked.
+task initDirs {
+    // Make sure the default build directory exists (build/classes/main)
+    sourceSets.main.output.classesDir.mkdirs()
+}
+
+configurations {
+    // ChassisRA (used for an integration test) still has a dependency on the old
+    // spectre / skyhawk Commons module which has transitive dependencies that cannot be
+    // resolved. Excluding it here; this can be removed if the Commons dependency is
+    // removed from ChassisRA.
+    testCompile.exclude group: 'com.dell.asm.libcommons', module: 'Commons' //, version: '7.1.0-SNAPSHOT'
+    
+    all*.exclude group: 'commons-lang', module: 'commons-lang-2.4'
+    compile.exclude group: 'com.wordnik', module: 'com.wordnik:swagger-jaxrs_2.9.1'
+}
+
+// --------------------------------------------------------------------------
+// Define compile-time and runtime dependencies
+// --------------------------------------------------------------------------
+dependencies {
+    compile project("${PARENTPATH}:AsmManagerClient")
+    compile project("${PARENTPATH}:adminClient")
+    compile project("${PARENTPATH}:ChassisRAClient")
+    compile project("${PARENTPATH}:ServerRAClient")
+    compile project("${PARENTPATH}:admin")
+    compile project("${PARENTPATH}:ServerRA")
+    compile project("${PARENTPATH}:ChassisRA")
+
+    providedCompile "com.wordnik:swagger-annotations_2.9.1:${versions.swagger}"
+    providedCompile "com.wordnik:swagger-jaxrs_2.9.1:${versions.swagger}"
+
+    providedCompile "com.dell.asm.libext:DatabaseManager:${versions.libext}"
+    providedCompile "com.dell.asm.libext:EncryptionManager:${versions.libext}"
+    providedCompile "com.dell.asm.libext:SNMPTrapManager:${versions.libext}"
+    providedCompile "com.dell.asm.libext:IdentityPoolManager:${versions.libext}"
+    providedCompile "com.dell.asm.libext:RepositoryManager:${versions.libext}"
+    providedCompile "com.dell.asm.libext:ASMCommons:${versions.libext}"
+    compile "com.dell.asm.jraf:JRAF-Client:${versions.jraf}"
+    providedCompile "com.dell.asm.libext:JobManager:${versions.libext}"
+    providedCompile "com.dell.asm.libext:QueueManager:${versions.libext}"
+    providedCompile group: 'com.fasterxml.jackson.core', name:'jackson-databind', version: '2.8.4'
+    providedCompile group: 'com.fasterxml.jackson.module', name: 'jackson-module-jaxb-annotations', version: '2.8.4'
+    providedCompile group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-json-provider', version: '2.8.4'
+    providedCompile group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-base', version: '2.8.4'
+    compile "com.dell.asm.libcommons:EncryptionManagerService:${versions.libcommons}"
+    compile group: 'com.dell.asm.libcommons', name: 'RestAppHelpers', version: versions.libcommons
+    compile "com.dell.asm.alcm:ApplianceLifecycleManager-Client:0.0.1-SNAPSHOT"
+    compile "commons-validator:commons-validator:${versions.commons_validator}"
+    compile "com.github.cverges:expect4j:1.9@jar"
+    compile "oro:oro:2.0.8@jar"
+    compile "com.jcraft:jsch:0.1.53@jar"
+    compile "com.dell.asm.libcommons:WSManageLib2:${versions.libcommons}"
+    compile 'dnsjava:dnsjava:2.1.7'
+    compile "org.springframework:spring-web:${versions.springframework}"
+    compile "com.github.zafarkhaja:java-semver:0.9.0"
+
+    
+
+    // ----- Compile time dependencies -----
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: versions.servlet_api
+    providedCompile group: 'log4j', name: 'log4j', version: versions.log4j
+    providedCompile group: 'com.dell.asm.libext', name: 'I18N', version: versions.libext
+    providedCompile "com.dell.asm.libext:JRAF-Registry:${versions.libext}"
+    providedCompile "com.dell.asm.libext:RestCommon:${versions.libext}"
+    providedCompile "com.dell.asm.libext:LocalizableMessageManager:${versions.libext}"
+    providedCompile "com.dell.asm.libext:UserManager:${versions.libext}"
+    providedCompile "com.dell.asm.libext:TomcatIntegration:${versions.libext}"
+
+    providedCompile "org.apache.commons:commons-lang3:${versions.commons_lang3}"
+    
+    // Additional hibernate dependencies required for JRAF at runtime
+    providedCompile "org.hibernate:hibernate-c3p0:${versions.hibernate}"
+
+    // ASM common code shared at container level
+    compileOnly "com.dell.asm.libext:ASMCommons:${versions.libext}"
+
+    // ----- Runtime dependencies -----
+    runtime ("com.wordnik:swagger-annotations_2.9.1:${versions.swagger}") {
+        exclude group: 'org.slf4j', module: 'slf4j-api'
+        exclude group: 'org.scala-lang', module: 'scala-library'
+        exclude group: 'org.scala-lang', module: 'scala-compiler'
+        exclude group: 'javax.ws.rs', module: 'javax.ws.rs-api'
+        exclude group: 'com.fasterxml.jackson.module', module: 'jackson-module-scala_2.9.1'
+        exclude group: 'com.fasterxml.jackson.core', module: 'jackson-annotations'
+        exclude group: 'com.fasterxml.jackson.module', module: 'jackson-module-jsonSchema'
+        exclude group: 'com.fasterxml.jackson.jaxrs', module: 'jackson-jaxrs-json-provider'
+        exclude group: 'org.json4s', module: 'json4s-ext_2.9.1-1'
+        exclude group: 'org.json4s', module: 'json4s-native_2.9.1-1'
+        exclude group: 'org.json4s', module: 'json4s-jackson_2.9.1-1'
+        exclude group: 'org.reflections', module: 'reflections'
+    }
+
+    // ----- Test compile time dependencies -----
+    testCompile "junit:junit:${versions.junit}"
+    testCompile "org.mockito:mockito-core:${versions.mockito}"
+    testCompile("log4j:log4j:${versions.log4j}") { force = true }
+    testCompile "com.dell.asm.libext:UserManager:${versions.libext}"
+    testCompile group: 'com.dell.asm.libext', name: 'RestTestUtils', version: versions.libext
+    testCompile group: 'com.dell.asm.libext', name: 'TomcatIntegration', version: versions.libext
+    testCompile group: 'com.dell.asm.libcommons', name: 'RestAppHelpers', version: versions.libcommons
+
+    testCompile project(path: "${PARENTPATH}:ChassisRA", configuration: "tests")
+    testCompile project(path: "${PARENTPATH}:ServerRA", configuration: "tests")
+
+    // ----- Test runtime dependencies -----
+    testRuntime "commons-beanutils:commons-beanutils:${versions.commons_beanutils}"
+}
+
+import org.apache.tools.ant.filters.ReplaceTokens
+
+processResources {
+    def asmVersion = "${project.rpm_version}-${project.buildNumber}".toString()
+    from('src/main/resources') {
+        // Substitute @VERSION@ token in .properties files with build version
+        include '*.properties'
+        filter(ReplaceTokens, tokens: [VERSION: asmVersion])
+    }
+    from('src/main/resources/default_service_templates') {
+        into 'default_service_templates'
+        include '*.xml'
+        filter(ReplaceTokens, tokens: [VERSION: asmVersion])
+    }
+    def repo_releaseVersion = "${project.rpm_version}.${project.buildNumber}".toString()
+    from('src/main/resources/repository') {
+        include '*.xml'
+        filter(ReplaceTokens, tokens: [RELEASE_VERSION: repo_releaseVersion, MIN_VERSION : repo_minVersion, RELEASE_NOTES_LINK : repo_releaseNotesLink])
+    }
+}
+
+// The path to an Apache TomEE installation is needed by the tomeeDeploy tasks. It can be set by
+// setting TOMEE_HOME as a gradle property or an environment variable.
+//
+// Setting a gradle property can be done via a command-line invocation:
+//
+//   gradle -PTOMEE_HOME=C:/path/to/tomee tomeeDeploy
+//
+// or as a line in the user gradle.properties file, %USERPROFILE%\.gradle\gradle.properties on
+// on Windows.
+def TOMEE_HOME = project.hasProperty('TOMEE_HOME') ? project.getProperty('TOMEE_HOME')
+: System.getenv('TOMEE_HOME');
+
+// This method checks very carefully that the specified path looks like an Apache TomEE
+// installation and throws an InvalidUserDataException otherwise.
+def validateTomeeInstallation(path) {
+    if (!path) {
+        throw new InvalidUserDataException("TOMEE_HOME not set.  Must be set as a gradle property"
+                + "(-PTOMEE_HOME=C:/path/to/install) or as an environment variable in order to"
+                + " execute this task.");
+    }
+
+    ['bin', 'conf', 'lib', 'logs', 'temp', 'webapps', 'work'].each { dirName ->
+        File f = file("${path}/${dirName}")
+        if (!f.exists() || !f.isDirectory()) {
+            throw new InvalidUserDataException("TOMEE_HOME " + path
+                    + " is not valid; does not contain directory: " + fileName)
+        }
+    }
+}
+
+// deployWar task: deploy war to TOMEE_HOME/webapps
+//
+// War is deployed with the name JRAF.war, i.e. the version string is dropped from the
+// file name.  This ensures that the app base URL is http://localhost:9080/JRAF which
+// is what some of the integration tests rely on.
+task deployWar(type: Copy) {
+    group = 'TomEE'
+    description = 'Deploy JRAF war to TOMEE_HOME/webapps'
+
+    doFirst {
+        validateTomeeInstallation(TOMEE_HOME)
+    }
+
+    // Destination directory is TOMEE_HOME/libjraf
+    from war.archivePath
+    into "${TOMEE_HOME}/webapps"
+    rename war.archiveName, "${war.baseName}.war"
+}
+deployWar.dependsOn(war)
+
+// removeWar task: clean the war and its unpacked directory from TOMEE_HOME/webapps
+task removeWar(type: Delete) {
+    group = 'TomEE'
+    description = 'Clean JRAF war from TOMEE_HOME/webapps'
+
+    doFirst {
+        validateTomeeInstallation(TOMEE_HOME)
+    }
+
+    // Delete the deployed war and is unpack directory
+    delete "${TOMEE_HOME}/webapps/${war.baseName}.war", "${TOMEE_HOME}/webapps/${war.baseName}"
+}
+
+task tomeeDeploy
+tomeeDeploy.description = 'Deploy all build artifacts to TOMEE_HOME'
+tomeeDeploy.group = 'TomEE'
+tomeeDeploy.dependsOn(deployWar)
+
+// eclipseWEBINFDeploy task - Copy META-INF/* files and WEB-INF/lib/* files from the gradle-built
+// JRAF war file into ${projectDir}/WebContent.  This is useful for deploying JRAF from Eclipse.
+//
+// WARNING: This is a copy task, so older files will not be deleted from WebContent.  If you wish
+// to start fresh, manually delete WebContent/META-INF and WebContent/WEB-INF/lib.  Purposefully
+// not making this a Sync task due to the risk of deleting files from the working directory.
+// (Sorry Richard, heh!)
+task eclipseWEBINFDeploy(type: Copy) {
+    from zipTree(war.archivePath)
+    include 'WEB-INF/lib/**/*'
+    include 'META-INF/**/*'
+    include 'images/**/*'
+    into "${projectDir}/WebContent"
+}
+eclipseWEBINFDeploy.dependsOn(war)
+
+// --------------------------------------------------------------------------
+// TASK: Clean all generated source code, compiled code, and built artifacts
+// --------------------------------------------------------------------------
+task cleanAll(dependsOn: clean) << {
+}
+
+// -----------------------------------------------------------------------------
+// TASK: Copy jars in classpath to temp dir. Needed to correct findbugs warning.
+// -----------------------------------------------------------------------------
+task copyToExt(type: Copy) {
+    inputs.files sourceSets.test.compileClasspath
+    outputs.dir "${projectDir}/build/tmp/external"
+    into "${projectDir}/build/tmp/external"
+    from sourceSets.test.compileClasspath
+}
+
+dependencies {
+    testRuntime files("${projectDir}/build/tmp/external") {
+        builtBy 'copyToExt'
+    }
+}

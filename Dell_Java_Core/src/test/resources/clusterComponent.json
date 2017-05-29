@@ -1,0 +1,2257 @@
+{"component": {
+        "id": "4E510B4E-6409-4C25-825A-97DAF6C519A0",
+        "componentID": "component-cluster-vcenter-1",
+        "componentValid": {
+          "valid": true,
+          "messages": [
+
+          ]
+        },
+        "puppetCertName": "vcenter-vcenter-as800r.aidev.com",
+        "name": "VMWare Cluster",
+        "type": "CLUSTER",
+        "subType": null,
+        "teardown": false,
+        "helpText": null,
+        "configFile": null,
+        "serialNumber": null,
+        "asmGUID": "vcenter-172.28.15.6",
+        "relatedComponents": {
+          "6E0C3FAC-32D4-45E9-9AF0-86F1617280AD": "Server"
+        },
+        "associatedComponents": {
+          "entry": [
+            {
+              "key": "6E0C3FAC-32D4-45E9-9AF0-86F1617280AD",
+              "value": {
+                "entry": [
+                  {
+                    "key": "name",
+                    "value": "Server"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "resources": [
+          {
+            "id": "asm::cluster",
+            "displayName": "Cluster Settings",
+            "parameters": [
+              {
+                "id": "datacenter",
+                "value": "esxi51_dc",
+                "type": "ENUMERATED",
+                "displayName": "Data Center Name",
+                "required": true,
+                "requiredAtDeployment": true,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0,
+                "possibleValues": [
+
+                ],
+                "possibleValuesDisplayName": [
+
+                ],
+                "dependencyTarget": null,
+                "dependencyValue": null,
+                "networks": null,
+                "networkConfiguration": null,
+                "raidConfiguration": null,
+                "options": [
+                  {
+                    "value": "",
+                    "name": "Select...",
+                    "dependencyTarget": null,
+                    "dependencyValue": null
+                  },
+                  {
+                    "value": "AS800R",
+                    "name": "AS800R",
+                    "dependencyTarget": "asm_guid",
+                    "dependencyValue": "vcenter-172.28.15.6"
+                  },
+                  {
+                    "value": "a5466dcb",
+                    "name": "a5466dcb",
+                    "dependencyTarget": "asm_guid",
+                    "dependencyValue": "vcenter-172.28.15.6"
+                  },
+                  {
+                    "value": "a5630dc",
+                    "name": "a5630dc",
+                    "dependencyTarget": "asm_guid",
+                    "dependencyValue": "vcenter-172.28.15.6"
+                  },
+                  {
+                    "value": "a5630dcmem",
+                    "name": "a5630dcmem",
+                    "dependencyTarget": "asm_guid",
+                    "dependencyValue": "vcenter-172.28.15.6"
+                  },
+                  {
+                    "value": "a5630dcvds",
+                    "name": "a5630dcvds",
+                    "dependencyTarget": "asm_guid",
+                    "dependencyValue": "vcenter-172.28.15.6"
+                  },
+                  {
+                    "value": "adan-dc",
+                    "name": "adan-dc",
+                    "dependencyTarget": "asm_guid",
+                    "dependencyValue": "vcenter-172.28.15.6"
+                  },
+                  {
+                    "value": "dkim-dc2",
+                    "name": "dkim-dc2",
+                    "dependencyTarget": "asm_guid",
+                    "dependencyValue": "vcenter-172.28.15.6"
+                  },
+                  {
+                    "value": "esxi51_dc",
+                    "name": "esxi51_dc",
+                    "dependencyTarget": "asm_guid",
+                    "dependencyValue": "vcenter-172.28.15.6"
+                  }
+                ],
+                "toolTip": null,
+                "readOnly": false,
+                "generated": false,
+                "group": null,
+                "infoIcon": false,
+                "maxLength": 256,
+                "step": 1
+              },
+              {
+                "id": "cluster",
+                "value": "test-alex",
+                "type": "STRING",
+                "displayName": "Cluster Name",
+                "required": true,
+                "requiredAtDeployment": true,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0,
+                "possibleValues": [
+
+                ],
+                "possibleValuesDisplayName": [
+
+                ],
+                "dependencyTarget": null,
+                "dependencyValue": null,
+                "networks": null,
+                "networkConfiguration": null,
+                "raidConfiguration": null,
+                "options": [
+
+                ],
+                "toolTip": null,
+                "readOnly": false,
+                "generated": false,
+                "group": null,
+                "infoIcon": false,
+                "maxLength": 256,
+                "step": 1
+              },
+              {
+                "id": "ha_config",
+                "value": "false",
+                "type": "BOOLEAN",
+                "displayName": "Cluster HA Enabled",
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0,
+                "possibleValues": [
+
+                ],
+                "possibleValuesDisplayName": [
+
+                ],
+                "dependencyTarget": "cluster",
+                "dependencyValue": "test-alex",
+                "networks": null,
+                "networkConfiguration": null,
+                "raidConfiguration": null,
+                "options": [
+
+                ],
+                "toolTip": null,
+                "readOnly": false,
+                "generated": false,
+                "group": null,
+                "infoIcon": false,
+                "maxLength": 256,
+                "step": 1
+              },
+              {
+                "id": "drs_config",
+                "value": "false",
+                "type": "BOOLEAN",
+                "displayName": "Cluster DRS Enabled",
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0,
+                "possibleValues": [
+
+                ],
+                "possibleValuesDisplayName": [
+
+                ],
+                "dependencyTarget": "cluster",
+                "dependencyValue": "test-alex",
+                "networks": null,
+                "networkConfiguration": null,
+                "raidConfiguration": null,
+                "options": [
+
+                ],
+                "toolTip": null,
+                "readOnly": false,
+                "generated": false,
+                "group": null,
+                "infoIcon": false,
+                "maxLength": 256,
+                "step": 1
+              },
+              {
+                "id": "vds_enabled",
+                "value": "true",
+                "type": "BOOLEAN",
+                "displayName": "Enable Virtual Distributed Switches For Host Networks",
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0,
+                "possibleValues": [
+
+                ],
+                "possibleValuesDisplayName": [
+
+                ],
+                "dependencyTarget": null,
+                "dependencyValue": null,
+                "networks": null,
+                "networkConfiguration": null,
+                "raidConfiguration": null,
+                "options": [
+
+                ],
+                "toolTip": null,
+                "readOnly": false,
+                "generated": false,
+                "group": null,
+                "infoIcon": false,
+                "maxLength": 256,
+                "step": 1
+              },
+              {
+                "id": "ensure",
+                "value": "present",
+                "type": "STRING",
+                "displayName": null,
+                "required": true,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": true,
+                "min": 0,
+                "max": 0,
+                "possibleValues": [
+
+                ],
+                "possibleValuesDisplayName": [
+
+                ],
+                "dependencyTarget": null,
+                "dependencyValue": null,
+                "networks": null,
+                "networkConfiguration": null,
+                "raidConfiguration": null,
+                "options": [
+
+                ],
+                "toolTip": null,
+                "readOnly": false,
+                "generated": false,
+                "group": "none",
+                "infoIcon": false,
+                "maxLength": 256,
+                "step": 1
+              },
+              {
+                "id": "title",
+                "value": "vcenter-vcenter-as800r.aidev.com",
+                "type": "STRING",
+                "displayName": null,
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": true,
+                "min": null,
+                "max": null,
+                "possibleValues": [
+
+                ],
+                "possibleValuesDisplayName": [
+
+                ],
+                "dependencyTarget": null,
+                "dependencyValue": null,
+                "networks": null,
+                "networkConfiguration": null,
+                "raidConfiguration": null,
+                "options": [
+
+                ],
+                "toolTip": null,
+                "readOnly": false,
+                "generated": false,
+                "group": null,
+                "infoIcon": false,
+                "maxLength": 256,
+                "step": 1
+              }
+            ]
+          },
+          {
+            "id": "asm::cluster::vds",
+            "displayName": "vSphere VDS Settings",
+            "parameters": [
+              {
+                "id": "vds_name",
+                "value": "",
+                "type": "ENUMERATED",
+                "displayName": "VDS Name",
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": true,
+                "min": 0,
+                "max": 0,
+                "possibleValues": [
+
+                ],
+                "possibleValuesDisplayName": [
+
+                ],
+                "dependencyTarget": "vds_enabled",
+                "dependencyValue": "true",
+                "networks": null,
+                "networkConfiguration": null,
+                "raidConfiguration": null,
+                "options": [
+                  {
+                    "value": "",
+                    "name": "Select...",
+                    "dependencyTarget": null,
+                    "dependencyValue": null
+                  },
+                  {
+                    "value": "WLdvswitch",
+                    "name": "WLdvswitch",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5466dcb"
+                  },
+                  {
+                    "value": "a5526Mgmtb",
+                    "name": "a5526Mgmtb",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5466dcb"
+                  },
+                  {
+                    "value": "a5526iSCSIb",
+                    "name": "a5526iSCSIb",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5466dcb"
+                  },
+                  {
+                    "value": "a5630iSCSI",
+                    "name": "a5630iSCSI",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5630dcvds"
+                  },
+                  {
+                    "value": "a5630mgmt",
+                    "name": "a5630mgmt",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5630dcvds"
+                  },
+                  {
+                    "value": "a5630vmot",
+                    "name": "a5630vmot",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5630dcvds"
+                  },
+                  {
+                    "value": "a5630wl",
+                    "name": "a5630wl",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5630dcvds"
+                  },
+                  {
+                    "value": "iscsivds",
+                    "name": "iscsivds",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "esxi51_dc"
+                  },
+                  {
+                    "value": "mnagementvds",
+                    "name": "mnagementvds",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "esxi51_dc"
+                  },
+                  {
+                    "value": "workloadvds",
+                    "name": "workloadvds",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "esxi51_dc"
+                  }
+                ],
+                "toolTip": null,
+                "readOnly": false,
+                "generated": true,
+                "group": "VDS",
+                "infoIcon": false,
+                "maxLength": 256,
+                "step": 1
+              },
+              {
+                "id": "vds_pg",
+                "value": "",
+                "type": "ENUMERATED",
+                "displayName": "Port Group",
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": true,
+                "min": 0,
+                "max": 0,
+                "possibleValues": [
+
+                ],
+                "possibleValuesDisplayName": [
+
+                ],
+                "dependencyTarget": "vds_enabled",
+                "dependencyValue": "true",
+                "networks": null,
+                "networkConfiguration": null,
+                "raidConfiguration": null,
+                "options": [
+                  {
+                    "value": "",
+                    "name": "Select...",
+                    "dependencyTarget": null,
+                    "dependencyValue": null
+                  },
+                  {
+                    "value": "WLdvswitch-DVUplinks-7104",
+                    "name": "WLdvswitch-DVUplinks-7104",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "WLdvswitch"
+                  },
+                  {
+                    "value": "dvPortGroup",
+                    "name": "dvPortGroup",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "WLdvswitch"
+                  },
+                  {
+                    "value": "WLportgropu",
+                    "name": "WLportgropu",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "WLdvswitch"
+                  },
+                  {
+                    "value": "wlportgp",
+                    "name": "wlportgp",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "a5526Mgmtb-uplink-pg",
+                    "name": "a5526Mgmtb-uplink-pg",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "a5526Mgmtb",
+                    "name": "a5526Mgmtb",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "a5526PXEb",
+                    "name": "a5526PXEb",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "a5526iSCSIb-uplink-pg",
+                    "name": "a5526iSCSIb-uplink-pg",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "a5526iSCSIb"
+                  },
+                  {
+                    "value": "iSCSI1bb",
+                    "name": "iSCSI1bb",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "a5526iSCSIb"
+                  },
+                  {
+                    "value": "iSCSI2bb",
+                    "name": "iSCSI2bb",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "a5526iSCSIb"
+                  },
+                  {
+                    "value": "a5630scsi2",
+                    "name": "a5630scsi2",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "a5630iSCSI"
+                  },
+                  {
+                    "value": "a5630iSCSI-uplink-pg",
+                    "name": "a5630iSCSI-uplink-pg",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "a5630iSCSI"
+                  },
+                  {
+                    "value": "a5630scis1",
+                    "name": "a5630scis1",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "a5630iSCSI"
+                  },
+                  {
+                    "value": "a5630mgmt-uplink-pg",
+                    "name": "a5630mgmt-uplink-pg",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "a5630mgmt"
+                  },
+                  {
+                    "value": "a5630pxe",
+                    "name": "a5630pxe",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "a5630mgmt"
+                  },
+                  {
+                    "value": "a5630mgtpg",
+                    "name": "a5630mgtpg",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "a5630mgmt"
+                  },
+                  {
+                    "value": "a5630vmot-uplink-pg",
+                    "name": "a5630vmot-uplink-pg",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "a5630vmot"
+                  },
+                  {
+                    "value": "a5630vmotpg",
+                    "name": "a5630vmotpg",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "a5630vmot"
+                  },
+                  {
+                    "value": "a5630wl-uplink-pg",
+                    "name": "a5630wl-uplink-pg",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "a5630wl"
+                  },
+                  {
+                    "value": "a5630wlpg",
+                    "name": "a5630wlpg",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "a5630wl"
+                  },
+                  {
+                    "value": "iscsivds-uplink-pg",
+                    "name": "iscsivds-uplink-pg",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "iscsivds"
+                  },
+                  {
+                    "value": "pxepg",
+                    "name": "pxepg",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "mnagementvds"
+                  },
+                  {
+                    "value": "mgmtdvportgroup",
+                    "name": "mgmtdvportgroup",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "mnagementvds"
+                  },
+                  {
+                    "value": "mnagementvds-uplink-pg",
+                    "name": "mnagementvds-uplink-pg",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "mnagementvds"
+                  },
+                  {
+                    "value": "workloadvds-uplink-pg",
+                    "name": "workloadvds-uplink-pg",
+                    "dependencyTarget": "vds_name",
+                    "dependencyValue": "workloadvds"
+                  }
+                ],
+                "toolTip": null,
+                "readOnly": false,
+                "generated": true,
+                "group": "VDS",
+                "infoIcon": false,
+                "maxLength": 256,
+                "step": 1
+              },
+              {
+                "id": "ensure",
+                "value": "present",
+                "type": "STRING",
+                "displayName": null,
+                "required": true,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": true,
+                "min": 0,
+                "max": 0,
+                "possibleValues": [
+
+                ],
+                "possibleValuesDisplayName": [
+
+                ],
+                "dependencyTarget": null,
+                "dependencyValue": null,
+                "networks": null,
+                "networkConfiguration": null,
+                "raidConfiguration": null,
+                "options": [
+
+                ],
+                "toolTip": null,
+                "readOnly": false,
+                "generated": false,
+                "group": "none",
+                "infoIcon": false,
+                "maxLength": 256,
+                "step": 1
+              },
+              {
+                "id": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                "value": "mnagementvds",
+                "type": "ENUMERATED",
+                "displayName": "VDS Name",
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0,
+                "possibleValues": [
+
+                ],
+                "possibleValuesDisplayName": [
+
+                ],
+                "dependencyTarget": "vds_enabled",
+                "dependencyValue": "true",
+                "networks": null,
+                "networkConfiguration": null,
+                "raidConfiguration": null,
+                "options": [
+                  {
+                    "value": "",
+                    "name": "Select...",
+                    "dependencyTarget": null,
+                    "dependencyValue": null
+                  },
+                  {
+                    "value": "a5526iSCSIb",
+                    "name": "a5526iSCSIb",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5466dcb"
+                  },
+                  {
+                    "value": "a5526Mgmtb",
+                    "name": "a5526Mgmtb",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5466dcb"
+                  },
+                  {
+                    "value": "a5630iSCSI",
+                    "name": "a5630iSCSI",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5630dcvds"
+                  },
+                  {
+                    "value": "a5630mgmt",
+                    "name": "a5630mgmt",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5630dcvds"
+                  },
+                  {
+                    "value": "a5630vmot",
+                    "name": "a5630vmot",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5630dcvds"
+                  },
+                  {
+                    "value": "a5630wl",
+                    "name": "a5630wl",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5630dcvds"
+                  },
+                  {
+                    "value": "iscsivds",
+                    "name": "iscsivds",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "esxi51_dc"
+                  },
+                  {
+                    "value": "mnagementvds",
+                    "name": "mnagementvds",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "esxi51_dc"
+                  },
+                  {
+                    "value": "WLdvswitch",
+                    "name": "WLdvswitch",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5466dcb"
+                  },
+                  {
+                    "value": "workloadvds",
+                    "name": "workloadvds",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "esxi51_dc"
+                  }
+                ],
+                "toolTip": null,
+                "readOnly": false,
+                "generated": true,
+                "group": "VDS 1",
+                "infoIcon": false,
+                "maxLength": 256,
+                "step": 1
+              },
+              {
+                "id": "vds_pg::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137::ff8080815255fd7b0152560b9ab20002::1",
+                "value": "mgmtdvportgroup",
+                "type": "ENUMERATED",
+                "displayName": "Hypervisor Management Port Group",
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0,
+                "possibleValues": [
+
+                ],
+                "possibleValuesDisplayName": [
+
+                ],
+                "dependencyTarget": "vds_enabled",
+                "dependencyValue": "true",
+                "networks": null,
+                "networkConfiguration": null,
+                "raidConfiguration": null,
+                "options": [
+                  {
+                    "value": "",
+                    "name": "Select...",
+                    "dependencyTarget": null,
+                    "dependencyValue": null
+                  },
+                  {
+                    "value": "a5526iSCSIb-uplink-pg",
+                    "name": "a5526iSCSIb-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5526iSCSIb"
+                  },
+                  {
+                    "value": "a5526Mgmtb",
+                    "name": "a5526Mgmtb",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "a5526Mgmtb-uplink-pg",
+                    "name": "a5526Mgmtb-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "a5526PXEb",
+                    "name": "a5526PXEb",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "a5630iSCSI-uplink-pg",
+                    "name": "a5630iSCSI-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5630iSCSI"
+                  },
+                  {
+                    "value": "a5630mgmt-uplink-pg",
+                    "name": "a5630mgmt-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5630mgmt"
+                  },
+                  {
+                    "value": "a5630mgtpg",
+                    "name": "a5630mgtpg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5630mgmt"
+                  },
+                  {
+                    "value": "a5630pxe",
+                    "name": "a5630pxe",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5630mgmt"
+                  },
+                  {
+                    "value": "a5630scis1",
+                    "name": "a5630scis1",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5630iSCSI"
+                  },
+                  {
+                    "value": "a5630scsi2",
+                    "name": "a5630scsi2",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5630iSCSI"
+                  },
+                  {
+                    "value": "a5630vmot-uplink-pg",
+                    "name": "a5630vmot-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5630vmot"
+                  },
+                  {
+                    "value": "a5630vmotpg",
+                    "name": "a5630vmotpg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5630vmot"
+                  },
+                  {
+                    "value": "a5630wl-uplink-pg",
+                    "name": "a5630wl-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5630wl"
+                  },
+                  {
+                    "value": "a5630wlpg",
+                    "name": "a5630wlpg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5630wl"
+                  },
+                  {
+                    "value": "dvPortGroup",
+                    "name": "dvPortGroup",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "WLdvswitch"
+                  },
+                  {
+                    "value": "iSCSI1bb",
+                    "name": "iSCSI1bb",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5526iSCSIb"
+                  },
+                  {
+                    "value": "iSCSI2bb",
+                    "name": "iSCSI2bb",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5526iSCSIb"
+                  },
+                  {
+                    "value": "iscsivds-uplink-pg",
+                    "name": "iscsivds-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "iscsivds"
+                  },
+                  {
+                    "value": "mgmtdvportgroup",
+                    "name": "mgmtdvportgroup",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "mnagementvds"
+                  },
+                  {
+                    "value": "mnagementvds-uplink-pg",
+                    "name": "mnagementvds-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "mnagementvds"
+                  },
+                  {
+                    "value": "pxepg",
+                    "name": "pxepg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "mnagementvds"
+                  },
+                  {
+                    "value": "WLdvswitch-DVUplinks-7104",
+                    "name": "WLdvswitch-DVUplinks-7104",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "WLdvswitch"
+                  },
+                  {
+                    "value": "wlportgp",
+                    "name": "wlportgp",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "WLportgropu",
+                    "name": "WLportgropu",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "WLdvswitch"
+                  },
+                  {
+                    "value": "workloadvds-uplink-pg",
+                    "name": "workloadvds-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "workloadvds"
+                  }
+                ],
+                "toolTip": null,
+                "readOnly": false,
+                "generated": true,
+                "group": "VDS 1",
+                "infoIcon": false,
+                "maxLength": 256,
+                "step": 1
+              },
+              {
+                "id": "vds_pg::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137::ff8080815255fd7b0152560ba9fc0137::1",
+                "value": "pxepg",
+                "type": "ENUMERATED",
+                "displayName": "PXE Port Group",
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0,
+                "possibleValues": [
+
+                ],
+                "possibleValuesDisplayName": [
+
+                ],
+                "dependencyTarget": "vds_enabled",
+                "dependencyValue": "true",
+                "networks": null,
+                "networkConfiguration": null,
+                "raidConfiguration": null,
+                "options": [
+                  {
+                    "value": "",
+                    "name": "Select...",
+                    "dependencyTarget": null,
+                    "dependencyValue": null
+                  },
+                  {
+                    "value": "a5526iSCSIb-uplink-pg",
+                    "name": "a5526iSCSIb-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5526iSCSIb"
+                  },
+                  {
+                    "value": "a5526Mgmtb",
+                    "name": "a5526Mgmtb",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "a5526Mgmtb-uplink-pg",
+                    "name": "a5526Mgmtb-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "a5526PXEb",
+                    "name": "a5526PXEb",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "a5630iSCSI-uplink-pg",
+                    "name": "a5630iSCSI-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5630iSCSI"
+                  },
+                  {
+                    "value": "a5630mgmt-uplink-pg",
+                    "name": "a5630mgmt-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5630mgmt"
+                  },
+                  {
+                    "value": "a5630mgtpg",
+                    "name": "a5630mgtpg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5630mgmt"
+                  },
+                  {
+                    "value": "a5630pxe",
+                    "name": "a5630pxe",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5630mgmt"
+                  },
+                  {
+                    "value": "a5630scis1",
+                    "name": "a5630scis1",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5630iSCSI"
+                  },
+                  {
+                    "value": "a5630scsi2",
+                    "name": "a5630scsi2",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5630iSCSI"
+                  },
+                  {
+                    "value": "a5630vmot-uplink-pg",
+                    "name": "a5630vmot-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5630vmot"
+                  },
+                  {
+                    "value": "a5630vmotpg",
+                    "name": "a5630vmotpg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5630vmot"
+                  },
+                  {
+                    "value": "a5630wl-uplink-pg",
+                    "name": "a5630wl-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5630wl"
+                  },
+                  {
+                    "value": "a5630wlpg",
+                    "name": "a5630wlpg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5630wl"
+                  },
+                  {
+                    "value": "dvPortGroup",
+                    "name": "dvPortGroup",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "WLdvswitch"
+                  },
+                  {
+                    "value": "iSCSI1bb",
+                    "name": "iSCSI1bb",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5526iSCSIb"
+                  },
+                  {
+                    "value": "iSCSI2bb",
+                    "name": "iSCSI2bb",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5526iSCSIb"
+                  },
+                  {
+                    "value": "iscsivds-uplink-pg",
+                    "name": "iscsivds-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "iscsivds"
+                  },
+                  {
+                    "value": "mgmtdvportgroup",
+                    "name": "mgmtdvportgroup",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "mnagementvds"
+                  },
+                  {
+                    "value": "mnagementvds-uplink-pg",
+                    "name": "mnagementvds-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "mnagementvds"
+                  },
+                  {
+                    "value": "pxepg",
+                    "name": "pxepg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "mnagementvds"
+                  },
+                  {
+                    "value": "WLdvswitch-DVUplinks-7104",
+                    "name": "WLdvswitch-DVUplinks-7104",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "WLdvswitch"
+                  },
+                  {
+                    "value": "wlportgp",
+                    "name": "wlportgp",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "WLportgropu",
+                    "name": "WLportgropu",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "WLdvswitch"
+                  },
+                  {
+                    "value": "workloadvds-uplink-pg",
+                    "name": "workloadvds-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560b9ab20002:ff8080815255fd7b0152560ba9fc0137",
+                    "dependencyValue": "workloadvds"
+                  }
+                ],
+                "toolTip": null,
+                "readOnly": false,
+                "generated": true,
+                "group": "VDS 1",
+                "infoIcon": false,
+                "maxLength": 256,
+                "step": 1
+              },
+              {
+                "id": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                "value": "iscsivds",
+                "type": "ENUMERATED",
+                "displayName": "VDS Name",
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0,
+                "possibleValues": [
+
+                ],
+                "possibleValuesDisplayName": [
+
+                ],
+                "dependencyTarget": "vds_enabled",
+                "dependencyValue": "true",
+                "networks": null,
+                "networkConfiguration": null,
+                "raidConfiguration": null,
+                "options": [
+                  {
+                    "value": "",
+                    "name": "Select...",
+                    "dependencyTarget": null,
+                    "dependencyValue": null
+                  },
+                  {
+                    "value": "a5526iSCSIb",
+                    "name": "a5526iSCSIb",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5466dcb"
+                  },
+                  {
+                    "value": "a5526Mgmtb",
+                    "name": "a5526Mgmtb",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5466dcb"
+                  },
+                  {
+                    "value": "a5630iSCSI",
+                    "name": "a5630iSCSI",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5630dcvds"
+                  },
+                  {
+                    "value": "a5630mgmt",
+                    "name": "a5630mgmt",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5630dcvds"
+                  },
+                  {
+                    "value": "a5630vmot",
+                    "name": "a5630vmot",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5630dcvds"
+                  },
+                  {
+                    "value": "a5630wl",
+                    "name": "a5630wl",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5630dcvds"
+                  },
+                  {
+                    "value": "iscsivds",
+                    "name": "iscsivds",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "esxi51_dc"
+                  },
+                  {
+                    "value": "mnagementvds",
+                    "name": "mnagementvds",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "esxi51_dc"
+                  },
+                  {
+                    "value": "WLdvswitch",
+                    "name": "WLdvswitch",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5466dcb"
+                  },
+                  {
+                    "value": "workloadvds",
+                    "name": "workloadvds",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "esxi51_dc"
+                  }
+                ],
+                "toolTip": null,
+                "readOnly": false,
+                "generated": true,
+                "group": "VDS 2",
+                "infoIcon": false,
+                "maxLength": 256,
+                "step": 1
+              },
+              {
+                "id": "vds_pg::ff8080815255fd7b0152560ba6b100d1::ff8080815255fd7b0152560ba6b100d1::1",
+                "value": "iscsivds-uplink-pg",
+                "type": "ENUMERATED",
+                "displayName": "iSCSI Port Group 1",
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0,
+                "possibleValues": [
+
+                ],
+                "possibleValuesDisplayName": [
+
+                ],
+                "dependencyTarget": "vds_enabled",
+                "dependencyValue": "true",
+                "networks": null,
+                "networkConfiguration": null,
+                "raidConfiguration": null,
+                "options": [
+                  {
+                    "value": "",
+                    "name": "Select...",
+                    "dependencyTarget": null,
+                    "dependencyValue": null
+                  },
+                  {
+                    "value": "a5526iSCSIb-uplink-pg",
+                    "name": "a5526iSCSIb-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "a5526iSCSIb"
+                  },
+                  {
+                    "value": "a5526Mgmtb",
+                    "name": "a5526Mgmtb",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "a5526Mgmtb-uplink-pg",
+                    "name": "a5526Mgmtb-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "a5526PXEb",
+                    "name": "a5526PXEb",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "a5630iSCSI-uplink-pg",
+                    "name": "a5630iSCSI-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "a5630iSCSI"
+                  },
+                  {
+                    "value": "a5630mgmt-uplink-pg",
+                    "name": "a5630mgmt-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "a5630mgmt"
+                  },
+                  {
+                    "value": "a5630mgtpg",
+                    "name": "a5630mgtpg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "a5630mgmt"
+                  },
+                  {
+                    "value": "a5630pxe",
+                    "name": "a5630pxe",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "a5630mgmt"
+                  },
+                  {
+                    "value": "a5630scis1",
+                    "name": "a5630scis1",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "a5630iSCSI"
+                  },
+                  {
+                    "value": "a5630scsi2",
+                    "name": "a5630scsi2",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "a5630iSCSI"
+                  },
+                  {
+                    "value": "a5630vmot-uplink-pg",
+                    "name": "a5630vmot-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "a5630vmot"
+                  },
+                  {
+                    "value": "a5630vmotpg",
+                    "name": "a5630vmotpg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "a5630vmot"
+                  },
+                  {
+                    "value": "a5630wl-uplink-pg",
+                    "name": "a5630wl-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "a5630wl"
+                  },
+                  {
+                    "value": "a5630wlpg",
+                    "name": "a5630wlpg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "a5630wl"
+                  },
+                  {
+                    "value": "dvPortGroup",
+                    "name": "dvPortGroup",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "WLdvswitch"
+                  },
+                  {
+                    "value": "iSCSI1bb",
+                    "name": "iSCSI1bb",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "a5526iSCSIb"
+                  },
+                  {
+                    "value": "iSCSI2bb",
+                    "name": "iSCSI2bb",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "a5526iSCSIb"
+                  },
+                  {
+                    "value": "iscsivds-uplink-pg",
+                    "name": "iscsivds-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "iscsivds"
+                  },
+                  {
+                    "value": "mgmtdvportgroup",
+                    "name": "mgmtdvportgroup",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "mnagementvds"
+                  },
+                  {
+                    "value": "mnagementvds-uplink-pg",
+                    "name": "mnagementvds-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "mnagementvds"
+                  },
+                  {
+                    "value": "pxepg",
+                    "name": "pxepg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "mnagementvds"
+                  },
+                  {
+                    "value": "WLdvswitch-DVUplinks-7104",
+                    "name": "WLdvswitch-DVUplinks-7104",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "WLdvswitch"
+                  },
+                  {
+                    "value": "wlportgp",
+                    "name": "wlportgp",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "WLportgropu",
+                    "name": "WLportgropu",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "WLdvswitch"
+                  },
+                  {
+                    "value": "workloadvds-uplink-pg",
+                    "name": "workloadvds-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560ba6b100d1",
+                    "dependencyValue": "workloadvds"
+                  }
+                ],
+                "toolTip": null,
+                "readOnly": false,
+                "generated": true,
+                "group": "VDS 2",
+                "infoIcon": false,
+                "maxLength": 256,
+                "step": 1
+              },
+              {
+                "id": "vds_pg::ff8080815255fd7b0152560ba6b100d1::ff8080815255fd7b0152560ba6b100d1::2",
+                "value": "i2",
+                "type": "STRING",
+                "displayName": "iSCSI Port Group 2",
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0,
+                "possibleValues": [
+
+                ],
+                "possibleValuesDisplayName": [
+
+                ],
+                "dependencyTarget": "vds_enabled",
+                "dependencyValue": "true",
+                "networks": null,
+                "networkConfiguration": null,
+                "raidConfiguration": null,
+                "options": [
+
+                ],
+                "toolTip": null,
+                "readOnly": false,
+                "generated": true,
+                "group": "VDS 2",
+                "infoIcon": false,
+                "maxLength": 256,
+                "step": 1
+              },
+              {
+                "id": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                "value": "workloadvds",
+                "type": "ENUMERATED",
+                "displayName": "VDS Name",
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0,
+                "possibleValues": [
+
+                ],
+                "possibleValuesDisplayName": [
+
+                ],
+                "dependencyTarget": "vds_enabled",
+                "dependencyValue": "true",
+                "networks": null,
+                "networkConfiguration": null,
+                "raidConfiguration": null,
+                "options": [
+                  {
+                    "value": "",
+                    "name": "Select...",
+                    "dependencyTarget": null,
+                    "dependencyValue": null
+                  },
+                  {
+                    "value": "a5526iSCSIb",
+                    "name": "a5526iSCSIb",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5466dcb"
+                  },
+                  {
+                    "value": "a5526Mgmtb",
+                    "name": "a5526Mgmtb",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5466dcb"
+                  },
+                  {
+                    "value": "a5630iSCSI",
+                    "name": "a5630iSCSI",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5630dcvds"
+                  },
+                  {
+                    "value": "a5630mgmt",
+                    "name": "a5630mgmt",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5630dcvds"
+                  },
+                  {
+                    "value": "a5630vmot",
+                    "name": "a5630vmot",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5630dcvds"
+                  },
+                  {
+                    "value": "a5630wl",
+                    "name": "a5630wl",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5630dcvds"
+                  },
+                  {
+                    "value": "iscsivds",
+                    "name": "iscsivds",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "esxi51_dc"
+                  },
+                  {
+                    "value": "mnagementvds",
+                    "name": "mnagementvds",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "esxi51_dc"
+                  },
+                  {
+                    "value": "WLdvswitch",
+                    "name": "WLdvswitch",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5466dcb"
+                  },
+                  {
+                    "value": "workloadvds",
+                    "name": "workloadvds",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "esxi51_dc"
+                  }
+                ],
+                "toolTip": null,
+                "readOnly": false,
+                "generated": true,
+                "group": "VDS 3",
+                "infoIcon": false,
+                "maxLength": 256,
+                "step": 1
+              },
+              {
+                "id": "$new$vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                "value": "",
+                "type": "STRING",
+                "displayName": "Create New",
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0,
+                "possibleValues": [
+
+                ],
+                "possibleValuesDisplayName": [
+
+                ],
+                "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                "dependencyValue": "$new$",
+                "networks": null,
+                "networkConfiguration": null,
+                "raidConfiguration": null,
+                "options": [
+                  {
+                    "value": "",
+                    "name": "Select...",
+                    "dependencyTarget": null,
+                    "dependencyValue": null
+                  },
+                  {
+                    "value": "a5526iSCSIb",
+                    "name": "a5526iSCSIb",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5466dcb"
+                  },
+                  {
+                    "value": "a5526Mgmtb",
+                    "name": "a5526Mgmtb",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5466dcb"
+                  },
+                  {
+                    "value": "a5630iSCSI",
+                    "name": "a5630iSCSI",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5630dcvds"
+                  },
+                  {
+                    "value": "a5630mgmt",
+                    "name": "a5630mgmt",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5630dcvds"
+                  },
+                  {
+                    "value": "a5630vmot",
+                    "name": "a5630vmot",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5630dcvds"
+                  },
+                  {
+                    "value": "a5630wl",
+                    "name": "a5630wl",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5630dcvds"
+                  },
+                  {
+                    "value": "iscsivds",
+                    "name": "iscsivds",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "esxi51_dc"
+                  },
+                  {
+                    "value": "mnagementvds",
+                    "name": "mnagementvds",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "esxi51_dc"
+                  },
+                  {
+                    "value": "WLdvswitch",
+                    "name": "WLdvswitch",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "a5466dcb"
+                  },
+                  {
+                    "value": "workloadvds",
+                    "name": "workloadvds",
+                    "dependencyTarget": "datacenter",
+                    "dependencyValue": "esxi51_dc"
+                  }
+                ],
+                "toolTip": null,
+                "readOnly": false,
+                "generated": true,
+                "group": "VDS 3",
+                "infoIcon": false,
+                "maxLength": 256,
+                "step": 1
+              },
+              {
+                "id": "vds_pg::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd::ff8080815255fd7b0152560baca90138::1",
+                "value": "workloadvds-uplink-pg",
+                "type": "ENUMERATED",
+                "displayName": "Workload Port Group 1",
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0,
+                "possibleValues": [
+
+                ],
+                "possibleValuesDisplayName": [
+
+                ],
+                "dependencyTarget": "vds_enabled",
+                "dependencyValue": "true",
+                "networks": null,
+                "networkConfiguration": null,
+                "raidConfiguration": null,
+                "options": [
+                  {
+                    "value": "",
+                    "name": "Select...",
+                    "dependencyTarget": null,
+                    "dependencyValue": null
+                  },
+                  {
+                    "value": "a5526iSCSIb-uplink-pg",
+                    "name": "a5526iSCSIb-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5526iSCSIb"
+                  },
+                  {
+                    "value": "a5526Mgmtb",
+                    "name": "a5526Mgmtb",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "a5526Mgmtb-uplink-pg",
+                    "name": "a5526Mgmtb-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "a5526PXEb",
+                    "name": "a5526PXEb",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "a5630iSCSI-uplink-pg",
+                    "name": "a5630iSCSI-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630iSCSI"
+                  },
+                  {
+                    "value": "a5630mgmt-uplink-pg",
+                    "name": "a5630mgmt-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630mgmt"
+                  },
+                  {
+                    "value": "a5630mgtpg",
+                    "name": "a5630mgtpg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630mgmt"
+                  },
+                  {
+                    "value": "a5630pxe",
+                    "name": "a5630pxe",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630mgmt"
+                  },
+                  {
+                    "value": "a5630scis1",
+                    "name": "a5630scis1",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630iSCSI"
+                  },
+                  {
+                    "value": "a5630scsi2",
+                    "name": "a5630scsi2",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630iSCSI"
+                  },
+                  {
+                    "value": "a5630vmot-uplink-pg",
+                    "name": "a5630vmot-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630vmot"
+                  },
+                  {
+                    "value": "a5630vmotpg",
+                    "name": "a5630vmotpg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630vmot"
+                  },
+                  {
+                    "value": "a5630wl-uplink-pg",
+                    "name": "a5630wl-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630wl"
+                  },
+                  {
+                    "value": "a5630wlpg",
+                    "name": "a5630wlpg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630wl"
+                  },
+                  {
+                    "value": "dvPortGroup",
+                    "name": "dvPortGroup",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "WLdvswitch"
+                  },
+                  {
+                    "value": "iSCSI1bb",
+                    "name": "iSCSI1bb",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5526iSCSIb"
+                  },
+                  {
+                    "value": "iSCSI2bb",
+                    "name": "iSCSI2bb",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5526iSCSIb"
+                  },
+                  {
+                    "value": "iscsivds-uplink-pg",
+                    "name": "iscsivds-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "iscsivds"
+                  },
+                  {
+                    "value": "mgmtdvportgroup",
+                    "name": "mgmtdvportgroup",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "mnagementvds"
+                  },
+                  {
+                    "value": "mnagementvds-uplink-pg",
+                    "name": "mnagementvds-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "mnagementvds"
+                  },
+                  {
+                    "value": "pxepg",
+                    "name": "pxepg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "mnagementvds"
+                  },
+                  {
+                    "value": "WLdvswitch-DVUplinks-7104",
+                    "name": "WLdvswitch-DVUplinks-7104",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "WLdvswitch"
+                  },
+                  {
+                    "value": "wlportgp",
+                    "name": "wlportgp",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "WLportgropu",
+                    "name": "WLportgropu",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "WLdvswitch"
+                  },
+                  {
+                    "value": "workloadvds-uplink-pg",
+                    "name": "workloadvds-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "workloadvds"
+                  }
+                ],
+                "toolTip": null,
+                "readOnly": false,
+                "generated": true,
+                "group": "VDS 3",
+                "infoIcon": false,
+                "maxLength": 256,
+                "step": 1
+              },
+              {
+                "id": "vds_pg::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd::ff8080815255fd7b0152560baca90138::2",
+                "value": "wkl-pg2",
+                "type": "STRING",
+                "displayName": "Workload Port Group 2",
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0,
+                "possibleValues": [
+
+                ],
+                "possibleValuesDisplayName": [
+
+                ],
+                "dependencyTarget": "vds_enabled",
+                "dependencyValue": "true",
+                "networks": null,
+                "networkConfiguration": null,
+                "raidConfiguration": null,
+                "options": [
+
+                ],
+                "toolTip": null,
+                "readOnly": false,
+                "generated": true,
+                "group": "VDS 3",
+                "infoIcon": false,
+                "maxLength": 256,
+                "step": 1
+              },
+              {
+                "id": "vds_pg::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd::ff808081526ad980015278b5e9700dbd::1",
+                "value": "",
+                "type": "ENUMERATED",
+                "displayName": "WKL3 Port Group 1",
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0,
+                "possibleValues": [
+
+                ],
+                "possibleValuesDisplayName": [
+
+                ],
+                "dependencyTarget": "vds_enabled",
+                "dependencyValue": "true",
+                "networks": null,
+                "networkConfiguration": null,
+                "raidConfiguration": null,
+                "options": [
+                  {
+                    "value": "",
+                    "name": "Select...",
+                    "dependencyTarget": null,
+                    "dependencyValue": null
+                  },
+                  {
+                    "value": "a5526iSCSIb-uplink-pg",
+                    "name": "a5526iSCSIb-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5526iSCSIb"
+                  },
+                  {
+                    "value": "a5526Mgmtb",
+                    "name": "a5526Mgmtb",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "a5526Mgmtb-uplink-pg",
+                    "name": "a5526Mgmtb-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "a5526PXEb",
+                    "name": "a5526PXEb",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "a5630iSCSI-uplink-pg",
+                    "name": "a5630iSCSI-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630iSCSI"
+                  },
+                  {
+                    "value": "a5630mgmt-uplink-pg",
+                    "name": "a5630mgmt-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630mgmt"
+                  },
+                  {
+                    "value": "a5630mgtpg",
+                    "name": "a5630mgtpg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630mgmt"
+                  },
+                  {
+                    "value": "a5630pxe",
+                    "name": "a5630pxe",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630mgmt"
+                  },
+                  {
+                    "value": "a5630scis1",
+                    "name": "a5630scis1",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630iSCSI"
+                  },
+                  {
+                    "value": "a5630scsi2",
+                    "name": "a5630scsi2",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630iSCSI"
+                  },
+                  {
+                    "value": "a5630vmot-uplink-pg",
+                    "name": "a5630vmot-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630vmot"
+                  },
+                  {
+                    "value": "a5630vmotpg",
+                    "name": "a5630vmotpg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630vmot"
+                  },
+                  {
+                    "value": "a5630wl-uplink-pg",
+                    "name": "a5630wl-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630wl"
+                  },
+                  {
+                    "value": "a5630wlpg",
+                    "name": "a5630wlpg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630wl"
+                  },
+                  {
+                    "value": "dvPortGroup",
+                    "name": "dvPortGroup",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "WLdvswitch"
+                  },
+                  {
+                    "value": "iSCSI1bb",
+                    "name": "iSCSI1bb",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5526iSCSIb"
+                  },
+                  {
+                    "value": "iSCSI2bb",
+                    "name": "iSCSI2bb",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5526iSCSIb"
+                  },
+                  {
+                    "value": "iscsivds-uplink-pg",
+                    "name": "iscsivds-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "iscsivds"
+                  },
+                  {
+                    "value": "mgmtdvportgroup",
+                    "name": "mgmtdvportgroup",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "mnagementvds"
+                  },
+                  {
+                    "value": "mnagementvds-uplink-pg",
+                    "name": "mnagementvds-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "mnagementvds"
+                  },
+                  {
+                    "value": "pxepg",
+                    "name": "pxepg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "mnagementvds"
+                  },
+                  {
+                    "value": "WLdvswitch-DVUplinks-7104",
+                    "name": "WLdvswitch-DVUplinks-7104",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "WLdvswitch"
+                  },
+                  {
+                    "value": "wlportgp",
+                    "name": "wlportgp",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "WLportgropu",
+                    "name": "WLportgropu",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "WLdvswitch"
+                  },
+                  {
+                    "value": "workloadvds-uplink-pg",
+                    "name": "workloadvds-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "workloadvds"
+                  }
+                ],
+                "toolTip": null,
+                "readOnly": false,
+                "generated": true,
+                "group": "VDS 3",
+                "infoIcon": false,
+                "maxLength": 256,
+                "step": 1
+              },
+              {
+                "id": "vds_pg::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd::ff808081526ad980015278b5e9700dbd::2",
+                "value": "",
+                "type": "ENUMERATED",
+                "displayName": "WKL3 Port Group 2",
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": false,
+                "min": 0,
+                "max": 0,
+                "possibleValues": [
+
+                ],
+                "possibleValuesDisplayName": [
+
+                ],
+                "dependencyTarget": "vds_enabled",
+                "dependencyValue": "true",
+                "networks": null,
+                "networkConfiguration": null,
+                "raidConfiguration": null,
+                "options": [
+                  {
+                    "value": "",
+                    "name": "Select...",
+                    "dependencyTarget": null,
+                    "dependencyValue": null
+                  },
+                  {
+                    "value": "a5526iSCSIb-uplink-pg",
+                    "name": "a5526iSCSIb-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5526iSCSIb"
+                  },
+                  {
+                    "value": "a5526Mgmtb",
+                    "name": "a5526Mgmtb",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "a5526Mgmtb-uplink-pg",
+                    "name": "a5526Mgmtb-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "a5526PXEb",
+                    "name": "a5526PXEb",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "a5630iSCSI-uplink-pg",
+                    "name": "a5630iSCSI-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630iSCSI"
+                  },
+                  {
+                    "value": "a5630mgmt-uplink-pg",
+                    "name": "a5630mgmt-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630mgmt"
+                  },
+                  {
+                    "value": "a5630mgtpg",
+                    "name": "a5630mgtpg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630mgmt"
+                  },
+                  {
+                    "value": "a5630pxe",
+                    "name": "a5630pxe",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630mgmt"
+                  },
+                  {
+                    "value": "a5630scis1",
+                    "name": "a5630scis1",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630iSCSI"
+                  },
+                  {
+                    "value": "a5630scsi2",
+                    "name": "a5630scsi2",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630iSCSI"
+                  },
+                  {
+                    "value": "a5630vmot-uplink-pg",
+                    "name": "a5630vmot-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630vmot"
+                  },
+                  {
+                    "value": "a5630vmotpg",
+                    "name": "a5630vmotpg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630vmot"
+                  },
+                  {
+                    "value": "a5630wl-uplink-pg",
+                    "name": "a5630wl-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630wl"
+                  },
+                  {
+                    "value": "a5630wlpg",
+                    "name": "a5630wlpg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5630wl"
+                  },
+                  {
+                    "value": "dvPortGroup",
+                    "name": "dvPortGroup",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "WLdvswitch"
+                  },
+                  {
+                    "value": "iSCSI1bb",
+                    "name": "iSCSI1bb",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5526iSCSIb"
+                  },
+                  {
+                    "value": "iSCSI2bb",
+                    "name": "iSCSI2bb",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5526iSCSIb"
+                  },
+                  {
+                    "value": "iscsivds-uplink-pg",
+                    "name": "iscsivds-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "iscsivds"
+                  },
+                  {
+                    "value": "mgmtdvportgroup",
+                    "name": "mgmtdvportgroup",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "mnagementvds"
+                  },
+                  {
+                    "value": "mnagementvds-uplink-pg",
+                    "name": "mnagementvds-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "mnagementvds"
+                  },
+                  {
+                    "value": "pxepg",
+                    "name": "pxepg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "mnagementvds"
+                  },
+                  {
+                    "value": "WLdvswitch-DVUplinks-7104",
+                    "name": "WLdvswitch-DVUplinks-7104",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "WLdvswitch"
+                  },
+                  {
+                    "value": "wlportgp",
+                    "name": "wlportgp",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "a5526Mgmtb"
+                  },
+                  {
+                    "value": "WLportgropu",
+                    "name": "WLportgropu",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "WLdvswitch"
+                  },
+                  {
+                    "value": "workloadvds-uplink-pg",
+                    "name": "workloadvds-uplink-pg",
+                    "dependencyTarget": "vds_name::ff8080815255fd7b0152560baca90138:ff808081526ad980015278b5e9700dbd",
+                    "dependencyValue": "workloadvds"
+                  }
+                ],
+                "toolTip": null,
+                "readOnly": false,
+                "generated": true,
+                "group": "VDS 3",
+                "infoIcon": false,
+                "maxLength": 256,
+                "step": 1
+              },
+              {
+                "id": "title",
+                "value": "vcenter-vcenter-as800r.aidev.com",
+                "type": "STRING",
+                "displayName": null,
+                "required": false,
+                "requiredAtDeployment": false,
+                "hideFromTemplate": true,
+                "min": null,
+                "max": null,
+                "possibleValues": [
+
+                ],
+                "possibleValuesDisplayName": [
+
+                ],
+                "dependencyTarget": null,
+                "dependencyValue": null,
+                "networks": null,
+                "networkConfiguration": null,
+                "raidConfiguration": null,
+                "options": [
+
+                ],
+                "toolTip": null,
+                "readOnly": false,
+                "generated": false,
+                "group": null,
+                "infoIcon": false,
+                "maxLength": 256,
+                "step": 1
+              }
+            ]
+          }
+        ],
+        "refId": null,
+        "cloned": false,
+        "clonedFromId": null,
+        "manageFirmware": false,
+        "brownfield": false,
+        "ip": null
+      }
+}

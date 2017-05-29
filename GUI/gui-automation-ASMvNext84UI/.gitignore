@@ -1,0 +1,5 @@
+*.pyc
+*.xml
+.idea/gui-automation.iml
+config.ini
+logs/*

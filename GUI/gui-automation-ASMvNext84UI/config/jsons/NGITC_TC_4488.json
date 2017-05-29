@@ -1,0 +1,189 @@
+{
+	"Template":
+			{
+				"Name":"Template_esxi_eql_converged_2_4488",
+				"Description":"Deploy a template ESXi EqualLogic Converged 2",
+				"Flow":"esxi",
+				"retryOnFailure":"false"		
+			},
+	"Server":
+			{
+				"Instances":1,
+				"target_boot_device_value":"HD",
+				"OSImage_Value": ["esxi-5.5"],
+				"install_HyperV": "false",
+				"iSCSI_Initiator":"hardware",
+				"HostNameTemplate":"server${num}",
+				"ServerPoolName":"Global",
+				"ServersIPForPool": ["172.31.60.185"],
+				"memEnabled":"false",
+				"Os_Image_Version":"",
+				"Product_Key":"",
+				"domain_name":"",
+				"Domain_Admin_Username":"",
+				"Domain_Admin_Password":"Dell1234",
+				"FQ_Domain_Name":""	,
+				"Networks": "ESXI_EQL_CONVERGED_2",
+				"Static Network Default Gateway":"autoPublicLAN"						
+			},
+	"Storage":
+			{
+				"Instances":1,
+				"Type":"EqualLogic",
+				"Size":["100GB"],
+				"IPAddress":"172.31.32.108",
+				"Initiator_IQN_IP_Addresses":"",
+				"Auth_Type":"IQN/IP",
+				"CHAP_User":"grpadmin",
+				"CHAP_Password":"dell1234",
+				"Operating_SystemName_Compellent":"VMware ESX 5.5",
+				"PortType_Compellent":"FibreChannel",
+				"Aggregate_Name":"Aggregate2RAID4",
+				"Snapshot_Space":"2",
+				"NFS_IP":"172.31.32.81"
+			},
+	"Cluster":
+			{
+				"Instances":1,
+				"Type":"VMWare",
+				"IPAddress":"172.31.61.244",
+				"DCName":"autoDC",
+				"HGName":"",
+				"ClusterName":"autoCluster",
+				"SwitchType":"Standard",	
+				"HA_Config":"false",
+				"DRS_Config":"false",
+				"VSAN_Enabled":"false",
+				"ClusterIP":""
+			},
+		"VM":
+			{
+				"Instances":1,
+				"Type":"VMWareVM",
+				"AutoGenerateHostName":"true",
+				"HostNameTemplate":"autoskvm${num}",
+				"OS_Image":"red7",
+				"OS_Image_Version":"Windows Server 2012 R2 SERVERDATACENTER",
+				"OS_Image_Type" : "redhat7",
+				"Product_Key":"",
+				"CPU_Count":"2",
+				"Memory_MB":"2048",
+				"vm_template_name":"HCLCentos7",
+				"path":"C:\\ClusterStorage\\Volume1",
+				"start_action":"always_auto_turn_on_vm",
+				"stop_action":"turn_off_vm"
+			},
+		"Application":
+			{
+				"Instances":1,
+				"Type":"LinuxPostInstall",
+				"yum_proxy":"",	
+				"install_packages":"",
+				"upload_share":"",
+				"upload_file":"hello.sh",
+				"execute_file_command":"sh /var/lib/puppet/staging/hello.sh",
+				"windows_postinstall_share":"",
+				"windows_install_command":"",
+				"citrix_source_location":""
+			},
+		"Deployment":
+			{
+				"NumberOfDeployments":"",
+				"StaticIP": {
+					"Hypervisor Management": ["172.31.37.76"],
+					"Hypervisor Cluster Private": [],
+					"SAN [iSCSI]": ["172.31.39.76", "172.31.39.77"],
+					"Hypervisor Migration": ["172.31.36.76"],
+					"Public LAN": ["172.31.33.76", "172.31.33.77"]
+				},
+				"ManualServer":["1L0SLV1"]
+			},
+	"Scaleup":
+		{
+			"Server":
+			{
+				"Instances":1,
+				"target_boot_device_value":"SD",
+				"OSImage_Value": ["esxi-6.0"],
+				"iSCSI_Initiator":"hardware",
+				"HostNameTemplate":"server${num}",
+				"ServerPoolName":"autoPool",
+				"ServersIPForPool": ["172.31.61.111"],
+				"memEnabled":"false",
+				"Networks": "ESXI_EQL_CONVERGED_2"							
+			},
+			"Storage":
+			{
+				"Instances":0,
+				"Type":"EqualLogic",
+				"Size":["100GB"],
+				"IPAddress":"172.31.32.106",
+				"Initiator_IQN_IP_Addresses":"",
+				"Auth_Type":"CHAP",
+				"CHAP_User":"grpadmin",
+				"CHAP_Password":"dell1234",
+				"Operating_SystemName_Compellent":"VMware ESX 5.5",
+				"PortType_Compellent":"FibreChannel",
+				"Volume_Name" : "scaleupVolume"
+								
+			},
+			"Cluster": 
+			{
+				"Instances":0,
+				"Type":"VMWare",
+				"IPAddress":"172.31.61.50",
+				"DCName":"autoDC",
+				"HGName":"",
+				"ClusterName":"autoCluster",
+				"SwitchType":"Standard",	
+				"HA_Config":"false",
+				"DRS_Config":"false",
+				"VSAN_Enabled":"false",
+				"ClusterIP":""	
+			},
+			"VM": 
+			{
+				"Instances":0,
+				"Type":"VMWareVM",
+				"AutoGenerateHostName":"true",
+				"HostNameTemplate":"vm${num}",
+				"OS_Image":"red7",
+				"OS_Image_Version":"Windows Server 2012 R2 SERVERDATACENTER",
+				"OS_Image_Type" : "redhat7",
+				"Product_Key":"",
+				"CPU_Count":"1",
+				"Memory_MB":"1024"
+			},
+			"Application": 
+			{
+				"Instances":0,
+				"Type":"LinuxPostInstall",
+				"yum_proxy":"",	
+				"install_packages":"",
+				"upload_share":"",
+				"upload_file":"hello.sh",
+				"execute_file_command":"sh",
+				"windows_postinstall_share":"",
+				"windows_install_command":"",
+				"citrix_source_location":""			
+			},
+			"Network": 
+			{
+				"Instances":0,
+				"select_network":["CustomPublic", "test_hcl"],
+				"select_resource":["host", "host"]			
+			},
+			"Deployment":
+			{
+				"NumberOfDeployments":"",
+				"StaticIP": {
+					"Hypervisor Management": ["172.31.37.77"],
+					"Hypervisor Cluster Private": [],
+					"SAN [iSCSI]": ["172.31.39.78", "172.31.39.79"],
+					"Hypervisor Migration": ["172.31.36.77"],
+					"Public LAN": ["172.31.33.53", "172.31.33.79"]
+				},
+				"ManualServer":["1L0SLV1"]
+			}
+		}
+}

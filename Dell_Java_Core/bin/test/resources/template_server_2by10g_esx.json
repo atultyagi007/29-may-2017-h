@@ -1,0 +1,1995 @@
+{
+  "id": "ff8080815670ba6f0156715924dd00ae",
+  "templateName": "localsan",
+  "templateDescription": "",
+  "templateVersion": "8.3.0-6744",
+  "templateValid": {
+    "valid": false,
+    "messages": []
+  },
+  "templateLocked": false,
+  "createdDate": "2016-08-09T22:08:02.781+0000",
+  "createdBy": "admin",
+  "updatedDate": "2016-09-26T16:25:11.029+0000",
+  "updatedBy": "admin",
+  "manageFirmware": false,
+  "attachments": [],
+  "assignedUsers": [],
+  "allUsersAllowed": false,
+  "enableApps": false,
+  "enableVMs": false,
+  "enableCluster": false,
+  "enableServer": false,
+  "enableStorage": false,
+  "category": "alex",
+  "components": [
+    {
+      "id": "C5B03B98-8925-49C9-B370-15100849BD6E",
+      "componentValid": {
+        "valid": false,
+        "messages": [
+          {
+            "messageCode": "ASM00282",
+            "messageBundle": "AsmManagerMessages",
+            "severity": "ERROR",
+            "category": "USER_FACING",
+            "displayMessage": "The Server requires a PXE Network when using boot device type of SD or Local Hard Drive. ",
+            "responseAction": "Configure a PXE Network on the Server or select a boot device type other than SD or Local Hard Drive.",
+            "detailedMessage": "The Server requires a PXE Network when using boot device type of SD or Local Hard Drive in order to install the OS",
+            "agentId": "ASM Manager",
+            "timeStamp": "2016-09-26T16:25:10.991+0000",
+            "sequenceNumber": 0
+          },
+          {
+            "messageCode": "ASM00141",
+            "messageBundle": "AsmManagerMessages",
+            "severity": "ERROR",
+            "category": "USER_FACING",
+            "displayMessage": "Server template with OS image requires PXE network.",
+            "responseAction": "Add a PXE network to all server components on the template that require OS installation.",
+            "detailedMessage": "ASM installs operating systems on servers using the PXE boot process. This requires a PXE network assigned to be assigned to at least one network interface on the server component.",
+            "agentId": "ASM Manager",
+            "timeStamp": "2016-09-26T16:25:10.998+0000",
+            "sequenceNumber": 0
+          }
+        ]
+      },
+      "teardown": false,
+      "type": "SERVER",
+      "subType": "HYPERVISOR",
+      "relatedComponents": {},
+      "associatedComponents": {},
+      "resources": [
+        {
+          "id": "asm::server",
+          "displayName": "OS Settings",
+          "parameters": [
+            {
+              "type": "BOOLEAN",
+              "displayName": "Auto-generate Host Name",
+              "id": "generate_host_name",
+              "value": "true",
+              "toolTip": "Use the Host Name Template field to auto-generate host names at deployment time. If not selected, a unique host name will be requested when the template is deployed.",
+              "required": false,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "dependencyTarget": "target_boot_device",
+              "dependencyValue": "HD,SD,SD_WITH_RAID_VSAN,SD_WITH_RAID,AHCI_VSAN",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [],
+              "optionsSortable": true
+            },
+            {
+              "type": "STRING",
+              "displayName": "Host Name Template",
+              "id": "os_host_name_template",
+              "value": "server${num}",
+              "toolTip": "Template used to generate host names at deployment time. Must contain variables that will produce a unique host name. Allowed variables  are ${num} (an auto-generated unique number), ${service_tag}, ${model}, ${vendor} and ${dns} (ASM-assigned static IP will be resolved to hostname by DNS lookup).",
+              "required": true,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "dependencyTarget": "generate_host_name",
+              "dependencyValue": "true",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [],
+              "optionsSortable": true
+            },
+            {
+              "type": "STRING",
+              "displayName": "Host Name",
+              "id": "os_host_name",
+              "required": true,
+              "requiredAtDeployment": true,
+              "hideFromTemplate": true,
+              "dependencyTarget": "generate_host_name",
+              "dependencyValue": "false",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [],
+              "optionsSortable": true
+            },
+            {
+              "type": "ENUMERATED",
+              "displayName": "OS Image Type",
+              "id": "os_image_type",
+              "value": "vmware_esxi",
+              "required": false,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": true,
+              "dependencyTarget": "target_boot_device",
+              "dependencyValue": "SD,SD_WITH_RAID,SD_WITH_RAID_VSAN,HD,AHCI_VSAN",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [],
+              "optionsSortable": true
+            },
+            {
+              "type": "ENUMERATED",
+              "displayName": "OS Image",
+              "id": "razor_image",
+              "value": "esxi-5.5",
+              "toolTip": "Location of OS image installation files",
+              "required": true,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "dependencyTarget": "target_boot_device",
+              "dependencyValue": "SD,SD_WITH_RAID,SD_WITH_RAID_VSAN,HD,AHCI_VSAN",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [
+                {
+                  "name": "Select...",
+                  "value": ""
+                },
+                {
+                  "name": "esxi-5.1",
+                  "value": "esxi-5.1"
+                },
+                {
+                  "name": "esxi-5.5",
+                  "value": "esxi-5.5"
+                },
+                {
+                  "name": "esxi-6.0",
+                  "value": "esxi-6.0"
+                }
+              ],
+              "optionsSortable": true
+            },
+            {
+              "type": "BOOLEAN",
+              "displayName": "Install HyperV",
+              "id": "hyperv_install",
+              "value": "false",
+              "required": false,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "dependencyTarget": "razor_image",
+              "dependencyValue": " ",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [],
+              "optionsSortable": true
+            },
+            {
+              "type": "ENUMERATED",
+              "displayName": "OS Image Version",
+              "id": "os_image_version",
+              "value": "",
+              "required": true,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "dependencyTarget": "razor_image",
+              "dependencyValue": " ",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [
+                {
+                  "name": "Select...",
+                  "value": ""
+                }
+              ],
+              "optionsSortable": true
+            },
+            {
+              "type": "PASSWORD",
+              "displayName": "Administrator password",
+              "id": "admin_password",
+              "toolTip": "OS administrator password set on the installed OS",
+              "required": true,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "dependencyTarget": "target_boot_device",
+              "dependencyValue": "SD,SD_WITH_RAID,SD_WITH_RAID_VSAN,HD,AHCI_VSAN",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [],
+              "optionsSortable": true
+            },
+            {
+              "type": "PASSWORD",
+              "displayName": "Confirm administrator password",
+              "id": "admin_confirm_password",
+              "required": true,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "dependencyTarget": "target_boot_device",
+              "dependencyValue": "SD,SD_WITH_RAID,SD_WITH_RAID_VSAN,HD,AHCI_VSAN",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [],
+              "optionsSortable": true
+            },
+            {
+              "type": "STRING",
+              "displayName": "Product Key",
+              "id": "product_key",
+              "required": true,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "dependencyTarget": "razor_image",
+              "dependencyValue": " ",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [],
+              "optionsSortable": true
+            },
+            {
+              "type": "ENUMERATED",
+              "displayName": "Timezone",
+              "id": "timezone",
+              "value": "Central Standard Time",
+              "required": true,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "dependencyTarget": "hyperv_install",
+              "dependencyValue": "true",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [
+                {
+                  "name": "(GMT+09:30) Darwin",
+                  "value": "A.U.S. Central Standard Time"
+                },
+                {
+                  "name": "(GMT+10:00) Canberra, Melbourne, Sydney",
+                  "value": "A.U.S. Eastern Standard Time"
+                },
+                {
+                  "name": "(GMT-09:00) Alaska",
+                  "value": "Alaskan Standard Time"
+                },
+                {
+                  "name": "(GMT+03:00) Kuwait, Riyadh",
+                  "value": "Arab Standard Time"
+                },
+                {
+                  "name": "(GMT+04:00) Abu Dhabi, Muscat",
+                  "value": "Arabian Standard Time"
+                },
+                {
+                  "name": "(GMT+03:00) Baghdad",
+                  "value": "Arabic Standard Time"
+                },
+                {
+                  "name": "(GMT-04:00) Atlantic Time (Canada)",
+                  "value": "Atlantic Standard Time"
+                },
+                {
+                  "name": "(GMT-01:00) Azores",
+                  "value": "Azores Standard Time"
+                },
+                {
+                  "name": "(GMT-06:00) Saskatchewan",
+                  "value": "Canada Central Standard Time"
+                },
+                {
+                  "name": "(GMT-01:00) Cape Verde Islands",
+                  "value": "Cape Verde Standard Time"
+                },
+                {
+                  "name": "(GMT+04:00) Baku, Tbilisi, Yerevan",
+                  "value": "Caucasus Standard Time"
+                },
+                {
+                  "name": "(GMT+09:30) Adelaide",
+                  "value": "Cen. Australia Standard Time"
+                },
+                {
+                  "name": "(GMT-06:00) Central America",
+                  "value": "Central America Standard Time"
+                },
+                {
+                  "name": "(GMT+06:00) Astana, Dhaka",
+                  "value": "Central Asia Standard Time"
+                },
+                {
+                  "name": "(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague",
+                  "value": "Central Europe Standard Time"
+                },
+                {
+                  "name": "(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb",
+                  "value": "Central European Standard Time"
+                },
+                {
+                  "name": "(GMT+11:00) Magadan, Solomon Islands, New Caledonia",
+                  "value": "Central Pacific Standard Time"
+                },
+                {
+                  "name": "(GMT-06:00) Central Time (US and Canada)",
+                  "value": "Central Standard Time"
+                },
+                {
+                  "name": "(GMT+08:00) Beijing, Chongqing, Hong Kong SAR, Urumqi",
+                  "value": "China Standard Time"
+                },
+                {
+                  "name": "(GMT-12:00) International Date Line West",
+                  "value": "Dateline Standard Time"
+                },
+                {
+                  "name": "(GMT+03:00) Nairobi",
+                  "value": "E. Africa Standard Time"
+                },
+                {
+                  "name": "(GMT+10:00) Brisbane",
+                  "value": "E. Australia Standard Time"
+                },
+                {
+                  "name": "(GMT+02:00) Bucharest",
+                  "value": "E. Europe Standard Time"
+                },
+                {
+                  "name": "(GMT-03:00) Brasilia",
+                  "value": "E. South America Standard Time"
+                },
+                {
+                  "name": "(GMT-05:00) Eastern Time (US and Canada)",
+                  "value": "Eastern Standard Time"
+                },
+                {
+                  "name": "(GMT+02:00) Cairo",
+                  "value": "Egypt Standard Time"
+                },
+                {
+                  "name": "(GMT+05:00) Ekaterinburg",
+                  "value": "Ekaterinburg Standard Time"
+                },
+                {
+                  "name": "(GMT+12:00) Fiji Islands, Kamchatka, Marshall Islands",
+                  "value": "Fiji Islands Standard Time"
+                },
+                {
+                  "name": "(GMT+02:00) Helsinki, Kiev, Riga, Sofia, Tallinn, Vilnius",
+                  "value": "FLE Standard Time"
+                },
+                {
+                  "name": "(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London",
+                  "value": "GMT Standard Time"
+                },
+                {
+                  "name": "(GMT-03:00) Greenland",
+                  "value": "Greenland Standard Time"
+                },
+                {
+                  "name": "(GMT) Casablanca, Monrovia",
+                  "value": "Greenwich Standard Time"
+                },
+                {
+                  "name": "(GMT+02:00) Athens, Istanbul, Minsk",
+                  "value": "GTB Standard Time"
+                },
+                {
+                  "name": "(GMT-10:00) Hawaii",
+                  "value": "Hawaiian Standard Time"
+                },
+                {
+                  "name": "(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi",
+                  "value": "India Standard Time"
+                },
+                {
+                  "name": "(GMT+03:30) Tehran",
+                  "value": "Iran Standard Time"
+                },
+                {
+                  "name": "(GMT+02:00) Jerusalem",
+                  "value": "Israel Standard Time"
+                },
+                {
+                  "name": "(GMT+09:00) Seoul",
+                  "value": "Korea Standard Time"
+                },
+                {
+                  "name": "(GMT-06:00) Guadalajara, Mexico City, Monterrey",
+                  "value": "Mexico Standard Time"
+                },
+                {
+                  "name": "(GMT-07:00) Chihuahua, La Paz, Mazatlan",
+                  "value": "Mexico Standard Time 2"
+                },
+                {
+                  "name": "(GMT-02:00) Mid-Atlantic",
+                  "value": "Mid-Atlantic Standard Time"
+                },
+                {
+                  "name": "(GMT-07:00) Mountain Time (US and Canada)",
+                  "value": "Mountain Standard Time"
+                },
+                {
+                  "name": "(GMT+06:30) Yangon Rangoon",
+                  "value": "Myanmar Standard Time"
+                },
+                {
+                  "name": "(GMT+06:00) Almaty, Novosibirsk",
+                  "value": "N. Central Asia Standard Time"
+                },
+                {
+                  "name": "(GMT+05:45) Kathmandu",
+                  "value": "Nepal Standard Time"
+                },
+                {
+                  "name": "(GMT+12:00) Auckland, Wellington",
+                  "value": "New Zealand Standard Time"
+                },
+                {
+                  "name": "(GMT-03:30) Newfoundland and Labrador",
+                  "value": "Newfoundland and Labrador Standard Time"
+                },
+                {
+                  "name": "(GMT+08:00) Irkutsk, Ulaanbaatar",
+                  "value": "North Asia East Standard Time"
+                },
+                {
+                  "name": "(GMT+07:00) Krasnoyarsk",
+                  "value": "North Asia Standard Time"
+                },
+                {
+                  "name": "(GMT-04:00) Santiago",
+                  "value": "Pacific S.A. Standard Time"
+                },
+                {
+                  "name": "(GMT-08:00) Pacific Time (US and Canada); Tijuana",
+                  "value": "Pacific Standard Time"
+                },
+                {
+                  "name": "(GMT+01:00) Brussels, Copenhagen, Madrid, Paris",
+                  "value": "Romance Standard Time"
+                },
+                {
+                  "name": "(GMT+03:00) Moscow, St. Petersburg, Volgograd",
+                  "value": "Russian Standard Time"
+                },
+                {
+                  "name": "(GMT-03:00) Buenos Aires, Georgetown",
+                  "value": "S.A. Eastern Standard Time"
+                },
+                {
+                  "name": "(GMT-05:00) Bogota, Lima, Quito",
+                  "value": "S.A. Pacific Standard Time"
+                },
+                {
+                  "name": "(GMT-04:00) Caracas, La Paz",
+                  "value": "S.A. Western Standard Time"
+                },
+                {
+                  "name": "(GMT+07:00) Bangkok, Hanoi, Jakarta",
+                  "value": "S.E. Asia Standard Time"
+                },
+                {
+                  "name": "(GMT-11:00) Midway Island, Samoa",
+                  "value": "Samoa Standard Time"
+                },
+                {
+                  "name": "(GMT+08:00) Kuala Lumpur, Singapore",
+                  "value": "Singapore Standard Time"
+                },
+                {
+                  "name": "(GMT+02:00) Harare, Pretoria",
+                  "value": "South Africa Standard Time"
+                },
+                {
+                  "name": "(GMT+06:00) Sri Jayawardenepura",
+                  "value": "Sri Lanka Standard Time"
+                },
+                {
+                  "name": "(GMT+08:00) Taipei",
+                  "value": "Taipei Standard Time"
+                },
+                {
+                  "name": "(GMT+10:00) Hobart",
+                  "value": "Tasmania Standard Time"
+                },
+                {
+                  "name": "(GMT+09:00) Osaka, Sapporo, Tokyo",
+                  "value": "Tokyo Standard Time"
+                },
+                {
+                  "name": "(GMT+13:00) Nuku'alofa",
+                  "value": "Tonga Standard Time"
+                },
+                {
+                  "name": "(GMT+04:30) Kabul",
+                  "value": "Transitional Islamic State of Afghanistan Standard Time"
+                },
+                {
+                  "name": "(GMT-05:00) Indiana (East)",
+                  "value": "U.S. Eastern Standard Time"
+                },
+                {
+                  "name": "(GMT-07:00) Arizona",
+                  "value": "U.S. Mountain Standard Time"
+                },
+                {
+                  "name": "(GMT+10:00) Vladivostok",
+                  "value": "Vladivostok Standard Time"
+                },
+                {
+                  "name": "(GMT+08:00) Perth",
+                  "value": "W. Australia Standard Time"
+                },
+                {
+                  "name": "(GMT+01:00) West Central Africa",
+                  "value": "W. Central Africa Standard Time"
+                },
+                {
+                  "name": "(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna",
+                  "value": "W. Europe Standard Time"
+                },
+                {
+                  "name": "(GMT+05:00) Islamabad, Karachi, Tashkent",
+                  "value": "West Asia Standard Time"
+                },
+                {
+                  "name": "(GMT+10:00) Guam, Port Moresby",
+                  "value": "West Pacific Standard Time"
+                },
+                {
+                  "name": "(GMT+09:00) Yakutsk",
+                  "value": "Yakutsk Standard Time"
+                }
+              ],
+              "optionsSortable": true
+            },
+            {
+              "type": "ENUMERATED",
+              "displayName": "Timezone",
+              "id": "time_zone",
+              "value": "11",
+              "required": false,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "dependencyTarget": "razor_image",
+              "dependencyValue": " ",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [
+                {
+                  "name": "(UTC-12:00) International Date Line West",
+                  "value": "1"
+                },
+                {
+                  "name": "(UTC-06:00) Central America",
+                  "value": "10"
+                },
+                {
+                  "name": "(UTC+13:00) Samoa",
+                  "value": "100"
+                },
+                {
+                  "name": "(UTC-06:00) Central Time (US & Canada)",
+                  "value": "11"
+                },
+                {
+                  "name": "(UTC-06:00) Guadalajara, Mexico City, Monterrey",
+                  "value": "12"
+                },
+                {
+                  "name": "(UTC-06:00) Saskatchewan",
+                  "value": "13"
+                },
+                {
+                  "name": "(UTC-05:00) Bogota, Lima, Quito",
+                  "value": "14"
+                },
+                {
+                  "name": "(UTC-05:00) Eastern Time (US & Canada)",
+                  "value": "15"
+                },
+                {
+                  "name": "(UTC-05:00) Indiana (East)",
+                  "value": "16"
+                },
+                {
+                  "name": "(UTC-04:30) Caracas",
+                  "value": "17"
+                },
+                {
+                  "name": "(UTC-04:00) Asuncion",
+                  "value": "18"
+                },
+                {
+                  "name": "(UTC-04:00) Atlantic Time (Canada)",
+                  "value": "19"
+                },
+                {
+                  "name": "(UTC-11:00) Coordinated Universal Time-11",
+                  "value": "2"
+                },
+                {
+                  "name": "(UTC-04:00) Cuiaba",
+                  "value": "20"
+                },
+                {
+                  "name": "(UTC-04:00) Georgetown, La Paz, Manaus, San Juan",
+                  "value": "21"
+                },
+                {
+                  "name": "(UTC-04:00) Santiago",
+                  "value": "22"
+                },
+                {
+                  "name": "(UTC-03:30) Newfoundland",
+                  "value": "23"
+                },
+                {
+                  "name": "(UTC-03:00) Brasilia",
+                  "value": "24"
+                },
+                {
+                  "name": "(UTC-03:00) Buenos Aires",
+                  "value": "25"
+                },
+                {
+                  "name": "(UTC-03:00) Cayenne, Fortaleza",
+                  "value": "26"
+                },
+                {
+                  "name": "(UTC-03:00) Greenland",
+                  "value": "27"
+                },
+                {
+                  "name": "(UTC-03:00) Montevideo",
+                  "value": "28"
+                },
+                {
+                  "name": "(UTC-03:00) Salvador",
+                  "value": "29"
+                },
+                {
+                  "name": "(UTC-10:00) Hawaii",
+                  "value": "3"
+                },
+                {
+                  "name": "(UTC-02:00) Coordinated Universal Time-02",
+                  "value": "30"
+                },
+                {
+                  "name": "(UTC-01:00) Azores",
+                  "value": "32"
+                },
+                {
+                  "name": "(UTC-01:00) Cape Verde Is.",
+                  "value": "33"
+                },
+                {
+                  "name": "(UTC) Casablanca",
+                  "value": "34"
+                },
+                {
+                  "name": "(UTC) Coordinated Universal Time",
+                  "value": "35"
+                },
+                {
+                  "name": "(UTC) Dublin, Edinburgh, Lisbon, London",
+                  "value": "36"
+                },
+                {
+                  "name": "(UTC) Monrovia, Reykjavik",
+                  "value": "37"
+                },
+                {
+                  "name": "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna",
+                  "value": "38"
+                },
+                {
+                  "name": "(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague",
+                  "value": "39"
+                },
+                {
+                  "name": "(UTC-09:00) Alaska",
+                  "value": "4"
+                },
+                {
+                  "name": "(UTC+01:00) Brussels, Copenhagen, Madrid, Paris",
+                  "value": "40"
+                },
+                {
+                  "name": "(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb",
+                  "value": "41"
+                },
+                {
+                  "name": "(UTC+01:00) West Central Africa",
+                  "value": "42"
+                },
+                {
+                  "name": "(UTC+01:00) Windhoek",
+                  "value": "43"
+                },
+                {
+                  "name": "(UTC+02:00) Amman",
+                  "value": "44"
+                },
+                {
+                  "name": "(UTC+02:00) Athens, Bucharest",
+                  "value": "45"
+                },
+                {
+                  "name": "(UTC+02:00) Beirut",
+                  "value": "46"
+                },
+                {
+                  "name": "(UTC+02:00) Cairo",
+                  "value": "47"
+                },
+                {
+                  "name": "(UTC+02:00) Damascus",
+                  "value": "48"
+                },
+                {
+                  "name": "(UTC+02:00) Harare, Pretoria",
+                  "value": "49"
+                },
+                {
+                  "name": "(UTC-08:00) Baja California",
+                  "value": "5"
+                },
+                {
+                  "name": "(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius",
+                  "value": "50"
+                },
+                {
+                  "name": "(UTC+02:00) Istanbul",
+                  "value": "51"
+                },
+                {
+                  "name": "(UTC+02:00) Jerusalem",
+                  "value": "52"
+                },
+                {
+                  "name": "(UTC+02:00) Nicosia",
+                  "value": "53"
+                },
+                {
+                  "name": "(UTC+03:00) Baghdad",
+                  "value": "54"
+                },
+                {
+                  "name": "(UTC+03:00) Kaliningrad, Minsk",
+                  "value": "55"
+                },
+                {
+                  "name": "(UTC+03:00) Kuwait, Riyadh",
+                  "value": "56"
+                },
+                {
+                  "name": "(UTC+03:00) Nairobi",
+                  "value": "57"
+                },
+                {
+                  "name": "(UTC+03:30) Tehran",
+                  "value": "58"
+                },
+                {
+                  "name": "(UTC+04:00) Abu Dhabi, Muscat",
+                  "value": "59"
+                },
+                {
+                  "name": "(UTC-08:00) Pacific Time (US & Canada)",
+                  "value": "6"
+                },
+                {
+                  "name": "(UTC+04:00) Baku",
+                  "value": "60"
+                },
+                {
+                  "name": "(UTC+04:00) Moscow, St. Petersburg, Volgograd",
+                  "value": "61"
+                },
+                {
+                  "name": "(UTC+04:00) Port Louis",
+                  "value": "62"
+                },
+                {
+                  "name": "(UTC+04:00) Tbilisi",
+                  "value": "63"
+                },
+                {
+                  "name": "(UTC+04:00) Yerevan",
+                  "value": "64"
+                },
+                {
+                  "name": "(UTC+04:30) Kabul",
+                  "value": "65"
+                },
+                {
+                  "name": "(UTC+05:00) Islamabad, Karachi",
+                  "value": "66"
+                },
+                {
+                  "name": "(UTC+05:00) Tashkent",
+                  "value": "67"
+                },
+                {
+                  "name": "(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi",
+                  "value": "68"
+                },
+                {
+                  "name": "(UTC+05:30) Sri Jayawardenepura",
+                  "value": "69"
+                },
+                {
+                  "name": "(UTC-07:00) Arizona",
+                  "value": "7"
+                },
+                {
+                  "name": "(UTC+05:45) Kathmandu",
+                  "value": "70"
+                },
+                {
+                  "name": "(UTC+06:00) Astana",
+                  "value": "71"
+                },
+                {
+                  "name": "(UTC+06:00) Dhaka",
+                  "value": "72"
+                },
+                {
+                  "name": "(UTC+06:00) Ekaterinburg",
+                  "value": "73"
+                },
+                {
+                  "name": "(UTC+06:30) Yangon (Rangoon)",
+                  "value": "74"
+                },
+                {
+                  "name": "(UTC+07:00) Bangkok, Hanoi, Jakarta",
+                  "value": "75"
+                },
+                {
+                  "name": "(UTC+07:00) Novosibirsk",
+                  "value": "76"
+                },
+                {
+                  "name": "(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi",
+                  "value": "77"
+                },
+                {
+                  "name": "(UTC+08:00) Krasnoyarsk",
+                  "value": "78"
+                },
+                {
+                  "name": "(UTC+08:00) Kuala Lumpur, Singapore",
+                  "value": "79"
+                },
+                {
+                  "name": "(UTC-07:00) Chihuahua, La Paz, Mazatlan",
+                  "value": "8"
+                },
+                {
+                  "name": "(UTC+08:00) Perth",
+                  "value": "80"
+                },
+                {
+                  "name": "(UTC+08:00) Taipei",
+                  "value": "81"
+                },
+                {
+                  "name": "(UTC+08:00) Ulaanbaatar",
+                  "value": "82"
+                },
+                {
+                  "name": "(UTC+09:00) Irkutsk",
+                  "value": "83"
+                },
+                {
+                  "name": "(UTC+09:00) Osaka, Sapporo, Tokyo",
+                  "value": "84"
+                },
+                {
+                  "name": "(UTC+09:00) Seoul",
+                  "value": "85"
+                },
+                {
+                  "name": "(UTC+09:30) Adelaide",
+                  "value": "86"
+                },
+                {
+                  "name": "(UTC+09:30) Darwin",
+                  "value": "87"
+                },
+                {
+                  "name": "(UTC+10:00) Brisbane",
+                  "value": "88"
+                },
+                {
+                  "name": "(UTC+10:00) Canberra, Melbourne, Sydney",
+                  "value": "89"
+                },
+                {
+                  "name": "(UTC-07:00) Mountain Time (US & Canada)",
+                  "value": "9"
+                },
+                {
+                  "name": "(UTC+10:00) Guam, Port Moresby",
+                  "value": "90"
+                },
+                {
+                  "name": "(UTC+10:00) Hobart",
+                  "value": "91"
+                },
+                {
+                  "name": "(UTC+10:00) Yakutsk ",
+                  "value": "92"
+                },
+                {
+                  "name": "(UTC+11:00) Solomon Is., New Caledonia",
+                  "value": "93"
+                },
+                {
+                  "name": "(UTC+11:00) Vladivostok",
+                  "value": "94"
+                },
+                {
+                  "name": "(UTC+12:00) Auckland, Wellington",
+                  "value": "95"
+                },
+                {
+                  "name": "(UTC+12:00) Coordinated Universal Time+12",
+                  "value": "96"
+                },
+                {
+                  "name": "(UTC+12:00) Fiji",
+                  "value": "97"
+                },
+                {
+                  "name": "(UTC+12:00) Magadan",
+                  "value": "98"
+                },
+                {
+                  "name": "(UTC+13:00) Nuku'alofa",
+                  "value": "99"
+                }
+              ],
+              "optionsSortable": true
+            },
+            {
+              "type": "STRING",
+              "displayName": "NTP Server",
+              "id": "ntp_server",
+              "toolTip": "ESXi, Windows, and Linux services support multiple NTP servers. NTP addresses must be separated by commas.",
+              "required": false,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "dependencyTarget": "razor_image",
+              "dependencyValue": "esxi-5.1,esxi-5.5,esxi-6.0",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [],
+              "optionsSortable": true
+            },
+            {
+              "type": "ENUMERATED",
+              "displayName": "Language",
+              "id": "language",
+              "value": "en-US",
+              "required": true,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "dependencyTarget": "hyperv_install",
+              "dependencyValue": "true",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [
+                {
+                  "name": "German (Germany) ",
+                  "value": "de-DE"
+                },
+                {
+                  "name": "English (United States)",
+                  "value": "en-US"
+                }
+              ],
+              "optionsSortable": true
+            },
+            {
+              "type": "ENUMERATED",
+              "displayName": "Keyboard",
+              "id": "keyboard",
+              "value": "00000409",
+              "required": true,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "dependencyTarget": "hyperv_install",
+              "dependencyValue": "true",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [
+                {
+                  "name": "U.S. English",
+                  "value": "00000409"
+                }
+              ],
+              "optionsSortable": true
+            },
+            {
+              "type": "STRING",
+              "displayName": "Domain Name",
+              "id": "domain_name",
+              "required": false,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "dependencyTarget": "razor_image",
+              "dependencyValue": " ",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [],
+              "optionsSortable": true
+            },
+            {
+              "type": "STRING",
+              "displayName": "FQ Domain Name",
+              "id": "fqdn",
+              "required": false,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "dependencyTarget": "hyperv_install",
+              "dependencyValue": "true",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [],
+              "optionsSortable": true
+            },
+            {
+              "type": "STRING",
+              "displayName": "Domain Admin Username",
+              "id": "domain_admin_user",
+              "required": false,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "dependencyTarget": "razor_image",
+              "dependencyValue": " ",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [],
+              "optionsSortable": true
+            },
+            {
+              "type": "PASSWORD",
+              "displayName": "Domain Admin Password",
+              "id": "domain_admin_password",
+              "value": "",
+              "required": false,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "dependencyTarget": "razor_image",
+              "dependencyValue": " ",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [],
+              "optionsSortable": true
+            },
+            {
+              "type": "PASSWORD",
+              "displayName": "Domain Admin Password Confirm",
+              "id": "domain_admin_password_confirm",
+              "value": "",
+              "required": false,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "dependencyTarget": "razor_image",
+              "dependencyValue": " ",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [],
+              "optionsSortable": true
+            },
+            {
+              "type": "ENUMERATED",
+              "displayName": "Select iSCSI Initiator",
+              "id": "iscsi_initiator",
+              "value": "",
+              "required": true,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": true,
+              "dependencyTarget": "razor_image",
+              "dependencyValue": "esxi-5.1,esxi-5.5,esxi-6.0",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [
+                {
+                  "name": "Select...",
+                  "value": ""
+                },
+                {
+                  "name": "Hardware Initiator",
+                  "value": "hardware"
+                },
+                {
+                  "name": "Software Initiator",
+                  "value": "software"
+                }
+              ],
+              "optionsSortable": true
+            },
+            {
+              "type": "ENUMERATED",
+              "displayName": "Install EqualLogic MEM",
+              "id": "esx_mem",
+              "value": "",
+              "required": true,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": true,
+              "dependencyTarget": "razor_image",
+              "dependencyValue": "esxi-5.1,esxi-5.5,esxi-6.0",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [
+                {
+                  "name": "Select...",
+                  "value": ""
+                },
+                {
+                  "name": "False",
+                  "value": "false"
+                },
+                {
+                  "name": "True",
+                  "value": "true"
+                }
+              ],
+              "optionsSortable": true
+            },
+            {
+              "type": "BOOLEAN",
+              "displayName": "Local storage for Vmware vSAN",
+              "id": "local_storage_vsan",
+              "value": "true",
+              "toolTip": "RAID controller will be put in the appropriate mode and automatically configured based on VMware vSAN best practices.",
+              "required": false,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "dependencyTarget": "razor_image",
+              "dependencyValue": "esxi-5.1,esxi-5.5,esxi-6.0",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [],
+              "optionsSortable": true
+            },
+            {
+              "type": "RADIO",
+              "displayName": "Local storage type",
+              "id": "local_storage_vsan_type",
+              "value": "hybrid",
+              "required": false,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "dependencyTarget": "local_storage_vsan",
+              "dependencyValue": "true",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [
+                {
+                  "name": "All flash",
+                  "value": "flash"
+                },
+                {
+                  "name": "Hybrid",
+                  "value": "hybrid"
+                }
+              ],
+              "optionsSortable": true
+            },
+            {
+              "type": "STRING",
+              "id": "ensure",
+              "value": "present",
+              "required": true,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": true,
+              "group": "none",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [],
+              "optionsSortable": true
+            }
+          ]
+        },
+        {
+          "id": "asm::idrac",
+          "displayName": "Hardware Settings",
+          "parameters": [
+            {
+              "type": "ENUMERATED",
+              "displayName": "Target Boot Device",
+              "id": "target_boot_device",
+              "value": "AHCI_VSAN",
+              "toolTip": "Local Hard Drive - ASM creates a RAID with the local HDDs and installs the OS to this RAID array.<br/><br/>SD w/ RAID enabled - Enables SD, sets boot the SD, creates the specified RAID config which will not be the boot device.<br/><br/>SD w/ RAID disabled - Enables SD, sets boot the SD, disables RAID controller.<br/><br/>None - will not configure the boot device or boot order.<br/><br/>None (w/ RAID Configuration) - will not configure the boot device or boot order, but will create the RAID virtual disk.",
+              "required": true,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [
+                {
+                  "name": "Local Hard Drive",
+                  "value": "HD",
+                  "dependencyTarget": "local_storage_vsan",
+                  "dependencyValue": "false"
+                },
+                {
+                  "name": "SD with RAID enabled",
+                  "value": "SD_WITH_RAID",
+                  "dependencyTarget": "local_storage_vsan",
+                  "dependencyValue": "false"
+                },
+                {
+                  "name": "SD with RAID disabled",
+                  "value": "SD",
+                  "dependencyTarget": "local_storage_vsan",
+                  "dependencyValue": "false"
+                },
+                {
+                  "name": "SD with RAID enabled for VMWare vSAN",
+                  "value": "SD_WITH_RAID_VSAN",
+                  "dependencyTarget": "local_storage_vsan",
+                  "dependencyValue": "true"
+                },
+                {
+                  "name": "Local Disk For VMware vSAN",
+                  "value": "AHCI_VSAN",
+                  "dependencyTarget": "local_storage_vsan",
+                  "dependencyValue": "true"
+                },
+                {
+                  "name": "Boot From SAN (iSCSI)",
+                  "value": "iSCSI",
+                  "dependencyTarget": "local_storage_vsan",
+                  "dependencyValue": "false"
+                },
+                {
+                  "name": "Boot From SAN (FC)",
+                  "value": "FC",
+                  "dependencyTarget": "local_storage_vsan",
+                  "dependencyValue": "false"
+                },
+                {
+                  "name": "None",
+                  "value": "NONE",
+                  "dependencyTarget": "local_storage_vsan",
+                  "dependencyValue": "false"
+                },
+                {
+                  "name": "None (With RAID Configuration)",
+                  "value": "NONE_WITH_RAID",
+                  "dependencyTarget": "local_storage_vsan",
+                  "dependencyValue": "false"
+                }
+              ],
+              "optionsSortable": false
+            },
+            {
+              "type": "RAIDCONFIGURATION",
+              "displayName": "RAID",
+              "id": "raid_configuration",
+              "value": "{\"raidtype\":\"basic\",\"basicraidlevel\":\"raid1\",\"virtualdisks\":[],\"enableglobalhotspares\":false,\"globalhotspares\":0,\"minimumssd\":0,\"enableglobalhotsparesexternal\":false,\"globalhotsparesexternal\":0,\"minimumssdexternal\":0,\"externalvirtualdisks\":[]}",
+              "required": true,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "dependencyTarget": "target_boot_device",
+              "dependencyValue": "HD,SD_WITH_RAID,NONE_WITH_RAID",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [],
+              "optionsSortable": true
+            },
+            {
+              "type": "ENUMERATED",
+              "displayName": "Server Source",
+              "id": "server_source",
+              "value": "pool",
+              "toolTip": "Method for server selection",
+              "required": true,
+              "requiredAtDeployment": true,
+              "hideFromTemplate": true,
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [
+                {
+                  "name": "Manual Entry",
+                  "value": "manual"
+                },
+                {
+                  "name": "Server Pool",
+                  "value": "pool"
+                }
+              ],
+              "optionsSortable": true
+            },
+            {
+              "type": "ENUMERATED",
+              "displayName": "Server Pool",
+              "id": "server_pool",
+              "value": "1",
+              "toolTip": "Pool from which servers are selected during deployment",
+              "required": true,
+              "requiredAtDeployment": true,
+              "hideFromTemplate": false,
+              "dependencyTarget": "server_source",
+              "dependencyValue": "pool",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [
+                {
+                  "name": "Global",
+                  "value": "-1"
+                }
+              ],
+              "optionsSortable": true
+            },
+            {
+              "type": "ENUMERATED",
+              "displayName": "Choose Server",
+              "id": "server_select",
+              "value": "",
+              "toolTip": "Select specific server from a drop-down list",
+              "required": true,
+              "requiredAtDeployment": true,
+              "hideFromTemplate": true,
+              "dependencyTarget": "server_source",
+              "dependencyValue": "manual",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [
+                {
+                  "name": "Select...",
+                  "value": ""
+                },
+                {
+                  "name": "7M1YP22",
+                  "value": "ff8080815670ba6f015671438559000e"
+                },
+                {
+                  "name": "2SPJ382",
+                  "value": "ff808081575807740157581ebe1c0084"
+                }
+              ],
+              "optionsSortable": true
+            },
+            {
+              "type": "BOOLEAN",
+              "displayName": "Retry On Failure",
+              "id": "migrate_on_failure",
+              "value": "true",
+              "toolTip": "If selected server fails, retry on another available server",
+              "required": false,
+              "requiredAtDeployment": true,
+              "hideFromTemplate": true,
+              "dependencyTarget": "server_source",
+              "dependencyValue": "pool",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [],
+              "optionsSortable": true
+            },
+            {
+              "type": "STRING",
+              "displayName": "Attempted Servers",
+              "id": "attempted_servers",
+              "required": false,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": true,
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [],
+              "optionsSortable": true
+            },
+            {
+              "type": "STRING",
+              "id": "ensure",
+              "value": "present",
+              "required": true,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": true,
+              "group": "none",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [],
+              "optionsSortable": true
+            }
+          ]
+        },
+        {
+          "id": "asm::bios",
+          "displayName": "BIOS Settings",
+          "parameters": [
+            {
+              "type": "BIOSCONFIGURATION",
+              "displayName": "BIOS Settings",
+              "id": "bios_configuration",
+              "value": "basic",
+              "required": false,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": true,
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [],
+              "optionsSortable": true
+            },
+            {
+              "type": "ENUMERATED",
+              "displayName": "System Profile",
+              "id": "SysProfile",
+              "value": "PerfOptimized",
+              "required": true,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [
+                {
+                  "name": "Custom",
+                  "value": "Custom"
+                },
+                {
+                  "name": "Dense Configuration",
+                  "value": "DenseCfgOptimized"
+                },
+                {
+                  "name": "Not Applicable",
+                  "value": "n/a"
+                },
+                {
+                  "name": "Performance",
+                  "value": "PerfOptimized"
+                },
+                {
+                  "name": "Performance Per Watt (DAPC)",
+                  "value": "PerfPerWattOptimizedDapc"
+                },
+                {
+                  "name": "Performance Per Watt (OS)",
+                  "value": "PerfPerWattOptimizedOs"
+                }
+              ],
+              "optionsSortable": true
+            },
+            {
+              "type": "ENUMERATED",
+              "displayName": "User Accessible USB Ports",
+              "id": "UsbPorts",
+              "value": "AllOn",
+              "required": true,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [
+                {
+                  "name": "All Ports Off",
+                  "value": "AllOff"
+                },
+                {
+                  "name": "All Ports On",
+                  "value": "AllOn"
+                },
+                {
+                  "name": "Not Applicable",
+                  "value": "n/a"
+                },
+                {
+                  "name": "Only Back Ports On",
+                  "value": "OnlyBackPortsOn"
+                }
+              ],
+              "optionsSortable": true
+            },
+            {
+              "type": "ENUMERATED",
+              "displayName": "Number of Cores per Processor",
+              "id": "ProcCores",
+              "value": "All",
+              "required": true,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [
+                {
+                  "name": "1",
+                  "value": "1"
+                },
+                {
+                  "name": "2",
+                  "value": "2"
+                },
+                {
+                  "name": "4",
+                  "value": "4"
+                },
+                {
+                  "name": "6",
+                  "value": "6"
+                },
+                {
+                  "name": "All",
+                  "value": "All"
+                },
+                {
+                  "name": "Not Applicable",
+                  "value": "n/a"
+                }
+              ],
+              "optionsSortable": true
+            },
+            {
+              "type": "ENUMERATED",
+              "displayName": "Virtualization Technology",
+              "id": "ProcVirtualization",
+              "value": "Enabled",
+              "required": false,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [
+                {
+                  "name": "Disabled",
+                  "value": "Disabled"
+                },
+                {
+                  "name": "Enabled",
+                  "value": "Enabled"
+                },
+                {
+                  "name": "Not Applicable",
+                  "value": "n/a"
+                }
+              ],
+              "optionsSortable": true
+            },
+            {
+              "type": "ENUMERATED",
+              "displayName": "Logical Processor",
+              "id": "LogicalProc",
+              "value": "Enabled",
+              "required": false,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [
+                {
+                  "name": "Disabled",
+                  "value": "Disabled"
+                },
+                {
+                  "name": "Enabled",
+                  "value": "Enabled"
+                },
+                {
+                  "name": "Not Applicable",
+                  "value": "n/a"
+                }
+              ],
+              "optionsSortable": true
+            },
+            {
+              "type": "ENUMERATED",
+              "displayName": "Execute Disable",
+              "id": "ProcExecuteDisable",
+              "value": "Enabled",
+              "required": false,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [
+                {
+                  "name": "Disabled",
+                  "value": "Disabled"
+                },
+                {
+                  "name": "Enabled",
+                  "value": "Enabled"
+                },
+                {
+                  "name": "Not Applicable",
+                  "value": "n/a"
+                }
+              ],
+              "optionsSortable": true
+            },
+            {
+              "type": "ENUMERATED",
+              "displayName": "Node Interleaving",
+              "id": "NodeInterleave",
+              "value": "Enabled",
+              "required": false,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [
+                {
+                  "name": "Disabled",
+                  "value": "Disabled"
+                },
+                {
+                  "name": "Enabled",
+                  "value": "Enabled"
+                },
+                {
+                  "name": "Not Applicable",
+                  "value": "n/a"
+                }
+              ],
+              "optionsSortable": true
+            },
+            {
+              "type": "STRING",
+              "id": "ensure",
+              "value": "present",
+              "required": true,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": true,
+              "group": "none",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [],
+              "optionsSortable": true
+            }
+          ]
+        },
+        {
+          "id": "asm::esxiscsiconfig",
+          "displayName": "Network Settings",
+          "parameters": [
+            {
+              "type": "NETWORKCONFIGURATION",
+              "displayName": "Network Config",
+              "id": "network_configuration",
+              "value": "{\"id\":\"58CC314D-920C-4E18-A40F-400B65AE9432\",\"servertype\":null,\"fabrics\":[],\"interfaces\":[{\"id\":\"26997544-941C-45B0-8A20-38FE79D3F37A\",\"name\":\"Interface\",\"redundancy\":true,\"enabled\":true,\"usedforfc\":false,\"partitioned\":false,\"nictype\":\"2x10Gb\",\"interfaces\":[{\"id\":\"B71BC10B-D1FD-43C3-8FCF-E08FC8887A84\",\"name\":\"Port 1\",\"partitioned\":false,\"partitions\":[{\"id\":\"F21E6E00-B5E1-46DF-980F-C9DE20B2C08A\",\"name\":\"1\",\"networks\":[],\"networkObjects\":null,\"minimum\":0,\"maximum\":100,\"lanMacAddress\":null,\"iscsiMacAddress\":null,\"iscsiIQN\":null,\"wwnn\":null,\"wwpn\":null,\"port_no\":0,\"partition_no\":0,\"partition_index\":0,\"fqdd\":null},{\"id\":\"9AAF791E-34C2-41F3-A810-27BA711DC4C1\",\"name\":\"2\",\"networks\":[],\"networkObjects\":null,\"minimum\":0,\"maximum\":100,\"lanMacAddress\":null,\"iscsiMacAddress\":null,\"iscsiIQN\":null,\"wwnn\":null,\"wwpn\":null,\"port_no\":0,\"partition_no\":0,\"partition_index\":0,\"fqdd\":null},{\"id\":\"0D0521DB-F2CE-4090-8F60-9FFF350A8097\",\"name\":\"3\",\"networks\":[],\"networkObjects\":null,\"minimum\":0,\"maximum\":100,\"lanMacAddress\":null,\"iscsiMacAddress\":null,\"iscsiIQN\":null,\"wwnn\":null,\"wwpn\":null,\"port_no\":0,\"partition_no\":0,\"partition_index\":0,\"fqdd\":null},{\"id\":\"B1D059DB-BEAD-4245-BC2C-BEF4E5C6BC34\",\"name\":\"4\",\"networks\":[],\"networkObjects\":null,\"minimum\":0,\"maximum\":100,\"lanMacAddress\":null,\"iscsiMacAddress\":null,\"iscsiIQN\":null,\"wwnn\":null,\"wwpn\":null,\"port_no\":0,\"partition_no\":0,\"partition_index\":0,\"fqdd\":null}],\"enabled\":false,\"redundancy\":false,\"nictype\":\"2x10Gb\",\"fqdd\":null},{\"id\":\"D0AB7B3E-B61D-49C9-9E86-DA08CBABE036\",\"name\":\"Port 2\",\"partitioned\":false,\"partitions\":[{\"id\":\"C738D2D4-CCA6-4B5F-AE12-08E1DBA8ADCB\",\"name\":\"1\",\"networks\":[],\"networkObjects\":null,\"minimum\":0,\"maximum\":100,\"lanMacAddress\":null,\"iscsiMacAddress\":null,\"iscsiIQN\":null,\"wwnn\":null,\"wwpn\":null,\"port_no\":0,\"partition_no\":0,\"partition_index\":0,\"fqdd\":null},{\"id\":\"63AA9B3A-F272-4C91-9690-EFE460805CCB\",\"name\":\"2\",\"networks\":[],\"networkObjects\":null,\"minimum\":0,\"maximum\":100,\"lanMacAddress\":null,\"iscsiMacAddress\":null,\"iscsiIQN\":null,\"wwnn\":null,\"wwpn\":null,\"port_no\":0,\"partition_no\":0,\"partition_index\":0,\"fqdd\":null},{\"id\":\"B88FC0C3-9A73-4AC6-B074-A8888B032687\",\"name\":\"3\",\"networks\":[],\"networkObjects\":null,\"minimum\":0,\"maximum\":100,\"lanMacAddress\":null,\"iscsiMacAddress\":null,\"iscsiIQN\":null,\"wwnn\":null,\"wwpn\":null,\"port_no\":0,\"partition_no\":0,\"partition_index\":0,\"fqdd\":null},{\"id\":\"D2D0F997-D8B7-4F23-B5F7-98C8E24CE937\",\"name\":\"4\",\"networks\":[],\"networkObjects\":null,\"minimum\":0,\"maximum\":100,\"lanMacAddress\":null,\"iscsiMacAddress\":null,\"iscsiIQN\":null,\"wwnn\":null,\"wwpn\":null,\"port_no\":0,\"partition_no\":0,\"partition_index\":0,\"fqdd\":null}],\"enabled\":false,\"redundancy\":false,\"nictype\":null,\"fqdd\":null},{\"id\":\"3AE7265D-D0CE-4C6C-B836-18577F659D80\",\"name\":\"Port 3\",\"partitioned\":false,\"partitions\":[{\"id\":\"64EB67FF-205D-44FE-B7A6-5AB0987CF352\",\"name\":\"1\",\"networks\":[],\"networkObjects\":null,\"minimum\":0,\"maximum\":100,\"lanMacAddress\":null,\"iscsiMacAddress\":null,\"iscsiIQN\":null,\"wwnn\":null,\"wwpn\":null,\"port_no\":0,\"partition_no\":0,\"partition_index\":0,\"fqdd\":null},{\"id\":\"E86EC585-52E0-4CE8-816E-80B29B08ED91\",\"name\":\"2\",\"networks\":[],\"networkObjects\":null,\"minimum\":0,\"maximum\":100,\"lanMacAddress\":null,\"iscsiMacAddress\":null,\"iscsiIQN\":null,\"wwnn\":null,\"wwpn\":null,\"port_no\":0,\"partition_no\":0,\"partition_index\":0,\"fqdd\":null},{\"id\":\"518A359D-E311-48BF-B325-295A78E8CED1\",\"name\":\"3\",\"networks\":[],\"networkObjects\":null,\"minimum\":0,\"maximum\":100,\"lanMacAddress\":null,\"iscsiMacAddress\":null,\"iscsiIQN\":null,\"wwnn\":null,\"wwpn\":null,\"port_no\":0,\"partition_no\":0,\"partition_index\":0,\"fqdd\":null},{\"id\":\"ACD42B78-46B2-4CBA-BA92-0D5D8F5CAC8E\",\"name\":\"4\",\"networks\":[],\"networkObjects\":null,\"minimum\":0,\"maximum\":100,\"lanMacAddress\":null,\"iscsiMacAddress\":null,\"iscsiIQN\":null,\"wwnn\":null,\"wwpn\":null,\"port_no\":0,\"partition_no\":0,\"partition_index\":0,\"fqdd\":null}],\"enabled\":false,\"redundancy\":false,\"nictype\":null,\"fqdd\":null},{\"id\":\"C9D9799B-6105-4875-BD67-09AF4EB89F27\",\"name\":\"Port 4\",\"partitioned\":false,\"partitions\":[{\"id\":\"419FE709-6225-4CD6-9B46-08C98134494F\",\"name\":\"1\",\"networks\":[],\"networkObjects\":null,\"minimum\":0,\"maximum\":100,\"lanMacAddress\":null,\"iscsiMacAddress\":null,\"iscsiIQN\":null,\"wwnn\":null,\"wwpn\":null,\"port_no\":0,\"partition_no\":0,\"partition_index\":0,\"fqdd\":null},{\"id\":\"3A1B77D1-FD6A-4CDB-B733-C79B8460C213\",\"name\":\"2\",\"networks\":[],\"networkObjects\":null,\"minimum\":0,\"maximum\":100,\"lanMacAddress\":null,\"iscsiMacAddress\":null,\"iscsiIQN\":null,\"wwnn\":null,\"wwpn\":null,\"port_no\":0,\"partition_no\":0,\"partition_index\":0,\"fqdd\":null},{\"id\":\"A11AF612-41A1-407C-81EC-7A1256C49DB5\",\"name\":\"3\",\"networks\":[],\"networkObjects\":null,\"minimum\":0,\"maximum\":100,\"lanMacAddress\":null,\"iscsiMacAddress\":null,\"iscsiIQN\":null,\"wwnn\":null,\"wwpn\":null,\"port_no\":0,\"partition_no\":0,\"partition_index\":0,\"fqdd\":null},{\"id\":\"F0E67383-7010-4536-BD31-D7B7691987B8\",\"name\":\"4\",\"networks\":[],\"networkObjects\":null,\"minimum\":0,\"maximum\":100,\"lanMacAddress\":null,\"iscsiMacAddress\":null,\"iscsiIQN\":null,\"wwnn\":null,\"wwpn\":null,\"port_no\":0,\"partition_no\":0,\"partition_index\":0,\"fqdd\":null}],\"enabled\":false,\"redundancy\":false,\"nictype\":null,\"fqdd\":null}],\"fabrictype\":\"ethernet\"}]}",
+              "required": false,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [],
+              "optionsSortable": true
+            },
+            {
+              "type": "STRING",
+              "displayName": "Static Network Default Gateway",
+              "id": "default_gateway",
+              "value": "",
+              "required": true,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": true,
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [
+                {
+                  "name": "Select...",
+                  "value": ""
+                },
+                {
+                  "name": "DHCP / No Gateway",
+                  "value": "dhcp_workload"
+                }
+              ],
+              "optionsSortable": true
+            },
+            {
+              "type": "ENUMERATED",
+              "displayName": "MTU size for bonded interfaces:",
+              "id": "mtu",
+              "value": "1500",
+              "toolTip": "Allows the Maximum Transfer Unit (MTU) to be set in the server Operating System. This will only take effect on bonded interfaces.",
+              "required": true,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": true,
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [
+                {
+                  "name": "1500",
+                  "value": "1500"
+                },
+                {
+                  "name": "9000",
+                  "value": "9000"
+                }
+              ],
+              "optionsSortable": true
+            },
+            {
+              "type": "ENUMERATED",
+              "displayName": "Identity Pool",
+              "id": "identity_pool",
+              "value": "-1",
+              "toolTip": "Pool from which virtual identities are selected during deployment",
+              "required": true,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": false,
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [
+                {
+                  "name": "Global",
+                  "value": "-1"
+                }
+              ],
+              "optionsSortable": true
+            },
+            {
+              "type": "STRING",
+              "id": "ensure",
+              "value": "present",
+              "required": true,
+              "requiredAtDeployment": false,
+              "hideFromTemplate": true,
+              "group": "none",
+              "readOnly": false,
+              "generated": false,
+              "infoIcon": false,
+              "possibleValues": [],
+              "possibleValuesDisplayName": [],
+              "step": 1,
+              "maxLength": 256,
+              "options": [],
+              "optionsSortable": true
+            }
+          ]
+        }
+      ],
+      "brownfield": false,
+      "cloned": false,
+      "manageFirmware": false,
+      "componentID": "component-server-1",
+      "name": "Server"
+    }
+  ],
+  "draft": true
+}

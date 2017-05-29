@@ -1,0 +1,196 @@
+{
+  "component": {
+    "id": "component-equallogic-chap-1",
+    "name": "EqualLogic",
+    "relatedComponents": {},
+    "associatedComponents": {},
+    "type": "STORAGE",
+    "resources": [
+      {
+        "displayName": "EqualLogic Storage Settings",
+        "id": "asm::volume::equallogic",
+        "parameters": [
+          {
+            "displayName": "Storage Volume Name",
+            "id": "title",
+            "required": true,
+            "requiredAtDeployment": true,
+            "hideFromTemplate": false,
+            "type": "STRING",
+            "value": ""
+          },
+          {
+            "id": "poolname",
+            "value": "default",
+            "type": "STRING",
+            "displayName": "Storage Pool",
+            "required": false
+          },
+          {
+            "displayName": "Storage Size (e.g. 500MB, 1GB)",
+            "id": "size",
+            "required": true,
+            "type": "STRING",
+            "value": ""
+          },
+          {
+            "displayName": "Thin Provisioning",
+            "id": "thinprovision",
+            "options": [
+              {
+                "value": "enable",
+                "name": "Enable",
+                "dependencyTarget": null,
+                "dependencyValue": null
+              },
+              {
+                "value": "disable",
+                "name": "Disable",
+                "dependencyTarget": null,
+                "dependencyValue": null
+              }
+            ],
+            "required": true,
+            "type": "ENUMERATED",
+            "value": "enable"
+          },
+          {
+            "comment": "% needs to be there in the end of the value",
+            "displayName": "Snapshot Reserve %",
+            "id": "snapreserve",
+            "required": true,
+            "type": "STRING",
+            "value": "100%"
+          },
+          {
+            "comment": "% needs to be there in the end of the value",
+            "displayName": "Thin Min Reserve %",
+            "id": "thinminreserve",
+            "required": true,
+            "type": "STRING",
+            "value": "10%",
+            "dependencyTarget": "thinprovision",
+            "dependencyValue": "enable"
+          },
+          {
+            "comment": "% needs to be there in the end of the value",
+            "displayName": "Thin growth Warning %",
+            "id": "thingrowthwarn",
+            "required": true,
+            "type": "STRING",
+            "value": "60%",
+            "dependencyTarget": "thinprovision",
+            "dependencyValue": "enable"
+          },
+          {
+            "comment": "% needs to be there in the end of the value",
+            "displayName": "Thin growth Maximum %",
+            "id": "thingrowthmax",
+            "required": true,
+            "type": "STRING",
+            "value": "100%",
+            "dependencyTarget": "thinprovision",
+            "dependencyValue": "enable"
+          },
+          {
+            "comment": "% needs to be there in the end of the value",
+            "displayName": "Thin warning on threshold %",
+            "id": "thinwarnsoftthres",
+            "required": true,
+            "type": "STRING",
+            "value": "60%",
+            "dependencyTarget": "thinprovision",
+            "dependencyValue": "enable"
+          },
+          {
+            "comment": "% needs to be there in the end of the value",
+            "displayName": "Thin warning hard threshold %",
+            "id": "thinwarnhardthres",
+            "required": true,
+            "type": "STRING",
+            "value": "90%",
+            "dependencyTarget": "thinprovision",
+            "dependencyValue": "enable"
+          },
+          {
+            "displayName": "Multi-Host Access of Volume",
+            "id": "multihostaccess",
+            "options": [
+              {
+                "value": "enable",
+                "name": "Enable",
+                "dependencyTarget": null,
+                "dependencyValue": null
+              },
+              {
+                "value": "disable",
+                "name": "Disable",
+                "dependencyTarget": null,
+                "dependencyValue": null
+              }
+            ],
+            "required": true,
+            "type": "ENUMERATED",
+            "value": "enable"
+          },
+          {
+            "displayName": "Authentication",
+            "id": "auth_type",
+            "options": [
+              {
+                "value": "iqnip",
+                "name": "IQN/IP",
+                "dependencyTarget": null,
+                "dependencyValue": null
+              },
+              {
+                "value": "chap",
+                "name": "CHAP",
+                "dependencyTarget": null,
+                "dependencyValue": null
+              }
+            ],
+            "required": true,
+            "requiredAtDeployment": true,
+            "hideFromTemplate": false,
+            "type": "ENUMERATED",
+            "value": "iqnip",
+            "toolTip": "Authentication method for storage volume"
+          },
+          {
+            "displayName": "Chap Username",
+            "id": "chap_user_name",
+            "required": true,
+            "type": "STRING",
+            "value": "",
+            "requiredAtDeployment": true,
+            "dependencyTarget": "auth_type",
+            "dependencyValue": "chap"
+          },
+          {
+            "displayName": "Chap Secret",
+            "id": "passwd",
+            "required": true,
+            "type": "PASSWORD",
+            "value": "$DEFAULT_TO_REMOVE$",
+            "requiredAtDeployment": true,
+            "dependencyTarget": "auth_type",
+            "dependencyValue": "chap"
+          },
+          {
+            "comment": "Multiple values can be specified. Manifest anticipate in comma seperated values",
+            "displayName": "Initiator IQN or IP Addresses",
+            "id": "iqnOrIP",
+            "required": false,
+            "type": "TEXT",
+            "value": "",
+            "requiredAtDeployment": false,
+            "dependencyTarget": "auth_type",
+            "dependencyValue": "iqnip",
+            "toolTip": "Comma separated list of IPs or IQNs"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+   "refId":"ff8080814d9c4382014da0f5e11f40a2",
+   "ipAddress":"172.31.64.3",
+   "serviceTag":"64WF3W1",
+   "model":"PowerEdge M620",
+   "deviceType":"BladeServer",
+   "discoverDeviceType":"IDRAC7",
+   "displayName":"s26",
+   "managedState":"MANAGED",
+   "state":"READY",
+   "manufacturer":"Dell",
+   "systemId":"1243",
+   "health":"GREEN",
+   "healthMessage":"OK",
+   "operatingSystem":"N/A",
+   "numberOfCPUs":2,
+   "cpuType":"Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz",
+   "nics":2,
+   "memoryInGB":32,
+   "inventoryDate":"2015-05-30T02:02:21.494+0000",
+   "discoveredDate":"2015-05-29T18:46:18.941+0000",
+   "deviceGroupList":{
+      "deviceGroup":[
+         {
+            "groupSeqId":-1,
+            "groupName":"Global",
+            "createdBy":"admin"
+         }
+      ],
+      "totalCount":0
+   },
+   "detailLink":{
+      "title":"ff8080814d9c4382014da0f5e11f40a2",
+      "href":"https://localhost/AsmManager/Server/ff8080814d9c4382014da0f5e11f40a2",
+      "rel":"describedby"
+   },
+   "credId":"ff8080814d67c65a014d67c72ebc0009",
+   "compliance":"COMPLIANT",
+   "failuresCount":0
+}

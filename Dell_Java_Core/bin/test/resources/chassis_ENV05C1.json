@@ -1,0 +1,161 @@
+{  
+   "url":{  
+      "title":"Configuration settings for a chassis.",
+      "href":"http://localhost:9080/AsmManager/Chassis/ff8080814f742b7a014f74a928160002",
+      "rel":"self",
+      "type":"chassisRefType"
+   },
+   "refId":"ff8080814f742b7a014f74a928160002",
+   "refType":"chassisRefType",
+   "displayName":"chassis",
+   "deviceType":"chassis",
+   "deviceId":"ff8080814f742b7a014f74a928160002",
+   "managementIP":"172.17.131.41",
+   "managementIPStatic":true,
+   "credentialRefId":"ff8080814de8b664014de8b758fa0007",
+   "serviceTag":"ENV05C1",
+   "assetTag":"00000",
+   "health":"GREEN",
+   "model":"PowerEdge M1000e",
+   "name":"chassis41",
+   "datacenter":"DC",
+   "aisle":"11",
+   "rack":"12",
+   "rackslot":"13",
+   "dnsName":"chassis41",
+   "powerCapPercent":94,
+   "defaultPowerCapUpperBoundWatts":16685,
+   "defaultPowerCapUpperBoundBTU":56931,
+   "defaultPowerCapLowerBoundWatts":2715,
+   "defaultPowerCapLowerBoundBTU":9263,
+   "midPlaneVersion":"1.1",
+   "lastFirmwareUpdateTime":"2014-11-04T03:16:00.000+0000",
+   "lastUpdateTime":"2015-09-14T00:00:34.780+0000",
+   "iomCount":4,
+   "serverCount":3,
+   "servers":[  
+      {  
+         "id":"ff8080814f742b7a014f74a9281c000f",
+         "managementIP":"172.17.131.130",
+         "managementIPStatic":true,
+         "serviceTag":"3GQSGT1",
+         "health":"GREEN",
+         "model":"PowerEdge M620",
+         "slot":"1",
+         "slotName":"SLOT-01",
+         "slotType":"HALF",
+         "supported":true
+      },
+      {  
+         "id":"ff8080814f742b7a014f74a9281c0010",
+         "managementIP":"172.17.131.131",
+         "managementIPStatic":true,
+         "serviceTag":"64WF3W1",
+         "health":"GREEN",
+         "model":"PowerEdge M620",
+         "slot":"2",
+         "slotName":"SLOT-02",
+         "slotType":"HALF",
+         "supported":true
+      },
+      {  
+         "id":"ff8080814f742b7a014f74a9281d0011",
+         "managementIP":"172.17.131.132",
+         "managementIPStatic":true,
+         "serviceTag":"JV7QQV1",
+         "health":"GREEN",
+         "model":"PowerEdge M620",
+         "slot":"8",
+         "slotName":"SLOT-08",
+         "slotType":"HALF",
+         "supported":true
+      }
+   ],
+   "ioms":[  
+      {  
+         "id":"ff8080814f742b7a014f74a9281a0007",
+         "managementIP":"172.17.131.133",
+         "managementIPStatic":true,
+         "serviceTag":"BCQPTS1",
+         "health":"GREEN",
+         "model":"MXL 10/40Gbe",
+         "slot":1,
+         "location":"A1",
+         "supported":false
+      },
+      {  
+         "id":"ff8080814f742b7a014f74a9281a0006",
+         "managementIP":"172.17.131.134",
+         "managementIPStatic":true,
+         "serviceTag":"GSCXTS1",
+         "health":"GREEN",
+         "model":"MXL 10/40Gbe",
+         "slot":2,
+         "location":"A2",
+         "supported":false
+      },
+      {  
+         "id":"ff8080814f742b7a014f74a928190004",
+         "managementIP":"172.17.131.135",
+         "managementIPStatic":true,
+         "serviceTag":"JV7QQV1",
+         "health":"RED",
+         "model":"PowerEdge M I/O Aggregator",
+         "slot":3,
+         "location":"B1",
+         "supported":true
+      },
+      {  
+         "id":"ff8080814f742b7a014f74a928190005",
+         "managementIP":"172.17.131.136",
+         "managementIPStatic":true,
+         "serviceTag":"9BQQTS1",
+         "health":"GREEN",
+         "model":"PowerEdge M I/O Aggregator",
+         "slot":4,
+         "location":"B2",
+         "supported":true
+      }
+   ],
+   "controllers":[  
+      {  
+         "id":"ff8080814faeef51014fc92738090643",
+         "controllerName":"CMC-1",
+         "controllerPrimary":true,
+         "controllerFWVersion":"4.50",
+         "controllerPresent":true
+      }
+   ],
+   "powerSupplies":[  
+      {  
+         "id":"ff8080814faeef51014fc927380a064a",
+         "slot":"4",
+         "powerStatus":"ON",
+         "capacity":"2360 W",
+         "present":true
+      },
+      {  
+         "id":"ff8080814faeef51014fc927380a0647",
+         "slot":"5",
+         "powerStatus":"ON",
+         "capacity":"2360 W",
+         "present":true
+      },
+      {  
+         "id":"ff8080814faeef51014fc927380a0648",
+         "slot":"6",
+         "powerStatus":"ON",
+         "capacity":"2360 W",
+         "present":true
+      }
+   ],
+   "kvms":[  
+      {  
+         "id":"ff8080814faeef51014fc92738090644",
+         "name":"Avocent iKVM Switch",
+         "firmwareVersion":"01.00.01.01",
+         "manufacturer":"DELL",
+         "present":true
+      }
+   ]
+}

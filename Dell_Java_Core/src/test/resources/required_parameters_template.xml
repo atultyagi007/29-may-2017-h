@@ -1,0 +1,2773 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceTemplate>
+	<id>ff80808149dc168d0149dc1989ca0000</id>
+	<templateName>Install ESXi to SD card with iSCSI Storage</templateName>
+	<templateDescription>Create two hosts, install ESXi hypervisors to SD
+		cards on physical servers, provision storage, create cluster
+	</templateDescription>
+	<templateLocked>false</templateLocked>
+	<draft>true</draft>
+	<createdDate>2014-06-18T18:21:09.149Z</createdDate>
+	<createdBy>admin</createdBy>
+	<components>
+		<id>8e0244ba-a9d0-47a1-8ef5-ab742719ad74</id>
+		<componentID>component-cluster-vcenter-1</componentID>
+		<name>VMWare Cluster 2</name>
+		<type>CLUSTER</type>
+		<teardown>false</teardown>
+		<relatedComponents>
+			<entry>
+				<key>f07d6599-75e1-4801-a5f9-23c5730f7229</key>
+				<value>Server 2</value>
+			</entry>
+			<entry>
+				<key>63b9c24f-211d-4688-af83-b6ffdebd82d2</key>
+				<value>Server 1</value>
+			</entry>
+		</relatedComponents>
+		<associatedComponents>
+			<entry>
+				<key>f07d6599-75e1-4801-a5f9-23c5730f7229</key>
+				<value>
+					<entry>
+						<key>name</key>
+						<value>Server 2</value>
+					</entry>
+				</value>
+			</entry>
+			<entry>
+				<key>63b9c24f-211d-4688-af83-b6ffdebd82d2</key>
+				<value>
+					<entry>
+						<key>name</key>
+						<value>Server 1</value>
+					</entry>
+				</value>
+			</entry>
+		</associatedComponents>
+		<resources>
+			<id>asm::cluster</id>
+			<parameters>
+				<id>asm_guid</id>
+				<value>ff80808146afe2740146b488e69f0022</value>
+				<type>ENUMERATED</type>
+				<displayName>Target Hypervisor</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<options>
+					<value></value>
+					<name>Select...</name>
+				</options>
+				<options>
+					<value>ff80808146afe2740146b488e69f0022</value>
+					<name>VCENTER-AS800R.aidev.com</name>
+				</options>
+			</parameters>
+			<parameters>
+				<id>datacenter</id>
+				<value>DC752</value>
+				<type>ENUMERATED</type>
+				<displayName>Data Center Name</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<options>
+					<value></value>
+					<name>Select...</name>
+				</options>
+				<options>
+					<value>$new$</value>
+					<name>Create New Datacenter...</name>
+				</options>
+				<options>
+					<value>AS800R</value>
+					<name>AS800R</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>ff80808146afe2740146b488e69f0022</dependencyValue>
+				</options>
+				<options>
+					<value>a1999dc2</value>
+					<name>a1999dc2</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>ff80808146afe2740146b488e69f0022</dependencyValue>
+				</options>
+				<options>
+					<value>dev</value>
+					<name>dev</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>ff80808146afe2740146b488e69f0022</dependencyValue>
+				</options>
+				<options>
+					<value>DC752</value>
+					<name>DC752</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>ff80808146afe2740146b488e69f0022</dependencyValue>
+				</options>
+				<options>
+					<value>a1999dcha</value>
+					<name>a1999dcha</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>ff80808146afe2740146b488e69f0022</dependencyValue>
+				</options>
+				<options>
+					<value>cp-datacenter</value>
+					<name>cp-datacenter</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>ff80808146afe2740146b488e69f0022</dependencyValue>
+				</options>
+				<options>
+					<value>a1999dc</value>
+					<name>a1999dc</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>ff80808146afe2740146b488e69f0022</dependencyValue>
+				</options>
+				<options>
+					<value>adan-dc</value>
+					<name>adan-dc</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>ff80808146afe2740146b488e69f0022</dependencyValue>
+				</options>
+			</parameters>
+			<parameters>
+				<id>$new$datacenter</id>
+				<type>STRING</type>
+				<displayName>New datacenter name</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>datacenter</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>cluster</id>
+				<value>devcluster</value>
+				<type>ENUMERATED</type>
+				<displayName>Cluster Name</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<options>
+					<value></value>
+					<name>Select...</name>
+				</options>
+				<options>
+					<value>$new$</value>
+					<name>Create New Cluster...</name>
+				</options>
+				<options>
+					<value>C1</value>
+					<name>C1</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>ff80808146afe2740146b488e69f0022</dependencyValue>
+				</options>
+				<options>
+					<value>a1999clusha</value>
+					<name>a1999clusha</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>ff80808146afe2740146b488e69f0022</dependencyValue>
+				</options>
+				<options>
+					<value>a1999clus</value>
+					<name>a1999clus</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>ff80808146afe2740146b488e69f0022</dependencyValue>
+				</options>
+				<options>
+					<value>devcluster</value>
+					<name>devcluster</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>ff80808146afe2740146b488e69f0022</dependencyValue>
+				</options>
+				<options>
+					<value>adan-cluster</value>
+					<name>adan-cluster</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>ff80808146afe2740146b488e69f0022</dependencyValue>
+				</options>
+				<options>
+					<value>a1999clus2</value>
+					<name>a1999clus2</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>ff80808146afe2740146b488e69f0022</dependencyValue>
+				</options>
+				<options>
+					<value>alex-cluster</value>
+					<name>alex-cluster</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>ff80808146afe2740146b488e69f0022</dependencyValue>
+				</options>
+			</parameters>
+			<parameters>
+				<id>$new$cluster</id>
+				<type>STRING</type>
+				<displayName>New cluster name</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>cluster</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>ha_config</id>
+				<value>false</value>
+				<type>ENUMERATED</type>
+				<displayName>Cluster HA</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>cluster</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+				<options>
+					<value></value>
+					<name>Select...</name>
+				</options>
+				<options>
+					<value>true</value>
+					<name>Enable</name>
+				</options>
+				<options>
+					<value>false</value>
+					<name>Disable</name>
+				</options>
+			</parameters>
+			<parameters>
+				<id>drs_config</id>
+				<value>false</value>
+				<type>ENUMERATED</type>
+				<displayName>Cluster DRS</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>cluster</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+				<options>
+					<value></value>
+					<name>Select...</name>
+				</options>
+				<options>
+					<value>true</value>
+					<name>Enable</name>
+				</options>
+				<options>
+					<value>false</value>
+					<name>Disable</name>
+				</options>
+			</parameters>
+		</resources>
+		<manageFirmware>false</manageFirmware>
+	</components>
+	<components>
+		<id>63b9c24f-211d-4688-af83-b6ffdebd82d2</id>
+		<componentID>component-server-1</componentID>
+		<name>Server 1</name>
+		<type>SERVER</type>
+		<teardown>false</teardown>
+		<relatedComponents>
+			<entry>
+				<key>8e0244ba-a9d0-47a1-8ef5-ab742719ad74</key>
+				<value>VMWare Cluster 2</value>
+			</entry>
+			<entry>
+				<key>059db466-0ea6-450a-b42e-81d7cfc72b25</key>
+				<value>EqualLogic 1</value>
+			</entry>
+		</relatedComponents>
+		<associatedComponents>
+			<entry>
+				<key>8e0244ba-a9d0-47a1-8ef5-ab742719ad74</key>
+				<value>
+					<entry>
+						<key>name</key>
+						<value>VMWare Cluster 2</value>
+					</entry>
+				</value>
+			</entry>
+			<entry>
+				<key>059db466-0ea6-450a-b42e-81d7cfc72b25</key>
+				<value>
+					<entry>
+						<key>name</key>
+						<value>EqualLogic 1</value>
+					</entry>
+				</value>
+			</entry>
+		</associatedComponents>
+		<resources>
+			<id>asm::idrac</id>
+			<displayName>Hardware Settings</displayName>
+			<parameters>
+				<id>target_boot_device</id>
+				<value>SD</value>
+				<type>ENUMERATED</type>
+				<displayName>Target Boot Device</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<options>
+					<value></value>
+					<name>Select...</name>
+				</options>
+				<options>
+					<value>NONE</value>
+					<name>None</name>
+				</options>
+				<options>
+					<value>SD</value>
+					<name>SD Card</name>
+				</options>
+				<options>
+					<value>HD</value>
+					<name>Local Hard Drive</name>
+				</options>
+				<options>
+					<value>iSCSI</value>
+					<name>Boot From SAN (iSCSI)</name>
+				</options>
+				<options>
+					<value>FC</value>
+					<name>Boot From SAN (FC)</name>
+				</options>
+			</parameters>
+			<parameters>
+				<id>system_profile</id>
+				<value>PerfOptimized</value>
+				<type>ENUMERATED</type>
+				<displayName>System Profile</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<options>
+					<value>PerfPerWattOptimizedDapc</value>
+					<name>Performance Per Watt (DAPC)</name>
+				</options>
+				<options>
+					<value>PerfPerWattOptimizedOs</value>
+					<name>Performance Per Watt (OS)</name>
+				</options>
+				<options>
+					<value>PerfOptimized</value>
+					<name>Performance</name>
+				</options>
+				<options>
+					<value>DenseCfgOptimized</value>
+					<name>Dense Configuration</name>
+				</options>
+				<options>
+					<value>Custom</value>
+					<name>Custom</name>
+				</options>
+			</parameters>
+			<parameters>
+				<id>user_usb_ports</id>
+				<value>AllOn</value>
+				<type>ENUMERATED</type>
+				<displayName>User Accessible USB Ports</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<options>
+					<value>AllOn</value>
+					<name>All Ports On</name>
+				</options>
+				<options>
+					<value>AllOff</value>
+					<name>All Ports Off</name>
+				</options>
+				<options>
+					<value>OnlyBackPortsOn</value>
+					<name>Only Back Ports On</name>
+				</options>
+			</parameters>
+			<parameters>
+				<id>number_core_processors</id>
+				<value>All</value>
+				<type>ENUMERATED</type>
+				<displayName>Number of Core Processors</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<options>
+					<value>All</value>
+					<name>All</name>
+				</options>
+				<options>
+					<value>1</value>
+					<name>1</name>
+				</options>
+			</parameters>
+			<parameters>
+				<id>virtualization_technology</id>
+				<value>true</value>
+				<type>BOOLEAN</type>
+				<displayName>Processor Virtualization Technology</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+			</parameters>
+			<parameters>
+				<id>logical_processor</id>
+				<value>true</value>
+				<type>BOOLEAN</type>
+				<displayName>Logical Processors</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+			</parameters>
+			<parameters>
+				<id>memory_node_interleave</id>
+				<value>true</value>
+				<type>BOOLEAN</type>
+				<displayName>Memory Node Interleaving</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+			</parameters>
+			<parameters>
+				<id>execute_disable</id>
+				<value>true</value>
+				<type>BOOLEAN</type>
+				<displayName>Execute Disable</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+			</parameters>
+			<parameters>
+				<id>server_pool</id>
+				<value>-1</value>
+				<type>ENUMERATED</type>
+				<displayName>Server Pool</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<options>
+					<value>-1</value>
+					<name>Global</name>
+				</options>
+			</parameters>
+		</resources>
+		<resources>
+			<id>asm::server</id>
+			<displayName>OS Settings</displayName>
+			<parameters>
+				<id>os_host_name</id>
+				<value>oshost.asm.server</value>
+				<type>STRING</type>
+				<displayName>Host Name</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>target_boot_device</dependencyTarget>
+				<dependencyValue>HD,SD</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>os_image_type</id>
+				<value>vmware_esxi</value>
+				<type>ENUMERATED</type>
+				<displayName>OS Image Type</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>target_boot_device</dependencyTarget>
+				<dependencyValue>SD,HD</dependencyValue>
+				<options>
+					<value></value>
+					<name>Select...</name>
+				</options>
+				<options>
+					<value>vmware_esxi</value>
+					<name>ESXi</name>
+				</options>
+				<options>
+					<value>redhat</value>
+					<name>Red Hat</name>
+				</options>
+				<options>
+					<value>windows2008</value>
+					<name>Windows 2008</name>
+					<dependencyTarget>target_boot_device</dependencyTarget>
+					<dependencyValue>HD</dependencyValue>
+				</options>
+				<options>
+					<value>windows2012</value>
+					<name>Windows 2012</name>
+					<dependencyTarget>target_boot_device</dependencyTarget>
+					<dependencyValue>HD</dependencyValue>
+				</options>
+				<options>
+					<value>hyperv</value>
+					<name>Hyper-V</name>
+					<dependencyTarget>target_boot_device</dependencyTarget>
+					<dependencyValue>HD</dependencyValue>
+				</options>
+			</parameters>
+			<parameters>
+				<id>razor_image</id>
+				<value>esxi-5.1</value>
+				<type>ENUMERATED</type>
+				<displayName>OS Image</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>target_boot_device</dependencyTarget>
+				<dependencyValue>SD,HD</dependencyValue>
+				<options>
+					<value></value>
+					<name>Select...</name>
+				</options>
+				<options>
+					<value>esxi-5.1</value>
+					<name>esxi-5.1</name>
+				</options>
+				<options>
+					<value>esxi-5.5</value>
+					<name>esxi-5.5</name>
+				</options>
+			</parameters>
+			<parameters>
+				<id>os_image_version</id>
+				<value>windows2012datacenter</value>
+				<type>ENUMERATED</type>
+				<displayName>OS Image Version</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>os_image_type</dependencyTarget>
+				<dependencyValue>windows2008,windows2012,hyperv</dependencyValue>
+				<options>
+					<value></value>
+					<name>Select...</name>
+				</options>
+				<options>
+					<value>windows2012datacenter</value>
+					<name>Windows Server 2012 SERVERDATACENTER</name>
+					<dependencyTarget>os_image_type</dependencyTarget>
+					<dependencyValue>hyperv,windows2012</dependencyValue>
+				</options>
+				<options>
+					<value>windows2012r2datacenter</value>
+					<name>Windows Server 2012 R2 SERVERDATACENTER</name>
+					<dependencyTarget>os_image_type</dependencyTarget>
+					<dependencyValue>hyperv,windows2012</dependencyValue>
+				</options>
+				<options>
+					<value>windows2012r2standard</value>
+					<name>Windows Server 2012 R2 SERVERSTANDARD</name>
+					<dependencyTarget>os_image_type</dependencyTarget>
+					<dependencyValue>hyperv,windows2012</dependencyValue>
+				</options>
+				<options>
+					<value>windows2012standard</value>
+					<name>Windows Server 2012 SERVERSTANDARD</name>
+					<dependencyTarget>os_image_type</dependencyTarget>
+					<dependencyValue>hyperv,windows2012</dependencyValue>
+				</options>
+				<options>
+					<value>windows2012datacentercore</value>
+					<name>Windows Server 2012 SERVERDATACENTERCORE</name>
+					<dependencyTarget>os_image_type</dependencyTarget>
+					<dependencyValue>windows2012,hyperv</dependencyValue>
+				</options>
+				<options>
+					<value>windows2012r2datacentercore</value>
+					<name>Windows Server 2012 R2 SERVERDATACENTERCORE</name>
+					<dependencyTarget>os_image_type</dependencyTarget>
+					<dependencyValue>windows2012,hyperv</dependencyValue>
+				</options>
+				<options>
+					<value>windows2012r2standardcore</value>
+					<name>Windows Server 2012 R2 SERVERSTANDARDCORE</name>
+					<dependencyTarget>os_image_type</dependencyTarget>
+					<dependencyValue>windows2012,hyperv</dependencyValue>
+				</options>
+				<options>
+					<value>windows2008r2datacenter</value>
+					<name>Windows Server 2008 R2 Datacenter</name>
+					<dependencyTarget>os_image_type</dependencyTarget>
+					<dependencyValue>hyperv,windows2008</dependencyValue>
+				</options>
+				<options>
+					<value>windows2008r2standard</value>
+					<name>Windows Server 2008 R2 Standard</name>
+					<dependencyTarget>os_image_type</dependencyTarget>
+					<dependencyValue>hyperv,windows2008</dependencyValue>
+				</options>
+				<options>
+					<value>windows2008r2enterprise</value>
+					<name>Windows Server 2008 R2 Enterprise</name>
+					<dependencyTarget>os_image_type</dependencyTarget>
+					<dependencyValue>windows2008,hyperv</dependencyValue>
+				</options>
+				<options>
+					<value>windows2008r2web</value>
+					<name>Windows Server 2008 R2 Web</name>
+					<dependencyTarget>os_image_type</dependencyTarget>
+					<dependencyValue>windows2008,hyperv</dependencyValue>
+				</options>
+			</parameters>
+			<parameters>
+				<id>admin_password</id>
+				<value>ff80808148dcad610148dcae7be80065</value>
+				<type>PASSWORD</type>
+				<displayName>Administrator password</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>target_boot_device</dependencyTarget>
+				<dependencyValue>SD,HD</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>admin_confirm_password</id>
+				<value>ff80808148dcad610148dcae7bf80066</value>
+				<type>PASSWORD</type>
+				<displayName>Confirm administrator password</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>target_boot_device</dependencyTarget>
+				<dependencyValue>SD,HD</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>product_key</id>
+				<value>324O2342JKL342LKJ3423LKJ42</value>
+				<type>STRING</type>
+				<displayName>Product Key</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>os_image_type</dependencyTarget>
+				<dependencyValue>hyperv,windows2008,windows2012</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>timezone</id>
+				<value>Central Standard Time</value>
+				<type>ENUMERATED</type>
+				<displayName>Timezone</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>os_image_type</dependencyTarget>
+				<dependencyValue>hyperv</dependencyValue>
+				<options>
+					<value>Dateline Standard Time</value>
+					<name>(GMT-12:00) International Date Line West</name>
+				</options>
+				<options>
+					<value>Samoa Standard Time</value>
+					<name>(GMT-11:00) Midway Island, Samoa</name>
+				</options>
+				<options>
+					<value>Hawaiian Standard Time</value>
+					<name>(GMT-10:00) Hawaii</name>
+				</options>
+				<options>
+					<value>Alaskan Standard Time</value>
+					<name>(GMT-09:00) Alaska</name>
+				</options>
+				<options>
+					<value>Pacific Standard Time</value>
+					<name>(GMT-08:00) Pacific Time (US and Canada); Tijuana</name>
+				</options>
+				<options>
+					<value>Mountain Standard Time</value>
+					<name>(GMT-07:00) Mountain Time (US and Canada)</name>
+				</options>
+				<options>
+					<value>Mexico Standard Time 2</value>
+					<name>(GMT-07:00) Chihuahua, La Paz, Mazatlan</name>
+				</options>
+				<options>
+					<value>U.S. Mountain Standard Time</value>
+					<name>(GMT-07:00) Arizona</name>
+				</options>
+				<options>
+					<value>Central Standard Time</value>
+					<name>(GMT-06:00) Central Time (US and Canada</name>
+				</options>
+				<options>
+					<value>Canada Central Standard Time</value>
+					<name>(GMT-06:00) Saskatchewan</name>
+				</options>
+				<options>
+					<value>Mexico Standard Time</value>
+					<name>(GMT-06:00) Guadalajara, Mexico City, Monterrey</name>
+				</options>
+				<options>
+					<value>Central America Standard Time</value>
+					<name>(GMT-06:00) Central America</name>
+				</options>
+				<options>
+					<value>Eastern Standard Time</value>
+					<name>(GMT-05:00) Eastern Time (US and Canada)</name>
+				</options>
+				<options>
+					<value>U.S. Eastern Standard Time</value>
+					<name>(GMT-05:00) Indiana (East)</name>
+				</options>
+				<options>
+					<value>S.A. Pacific Standard Time</value>
+					<name>(GMT-05:00) Bogota, Lima, Quito</name>
+				</options>
+				<options>
+					<value>Atlantic Standard Time</value>
+					<name>(GMT-04:00) Atlantic Time (Canada)</name>
+				</options>
+				<options>
+					<value>S.A. Western Standard Time</value>
+					<name>(GMT-04:00) Caracas, La Paz</name>
+				</options>
+				<options>
+					<value>Pacific S.A. Standard Time</value>
+					<name>(GMT-04:00) Santiago</name>
+				</options>
+				<options>
+					<value>Newfoundland and Labrador Standard Time</value>
+					<name>(GMT-03:30) Newfoundland and Labrador</name>
+				</options>
+				<options>
+					<value>E. South America Standard Time</value>
+					<name>(GMT-03:00) Brasilia</name>
+				</options>
+				<options>
+					<value>S.A. Eastern Standard Time</value>
+					<name>(GMT-03:00) Buenos Aires, Georgetown</name>
+				</options>
+				<options>
+					<value>Greenland Standard Time</value>
+					<name>(GMT-03:00) Greenland</name>
+				</options>
+				<options>
+					<value>Mid-Atlantic Standard Time</value>
+					<name>(GMT-02:00) Mid-Atlantic</name>
+				</options>
+				<options>
+					<value>Azores Standard Time</value>
+					<name>(GMT-01:00) Azores</name>
+				</options>
+				<options>
+					<value>Cape Verde Standard Time</value>
+					<name>(GMT-01:00) Cape Verde Islands</name>
+				</options>
+				<options>
+					<value>GMT Standard Time</value>
+					<name>(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London
+					</name>
+				</options>
+				<options>
+					<value>Greenwich Standard Time</value>
+					<name>(GMT) Casablanca, Monrovia</name>
+				</options>
+				<options>
+					<value>Central Europe Standard Time</value>
+					<name>(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague
+					</name>
+				</options>
+				<options>
+					<value>Central European Standard Time</value>
+					<name>(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb</name>
+				</options>
+				<options>
+					<value>Romance Standard Time</value>
+					<name>(GMT+01:00) Brussels, Copenhagen, Madrid, Paris</name>
+				</options>
+				<options>
+					<value>W. Europe Standard Time</value>
+					<name>(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna
+					</name>
+				</options>
+				<options>
+					<value>W. Central Africa Standard Time</value>
+					<name>(GMT+01:00) West Central Africa</name>
+				</options>
+				<options>
+					<value>E. Europe Standard Time</value>
+					<name>(GMT+02:00) Bucharest</name>
+				</options>
+				<options>
+					<value>Egypt Standard Time</value>
+					<name>(GMT+02:00) Cairo</name>
+				</options>
+				<options>
+					<value>FLE Standard Time</value>
+					<name>(GMT+02:00) Helsinki, Kiev, Riga, Sofia, Tallinn, Vilnius
+					</name>
+				</options>
+				<options>
+					<value>GTB Standard Time</value>
+					<name>(GMT+02:00) Athens, Istanbul, Minsk</name>
+				</options>
+				<options>
+					<value>Israel Standard Time</value>
+					<name>(GMT+02:00) Jerusalem</name>
+				</options>
+				<options>
+					<value>South Africa Standard Time</value>
+					<name>(GMT+02:00) Harare, Pretoria</name>
+				</options>
+				<options>
+					<value>Russian Standard Time</value>
+					<name>(GMT+03:00) Moscow, St. Petersburg, Volgograd</name>
+				</options>
+				<options>
+					<value>Arab Standard Time</value>
+					<name>(GMT+03:00) Kuwait, Riyadh</name>
+				</options>
+				<options>
+					<value>E. Africa Standard Time</value>
+					<name>(GMT+03:00) Nairobi</name>
+				</options>
+				<options>
+					<value>Arabic Standard Time</value>
+					<name>(GMT+03:00) Baghdad</name>
+				</options>
+				<options>
+					<value>Iran Standard Time</value>
+					<name>(GMT+03:30) Tehran</name>
+				</options>
+				<options>
+					<value>Arabian Standard Time</value>
+					<name>(GMT+04:00) Abu Dhabi, Muscat</name>
+				</options>
+				<options>
+					<value>Caucasus Standard Time</value>
+					<name>(GMT+04:00) Baku, Tbilisi, Yerevan</name>
+				</options>
+				<options>
+					<value>Transitional Islamic State of Afghanistan Standard Time
+					</value>
+					<name>(GMT+04:30) Kabul</name>
+				</options>
+				<options>
+					<value>Ekaterinburg Standard Time</value>
+					<name>(GMT+05:00) Ekaterinburg</name>
+				</options>
+				<options>
+					<value>West Asia Standard Time</value>
+					<name>(GMT+05:00) Islamabad, Karachi, Tashkent</name>
+				</options>
+				<options>
+					<value>India Standard Time</value>
+					<name>(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</name>
+				</options>
+				<options>
+					<value>Nepal Standard Time</value>
+					<name>(GMT+05:45) Kathmandu</name>
+				</options>
+				<options>
+					<value>Central Asia Standard Time</value>
+					<name>(GMT+06:00) Astana, Dhaka</name>
+				</options>
+				<options>
+					<value>Sri Lanka Standard Time</value>
+					<name>(GMT+06:00) Sri Jayawardenepura</name>
+				</options>
+				<options>
+					<value>N. Central Asia Standard Time</value>
+					<name>(GMT+06:00) Almaty, Novosibirsk</name>
+				</options>
+				<options>
+					<value>Myanmar Standard Time</value>
+					<name>(GMT+06:30) Yangon Rangoon</name>
+				</options>
+				<options>
+					<value>S.E. Asia Standard Time</value>
+					<name>(GMT+07:00) Bangkok, Hanoi, Jakarta</name>
+				</options>
+				<options>
+					<value>North Asia Standard Time</value>
+					<name>(GMT+07:00) Krasnoyarsk</name>
+				</options>
+				<options>
+					<value>China Standard Time</value>
+					<name>(GMT+08:00) Beijing, Chongqing, Hong Kong SAR, Urumqi</name>
+				</options>
+				<options>
+					<value>Singapore Standard Time</value>
+					<name>(GMT+08:00) Kuala Lumpur, Singapore</name>
+				</options>
+				<options>
+					<value>Taipei Standard Time</value>
+					<name>(GMT+08:00) Taipei</name>
+				</options>
+				<options>
+					<value>W. Australia Standard Time</value>
+					<name>(GMT+08:00) Perth</name>
+				</options>
+				<options>
+					<value>North Asia East Standard Time</value>
+					<name>(GMT+08:00) Irkutsk, Ulaanbaatar</name>
+				</options>
+				<options>
+					<value>Korea Standard Time</value>
+					<name>(GMT+09:00) Seoul</name>
+				</options>
+				<options>
+					<value>Tokyo Standard Time</value>
+					<name>(GMT+09:00) Osaka, Sapporo, Tokyo</name>
+				</options>
+				<options>
+					<value>Yakutsk Standard Time</value>
+					<name>(GMT+09:00) Yakutsk</name>
+				</options>
+				<options>
+					<value>A.U.S. Central Standard Time</value>
+					<name>(GMT+09:30) Darwin</name>
+				</options>
+				<options>
+					<value>Cen. Australia Standard Time</value>
+					<name>(GMT+09:30) Adelaide</name>
+				</options>
+				<options>
+					<value>A.U.S. Eastern Standard Time</value>
+					<name>(GMT+10:00) Canberra, Melbourne, Sydney</name>
+				</options>
+				<options>
+					<value>E. Australia Standard Time</value>
+					<name>(GMT+10:00) Brisbane</name>
+				</options>
+				<options>
+					<value>Tasmania Standard Time</value>
+					<name>(GMT+10:00) Hobart</name>
+				</options>
+				<options>
+					<value>Vladivostok Standard Time</value>
+					<name>(GMT+10:00) Vladivostok</name>
+				</options>
+				<options>
+					<value>West Pacific Standard Time</value>
+					<name>(GMT+10:00) Guam, Port Moresby</name>
+				</options>
+				<options>
+					<value>Central Pacific Standard Time</value>
+					<name>(GMT+11:00) Magadan, Solomon Islands, New Caledonia</name>
+				</options>
+				<options>
+					<value>Fiji Islands Standard Time</value>
+					<name>(GMT+12:00) Fiji Islands, Kamchatka, Marshall Islands</name>
+				</options>
+				<options>
+					<value>New Zealand Standard Time</value>
+					<name>(GMT+12:00) Auckland, Wellington</name>
+				</options>
+				<options>
+					<value>Tonga Standard Time</value>
+					<name>(GMT+13:00) Nuku'alofa</name>
+				</options>
+			</parameters>
+			<parameters>
+				<id>ntp</id>
+				<value>ntp.server</value>
+				<type>STRING</type>
+				<displayName>NTP Server</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>os_image_type</dependencyTarget>
+				<dependencyValue>hyperv</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>language</id>
+				<value>en-US</value>
+				<type>ENUMERATED</type>
+				<displayName>Language</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>os_image_type</dependencyTarget>
+				<dependencyValue>hyperv</dependencyValue>
+				<options>
+					<value>en-US</value>
+					<name>English (United States)</name>
+				</options>
+				<options>
+					<value>de-DE</value>
+					<name>German (Germany) </name>
+				</options>
+			</parameters>
+			<parameters>
+				<id>keyboard</id>
+				<value>00000409</value>
+				<type>ENUMERATED</type>
+				<displayName>Keyboard</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>os_image_type</dependencyTarget>
+				<dependencyValue>hyperv</dependencyValue>
+				<options>
+					<value>00000409</value>
+					<name>U.S. English</name>
+				</options>
+			</parameters>
+			<parameters>
+				<id>domain_name</id>
+				<type>STRING</type>
+				<displayName>Domain Name</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>os_image_type</dependencyTarget>
+				<dependencyValue>hyperv</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>fqdn</id>
+				<type>STRING</type>
+				<displayName>FQ Domain Name</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>os_image_type</dependencyTarget>
+				<dependencyValue>hyperv</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>domain_admin_user</id>
+				<value>admin</value>
+				<type>STRING</type>
+				<displayName>Domain Admin Username</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>os_image_type</dependencyTarget>
+				<dependencyValue>hyperv</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>domain_admin_password</id>
+				<value>ff80808148dcad610148dcae7c090067</value>
+				<type>PASSWORD</type>
+				<displayName>Domain Admin Password</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>os_image_type</dependencyTarget>
+				<dependencyValue>hyperv</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>domain_admin_password_confirm</id>
+				<value>ff80808148dcad610148dcae7c1a0068</value>
+				<type>PASSWORD</type>
+				<displayName>Domain Admin Password Confirm</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>os_image_type</dependencyTarget>
+				<dependencyValue>hyperv</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>esx_mem</id>
+				<value>false</value>
+				<type>ENUMERATED</type>
+				<displayName>Install EqualLogic MEM</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>os_image_type</dependencyTarget>
+				<dependencyValue>vmware_esxi</dependencyValue>
+				<options>
+					<value></value>
+					<name>Select...</name>
+				</options>
+				<options>
+					<value>true</value>
+					<name>True</name>
+				</options>
+				<options>
+					<value>false</value>
+					<name>False</name>
+				</options>
+			</parameters>
+		</resources>
+		<resources>
+			<id>asm::esxiscsiconfig</id>
+			<displayName>Network Settings</displayName>
+			<parameters>
+				<id>identity_pool</id>
+				<value>-1</value>
+				<type>ENUMERATED</type>
+				<displayName>Identity Pool</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<options>
+					<value>-1</value>
+					<name>Global</name>
+				</options>
+			</parameters>
+			<parameters>
+				<id>network_configuration</id>
+				<value>{"id":"82ba7572-f87d-48e3-ab6e-379fafbdfde0","fabrics":[{"id":"55dc84ec-44e4-44a4-9c9f-e6b04371c76b","name":"Fabric
+					A","interfaces":[{"id":"44c27b43-21b3-421a-aea2-e2d66a9994fe","name":"Port
+					1","partitions":[{"id":"749be731-a33b-4bed-9fad-bb47136feb9e","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"c3b49a46-cb53-4f16-99d1-62b2179328b0","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"bdb99677-a668-4a1e-9486-d1946cf73ee3","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"96c2f2cb-142f-4eca-bcc2-340f6a87679d","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"bf4c4586-946c-4521-8d8b-50df66cb36d1","name":"Port
+					2","partitions":[{"id":"0691e68a-b0bc-409c-9221-348e733b5e5f","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"06c24830-2ee3-4f92-ba40-7ffe8b822153","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"7f0d4935-85b5-4e6e-a0a3-3df0af012aff","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"0c5a66d8-7dc5-4839-a91e-a9b4fdb45f4f","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"c5613dff-97ff-4cbb-8131-7711a93b17bb","name":"Port
+					3","partitions":[{"id":"1c2514ce-5127-42c0-b4dd-9c284573d568","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"9afa3332-38bb-4bd1-8530-0b32025db631","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"e6b75d6e-efa6-4082-860c-9d0ac40ede70","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"ebec5ee2-727e-46c1-af6a-d1e6cb713e3c","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"ea0ada41-e769-4adf-b1b9-959c10f09344","name":"Port
+					4","partitions":[{"id":"4067ebe3-3736-4af9-a563-f006749935bf","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"8da1ce60-0fa6-4a26-9345-0feab779f1d3","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"dc436cfe-f77e-4cf0-a917-812b435998f8","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"3fe798f4-50d5-4e95-a11f-a43bde8b2df9","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true}],"enabled":true,"redundancy":true,"nictype":"2","usedforfc":false},{"id":"9364dd35-bc69-4199-ab26-cfa88d6a477b","name":"Fabric
+					B","interfaces":[{"id":"e3fe01cb-9e5b-4172-9a99-b863d2772f77","name":"Port
+					1","partitions":[{"id":"05412a25-00b5-4035-9693-c7d4459a4bb7","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"e2b240d5-cf7b-4c10-81bf-1c4045366dc3","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"7e7d9b6e-e39e-4258-8058-25d267042a12","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"1544440f-bab5-480c-8f75-e1f32a6a03cc","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"9eb4032a-1cff-4c27-bb10-fcdb5dc0e5ad","name":"Port
+					2","partitions":[{"id":"004acce4-cccf-40e6-8cbe-574980b05ca2","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"6ee1e6dd-10a1-41cf-8f28-c0bd961107dd","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"c9392502-e5c5-4a8b-88ad-9a2e1820ba1c","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"964b8f8a-ddf8-4438-b5a8-f692453a395e","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"f5b59bc8-74e9-4948-8d7c-a3979b164406","name":"Port
+					3","partitions":[{"id":"9616fbb0-6e82-4f21-895d-05e6da80e87b","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"3d2570fa-d176-44e4-bb9c-9de756abcff6","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"5b8ad2cf-6c95-4960-a4e7-46c683f96db8","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"94495e8f-b725-4557-8100-1cb9b52a7475","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"a3c6acbe-f270-4e6d-83e5-3dc362a595c3","name":"Port
+					4","partitions":[{"id":"d4ef54f2-06e4-41bf-88c8-d312c7c970f1","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"6a8977f6-41a8-4936-83f7-61a74897f827","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"811284f2-4152-4f1c-bf67-931572edcd96","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"64049980-d184-45db-9733-31dd0d65fc28","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true}],"enabled":false,"redundancy":false,"nictype":"2","usedforfc":false},{"id":"81433fde-e904-435c-8c76-4a5b231b0a0c","name":"Fabric
+					C","interfaces":[{"id":"4d1524f4-2806-4909-a10e-6fbdfb3e30f2","name":"Port
+					1","partitions":[{"id":"b8df818b-fc55-457a-b884-0fc148dbb869","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"5bb82ded-a702-42e3-bd97-b303518a4bae","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"dfd08a26-ff02-479e-8ca9-0917a15e354b","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"984b9805-2c6e-4007-aadb-c22a8bacd821","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"f0826859-bfec-4ddb-8819-37b96268e017","name":"Port
+					2","partitions":[{"id":"119f354c-297a-41ef-a783-32126513af17","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"d31c64b0-c74f-424d-a602-735a6096f426","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"eded48cc-32a1-4685-9237-6baa089b7de7","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"edf41a9f-aa90-400a-8f3e-af4747e00a17","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"06211402-87af-4029-8862-66da40f653ed","name":"Port
+					3","partitions":[{"id":"099a05a6-6a59-45aa-9dec-b4dfa1842553","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"a3972be3-7ab3-445c-9e22-359661c3015d","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"235c960a-0a73-4456-accd-6296b3135051","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"367bfbb2-6543-4c10-b1ca-4767e5341ef4","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"7168e3d6-8946-4b9f-9c15-b4a1a9b7ac84","name":"Port
+					4","partitions":[{"id":"5be5acd5-b7d8-4581-8414-28c64cfc859f","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"3675c417-7f72-4cb1-82a2-ffb2df5024f0","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"147c1bc3-3ce6-4b80-a9d3-9e926e9e75cb","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"95b648df-1397-45b4-b927-fa556c23ceaa","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true}],"enabled":false,"redundancy":false,"nictype":"2","usedforfc":false}],"servertype":"rack","interfaces":[{"id":"2a41f247-6058-4299-ac30-a9d9e4af01fc","name":"Interface","interfaces":[{"id":"3ccf11e3-4418-40bb-9e03-d9f2c624cee2","name":"Port
+					1","partitions":[{"id":"523cfff7-0a35-404d-ade9-455ed7c24a75","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"3e5d26d8-461a-4635-84ec-0ccb1b3fe60a","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"02374c90-c651-4844-ba86-25adf9e989cc","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"1b0feed4-9658-4805-b740-dcc088af2c35","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"e8188239-7da2-4bb9-b33b-2fa05b80e830","name":"Port
+					2","partitions":[{"id":"a9876f5f-a019-4c93-8aa4-ee67dd3ffef0","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"4fbff22a-a803-4a9b-bdac-c2a753ceffad","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"56f17246-29f3-4917-8222-cfb86409939c","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"9fccca44-1895-43f7-9244-eb0957b9a4ba","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"c13c977a-6aa8-46f6-b44f-e2b750c87da0","name":"Port
+					3","partitions":[{"id":"66a60f83-47ea-4c05-af54-e4838c82dcec","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"0fa19dff-ca83-423b-b5b2-d8ddecf0eec7","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"33b96113-b848-4aae-b761-30f1a8477801","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"c67b70bc-2457-4c86-afa0-1021a639eb50","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"16b18635-0d60-4971-9ab7-61edab7a2c2d","name":"Port
+					4","partitions":[{"id":"fe6a27d9-0b88-4b7f-b301-56c8308f0454","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"6b98bcbd-6104-462f-ae2f-315a65c51dd1","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"8466e952-f279-4c8f-a757-117fff4e985b","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"f7272b9c-e0a7-4982-936d-7156543f1248","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true}],"enabled":true,"redundancy":false,"nictype":"2","usedforfc":false}],"teams":[],"vswitches":[]}
+				</value>
+				<type>NETWORKCONFIGURATION</type>
+				<displayName>Network Config</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+			</parameters>
+		</resources>
+		<manageFirmware>false</manageFirmware>
+	</components>
+	<components>
+		<id>f07d6599-75e1-4801-a5f9-23c5730f7229</id>
+		<componentID>component-server-1</componentID>
+		<name>Server 2</name>
+		<type>SERVER</type>
+		<teardown>false</teardown>
+		<relatedComponents>
+			<entry>
+				<key>8e0244ba-a9d0-47a1-8ef5-ab742719ad74</key>
+				<value>VMWare Cluster 2</value>
+			</entry>
+			<entry>
+				<key>059db466-0ea6-450a-b42e-81d7cfc72b25</key>
+				<value>EqualLogic 1</value>
+			</entry>
+		</relatedComponents>
+		<associatedComponents>
+			<entry>
+				<key>8e0244ba-a9d0-47a1-8ef5-ab742719ad74</key>
+				<value>
+					<entry>
+						<key>name</key>
+						<value>VMWare Cluster 2</value>
+					</entry>
+				</value>
+			</entry>
+			<entry>
+				<key>059db466-0ea6-450a-b42e-81d7cfc72b25</key>
+				<value>
+					<entry>
+						<key>name</key>
+						<value>EqualLogic 1</value>
+					</entry>
+				</value>
+			</entry>
+		</associatedComponents>
+		<resources>
+			<id>asm::idrac</id>
+			<displayName>Hardware Settings</displayName>
+			<parameters>
+				<id>target_boot_device</id>
+				<value>SD</value>
+				<type>ENUMERATED</type>
+				<displayName>Target Boot Device</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<options>
+					<value></value>
+					<name>Select...</name>
+				</options>
+				<options>
+					<value>NONE</value>
+					<name>None</name>
+				</options>
+				<options>
+					<value>SD</value>
+					<name>SD Card</name>
+				</options>
+				<options>
+					<value>HD</value>
+					<name>Local Hard Drive</name>
+				</options>
+				<options>
+					<value>iSCSI</value>
+					<name>Boot From SAN (iSCSI)</name>
+				</options>
+				<options>
+					<value>FC</value>
+					<name>Boot From SAN (FC)</name>
+				</options>
+			</parameters>
+			<parameters>
+				<id>system_profile</id>
+				<value>PerfOptimized</value>
+				<type>ENUMERATED</type>
+				<displayName>System Profile</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<options>
+					<value>PerfPerWattOptimizedDapc</value>
+					<name>Performance Per Watt (DAPC)</name>
+				</options>
+				<options>
+					<value>PerfPerWattOptimizedOs</value>
+					<name>Performance Per Watt (OS)</name>
+				</options>
+				<options>
+					<value>PerfOptimized</value>
+					<name>Performance</name>
+				</options>
+				<options>
+					<value>DenseCfgOptimized</value>
+					<name>Dense Configuration</name>
+				</options>
+				<options>
+					<value>Custom</value>
+					<name>Custom</name>
+				</options>
+			</parameters>
+			<parameters>
+				<id>user_usb_ports</id>
+				<value>AllOn</value>
+				<type>ENUMERATED</type>
+				<displayName>User Accessible USB Ports</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<options>
+					<value>AllOn</value>
+					<name>All Ports On</name>
+				</options>
+				<options>
+					<value>AllOff</value>
+					<name>All Ports Off</name>
+				</options>
+				<options>
+					<value>OnlyBackPortsOn</value>
+					<name>Only Back Ports On</name>
+				</options>
+			</parameters>
+			<parameters>
+				<id>number_core_processors</id>
+				<value>All</value>
+				<type>ENUMERATED</type>
+				<displayName>Number of Core Processors</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<options>
+					<value>All</value>
+					<name>All</name>
+				</options>
+				<options>
+					<value>1</value>
+					<name>1</name>
+				</options>
+			</parameters>
+			<parameters>
+				<id>virtualization_technology</id>
+				<value>true</value>
+				<type>BOOLEAN</type>
+				<displayName>Processor Virtualization Technology</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+			</parameters>
+			<parameters>
+				<id>logical_processor</id>
+				<value>true</value>
+				<type>BOOLEAN</type>
+				<displayName>Logical Processors</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+			</parameters>
+			<parameters>
+				<id>memory_node_interleave</id>
+				<value>true</value>
+				<type>BOOLEAN</type>
+				<displayName>Memory Node Interleaving</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+			</parameters>
+			<parameters>
+				<id>execute_disable</id>
+				<value>true</value>
+				<type>BOOLEAN</type>
+				<displayName>Execute Disable</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+			</parameters>
+			<parameters>
+				<id>server_pool</id>
+				<value>-1</value>
+				<type>ENUMERATED</type>
+				<displayName>Server Pool</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<options>
+					<value>-1</value>
+					<name>Global</name>
+				</options>
+			</parameters>
+		</resources>
+		<resources>
+			<id>asm::server</id>
+			<displayName>OS Settings</displayName>
+			<parameters>
+				<id>os_host_name</id>
+				<value>oshost.asm.server</value>
+				<type>STRING</type>
+				<displayName>Host Name</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>target_boot_device</dependencyTarget>
+				<dependencyValue>HD,SD</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>os_image_type</id>
+				<value>vmware_esxi</value>
+				<type>ENUMERATED</type>
+				<displayName>OS Image Type</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>target_boot_device</dependencyTarget>
+				<dependencyValue>SD,HD</dependencyValue>
+				<options>
+					<value></value>
+					<name>Select...</name>
+				</options>
+				<options>
+					<value>vmware_esxi</value>
+					<name>ESXi</name>
+				</options>
+				<options>
+					<value>redhat</value>
+					<name>Red Hat</name>
+				</options>
+				<options>
+					<value>windows2008</value>
+					<name>Windows 2008</name>
+					<dependencyTarget>target_boot_device</dependencyTarget>
+					<dependencyValue>HD</dependencyValue>
+				</options>
+				<options>
+					<value>windows2012</value>
+					<name>Windows 2012</name>
+					<dependencyTarget>target_boot_device</dependencyTarget>
+					<dependencyValue>HD</dependencyValue>
+				</options>
+				<options>
+					<value>hyperv</value>
+					<name>Hyper-V</name>
+					<dependencyTarget>target_boot_device</dependencyTarget>
+					<dependencyValue>HD</dependencyValue>
+				</options>
+			</parameters>
+			<parameters>
+				<id>razor_image</id>
+				<value>esxi-5.1</value>
+				<type>ENUMERATED</type>
+				<displayName>OS Image</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>target_boot_device</dependencyTarget>
+				<dependencyValue>SD,HD</dependencyValue>
+				<options>
+					<value></value>
+					<name>Select...</name>
+				</options>
+				<options>
+					<value>esxi-5.1</value>
+					<name>esxi-5.1</name>
+				</options>
+				<options>
+					<value>esxi-5.5</value>
+					<name>esxi-5.5</name>
+				</options>
+			</parameters>
+			<parameters>
+				<id>os_image_version</id>
+				<value>windows2012datacenter</value>
+				<type>ENUMERATED</type>
+				<displayName>OS Image Version</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>os_image_type</dependencyTarget>
+				<dependencyValue>windows2008,windows2012,hyperv</dependencyValue>
+				<options>
+					<value></value>
+					<name>Select...</name>
+				</options>
+				<options>
+					<value>windows2012datacenter</value>
+					<name>Windows Server 2012 SERVERDATACENTER</name>
+					<dependencyTarget>os_image_type</dependencyTarget>
+					<dependencyValue>hyperv,windows2012</dependencyValue>
+				</options>
+				<options>
+					<value>windows2012r2datacenter</value>
+					<name>Windows Server 2012 R2 SERVERDATACENTER</name>
+					<dependencyTarget>os_image_type</dependencyTarget>
+					<dependencyValue>hyperv,windows2012</dependencyValue>
+				</options>
+				<options>
+					<value>windows2012r2standard</value>
+					<name>Windows Server 2012 R2 SERVERSTANDARD</name>
+					<dependencyTarget>os_image_type</dependencyTarget>
+					<dependencyValue>hyperv,windows2012</dependencyValue>
+				</options>
+				<options>
+					<value>windows2012standard</value>
+					<name>Windows Server 2012 SERVERSTANDARD</name>
+					<dependencyTarget>os_image_type</dependencyTarget>
+					<dependencyValue>hyperv,windows2012</dependencyValue>
+				</options>
+				<options>
+					<value>windows2012datacentercore</value>
+					<name>Windows Server 2012 SERVERDATACENTERCORE</name>
+					<dependencyTarget>os_image_type</dependencyTarget>
+					<dependencyValue>windows2012,hyperv</dependencyValue>
+				</options>
+				<options>
+					<value>windows2012r2datacentercore</value>
+					<name>Windows Server 2012 R2 SERVERDATACENTERCORE</name>
+					<dependencyTarget>os_image_type</dependencyTarget>
+					<dependencyValue>windows2012,hyperv</dependencyValue>
+				</options>
+				<options>
+					<value>windows2012r2standardcore</value>
+					<name>Windows Server 2012 R2 SERVERSTANDARDCORE</name>
+					<dependencyTarget>os_image_type</dependencyTarget>
+					<dependencyValue>windows2012,hyperv</dependencyValue>
+				</options>
+				<options>
+					<value>windows2008r2datacenter</value>
+					<name>Windows Server 2008 R2 Datacenter</name>
+					<dependencyTarget>os_image_type</dependencyTarget>
+					<dependencyValue>hyperv,windows2008</dependencyValue>
+				</options>
+				<options>
+					<value>windows2008r2standard</value>
+					<name>Windows Server 2008 R2 Standard</name>
+					<dependencyTarget>os_image_type</dependencyTarget>
+					<dependencyValue>hyperv,windows2008</dependencyValue>
+				</options>
+				<options>
+					<value>windows2008r2enterprise</value>
+					<name>Windows Server 2008 R2 Enterprise</name>
+					<dependencyTarget>os_image_type</dependencyTarget>
+					<dependencyValue>windows2008,hyperv</dependencyValue>
+				</options>
+				<options>
+					<value>windows2008r2web</value>
+					<name>Windows Server 2008 R2 Web</name>
+					<dependencyTarget>os_image_type</dependencyTarget>
+					<dependencyValue>windows2008,hyperv</dependencyValue>
+				</options>
+			</parameters>
+			<parameters>
+				<id>admin_password</id>
+				<value>ff80808148dcad610148dcae7c340069</value>
+				<type>PASSWORD</type>
+				<displayName>Administrator password</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>target_boot_device</dependencyTarget>
+				<dependencyValue>SD,HD</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>admin_confirm_password</id>
+				<value>ff80808148dcad610148dcae7c43006a</value>
+				<type>PASSWORD</type>
+				<displayName>Confirm administrator password</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>target_boot_device</dependencyTarget>
+				<dependencyValue>SD,HD</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>product_key</id>
+				<value>324O2342JKL342LKJ3423LKJ42</value>
+				<type>STRING</type>
+				<displayName>Product Key</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>os_image_type</dependencyTarget>
+				<dependencyValue>hyperv,windows2008,windows2012</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>timezone</id>
+				<value>Central Standard Time</value>
+				<type>ENUMERATED</type>
+				<displayName>Timezone</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>os_image_type</dependencyTarget>
+				<dependencyValue>hyperv</dependencyValue>
+				<options>
+					<value>Dateline Standard Time</value>
+					<name>(GMT-12:00) International Date Line West</name>
+				</options>
+				<options>
+					<value>Samoa Standard Time</value>
+					<name>(GMT-11:00) Midway Island, Samoa</name>
+				</options>
+				<options>
+					<value>Hawaiian Standard Time</value>
+					<name>(GMT-10:00) Hawaii</name>
+				</options>
+				<options>
+					<value>Alaskan Standard Time</value>
+					<name>(GMT-09:00) Alaska</name>
+				</options>
+				<options>
+					<value>Pacific Standard Time</value>
+					<name>(GMT-08:00) Pacific Time (US and Canada); Tijuana</name>
+				</options>
+				<options>
+					<value>Mountain Standard Time</value>
+					<name>(GMT-07:00) Mountain Time (US and Canada)</name>
+				</options>
+				<options>
+					<value>Mexico Standard Time 2</value>
+					<name>(GMT-07:00) Chihuahua, La Paz, Mazatlan</name>
+				</options>
+				<options>
+					<value>U.S. Mountain Standard Time</value>
+					<name>(GMT-07:00) Arizona</name>
+				</options>
+				<options>
+					<value>Central Standard Time</value>
+					<name>(GMT-06:00) Central Time (US and Canada</name>
+				</options>
+				<options>
+					<value>Canada Central Standard Time</value>
+					<name>(GMT-06:00) Saskatchewan</name>
+				</options>
+				<options>
+					<value>Mexico Standard Time</value>
+					<name>(GMT-06:00) Guadalajara, Mexico City, Monterrey</name>
+				</options>
+				<options>
+					<value>Central America Standard Time</value>
+					<name>(GMT-06:00) Central America</name>
+				</options>
+				<options>
+					<value>Eastern Standard Time</value>
+					<name>(GMT-05:00) Eastern Time (US and Canada)</name>
+				</options>
+				<options>
+					<value>U.S. Eastern Standard Time</value>
+					<name>(GMT-05:00) Indiana (East)</name>
+				</options>
+				<options>
+					<value>S.A. Pacific Standard Time</value>
+					<name>(GMT-05:00) Bogota, Lima, Quito</name>
+				</options>
+				<options>
+					<value>Atlantic Standard Time</value>
+					<name>(GMT-04:00) Atlantic Time (Canada)</name>
+				</options>
+				<options>
+					<value>S.A. Western Standard Time</value>
+					<name>(GMT-04:00) Caracas, La Paz</name>
+				</options>
+				<options>
+					<value>Pacific S.A. Standard Time</value>
+					<name>(GMT-04:00) Santiago</name>
+				</options>
+				<options>
+					<value>Newfoundland and Labrador Standard Time</value>
+					<name>(GMT-03:30) Newfoundland and Labrador</name>
+				</options>
+				<options>
+					<value>E. South America Standard Time</value>
+					<name>(GMT-03:00) Brasilia</name>
+				</options>
+				<options>
+					<value>S.A. Eastern Standard Time</value>
+					<name>(GMT-03:00) Buenos Aires, Georgetown</name>
+				</options>
+				<options>
+					<value>Greenland Standard Time</value>
+					<name>(GMT-03:00) Greenland</name>
+				</options>
+				<options>
+					<value>Mid-Atlantic Standard Time</value>
+					<name>(GMT-02:00) Mid-Atlantic</name>
+				</options>
+				<options>
+					<value>Azores Standard Time</value>
+					<name>(GMT-01:00) Azores</name>
+				</options>
+				<options>
+					<value>Cape Verde Standard Time</value>
+					<name>(GMT-01:00) Cape Verde Islands</name>
+				</options>
+				<options>
+					<value>GMT Standard Time</value>
+					<name>(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London
+					</name>
+				</options>
+				<options>
+					<value>Greenwich Standard Time</value>
+					<name>(GMT) Casablanca, Monrovia</name>
+				</options>
+				<options>
+					<value>Central Europe Standard Time</value>
+					<name>(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague
+					</name>
+				</options>
+				<options>
+					<value>Central European Standard Time</value>
+					<name>(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb</name>
+				</options>
+				<options>
+					<value>Romance Standard Time</value>
+					<name>(GMT+01:00) Brussels, Copenhagen, Madrid, Paris</name>
+				</options>
+				<options>
+					<value>W. Europe Standard Time</value>
+					<name>(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna
+					</name>
+				</options>
+				<options>
+					<value>W. Central Africa Standard Time</value>
+					<name>(GMT+01:00) West Central Africa</name>
+				</options>
+				<options>
+					<value>E. Europe Standard Time</value>
+					<name>(GMT+02:00) Bucharest</name>
+				</options>
+				<options>
+					<value>Egypt Standard Time</value>
+					<name>(GMT+02:00) Cairo</name>
+				</options>
+				<options>
+					<value>FLE Standard Time</value>
+					<name>(GMT+02:00) Helsinki, Kiev, Riga, Sofia, Tallinn, Vilnius
+					</name>
+				</options>
+				<options>
+					<value>GTB Standard Time</value>
+					<name>(GMT+02:00) Athens, Istanbul, Minsk</name>
+				</options>
+				<options>
+					<value>Israel Standard Time</value>
+					<name>(GMT+02:00) Jerusalem</name>
+				</options>
+				<options>
+					<value>South Africa Standard Time</value>
+					<name>(GMT+02:00) Harare, Pretoria</name>
+				</options>
+				<options>
+					<value>Russian Standard Time</value>
+					<name>(GMT+03:00) Moscow, St. Petersburg, Volgograd</name>
+				</options>
+				<options>
+					<value>Arab Standard Time</value>
+					<name>(GMT+03:00) Kuwait, Riyadh</name>
+				</options>
+				<options>
+					<value>E. Africa Standard Time</value>
+					<name>(GMT+03:00) Nairobi</name>
+				</options>
+				<options>
+					<value>Arabic Standard Time</value>
+					<name>(GMT+03:00) Baghdad</name>
+				</options>
+				<options>
+					<value>Iran Standard Time</value>
+					<name>(GMT+03:30) Tehran</name>
+				</options>
+				<options>
+					<value>Arabian Standard Time</value>
+					<name>(GMT+04:00) Abu Dhabi, Muscat</name>
+				</options>
+				<options>
+					<value>Caucasus Standard Time</value>
+					<name>(GMT+04:00) Baku, Tbilisi, Yerevan</name>
+				</options>
+				<options>
+					<value>Transitional Islamic State of Afghanistan Standard Time
+					</value>
+					<name>(GMT+04:30) Kabul</name>
+				</options>
+				<options>
+					<value>Ekaterinburg Standard Time</value>
+					<name>(GMT+05:00) Ekaterinburg</name>
+				</options>
+				<options>
+					<value>West Asia Standard Time</value>
+					<name>(GMT+05:00) Islamabad, Karachi, Tashkent</name>
+				</options>
+				<options>
+					<value>India Standard Time</value>
+					<name>(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</name>
+				</options>
+				<options>
+					<value>Nepal Standard Time</value>
+					<name>(GMT+05:45) Kathmandu</name>
+				</options>
+				<options>
+					<value>Central Asia Standard Time</value>
+					<name>(GMT+06:00) Astana, Dhaka</name>
+				</options>
+				<options>
+					<value>Sri Lanka Standard Time</value>
+					<name>(GMT+06:00) Sri Jayawardenepura</name>
+				</options>
+				<options>
+					<value>N. Central Asia Standard Time</value>
+					<name>(GMT+06:00) Almaty, Novosibirsk</name>
+				</options>
+				<options>
+					<value>Myanmar Standard Time</value>
+					<name>(GMT+06:30) Yangon Rangoon</name>
+				</options>
+				<options>
+					<value>S.E. Asia Standard Time</value>
+					<name>(GMT+07:00) Bangkok, Hanoi, Jakarta</name>
+				</options>
+				<options>
+					<value>North Asia Standard Time</value>
+					<name>(GMT+07:00) Krasnoyarsk</name>
+				</options>
+				<options>
+					<value>China Standard Time</value>
+					<name>(GMT+08:00) Beijing, Chongqing, Hong Kong SAR, Urumqi</name>
+				</options>
+				<options>
+					<value>Singapore Standard Time</value>
+					<name>(GMT+08:00) Kuala Lumpur, Singapore</name>
+				</options>
+				<options>
+					<value>Taipei Standard Time</value>
+					<name>(GMT+08:00) Taipei</name>
+				</options>
+				<options>
+					<value>W. Australia Standard Time</value>
+					<name>(GMT+08:00) Perth</name>
+				</options>
+				<options>
+					<value>North Asia East Standard Time</value>
+					<name>(GMT+08:00) Irkutsk, Ulaanbaatar</name>
+				</options>
+				<options>
+					<value>Korea Standard Time</value>
+					<name>(GMT+09:00) Seoul</name>
+				</options>
+				<options>
+					<value>Tokyo Standard Time</value>
+					<name>(GMT+09:00) Osaka, Sapporo, Tokyo</name>
+				</options>
+				<options>
+					<value>Yakutsk Standard Time</value>
+					<name>(GMT+09:00) Yakutsk</name>
+				</options>
+				<options>
+					<value>A.U.S. Central Standard Time</value>
+					<name>(GMT+09:30) Darwin</name>
+				</options>
+				<options>
+					<value>Cen. Australia Standard Time</value>
+					<name>(GMT+09:30) Adelaide</name>
+				</options>
+				<options>
+					<value>A.U.S. Eastern Standard Time</value>
+					<name>(GMT+10:00) Canberra, Melbourne, Sydney</name>
+				</options>
+				<options>
+					<value>E. Australia Standard Time</value>
+					<name>(GMT+10:00) Brisbane</name>
+				</options>
+				<options>
+					<value>Tasmania Standard Time</value>
+					<name>(GMT+10:00) Hobart</name>
+				</options>
+				<options>
+					<value>Vladivostok Standard Time</value>
+					<name>(GMT+10:00) Vladivostok</name>
+				</options>
+				<options>
+					<value>West Pacific Standard Time</value>
+					<name>(GMT+10:00) Guam, Port Moresby</name>
+				</options>
+				<options>
+					<value>Central Pacific Standard Time</value>
+					<name>(GMT+11:00) Magadan, Solomon Islands, New Caledonia</name>
+				</options>
+				<options>
+					<value>Fiji Islands Standard Time</value>
+					<name>(GMT+12:00) Fiji Islands, Kamchatka, Marshall Islands</name>
+				</options>
+				<options>
+					<value>New Zealand Standard Time</value>
+					<name>(GMT+12:00) Auckland, Wellington</name>
+				</options>
+				<options>
+					<value>Tonga Standard Time</value>
+					<name>(GMT+13:00) Nuku'alofa</name>
+				</options>
+			</parameters>
+			<parameters>
+				<id>ntp</id>
+				<value>ntp.server</value>
+				<type>STRING</type>
+				<displayName>NTP Server</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>os_image_type</dependencyTarget>
+				<dependencyValue>hyperv</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>language</id>
+				<value>en-US</value>
+				<type>ENUMERATED</type>
+				<displayName>Language</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>os_image_type</dependencyTarget>
+				<dependencyValue>hyperv</dependencyValue>
+				<options>
+					<value>en-US</value>
+					<name>English (United States)</name>
+				</options>
+				<options>
+					<value>de-DE</value>
+					<name>German (Germany) </name>
+				</options>
+			</parameters>
+			<parameters>
+				<id>keyboard</id>
+				<value>00000409</value>
+				<type>ENUMERATED</type>
+				<displayName>Keyboard</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>os_image_type</dependencyTarget>
+				<dependencyValue>hyperv</dependencyValue>
+				<options>
+					<value>00000409</value>
+					<name>U.S. English</name>
+				</options>
+			</parameters>
+			<parameters>
+				<id>domain_name</id>
+				<type>STRING</type>
+				<displayName>Domain Name</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>os_image_type</dependencyTarget>
+				<dependencyValue>hyperv</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>fqdn</id>
+				<type>STRING</type>
+				<displayName>FQ Domain Name</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>os_image_type</dependencyTarget>
+				<dependencyValue>hyperv</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>domain_admin_user</id>
+				<value>admin</value>
+				<type>STRING</type>
+				<displayName>Domain Admin Username</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>os_image_type</dependencyTarget>
+				<dependencyValue>hyperv</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>domain_admin_password</id>
+				<value>ff80808148dcad610148dcae7c54006b</value>
+				<type>PASSWORD</type>
+				<displayName>Domain Admin Password</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>os_image_type</dependencyTarget>
+				<dependencyValue>hyperv</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>domain_admin_password_confirm</id>
+				<value>ff80808148dcad610148dcae7c65006c</value>
+				<type>PASSWORD</type>
+				<displayName>Domain Admin Password Confirm</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>os_image_type</dependencyTarget>
+				<dependencyValue>hyperv</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>esx_mem</id>
+				<value>false</value>
+				<type>ENUMERATED</type>
+				<displayName>Install EqualLogic MEM</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>os_image_type</dependencyTarget>
+				<dependencyValue>vmware_esxi</dependencyValue>
+				<options>
+					<value></value>
+					<name>Select...</name>
+				</options>
+				<options>
+					<value>true</value>
+					<name>True</name>
+				</options>
+				<options>
+					<value>false</value>
+					<name>False</name>
+				</options>
+			</parameters>
+		</resources>
+		<resources>
+			<id>asm::esxiscsiconfig</id>
+			<displayName>Network Settings</displayName>
+			<parameters>
+				<id>identity_pool</id>
+				<value>-1</value>
+				<type>ENUMERATED</type>
+				<displayName>Identity Pool</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<options>
+					<value>-1</value>
+					<name>Global</name>
+				</options>
+			</parameters>
+			<parameters>
+				<id>network_configuration</id>
+				<value>{"id":"55dd70ba-b5c5-4940-91b4-9cd4b40bee26","fabrics":[{"id":"e570d434-58fa-4e9e-8dca-2bc7c91c2bcb","name":"Fabric
+					A","interfaces":[{"id":"66d393f7-11aa-4654-9f12-daeed2366191","name":"Port
+					1","partitions":[{"id":"422385b7-b582-4cf5-a347-d75f21b211c0","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"5c772c42-0dea-4468-9a9a-a3157f0828e8","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"2c9d31e9-7d01-46a9-a5bb-4e9c5c796128","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"25f195c0-c7f1-47fe-a0e6-37e88d125e3f","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"5ddbd207-44e6-471b-91c6-8fde94117a79","name":"Port
+					2","partitions":[{"id":"cab833bc-31c7-4ada-a563-564a8017c03f","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"e534f68e-223c-444f-b324-63a7aa3aeaf1","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"708fae61-e498-449f-8d81-b3f8a8fcd2a4","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"d3a635c8-bd0c-4b98-8b98-d09c3f38615d","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"98c7daf8-7424-428c-a5b5-ae041c75d90b","name":"Port
+					3","partitions":[{"id":"68eb1f1a-b598-442f-b021-18ad4a14dae5","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"f6bc4981-20bf-4168-a1ae-1fa2e22fb193","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"55267519-1d92-4257-be05-eca5991eaf9a","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"8f6b4db1-7941-4443-8f66-9216af6bcbe7","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"5bdbe658-1fa8-4a8c-9bef-8a300bdd76df","name":"Port
+					4","partitions":[{"id":"45d12fd6-27cf-4b74-a9d3-dc114653f1d3","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"ca53904b-e0e4-454e-8e08-bbdb2cfe2e61","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"e22554a5-551b-4464-b47c-472abe0943e4","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"f9b7cc28-44a1-478f-8f3d-83a7f45ce154","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true}],"enabled":true,"redundancy":true,"nictype":"2","usedforfc":false},{"id":"4c82f81e-f24b-46de-ae1e-5e7f92f336bc","name":"Fabric
+					B","interfaces":[{"id":"f740f246-6db5-4e23-ae6a-645add2cbe36","name":"Port
+					1","partitions":[{"id":"93fa8cd3-efdd-4213-b0fa-9ee3d81756ae","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"0246aa82-dd19-4319-b030-3bff20bcf3ae","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"c0fba7f0-12ba-487d-8b60-7c0026f8e5a5","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"feebad36-9207-4a66-9a2d-f1b485f40a46","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"8116aba2-a54d-441c-91e2-59d3de739e87","name":"Port
+					2","partitions":[{"id":"06293290-1d71-4379-a18d-8f0d3ec4cfc8","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"11412794-9caa-4167-9b7f-db515e7c87d1","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"fd124a52-ae96-4ec8-8554-a8b42c7969be","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"f461555c-9ddf-4ba1-a569-5017f1298eef","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"59d23800-764d-4ae2-94f0-d9cf286345ef","name":"Port
+					3","partitions":[{"id":"b7ba3a9b-370d-4e95-8d70-e060735a79ec","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"9566a697-8178-459c-91a1-cb14c4f063ac","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"c49ffa33-679c-42d1-9ba9-0fd91056cdda","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"edd0268f-74e0-44ef-a229-fa595580f420","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"ad07e7a5-1e37-46d5-b64a-e6e1ac51608f","name":"Port
+					4","partitions":[{"id":"f4b6b2bb-141c-4e6d-9fd1-8508112a6e6f","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"113772d2-37f9-4c48-9c59-829ee9b2673b","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"246209c7-72ef-4219-896c-ebb69bffa4e3","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"f1a10123-1700-4a0d-ac48-acc02361df51","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true}],"enabled":false,"redundancy":false,"nictype":"2","usedforfc":false},{"id":"c49024a6-b1dc-42dc-b093-7ac90da37d07","name":"Fabric
+					C","interfaces":[{"id":"dcb1a899-f9c1-4a17-826c-b5ea40efe0e1","name":"Port
+					1","partitions":[{"id":"ff7e624d-730b-4ed6-9b4f-a29fb879dd2a","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"90b401a3-1aad-4878-a084-2e6b56639fd5","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"b22a7fb7-9394-4b26-91e8-965695c13cdb","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"29f2763e-7239-4aa0-9fd2-eb9117147a47","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"e874d890-b469-49ec-9a47-c934d1d5c40b","name":"Port
+					2","partitions":[{"id":"b4997d4e-e761-41f2-b33f-62088c91ad39","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"cb328e64-b78a-4048-924f-acb7f1f5a933","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"7374c160-bb6b-4d13-9cf3-57a1694fe3ab","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"af9f670d-95ab-48c7-84d1-7d67100bc77e","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"0d9b33c8-e877-42e8-969c-6fda546e0e3e","name":"Port
+					3","partitions":[{"id":"569b3ad9-63b2-4a04-9449-8f5f87a5cdb1","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"a2b626e5-d2a8-41f3-9fb7-f7b4363c54e1","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"5268751d-9f62-4ee2-9fee-b26d040fb5cc","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"6a8e0622-6dcb-4188-a521-98ad0f1ea9aa","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"64868591-f70b-46e4-a638-0970d4373195","name":"Port
+					4","partitions":[{"id":"717e03fc-2430-43df-a18e-62193aa51b17","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"33e1e92d-8902-4630-af02-c71dd7fd6d16","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"0d82bce1-d48f-4643-9ac6-fc495962e647","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"0924c580-0bc1-4f17-9475-c3877385eb98","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true}],"enabled":false,"redundancy":false,"nictype":"2","usedforfc":false}],"servertype":"rack","interfaces":[{"id":"3b833c18-4b56-4643-9687-4ae9c9923aec","name":"Interface","interfaces":[{"id":"0e439868-e222-4283-bcad-4e2ed7bbead2","name":"Port
+					1","partitions":[{"id":"222d9b4a-6130-4ce8-b0ac-14ba933ead12","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"b8c8dd64-c311-44a9-8271-ca31979d978e","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"ab8b793e-4450-49c5-b264-fa887a0f2eb1","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"9341cf76-8022-4b14-aec7-dbc41efd1687","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"4b239e82-504a-470c-975f-884dc28688c8","name":"Port
+					2","partitions":[{"id":"77eb458b-c5ac-4328-8076-022265822e16","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"e8ac36d6-9410-4190-a9e3-23eb752d89f2","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"7a63e050-58e7-4694-ac28-4b3a5d4d5c6c","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"95e6f5c7-082b-41be-84d4-a21908e1486c","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"0e8de4b9-fefe-4f7d-b011-a957a5d800a7","name":"Port
+					3","partitions":[{"id":"2f25bb87-41ee-4700-85dc-c4d214511d4b","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"f012e9af-70e9-4361-910f-bec77b860f2d","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"71e56df9-38be-4919-9017-4345dbcc4f73","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"dddfff8e-82c2-446d-a9d2-45a9c75fe7ab","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true},{"id":"dfd73725-14ba-4a4b-8430-7813d1b36d7d","name":"Port
+					4","partitions":[{"id":"189feb58-66df-499b-9e01-39e927d8a86f","name":"1","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"3afea18d-23da-4fb2-82e1-802e73d4d794","name":"2","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"0d091ade-87f2-49fc-a6ea-7d0c011f34f5","name":"3","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null},{"id":"4459d3aa-1b7e-476b-a823-6ebee07a8871","name":"4","networks":[],"virtualidentitypool":null,"minimum":0,"maximum":100,"boot":false,"personality":null}],"partitioned":true}],"enabled":true,"redundancy":false,"nictype":"2","usedforfc":false}],"teams":[],"vswitches":[]}
+				</value>
+				<type>NETWORKCONFIGURATION</type>
+				<displayName>Network Config</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+			</parameters>
+		</resources>
+		<manageFirmware>false</manageFirmware>
+	</components>
+	<components>
+		<id>059db466-0ea6-450a-b42e-81d7cfc72b25</id>
+		<componentID>component-equallogic-chap-1</componentID>
+		<name>EqualLogic 1</name>
+		<type>STORAGE</type>
+		<teardown>false</teardown>
+		<relatedComponents>
+			<entry>
+				<key>f07d6599-75e1-4801-a5f9-23c5730f7229</key>
+				<value>Server 2</value>
+			</entry>
+			<entry>
+				<key>63b9c24f-211d-4688-af83-b6ffdebd82d2</key>
+				<value>Server 1</value>
+			</entry>
+		</relatedComponents>
+		<associatedComponents>
+			<entry>
+				<key>f07d6599-75e1-4801-a5f9-23c5730f7229</key>
+				<value>
+					<entry>
+						<key>name</key>
+						<value>Server 2</value>
+					</entry>
+				</value>
+			</entry>
+			<entry>
+				<key>63b9c24f-211d-4688-af83-b6ffdebd82d2</key>
+				<value>
+					<entry>
+						<key>name</key>
+						<value>Server 1</value>
+					</entry>
+				</value>
+			</entry>
+		</associatedComponents>
+		<resources>
+			<id>asm::volume::equallogic</id>
+			<displayName>EqualLogic Storage Settings</displayName>
+			<parameters>
+				<id>asm_guid</id>
+				<value>equallogic-172.17.15.10</value>
+				<type>ENUMERATED</type>
+				<displayName>Target EqualLogic</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<options>
+					<value></value>
+					<name>Select...</name>
+				</options>
+				<options>
+					<value>equallogic-172.17.15.10</value>
+					<name>AS800-EQL-1510</name>
+				</options>
+			</parameters>
+			<parameters>
+				<id>title</id>
+				<value>EqualLogicVolume</value>
+				<type>ENUMERATED</type>
+				<displayName>Storage Volume Name</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<options>
+					<value></value>
+					<name>Select...</name>
+				</options>
+				<options>
+					<value>$new$</value>
+					<name>Create New Volume...</name>
+				</options>
+				<options>
+					<value>SharedMgmt1</value>
+					<name>SharedMgmt1</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>SharedMgmt2</value>
+					<name>SharedMgmt2</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>snmpvol3</value>
+					<name>snmpvol3</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>snmpvol2</value>
+					<name>snmpvol2</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>asm1568</value>
+					<name>asm1568</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>my3bfsWin</value>
+					<name>my3bfsWin</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>clonedGVmy3bfsWin</value>
+					<name>clonedGVmy3bfsWin</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>EqualLogicVolume</value>
+					<name>EqualLogicVolume</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>my3testNewBfs</value>
+					<name>my3testNewBfs</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>eql2</value>
+					<name>eql2</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>asm1612b</value>
+					<name>asm1612b</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>asm1612c</value>
+					<name>asm1612c</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>asm1612d</value>
+					<name>asm1612d</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>asm1612h</value>
+					<name>asm1612h</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>asm1612g</value>
+					<name>asm1612g</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>asm1469-b</value>
+					<name>asm1469-b</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>asm1469</value>
+					<name>asm1469</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>asm1612-newest</value>
+					<name>asm1612-newest</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>asm1481-newest</value>
+					<name>asm1481-newest</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>aQuorVol</value>
+					<name>aQuorVol</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>asm1469-2</value>
+					<name>asm1469-2</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>asm1469-1</value>
+					<name>asm1469-1</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>asm1481-2</value>
+					<name>asm1481-2</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>asm1481</value>
+					<name>asm1481</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>asm1746</value>
+					<name>asm1746</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>asm1753-1</value>
+					<name>asm1753-1</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>asm1753-2</value>
+					<name>asm1753-2</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>ASM1138-z</value>
+					<name>ASM1138-z</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>asm1138-x</value>
+					<name>asm1138-x</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>alex1</value>
+					<name>alex1</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>asm1138-n</value>
+					<name>asm1138-n</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>asm1138-o</value>
+					<name>asm1138-o</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>asm1138-p</value>
+					<name>asm1138-p</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>AlexVol1</value>
+					<name>AlexVol1</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>SushilBootVol1</value>
+					<name>SushilBootVol1</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>a1999quor4</value>
+					<name>a1999quor4</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>a1999hclus4</value>
+					<name>a1999hclus4</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>a1999esx10</value>
+					<name>a1999esx10</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>esxClusVol2</value>
+					<name>esxClusVol2</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>esxClusVol3</value>
+					<name>esxClusVol3</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>a1999vol10</value>
+					<name>a1999vol10</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>alexVol2</value>
+					<name>alexVol2</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>SushilBoolVol01</value>
+					<name>SushilBoolVol01</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>SushilBoolVol02</value>
+					<name>SushilBoolVol02</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>NewBFS</value>
+					<name>NewBFS</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>fklz</value>
+					<name>fklz</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>devbfsqa</value>
+					<name>devbfsqa</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>devbfsmig</value>
+					<name>devbfsmig</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>iSCSIBFS2184FT</value>
+					<name>iSCSIBFS2184FT</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>iSCSIBFS2184To</value>
+					<name>iSCSIBFS2184To</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>iSCSIBFS2184Te</value>
+					<name>iSCSIBFS2184Te</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>aBFS2184TUn1</value>
+					<name>aBFS2184TUn1</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>aBFS2184TTS1</value>
+					<name>aBFS2184TTS1</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>aBFS2184TTo1</value>
+					<name>aBFS2184TTo1</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>arack2184BFS</value>
+					<name>arack2184BFS</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+				<options>
+					<value>arack2184BFS2</value>
+					<name>arack2184BFS2</name>
+					<dependencyTarget>asm_guid</dependencyTarget>
+					<dependencyValue>equallogic-172.17.15.10</dependencyValue>
+				</options>
+			</parameters>
+			<parameters>
+				<id>$new$title</id>
+				<type>STRING</type>
+				<displayName>New Volume Name</displayName>
+				<required>false</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>title</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>poolname</id>
+				<value>default</value>
+				<type>STRING</type>
+				<displayName>Storage Pool</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>title</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>size</id>
+				<value>100MB</value>
+				<type>STRING</type>
+				<displayName>Storage Size (e.g. 100MB, 1GB)</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>title</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>thinprovision</id>
+				<value>enable</value>
+				<type>ENUMERATED</type>
+				<displayName>Thin Provisioning</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>title</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+				<options>
+					<value>enable</value>
+					<name>Enable</name>
+					<dependencyTarget></dependencyTarget>
+					<dependencyValue></dependencyValue>
+				</options>
+				<options>
+					<value>disable</value>
+					<name>Disable</name>
+					<dependencyTarget></dependencyTarget>
+					<dependencyValue></dependencyValue>
+				</options>
+			</parameters>
+			<parameters>
+				<id>snapreserve</id>
+				<value>100%</value>
+				<type>STRING</type>
+				<displayName>Snapshot Reserve %</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>title</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>thinminreserve</id>
+				<value>10%</value>
+				<type>STRING</type>
+				<displayName>Thin Min Reserve %</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>thinprovision</dependencyTarget>
+				<dependencyValue>enable</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>thingrowthwarn</id>
+				<value>60%</value>
+				<type>STRING</type>
+				<displayName>Thin growth Warning %</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>thinprovision</dependencyTarget>
+				<dependencyValue>enable</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>thingrowthmax</id>
+				<value>100%</value>
+				<type>STRING</type>
+				<displayName>Thin growth Maximum %</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>thinprovision</dependencyTarget>
+				<dependencyValue>enable</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>thinwarnsoftthres</id>
+				<value>60%</value>
+				<type>STRING</type>
+				<displayName>Thin warning on threshold %</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>thinprovision</dependencyTarget>
+				<dependencyValue>enable</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>thinwarnhardthres</id>
+				<value>90%</value>
+				<type>STRING</type>
+				<displayName>Thin warning hard threshold %</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>thinprovision</dependencyTarget>
+				<dependencyValue>enable</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>multihostaccess</id>
+				<value>enable</value>
+				<type>ENUMERATED</type>
+				<displayName>Multi-Host access of volume</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>title</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+				<options>
+					<value>enable</value>
+					<name>Enable</name>
+					<dependencyTarget></dependencyTarget>
+					<dependencyValue></dependencyValue>
+				</options>
+				<options>
+					<value>disable</value>
+					<name>Disable</name>
+					<dependencyTarget></dependencyTarget>
+					<dependencyValue></dependencyValue>
+				</options>
+			</parameters>
+			<parameters>
+				<id>auth_type</id>
+				<value>chap</value>
+				<type>ENUMERATED</type>
+				<displayName>Authentication</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<options>
+					<value>iqnip</value>
+					<name>IQN/IP</name>
+					<dependencyTarget></dependencyTarget>
+					<dependencyValue></dependencyValue>
+				</options>
+				<options>
+					<value>chap</value>
+					<name>CHAP</name>
+					<dependencyTarget></dependencyTarget>
+					<dependencyValue></dependencyValue>
+				</options>
+			</parameters>
+			<parameters>
+				<id>chap_user_name</id>
+				<value>asm</value>
+				<type>STRING</type>
+				<displayName>Chap Username</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>auth_type</dependencyTarget>
+				<dependencyValue>chap</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>passwd</id>
+				<value>ff80808148dcad610148dcae7c76006d</value>
+				<type>PASSWORD</type>
+				<displayName>Chap Secret</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>auth_type</dependencyTarget>
+				<dependencyValue>chap</dependencyValue>
+			</parameters>
+			<parameters>
+				<id>iqnOrIP</id>
+				<value></value>
+				<type>TEXT</type>
+				<displayName>Initiator IQN or IP Addresses</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>auth_type</dependencyTarget>
+				<dependencyValue>iqnip</dependencyValue>
+			</parameters>
+		</resources>
+		<manageFirmware>false</manageFirmware>
+	</components>
+	<category>Default Templates</category>
+	<enableApps>false</enableApps>
+	<enableCluster>true</enableCluster>
+	<enableServer>true</enableServer>
+	<enableStorage>true</enableStorage>
+	<enableVMs>false</enableVMs>
+	<allUsersAllowed>false</allUsersAllowed>
+	<manageFirmware>false</manageFirmware>
+</ServiceTemplate>
+

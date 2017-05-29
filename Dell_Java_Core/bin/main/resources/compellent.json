@@ -1,0 +1,205 @@
+{
+  "component": {
+    "id": "component-compellent-1",
+    "name": "Compellent",
+    "relatedComponents": {},
+    "associatedComponents": {},
+    "resources": [
+      {
+        "displayName": "Compellent Storage Settings",
+        "id": "asm::volume::compellent",
+        "parameters": [
+          {
+            "displayName": "Storage Volume Name",
+            "id": "title",
+            "required": true,
+            "requiredAtDeployment": true,
+            "hideFromTemplate": false,
+            "type": "STRING",
+            "value": ""
+          },
+          {
+            "displayName": "Storage Size e.g 100GB",
+            "id": "size",
+            "required": true,
+            "type": "STRING",
+            "value": ""
+          },
+          {
+            "displayName": "Boot Volume",
+            "id": "boot",
+            "required": false,
+            "type": "BOOLEAN",
+            "value": false
+          },
+          {
+            "displayName": "Volume Folder",
+            "id": "volumefolder",
+            "type": "STRING",
+            "required": false,
+            "value": ""
+          },
+          {
+            "displayName": "Purge Volume",
+            "id": "purge",
+            "options": [
+              {
+                "value": "yes",
+                "name": "Yes",
+                "dependencyTarget": null,
+                "dependencyValue": null
+              },
+              {
+                "value": "no",
+                "name": "No",
+                "dependencyTarget": null,
+                "dependencyValue": null
+              }
+            ],
+            "required": true,
+            "type": "ENUMERATED",
+            "value": "yes"
+          },
+          {
+            "displayName": "Volume Notes",
+            "id": "volume_notes",
+            "required": false,
+            "type": "STRING",
+            "value": ""
+          },
+          {
+            "displayName": "Replay Profile",
+            "id": "replayprofile",
+            "required": false,
+            "type": "STRING",
+            "value": ""
+          },
+          {
+            "displayName": "Storage Profile Name",
+            "id": "storageprofile",
+            "required": false,
+            "type": "STRING",
+            "value": ""
+          },
+          {
+            "displayName": "Server Notes",
+            "id": "server_notes",
+            "required": false,
+            "type": "STRING",
+            "value": ""
+          },
+          {
+            "displayName": "Operating System Name",
+            "id": "operatingsystem",
+            "options": [
+              {
+                "value": "VMware ESX 5.1",
+                "name": "VMware ESX 5.1",
+                "dependencyTarget": null,
+                "dependencyValue": null
+              },
+              {
+                "value": "VMware ESX 5.0",
+                "name": "VMware ESX 5.0",
+                "dependencyTarget": null,
+                "dependencyValue": null
+              },
+              {
+                "value": "VMware ESX 5.5",
+                "name": "VMware ESX 5.5",
+                "dependencyTarget": null,
+                "dependencyValue": null
+              },
+              {
+                "value": "VMware ESX 6.0",
+                "name": "VMware ESX 6.0",
+                "dependencyTarget": null,
+                "dependencyValue": null
+              },
+              {
+                "value": "Windows 2012 MPIO",
+                "name": "Windows 2012 MPIO",
+                "dependencyTarget": null,
+                "dependencyValue": null
+              },
+              {
+                "value": "Red Hat Linux 5.x",
+                "name": "Red Hat Linux 5.x",
+                "dependencyTarget": null,
+                "dependencyValue": null
+              },
+              {
+                "value": "Red Hat Linux 6.x",
+                "name": "Red Hat Linux 6.x",
+                "dependencyTarget": null,
+                "dependencyValue": null
+              }
+            ],
+            "required": true,
+            "type": "ENUMERATED",
+            "value": "VMware ESX 5.1",
+            "toolTip": "Defines the host OS type"
+          },
+          {
+            "comment": "This can be derived from the Server Facts",
+            "displayName": "Server WWN Values",
+            "id": "wwn",
+            "required": false,
+            "type": "STRING",
+            "value": ""
+          },
+          {
+            "displayName": "Port Type",
+            "id": "porttype",
+            "options": [
+              {
+                "value": "FibreChannel",
+                "name": "FibreChannel",
+                "dependencyTarget": null,
+                "dependencyValue": null
+              },
+              {
+                "value": "iSCSI",
+                "name": "iSCSI",
+                "dependencyTarget": null,
+                "dependencyValue": null
+              }
+            ],
+            "required": false,
+            "type": "ENUMERATED",
+            "value": "FibreChannel"
+          },
+          {
+            "displayName": "Manual",
+            "id": "manual",
+            "required": false,
+            "type": "BOOLEAN",
+            "value": "false"
+          },
+          {
+            "displayName": "Force Map",
+            "id": "force",
+            "required": false,
+            "type": "BOOLEAN",
+            "value": "false"
+          },
+          {
+            "displayName": "Single Path Map",
+            "id": "singlepath",
+            "required": false,
+            "type": "BOOLEAN",
+            "value": "false"
+          },
+          {
+            "displayName": "Configure SAN Switch",
+            "id": "configuresan",
+            "required": false,
+            "type": "BOOLEAN",
+            "value": "true"
+          }
+        ]
+      }
+    ],
+    "type": "STORAGE"
+  }
+}

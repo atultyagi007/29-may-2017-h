@@ -1,0 +1,394 @@
+{
+  "Deployment": {
+    "deploymentDescription": "",
+    "deploymentName": "devlinuxserv1",
+    "id": "ff808081452c813b01453c4b14e80751",
+    "jobStatus": "SUCCESSFUL",
+    "serviceTemplate": {
+      "id": "ff808081452c813b01453c49670a0744",
+      "templateName": "devlinuxtemp",
+      "templateDescription": "",
+      "draft": false,
+      "createdDate": "2014-04-07T13:03:34.666Z",
+      "createdBy": "admin",
+      "components": [
+        {
+          "id": "8e0f11be-d884-4a31-92be-906911f5ea6e",
+          "componentID": "component2",
+          "puppetCertName": "bladeserver-1fqsgt1",
+          "name": "Server 1",
+          "type": "SERVER",
+          "asmGUID": "ff808081452c813b01452cf8c01c065a",
+          "relatedComponents": "",
+          "associatedComponents": "",
+          "resources": [
+            {
+              "id": "asm::idrac",
+              "displayName": "Hardware Settings",
+              "parameters": [
+                {
+                  "id": "target_boot_device",
+                  "value": "HD",
+                  "type": "ENUMERATED",
+                  "displayName": "Target Boot Device",
+                  "required": true,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false,
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "id": "title",
+                  "value": "bladeserver-1fqsgt1",
+                  "type": "STRING",
+                  "required": true,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false
+                }
+              ]
+            },
+            {
+              "id": "asm::server",
+              "displayName": "OS Settings",
+              "parameters": [
+                {
+                  "id": "os_host_name",
+                  "value": "devlinuxhost1",
+                  "type": "STRING",
+                  "displayName": "Host Name",
+                  "required": true,
+                  "requiredAtDeployment": true,
+                  "hideFromTemplate": true,
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "id": "admin_password",
+                  "value": "ff808081452c813b01453c4b146c074f",
+                  "type": "PASSWORD",
+                  "displayName": "Administrator password",
+                  "required": true,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false,
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "id": "razor_image",
+                  "value": "rhel6",
+                  "type": "ENUMERATED",
+                  "displayName": "OS Image",
+                  "required": true,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false,
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "id": "os_image_type",
+                  "value": "redhat",
+                  "type": "ENUMERATED",
+                  "displayName": "OS Image Type",
+                  "required": true,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false,
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "id": "custom_script",
+                  "type": "TEXT",
+                  "displayName": "Custom OS Installation script",
+                  "required": false,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false,
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "id": "title",
+                  "value": "bladeserver-1fqsgt1",
+                  "type": "STRING",
+                  "required": true,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false
+                }
+              ]
+            },
+            {
+              "id": "asm::esxiscsiconfig",
+              "displayName": "Network Settings",
+              "parameters": [
+                {
+                  "id": "identity_pool",
+                  "value": -1,
+                  "type": "ENUMERATED",
+                  "displayName": "Identity Pool",
+                  "required": true,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false,
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "id": "storage_network",
+                  "value": "ff808081452c813b01452cf1876d00ce",
+                  "type": "ENUMERATED",
+                  "displayName": "Storage Network",
+                  "required": true,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false,
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "id": "pxe_network",
+                  "value": "ff808081452c813b01452cefa56c00cd",
+                  "type": "ENUMERATED",
+                  "displayName": "PXE Network",
+                  "required": true,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false,
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "id": "workload_network",
+                  "value": ",ff808081452c813b01452ceecdce00cc",
+                  "type": "LIST",
+                  "displayName": "Workload Networks",
+                  "required": true,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false,
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                                "id": "network_configuration",
+                                "value": "{\"id\":\"3f9f75c2-a621-46e8-87d6-c30ca52affa4\",\"servertype\":\"blade\",\"fabrics\":[{\"id\":\"9cfe6e56-86c1-4651-9261-b241574195a5\",\"name\":\"Fabric A\",\"redundancy\":true,\"enabled\":true,\"interfaces\":[{\"id\":\"a18d7d4b-4692-4dc0-a67c-018df62ee54a\",\"name\":\"Interface A1\",\"partitioned\":true,\"partitions\":[{\"id\":\"832108c4-11ca-4052-a11c-3b1492f16238\",\"name\":\"1\",\"networks\":[\"3babf0d8-0b69-434b-a16e-69d9e2b179e8\"],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"df05aaac-e142-4229-9313-9c65aa87f010\",\"name\":\"2\",\"networks\":[\"e6a9d811-8d4c-4ac3-91b9-4e3f3b745f37\"],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"3120dcad-b445-4c2c-a646-078278d1b251\",\"name\":\"3\",\"networks\":[\"ade8dab3-6d7c-46df-bfc2-6708e869dc7d\"],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"82f501ba-6d6a-4d08-825e-7855561e862e\",\"name\":\"4\",\"networks\":[\"29cbadfc-7a0d-4698-8bf9-759796ad525f\"],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"}]},{\"id\":\"a4ebc80d-a77f-48e1-9e01-8fe443318b6a\",\"name\":\"Interface A2\",\"partitioned\":true,\"partitions\":[{\"id\":\"57cb91d7-98c3-4f5c-a92a-02819b95ed1d\",\"name\":\"1\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"a3ae33c1-e416-450d-a75d-2524110f02ed\",\"name\":\"2\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"174b4844-a271-4ea5-91bd-d20f206bc6ce\",\"name\":\"3\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"9eaae1cb-f2d4-4db5-aacf-a21b2ea61f3c\",\"name\":\"4\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"}]}]},{\"id\":\"032c0d9a-a907-4aa2-9caf-8e451eb152e3\",\"name\":\"Fabric B\",\"redundancy\":false,\"enabled\":true,\"interfaces\":[{\"id\":\"90ca6e7d-230e-4490-892c-e10f8091eed2\",\"name\":\"Interface B1\",\"partitioned\":true,\"partitions\":[{\"id\":\"cefff79e-c0df-4134-a459-676968169421\",\"name\":\"1\",\"networks\":[\"3babf0d8-0b69-434b-a16e-69d9e2b179e8\"],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"1610b02f-3cbb-456e-8c83-1b6b5a08d57e\",\"name\":\"2\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"03197073-b8f5-4a58-8713-25b408d47b79\",\"name\":\"3\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"13e609d9-7b54-49a6-8577-d3d41056fa1c\",\"name\":\"4\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"}]},{\"id\":\"ab3eddcb-31e5-446c-9717-3b71d9f0f6fa\",\"name\":\"Interface B2\",\"partitioned\":true,\"partitions\":[{\"id\":\"fbdcf02e-230e-4fce-b299-970c3eedb618\",\"name\":\"1\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"5c8ba07b-26e0-49a5-b571-6fe11a3ddce6\",\"name\":\"2\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"c561847b-4cc0-4b65-bdad-aee99f79147b\",\"name\":\"3\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"77e8b108-444b-48dd-a5df-aa7b3301d63b\",\"name\":\"4\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"}]}]},{\"id\":\"98af05d8-9e7d-4a2c-8035-d4d8d9c281c1\",\"name\":\"Fabric C\",\"redundancy\":false,\"enabled\":true,\"interfaces\":[{\"id\":\"2d3797f2-660e-428c-834b-62cee3126ae7\",\"name\":\"Interface C1\",\"partitioned\":true,\"partitions\":[{\"id\":\"b9c6ce86-e05c-4a00-9a4a-a807365dab88\",\"name\":\"1\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"a75f300e-33bf-4ced-8e35-1fe5a2d8ae66\",\"name\":\"2\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"3df30fcd-ff72-4b82-adf0-52c7b2459a73\",\"name\":\"3\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"af059a0f-e7fa-4e6c-a58c-2e64fa3075d3\",\"name\":\"4\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"}]},{\"id\":\"72aaaad0-e2ca-4e79-95d6-92ab3537aebf\",\"name\":\"Interface C2\",\"partitioned\":true,\"partitions\":[{\"id\":\"b8df5005-8f3c-4a14-9fa1-f583a75ac2a1\",\"name\":\"1\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"f953f2c8-7526-4c41-9ead-be06bbc643dd\",\"name\":\"2\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"dec8bf1a-6fe3-4bdc-9b91-1567250ccebe\",\"name\":\"3\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"4b29b039-4661-4d54-abd7-99cddbb0b038\",\"name\":\"4\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"}]}]}],\"interfaces\":[],\"teams\":[{\"id\":\"d14acfb2-2241-4dda-97b4-6879f55af334\",\"name\":\"\",\"partitions\":[]}],\"vswitches\":[{\"id\":\"aa44f799-564e-4b9d-9c87-9792b5674c99\",\"name\":\"virtualswitch1\",\"interfaceId\":\"a18d7d4b-4692-4dc0-a67c-018df62ee54a\",\"networks\":[\"3babf0d8-0b69-434b-a16e-69d9e2b179e8\"],\"virtualidentitypool\":\"6cd97d98-350d-4c3b-9bf4-5bdf8484ea62\",\"minimum\":0,\"maximum\":100}]}",
+                                "type": "NETWORKCONFIGURATION",
+                                "displayName": "Network Config",
+                                "required": false,
+                                "requiredAtDeployment": false,
+                                "hideFromTemplate": false,
+                                "min": 0,
+                                "max": 0
+                },
+                {
+                  "id": "title",
+                  "value": "bladeserver-1fqsgt1",
+                  "type": "STRING",
+                  "required": true,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "50ccb8cf-21c3-4dba-98cc-46648e0a620d",
+          "componentID": "component3",
+          "puppetCertName": "bladeserver-hh870w1",
+          "name": "Server 3",
+          "type": "SERVER",
+          "asmGUID": "ff808081452c813b01452cf8b13b025d",
+          "relatedComponents": "",
+          "associatedComponents": "",
+          "resources": [
+            {
+              "id": "asm::idrac",
+              "displayName": "Hardware Settings",
+              "parameters": [
+                {
+                  "id": "target_boot_device",
+                  "value": "HD",
+                  "type": "ENUMERATED",
+                  "displayName": "Target Boot Device",
+                  "required": true,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false,
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "id": "title",
+                  "value": "bladeserver-hh870w1",
+                  "type": "STRING",
+                  "required": true,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false
+                }
+              ]
+            },
+            {
+              "id": "asm::server",
+              "displayName": "OS Settings",
+              "parameters": [
+                {
+                  "id": "os_host_name",
+                  "value": "devoneserver4",
+                  "type": "STRING",
+                  "displayName": "Host Name",
+                  "required": true,
+                  "requiredAtDeployment": true,
+                  "hideFromTemplate": true,
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "id": "admin_password",
+                  "value": "ff808081452c813b01452d00ff8e0720",
+                  "type": "PASSWORD",
+                  "displayName": "Administrator password",
+                  "required": true,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false,
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "id": "razor_image",
+                  "value": "esxi-5.1",
+                  "type": "ENUMERATED",
+                  "displayName": "OS Image",
+                  "required": true,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false,
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "id": "os_image_type",
+                  "value": "vmware_esxi",
+                  "type": "ENUMERATED",
+                  "displayName": "OS Image Type",
+                  "required": true,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false,
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "id": "custom_script",
+                  "type": "TEXT",
+                  "displayName": "Custom OS Installation script",
+                  "required": false,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false,
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "id": "title",
+                  "value": "bladeserver-hh870w1",
+                  "type": "STRING",
+                  "required": true,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false
+                }
+              ]
+            },
+            {
+              "id": "asm::esxiscsiconfig",
+              "displayName": "Network Settings",
+              "parameters": [
+                {
+                  "id": "identity_pool",
+                  "value": -1,
+                  "type": "ENUMERATED",
+                  "displayName": "Identity Pool",
+                  "required": true,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false,
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "id": "hypervisor_network",
+                  "value": "ff808081452c813b01452cebf05d0000",
+                  "type": "ENUMERATED",
+                  "displayName": "Hypervisor Management Network",
+                  "required": true,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false,
+                  "min": 0,
+                  "max": 0,
+                  "dependencyTarget": "os_image_type",
+                  "dependencyValue": "vmware_esxi"
+                },
+                {
+                  "id": "vmotion_network",
+                  "value": "ff808081452c813b01452cee4a3f0066",
+                  "type": "ENUMERATED",
+                  "displayName": "Hypervisor vMotion Network",
+                  "required": true,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false,
+                  "min": 0,
+                  "max": 0,
+                  "dependencyTarget": "os_image_type",
+                  "dependencyValue": "vmware_esxi"
+                },
+                {
+                  "id": "storage_network",
+                  "value": "ff808081452c813b01452cf1876d00ce",
+                  "type": "ENUMERATED",
+                  "displayName": "Storage Network",
+                  "required": true,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false,
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "id": "pxe_network",
+                  "value": "ff808081452c813b01452cefa56c00cd",
+                  "type": "ENUMERATED",
+                  "displayName": "PXE Network",
+                  "required": true,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false,
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "id": "workload_network",
+                  "value": ",ff808081452c813b01452ceecdce00cc",
+                  "type": "LIST",
+                  "displayName": "Workload Networks",
+                  "required": true,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false,
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                                "id": "network_configuration",
+                                "value": "{\"id\":\"3f9f75c2-a621-46e8-87d6-c30ca52affa4\",\"servertype\":\"blade\",\"fabrics\":[{\"id\":\"9cfe6e56-86c1-4651-9261-b241574195a5\",\"name\":\"Fabric A\",\"redundancy\":true,\"enabled\":true,\"interfaces\":[{\"id\":\"a18d7d4b-4692-4dc0-a67c-018df62ee54a\",\"name\":\"Interface A1\",\"partitioned\":true,\"partitions\":[{\"id\":\"832108c4-11ca-4052-a11c-3b1492f16238\",\"name\":\"1\",\"networks\":[\"3babf0d8-0b69-434b-a16e-69d9e2b179e8\"],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"df05aaac-e142-4229-9313-9c65aa87f010\",\"name\":\"2\",\"networks\":[\"e6a9d811-8d4c-4ac3-91b9-4e3f3b745f37\"],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"3120dcad-b445-4c2c-a646-078278d1b251\",\"name\":\"3\",\"networks\":[\"ade8dab3-6d7c-46df-bfc2-6708e869dc7d\"],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"82f501ba-6d6a-4d08-825e-7855561e862e\",\"name\":\"4\",\"networks\":[\"29cbadfc-7a0d-4698-8bf9-759796ad525f\"],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"}]},{\"id\":\"a4ebc80d-a77f-48e1-9e01-8fe443318b6a\",\"name\":\"Interface A2\",\"partitioned\":true,\"partitions\":[{\"id\":\"57cb91d7-98c3-4f5c-a92a-02819b95ed1d\",\"name\":\"1\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"a3ae33c1-e416-450d-a75d-2524110f02ed\",\"name\":\"2\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"174b4844-a271-4ea5-91bd-d20f206bc6ce\",\"name\":\"3\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"9eaae1cb-f2d4-4db5-aacf-a21b2ea61f3c\",\"name\":\"4\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"}]}]},{\"id\":\"032c0d9a-a907-4aa2-9caf-8e451eb152e3\",\"name\":\"Fabric B\",\"redundancy\":false,\"enabled\":true,\"interfaces\":[{\"id\":\"90ca6e7d-230e-4490-892c-e10f8091eed2\",\"name\":\"Interface B1\",\"partitioned\":true,\"partitions\":[{\"id\":\"cefff79e-c0df-4134-a459-676968169421\",\"name\":\"1\",\"networks\":[\"3babf0d8-0b69-434b-a16e-69d9e2b179e8\"],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"1610b02f-3cbb-456e-8c83-1b6b5a08d57e\",\"name\":\"2\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"03197073-b8f5-4a58-8713-25b408d47b79\",\"name\":\"3\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"13e609d9-7b54-49a6-8577-d3d41056fa1c\",\"name\":\"4\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"}]},{\"id\":\"ab3eddcb-31e5-446c-9717-3b71d9f0f6fa\",\"name\":\"Interface B2\",\"partitioned\":true,\"partitions\":[{\"id\":\"fbdcf02e-230e-4fce-b299-970c3eedb618\",\"name\":\"1\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"5c8ba07b-26e0-49a5-b571-6fe11a3ddce6\",\"name\":\"2\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"c561847b-4cc0-4b65-bdad-aee99f79147b\",\"name\":\"3\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"77e8b108-444b-48dd-a5df-aa7b3301d63b\",\"name\":\"4\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"}]}]},{\"id\":\"98af05d8-9e7d-4a2c-8035-d4d8d9c281c1\",\"name\":\"Fabric C\",\"redundancy\":false,\"enabled\":true,\"interfaces\":[{\"id\":\"2d3797f2-660e-428c-834b-62cee3126ae7\",\"name\":\"Interface C1\",\"partitioned\":true,\"partitions\":[{\"id\":\"b9c6ce86-e05c-4a00-9a4a-a807365dab88\",\"name\":\"1\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"a75f300e-33bf-4ced-8e35-1fe5a2d8ae66\",\"name\":\"2\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"3df30fcd-ff72-4b82-adf0-52c7b2459a73\",\"name\":\"3\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"af059a0f-e7fa-4e6c-a58c-2e64fa3075d3\",\"name\":\"4\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"}]},{\"id\":\"72aaaad0-e2ca-4e79-95d6-92ab3537aebf\",\"name\":\"Interface C2\",\"partitioned\":true,\"partitions\":[{\"id\":\"b8df5005-8f3c-4a14-9fa1-f583a75ac2a1\",\"name\":\"1\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"f953f2c8-7526-4c41-9ead-be06bbc643dd\",\"name\":\"2\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"dec8bf1a-6fe3-4bdc-9b91-1567250ccebe\",\"name\":\"3\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"},{\"id\":\"4b29b039-4661-4d54-abd7-99cddbb0b038\",\"name\":\"4\",\"networks\":[],\"minimum\":0,\"maximum\":100,\"lanMacAddress\":\"lan-mac-address\",\"iscsiMacAddress\":\"iscsi-mac-address\",\"iscsiIQN\":\"iscsiIQN\",\"wwnn\":\"wwnn\",\"wwpn\":\"wwpn\"}]}]}],\"interfaces\":[],\"teams\":[{\"id\":\"d14acfb2-2241-4dda-97b4-6879f55af334\",\"name\":\"\",\"partitions\":[]}],\"vswitches\":[{\"id\":\"aa44f799-564e-4b9d-9c87-9792b5674c99\",\"name\":\"virtualswitch1\",\"interfaceId\":\"a18d7d4b-4692-4dc0-a67c-018df62ee54a\",\"networks\":[\"3babf0d8-0b69-434b-a16e-69d9e2b179e8\"],\"virtualidentitypool\":\"6cd97d98-350d-4c3b-9bf4-5bdf8484ea62\",\"minimum\":0,\"maximum\":100}]}",
+                                "type": "NETWORKCONFIGURATION",
+                                "displayName": "Network Config",
+                                "required": false,
+                                "requiredAtDeployment": false,
+                                "hideFromTemplate": false,
+                                "min": 0,
+                                "max": 0
+                },
+                {
+                  "id": "title",
+                  "value": "bladeserver-hh870w1",
+                  "type": "STRING",
+                  "required": true,
+                  "requiredAtDeployment": false,
+                  "hideFromTemplate": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "retry": "true",
+    "debug": "true"
+  }
+}

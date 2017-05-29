@@ -1,0 +1,204 @@
+{
+	"Template":
+			{
+				"Name":"Template_HYPERV_CPL_ISCSI_DIVERGED_2",
+				"Description":"Deploy a template Hyper-V Compellent diverged 2 port with partition",
+				"Flow":"hyperv",
+				"retryOnFailure":"false"
+			},
+	"Server":
+			{
+				"Instances":1,
+				"target_boot_device_value":"HD",
+				"OSImage_Value": ["window2012r2"],
+				"install_HyperV": "true",
+				"iSCSI_Initiator":"hardware",
+				"HostNameTemplate":"server${num}",
+				"ServerPoolName":"rackPool",
+				"ServersIPForPool": ["172.31.61.85","172.31.61.81"],
+				"memEnabled":"false",
+				"Os_Image_Version":"Windows Server 2012 R2 SERVERDATACENTER",
+				"Product_Key":"FNY7W-693QP-VHGKR-6JPHH-R898Y",
+				"domain_name":"ess",
+				"Domain_Admin_Username":"hypervadmin",
+				"Domain_Admin_Password":"Dell1234",
+				"FQ_Domain_Name":"ess.delllabs.net",
+				"Networks": "HYPERV_CPL_ISCSI_DIVERGED_2"					
+			},
+	"Storage":
+			{
+				"Instances":2,
+				"Type":"Compellent",
+				"Size":["400GB","512MB"],
+				"IPAddress":"172.31.32.109",
+				"Initiator_IQN_IP_Addresses":"",
+				"Auth_Type":"IQN/IP",
+				"CHAP_User":"grpadmin",
+				"CHAP_Password":"dell1234",
+				"Operating_SystemName_Compellent":"VMware ESX 5.5",
+				"PortType_Compellent":"FibreChannel",
+				"Aggregate_Name":"Aggregate2RAID4",
+				"Snapshot_Space":"2",
+				"NFS_IP":"172.31.32.81"
+			},
+	"Cluster":
+			{
+				"Instances":1,
+				"Type":"Hyper-V Cluster",
+				"IPAddress":"172.31.62.3",
+				"DCName":"autoDC",
+				"HGName":"autoHostGroup",
+				"ClusterName":"autoCluster",
+				"SwitchType":"Standard",	
+				"HA_Config":"false",
+				"DRS_Config":"false",
+				"VSAN_Enabled":"false",
+				"ClusterIP":""
+			},
+		"VM":
+			{
+				"Instances":1,
+				"Type":"hypervclonevm",
+				"AutoGenerateHostName":"true",
+				"HostNameTemplate":"vm${num}",
+				"OS_Image":"red7",
+				"OS_Image_Version":"Windows Server 2012 R2 SERVERDATACENTER",
+				"OS_Image_Type" : "redhat7",
+				"Product_Key":"",
+				"vm_template_name":"HCLAman01",
+				"path":"C:\\ClusterStorage\\Volume1",
+				"CPU_Count":"2",
+				"Memory_MB":"2048",
+				"start_action":"Always auto turn on VM",
+				"stop_action":"Turn off VM"
+			},
+		"Application":
+			{
+				"Instances":1,
+				"Type":"WindowsPostInstall",
+				"yum_proxy":"",	
+				"install_packages":"",
+				"upload_share":"",
+				"upload_file":"window.ps1",
+				"execute_file_command":"powershell get-date",
+				"windows_postinstall_share":"",
+				"windows_install_command":"",
+				"citrix_source_location":""
+			},
+	"Scaleup":
+		{
+			"Server":
+			{
+				"Instances":1,
+				"target_boot_device_value":"HD",
+				"OSImage_Value": ["window2012r2"],
+				"install_HyperV": "true",
+				"iSCSI_Initiator":"hardware",
+				"HostNameTemplate":"server${num}",
+				"ServerPoolName":"rackPool",
+				"ServersIPForPool": ["172.31.61.85","172.31.61.81"],
+				"memEnabled":"false",
+				"Os_Image_Version":"Windows Server 2012 R2 SERVERDATACENTER",
+				"Product_Key":"FNY7W-693QP-VHGKR-6JPHH-R898Y",
+				"domain_name":"ess",
+				"Domain_Admin_Username":"hypervadmin",
+				"Domain_Admin_Password":"Dell1234",
+				"FQ_Domain_Name":"ess.delllabs.net",
+				"Networks": "HYPERV_CPL_ISCSI_DIVERGED_2"							
+			},
+			"Storage":
+			{
+				"Instances":0,
+				"Type":"Compellent",
+				"Size":["100GB"],
+				"IPAddress":"172.31.32.109",
+				"Initiator_IQN_IP_Addresses":"",
+				"Auth_Type":"IQN/IP",
+				"CHAP_User":"grpadmin",
+				"CHAP_Password":"dell1234",
+				"Operating_SystemName_Compellent":"VMware ESX 5.5",
+				"PortType_Compellent":"FibreChannel",
+				"Volume_Name" : "scaleupVolume"
+								
+			},
+			"Cluster": 
+			{
+				"Instances":0,
+				"Type":"Hyper-V Cluster",
+				"IPAddress":"172.31.62.3",
+				"DCName":"autoDC",
+				"HGName":"autoHostGroup",
+				"ClusterName":"autoCluster",
+				"SwitchType":"Standard",	
+				"HA_Config":"false",
+				"DRS_Config":"false",
+				"VSAN_Enabled":"false",
+				"ClusterIP":""	
+			},
+			"VM": 
+			{
+				"Instances":1,
+				"Type":"hypervclonevm",
+				"AutoGenerateHostName":"true",
+				"HostNameTemplate":"vm${num}",
+				"OS_Image":"red7",
+				"OS_Image_Version":"Windows Server 2012 R2 SERVERDATACENTER",
+				"OS_Image_Type" : "redhat7",
+				"Product_Key":"",
+				"vm_template_name":"HCLAman01",
+				"path":"C:\\ClusterStorage\\Volume1",
+				"CPU_Count":"2",
+				"Memory_MB":"2048",
+				"start_action":"Always auto turn on VM",
+				"stop_action":"Turn off VM"
+			},
+			"Application": 
+			{
+				"Instances":1,
+				"Type":"WindowsPostInstall",
+				"yum_proxy":"",	
+				"install_packages":"",
+				"upload_share":"",
+				"upload_file":"window.ps1",
+				"execute_file_command":"powershell get-date",
+				"windows_postinstall_share":"",
+				"windows_install_command":"",
+				"citrix_source_location":""		
+			},
+			"Network": 
+			{
+				"Instances":1,
+				"select_network":["CustomPublic", "test_hcl"],
+				"select_resource":["host", "host"]			
+			}	
+		},
+	"Scaledown":
+		{
+			"Storage":
+			{
+				"Instances":3,
+				"storgae_ip":["172.31.32.109","172.31.32.109","172.31.32.109"],	
+				"volume_name":["HCLVlm0","HCLVlm1", "scaleupVolume0"]
+			},
+			"Server":
+			{
+				"Instances":2,
+				"server_ip":["172.31.61.85","172.31.61.81"]
+			},
+			"Cluster": 
+			{
+				"Instances":1,
+				"cluster_ip":["172.31.62.3"]
+			},
+			"VM": 
+			{
+				"Instances":2, 
+				"vm_hostName":["vm1","vm2"]
+			},
+			"Application": 
+			{
+				"Instances":0,
+				"Type":["window_postinstall"]
+			}
+		}
+}

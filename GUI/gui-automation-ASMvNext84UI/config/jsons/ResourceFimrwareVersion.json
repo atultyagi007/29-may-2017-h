@@ -1,0 +1,116 @@
+{
+	"Servers":
+		{
+			"PowerEdge M420":	
+			{	"BIOS":	{"From": "2.1.7", "To": "2.4.2"},
+				"Integrated Dell Remote Access Controller":{"From": "1.57.57", "To": "2.30.30.30"}
+			},
+			"PowerEdge M520":	
+			{	"BIOS":	{"From": "2.1.3", "To": "2.4.2"},
+				"Integrated Dell Remote Access Controller":{"From": "1.57.57", "To": "2.30.30.30"}
+			},
+			"PowerEdge M620":
+			{	"BIOS": {"From" : "2.2.7", "To": "2.5.4"},
+				"Integrated Dell Remote Access Controller":{"From": "1.57.57", "To": "2.30.30.30"}
+			},
+			"PowerEdge M820":
+			{	"BIOS": {"From" : "2.0.20", "To": "2.3.3"},
+				"Integrated Dell Remote Access Controller":{"From": "1.57.57", "To": "2.30.30.30"}
+			},
+			"PowerEdge R420":
+			{	"BIOS": {"From" : "2.1.2", "To": "2.4.2"},
+				"Integrated Dell Remote Access Controller":{"From": "1.57.57", "To": "2.30.30.30"}
+			},
+			"PowerEdge R520":
+			{	"BIOS": {"From" : "2.1.2", "To": "2.4.2"},
+				"Integrated Dell Remote Access Controller":{"From": "1.57.57", "To": "2.30.30.30"}
+			},
+			"PowerEdge R620":
+			{	"BIOS": {"From" : "2.2.2", "To": "2.5.4"},
+				"Integrated Dell Remote Access Controller":{"From": "1.57.57", "To": "2.30.30.30"}
+			},
+			"PowerEdge R720":
+			{ "BIOS": {"From" : "2.2.2", "To": "2.5.4"},
+			   "Integrated Dell Remote Access Controller":{"From": "1.57.57", "To": "2.30.30.30"}
+			},
+			"PowerEdge R720xd":
+			{ "BIOS": {"From" : "2.2.2", "To": "2.5.4"},
+			   "Integrated Dell Remote Access Controller":{"From": "1.57.57", "To": "2.30.30.30"}
+			},
+			"PowerEdge R820":
+			{ "BIOS": {"From" : "2.0.20", "To": "2.3.4"},
+			   "Integrated Dell Remote Access Controller":{"From": "1.57.57", "To": "2.30.30.30"}
+			},
+			"PowerEdge R920":
+			{ "BIOS": {"From" : "2.0.20", "To": "1.6.2"},
+			   "Integrated Dell Remote Access Controller":{"From": "1.57.57", "To": "2.30.30.30"}
+			},
+			"PowerEdge T920":
+			{ "BIOS": {"From" : "2.2.2", "To": "2.5.4"},
+			   "Integrated Dell Remote Access Controller":{"From": "1.57.57", "To": "2.30.30.30"}
+			},
+			"PowerEdge R930":
+			{ "BIOS": {"From" : "1.2.2", "To": "2.0.3"},
+			   "Integrated Dell Remote Access Controller":{"From": "2.13.13.12", "To": "2.30.30.30"}
+			},
+			"PowerEdge R530":
+			{ "BIOS": {"From" : "1.0.2", "To": "2.0.1"},
+			   "Integrated Dell Remote Access Controller":{"From": "2.06.05.05", "To": "2.30.30.30"}
+			},
+			"PowerEdge R630":
+			{ "BIOS": {"From" : "1.0.4", "To": "2.2.5"},
+			   "Integrated Dell Remote Access Controller":{"From": "2.02.01.01", "To": "2.30.30.30"}
+			},
+			"PowerEdge R730":
+			{ "BIOS": {"From" : "1.0.4", "To": "2.2.5"},
+			   "Integrated Dell Remote Access Controller":{"From": "2.02.01.01", "To": "2.30.30.30"}
+			},
+			"PowerEdge T630":
+			{ "BIOS": {"From" : "1.0.4", "To": "2.1.5"},
+			   "Integrated Dell Remote Access Controller":{"From": "2.02.01.01", "To": "2.30.30.30"}
+			},
+			"PowerEdge FC430":
+			{ "BIOS": {"From" : "1.0.6", "To": "2.1.5"},
+			   "Integrated Dell Remote Access Controller":{"From": "2.10.10.10", "To": "2.30.30.30"}
+			},
+			"PowerEdge FC630":
+			{ "BIOS": {"From" : "1.0.3", "To": "2.1.7"},
+			   "Integrated Dell Remote Access Controller":{"From": "2.05.05.05", "To": "2.30.30.30"}
+			},
+			"PowerEdge FC830":
+			{ "BIOS": {"From" : "1.0.7", "To": "2.0.3"},
+			   "Integrated Dell Remote Access Controller":{"From": "2.11.10.10", "To": "2.30.30.30"}
+			},
+			"PowerEdge M630":
+			{ "BIOS": {"From" : "1.0.3", "To": "2.1.7"},
+			   "Integrated Dell Remote Access Controller":{"From": "2.05.05.05", "To": "2.30.30.30"}
+			},
+			"PowerEdge M830":
+			{ "BIOS": {"From" : "1.0.7", "To": "2.0.3"},
+			   "Integrated Dell Remote Access Controller":{"From": "2.11.10.10", "To": "2.30.30.30"}
+			}
+		},
+	"Switches":
+		{
+			"I/O-Aggregator":
+			{	"firmwareVersion":	{"From": "9.6.0.0", "To":"9.10(0.1P13)"}	},
+			"PE-FN-2210S-IOM":
+			{	"firmwareVersion":	{"From": "9.6.0.0", "To":"9.10"}	},
+			"MXL-10/40GbE":
+			{	"firmwareVersion":	{"From": "9.2.0.0", "To":"9.10"}	},
+			"S4810":
+			{	"firmwareVersion":	{"From": "9.3.0.0", "To":"9.10"}	},
+			"S4820T":
+			{	"firmwareVersion":	{"From": "9.5.0.1", "To":"9.10"}	},
+			"S4048-ON":
+			{	"firmwareVersion":	{"From": "9.8.0", "To":"9.10"}	},
+			"S6000":
+			{	"firmwareVersion":	{"From": "9.3.0.0", "To":"9.10"}	},
+			"S5000":
+			{	"firmwareVersion":	{"From": "9.7", "To":"9.10"}	},
+			"N4000":
+			{	"firmwareVersion":	{"From": "6.2.0.5", "To":"6.3.0.9"}	},
+			"N3000":
+			{	"firmwareVersion":	{"From": "6.2.0.5", "To":"6.2.1.6"}	}
+		}
+} 

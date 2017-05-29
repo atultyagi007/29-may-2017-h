@@ -1,0 +1,469 @@
+{
+  "networkConfiguration": {
+    "id": "298dafbd-f62f-4754-abfd-4da18a57b967",
+    "servertype": "blade",
+    "fabrics": [
+      {
+        "id": "6ad3769d-50b1-47f7-9a8c-97b05cf38455",
+        "name": "Fabric A",
+        "redundancy": true,
+        "enabled": true,
+        "nictype": "4",
+        "usedforfc": false,
+        "interfaces": [
+          {
+            "id": "062a40fa-4150-491d-a651-03d74888b46c",
+            "name": "Port 1",
+            "partitioned": true,
+            "partitions": [
+              {
+                "id": "55fc6892-740b-453d-bb1d-f494fc1174d4",
+                "name": "1",
+                "networks": [
+                  "9f382b65-2cf9-4168-89cd-ed9472889d34"
+                ],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "7dceb2b7-b98c-4578-b701-befbe7fc5e86",
+                "name": "2",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "ffa6d9e8-0547-46ee-ad52-3107ec63e113",
+                "name": "3",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "61ec4976-447d-41f7-b0c3-ef3f0bf9c834",
+                "name": "4",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              }
+            ]
+          },
+          {
+            "id": "4dc713cb-7b6c-42a8-8826-01d4f76b64e6",
+            "name": "Port 2",
+            "partitioned": true,
+            "partitions": [
+              {
+                "id": "ca351a6e-65c8-45ce-b12d-185a7769c6f8",
+                "name": "1",
+                "networks": [
+                  "abf71240-c6d8-495c-b873-549e5237b9cd"
+                ],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "c322b0bd-60a1-4c7d-bf6f-b00261771458",
+                "name": "2",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "f5ed000b-3ff3-48db-87a4-8591028e50c0",
+                "name": "3",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "624a1f25-b19c-4992-9c2b-dd7b9c685f50",
+                "name": "4",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              }
+            ]
+          },
+          {
+            "id": "cd14cdd2-6e31-4a20-a5b5-fb355f97cf55",
+            "name": "Port 3",
+            "partitioned": true,
+            "partitions": [
+              {
+                "id": "f078b7d2-01b0-4a84-b216-f9d729bc0bb7",
+                "name": "1",
+                "networks": [
+                  "abf71240-c6d8-495c-b873-549e5237b9cd"
+                ],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "8020fafa-3a45-4cb5-b682-e8aaf3a4196a",
+                "name": "2",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "4f67803b-384e-4e36-989a-93626687f244",
+                "name": "3",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "c26fc922-e5ab-4029-af98-625d5b99f518",
+                "name": "4",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              }
+            ]
+          },
+          {
+            "id": "1d8ffcaf-b210-4833-9265-182062c6989a",
+            "name": "Port 4",
+            "partitioned": true,
+            "partitions": [
+              {
+                "id": "95ac49d3-bfd5-42a6-9015-1ba6c8df4887",
+                "name": "1",
+                "networks": [
+                  "9f382b65-2cf9-4168-89cd-ed9472889d34"
+                ],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "7fc744f7-68ba-4e3f-8766-ae930fa2a912",
+                "name": "2",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "25208dd6-2baa-4e78-825a-32c0fb1489af",
+                "name": "3",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "cb251362-c418-4d86-bac9-351c859c57ea",
+                "name": "4",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "b39a303d-0503-4dec-9ba5-378088af4f61",
+        "name": "Fabric B",
+        "redundancy": false,
+        "enabled": false,
+        "nictype": "2",
+        "usedforfc": false,
+        "interfaces": [
+          {
+            "id": "f362cc3c-0981-41b7-9166-09e7d1eaae59",
+            "name": "Port 1",
+            "partitioned": true,
+            "partitions": [
+              {
+                "id": "7df215b7-64f5-4672-8d44-8cd702c0486e",
+                "name": "1",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "5d24973d-822c-4b8a-a834-37ee36ba422a",
+                "name": "2",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "cc47042e-a36f-4029-95ff-1e266f75d248",
+                "name": "3",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "5615340f-6a15-446e-8792-b21e66d70464",
+                "name": "4",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              }
+            ]
+          },
+          {
+            "id": "f66f4a8a-3b31-4e15-9367-d5891c5f20de",
+            "name": "Port 2",
+            "partitioned": true,
+            "partitions": [
+              {
+                "id": "ab4e9e3e-56a7-4877-9597-f0a3daebf6a9",
+                "name": "1",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "c44ad42d-da9e-48d2-b3a0-4a78e5b24b8f",
+                "name": "2",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "21804a09-5cc2-4008-83fc-84c8c01ff3af",
+                "name": "3",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "c89fd43a-5b6b-4bfe-ad79-40d243d3191f",
+                "name": "4",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              }
+            ]
+          },
+          {
+            "id": "f23a0f5f-024c-40bf-88be-dec17fdc0d14",
+            "name": "Port 3",
+            "partitioned": true,
+            "partitions": [
+              {
+                "id": "26c5946a-67f7-43ba-a24b-63f39e7560a7",
+                "name": "1",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "755f12a3-8ab1-44c8-8085-feaf42d7c1b3",
+                "name": "2",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "e8897a41-5d87-4ae6-9354-1bc6e77ffb6b",
+                "name": "3",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "caaebe31-3918-4224-8a09-0e4a1b977867",
+                "name": "4",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              }
+            ]
+          },
+          {
+            "id": "62cab27f-4ab9-4507-841d-687011f82ce3",
+            "name": "Port 4",
+            "partitioned": true,
+            "partitions": [
+              {
+                "id": "8875b9d6-e620-4c81-b08d-c48f0c9d671c",
+                "name": "1",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "731be048-85d7-40d8-8d0e-86e18a2a5eea",
+                "name": "2",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "265bf0e6-1f3c-4a6b-9846-274f49683abc",
+                "name": "3",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "077bc836-954f-44d4-95a8-ea9416b66c2b",
+                "name": "4",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "155cab73-8ddd-452e-8e88-b63a718d87be",
+        "name": "Fabric C",
+        "redundancy": false,
+        "enabled": false,
+        "nictype": "2",
+        "usedforfc": false,
+        "interfaces": [
+          {
+            "id": "a995bb17-3743-43f4-8b7c-a725715641e6",
+            "name": "Port 1",
+            "partitioned": true,
+            "partitions": [
+              {
+                "id": "3cf1346a-c959-4629-8ce1-eae45afa0811",
+                "name": "1",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "103961f2-47db-4b67-b46f-c2571fab23f1",
+                "name": "2",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "7aa22558-3dfa-46a6-9bfd-d01dee3b07fd",
+                "name": "3",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "aae67811-981d-48d6-bdee-1a752a8a3355",
+                "name": "4",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              }
+            ]
+          },
+          {
+            "id": "b4db6670-da10-4ef9-898e-e82bde8d58b4",
+            "name": "Port 2",
+            "partitioned": true,
+            "partitions": [
+              {
+                "id": "0028d72d-5252-404f-95d9-2ad7943b19d9",
+                "name": "1",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "63741d27-801f-40d2-a9f9-90a437b384f2",
+                "name": "2",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "5d4d04fa-e451-4317-9145-981bb3082550",
+                "name": "3",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "ee367e5f-c366-412c-86af-d42b3db07877",
+                "name": "4",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              }
+            ]
+          },
+          {
+            "id": "f7c4b72d-2eec-4938-8700-89dac0b6a49d",
+            "name": "Port 3",
+            "partitioned": true,
+            "partitions": [
+              {
+                "id": "cd0fd326-4f2d-4119-a2e4-570b8a4ecc44",
+                "name": "1",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "7cdd22c2-9899-4dac-8c1f-9bf2f56124b2",
+                "name": "2",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "f20f8622-c216-487b-95e5-adc0aa6982cf",
+                "name": "3",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "6b2d8ec6-aa98-4fcf-a705-0245ce817e80",
+                "name": "4",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              }
+            ]
+          },
+          {
+            "id": "a7fd5c77-0f3c-4b79-85ed-5db621819a37",
+            "name": "Port 4",
+            "partitioned": true,
+            "partitions": [
+              {
+                "id": "1b81dc71-1ec1-47b3-8d49-ca12ab5985af",
+                "name": "1",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "f1a87a25-e1f7-43d2-bc59-f15b724bd5d3",
+                "name": "2",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "3e241af2-15a3-4289-b9f2-472fdf873bda",
+                "name": "3",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "id": "4df953fd-d1c8-49b8-b342-05357a6bd972",
+                "name": "4",
+                "networks": [],
+                "minimum": 0,
+                "maximum": 100
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "interfaces": [],
+    "teams": [],
+    "vswitches": []
+  }
+}

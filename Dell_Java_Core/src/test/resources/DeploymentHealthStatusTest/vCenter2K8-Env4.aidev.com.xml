@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ManagedDevice>
+	<compliance>COMPLIANT</compliance>
+	<complianceCheckDate>2015-09-09T21:34:57.898Z</complianceCheckDate>
+	<credId>ff8080814fb3f6cc014fb408146e004a</credId>
+	<deviceGroupList>
+		<DeviceGroup>
+			<groupSeqId>-1</groupSeqId>
+			<groupName>Global</groupName>
+			<createdBy>admin</createdBy>
+		</DeviceGroup>
+		<totalRecords>0</totalRecords>
+	</deviceGroupList>
+	<deviceType>vcenter</deviceType>
+	<discoverDeviceType>VCENTER</discoverDeviceType>
+	<discoveredDate>2015-09-09T21:34:57.882Z</discoveredDate>
+	<failuresCount>0</failuresCount>
+	<health>UNKNOWN</health>
+	<inventoryDate>2015-10-01T00:00:01.670Z</inventoryDate>
+	<ipAddress>172.28.4.6</ipAddress>
+	<manufacturer>VMware</manufacturer>
+	<memoryInGB>0</memoryInGB>
+	<model>vCenter</model>
+	<nics>0</nics>
+	<numberOfCPUs>0</numberOfCPUs>
+	<operatingSystem>N/A</operatingSystem>
+	<refId>ff8080814fb3f6cc014fb4086ecc0056</refId>
+	<serviceTag>vCenter2K8-Env4.aidev.com</serviceTag>
+	<state>READY</state>
+</ManagedDevice>

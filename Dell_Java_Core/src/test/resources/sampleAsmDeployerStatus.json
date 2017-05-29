@@ -1,0 +1,21 @@
+{
+    "execution_id": 1,
+    "id": "ff8080814812cafd014813920e0306a0",
+    "name": "EQL 1",
+    "status": "complete",
+    "message": "Deployment EQL 1 completed",
+    "start_time": "2014-08-26 18:26:58 +0000",
+    "end_time": "2014-08-26 18:31:02 +0000",
+    "components": [
+        {
+            "id": "79C62633-0C66-48F1-BA4C-8730D6B68A34",
+            "asm_guid": "equallogic-172.17.2.10",
+            "name": "EqualLogic",
+            "type": "STORAGE",
+            "status": "complete",
+            "message": "EqualLogic deployment complete",
+            "start_time": "2014-08-26 18:26:58 +0000",
+            "end_time": "2014-08-26 18:31:02 +0000"
+        }
+    ]
+}

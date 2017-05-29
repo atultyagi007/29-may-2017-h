@@ -1,0 +1,104 @@
+{
+  "component": {
+    "id": "component-vnx-1",
+    "puppetCertName": "puppet-vnx",
+    "name": "VNX",
+    "relatedComponents": {},
+    "associatedComponents": {},
+    "type": "STORAGE",
+    "resources": {
+      "id": "asm::volume::vnx",
+      "displayName": "VNX Storage Settings",
+      "parameters": [
+        {
+          "id": "pool",
+          "value": "",
+          "type": "STRING",
+          "displayName": "Pool Name",
+          "required": true,
+          "requiredAtDeployment": false,
+          "hideFromTemplate": false,
+          "min": 0,
+          "max": 0
+        },
+        {
+          "id": "title",
+          "value": "",
+          "type": "STRING",
+          "displayName": "Storage Volume Name",
+          "required": true,
+          "requiredAtDeployment": true,
+          "hideFromTemplate": false,
+          "min": 0,
+          "max": 0
+        },
+        {
+          "id": "size",
+          "value": "",
+          "type": "STRING",
+          "displayName": "Storage Size e.g 100GB",
+          "required": true,
+          "requiredAtDeployment": false,
+          "hideFromTemplate": false,
+          "min": 0,
+          "max": 0
+        },
+        {
+          "id": "type",
+          "value": "nonthin",
+          "displayName": "Type",
+          "type": "ENUMERATED",
+          "options": [
+            {
+              "value": "thin",
+              "name": "Thin",
+              "dependencyTarget": null,
+              "dependencyValue": null
+            },
+            {
+              "value": "nonthin",
+              "name": "Non Thin",
+              "dependencyTarget": null,
+              "dependencyValue": null
+            },
+            {
+              "value": "snap",
+              "name": "Snap",
+              "dependencyTarget": null,
+              "dependencyValue": null
+            },
+            {
+              "value": "compressed",
+              "name": "Compressed",
+              "dependencyTarget": null,
+              "dependencyValue": null
+            }
+          ],
+          "required": true,
+          "requiredAtDeployment": false,
+          "hideFromTemplate": false,
+          "min": 0,
+          "max": 0
+        },
+        {
+          "id": "folder",
+          "value": "",
+          "type": "STRING",
+          "displayName": "Folder Name",
+          "required": false,
+          "requiredAtDeployment": false,
+          "hideFromTemplate": false,
+          "min": 0,
+          "max": 0
+        },
+        {
+          "displayName": "Configure SAN Switch",
+          "id": "configuresan",
+          "required": false,
+          "type": "BOOLEAN",
+          "value": "true"
+        }
+      ]
+    }
+  }
+}
