@@ -1,0 +1,184 @@
+{
+	"Template": 
+			{
+				"Name":"ESXI_NETAPP_CONVERGED_2_REDUNDANCY_PARTITION",
+				"Description":"Deploy storage and  scale up an storage",
+				"Flow":"esxi"	
+			},
+	"Server": 
+			{
+				"Instances":1,
+				"target_boot_device_value":"SD",
+				"OSImage_Value": ["esxi-6.0"],
+				"iSCSI_Initiator":"hardware",
+				"HostNameTemplate":"server${num}",
+				"ServerPoolName":"autoPoolTest",
+				"ServersIPForPool": ["172.31.60.93","172.31.60.96","172.31.60.97","172.31.60.98","172.31.60.86","172.31.60.87"],
+				"memEnabled":"false",
+				"Networks": "ESXI_NETAPP_CONVERGED_2_REDUNDANCY_PARTITION",			
+				"Install_EqualLogic_MEM":"false",
+				"Os_Image_Version":"windows2012r2datacenter",
+				"Product_Key":"FNY7W-693QP-VHGKR-6JPHH-R898Y",
+				"domain_name":"ess",
+				"Domain_Admin_Username":"hypervadmin",
+				"Domain_Admin_Password":"Dell1234",
+				"FQ_Domain_Name":"ess.delllabs.net"
+									
+			},
+
+	"Storage":
+		{
+			"Instances":1,
+			"Type":"NetApp",
+			"Size":["200GB"],
+			"IPAdress":"172.31.32.81",
+			"Initiator_IQN_IP_Addresses":"",
+			"Auth_Type":"iqnip",
+			"CHAP_User":"grpadmin",
+			"CHAP_Password":"dell1234",
+			"Operating_SystemName_Compellent":"VMware ESX 5.5",
+			"PortType_Compellent":"FibreChannel",
+			"Aggregate_Name_NetApp":"Aggregate1DP",
+			"Space_Reservation_Mode_NetApp":"file",
+			"NFS_Target_IP_NetApp":"172.31.32.81"
+		},
+	"Cluster":
+		{
+			"Instances":1,
+			"Type":"VMWareCluster",	
+			"IPAdress":"172.31.61.50",
+			"ExistingClusterName":"",		
+			"SwitchType":"Standard",	
+			"HA_Config":"false",
+			"DRS_Config":"false",
+			"VSAN_Enabled":"false",
+			"ClusterIP_HyperV":""	
+		},
+		
+	"VM":
+		{
+			"Instances":1,
+			"Type":"VMWareVM",
+			"AutogenerateHostName":"true",
+			"OS_Image":"red7",
+			"Os_Image_Version":"",
+			"OS_Image_Type" : "redhat7",
+			"Product_Key":"",
+			"Virtual_Disk_Size_GB":"2",	
+			"CPU_Count":"2",
+			"Memory_MB":"1024",			
+			"hostname_HyperVCloneVM":"Clone003",
+			"description_HyperVCloneVM":"Clone003",
+			"vm_template_name":"HCLCentos7",
+			"block_dynamic_optimization" : "false",
+			"highly_available":"true",
+			"start_action":"always_auto_turn_on_vm",
+			"stop_action":"turn_off_vm",	
+			"path":"C:\\ClusterStorage\\Volume1"	
+			
+				
+				
+		},
+	"Application":
+		{
+			"Instances":0,
+			"Type":"LinuxPostInstall",
+			"yum_proxy":"",	
+			"install_packages":"",
+			"upload_share":"",
+			"upload_file":"hello.sh",
+			"execute_file_command":"sh /var/lib/puppet/staging/hello.sh",
+			"windows_postinstall_share":"",
+			"windows_install_command":""		
+				
+		},
+	"Scaleup":
+		{
+			"Server": 
+			{
+				
+				"Instances":0,
+				"target_boot_device_value":"SD",
+				"OSImage_Value": ["esxi-6.0"],
+				"iSCSI_Initiator":"hardware",
+				"HostNameTemplate":"server${num}",
+				"memEnabled":"false",
+				"Networks": "ESXI_NETAPP_CONVERGED_2_REDUNDANCY",			
+				"Install_EqualLogic_MEM":"false",
+				"Os_Image_Version":"windows2012r2datacenter",
+				"Product_Key":"FNY7W-693QP-VHGKR-6JPHH-R898Y",
+				"domain_name":"ess",
+				"Domain_Admin_Username":"hypervadmin",
+				"Domain_Admin_Password":"Dell1234",
+				"FQ_Domain_Name":"ess.delllabs.net"
+				
+				
+			},
+			"Storage":
+			{
+				
+				"Instances":0,
+				"Type":"Equallogic",
+				"Size":["200GB"],
+				"IPAdress":"172.31.32.81",
+				"Initiator_IQN_IP_Addresses":"",
+				"Auth_Type":"chap",
+				"CHAP_User":"grpadmin",
+				"CHAP_Password":"dell1234",
+				"Operating_SystemName_Compellent":"VMware ESX 5.5",
+				"PortType_Compellent":"FibreChannel",
+				"Aggregate_Name_NetApp":"Aggregate1DP",
+				"Space_Reservation_Mode_NetApp":"file",
+				"NFS_Target_IP_NetApp":"172.31.32.81"
+								
+			},
+			"Cluster": 
+			{
+				
+				"Instances":0,
+				"Type":"VMWareCluster",	
+				"IPAdress":"172.31.61.50",
+				"ExistingClusterName":"",		
+				"SwitchType":"Standard",	
+				"HA_Config":"false",
+				"DRS_Config":"false",
+				"VSAN_Enabled":"false",
+				"ClusterIP_HyperV":""	
+			},
+			"VM": 
+			{
+				
+				"Instances":0,
+				"Type":"VMWareVM",
+				"AutogenerateHostName":"true",
+				"OS_Image":"red7",
+				"Os_Image_Version":"",
+				"OS_Image_Type" : "redhat7",
+				"Product_Key":"",
+				"Virtual_Disk_Size_GB":"2",	
+				"CPU_Count":"2",
+				"Memory_MB":"1024",			
+				"hostname_HyperVCloneVM":"Clone003",
+				"description_HyperVCloneVM":"Clone003",
+				"vm_template_name":"HCLCentos7",
+				"block_dynamic_optimization" : "false",
+				"highly_available":"true",
+				"start_action":"always_auto_turn_on_vm",
+				"stop_action":"turn_off_vm",	
+				"path":"C:\\ClusterStorage\\Volume1"	
+			},
+			"Application": 
+			{
+				
+				"Instances":0,
+				"Type":"LinuxPostInstall",
+				"yum_proxy":"",	
+				"install_packages":"",
+				"upload_share":"",
+				"upload_file":"hello.sh",
+				"execute_file_command":"sh /var/lib/puppet/staging/hello.sh",
+				"windows_postinstall_share":"",
+				"windows_install_command":""			
+			}	
+		}
+}

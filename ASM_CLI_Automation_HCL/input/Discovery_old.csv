@@ -1,0 +1,10 @@
+SNo,Type,START_IP,END_IP,CredentialName,ChassisServerCre,ChassisSwitchCre
+1,SERVER,172.21.0.52,172.21.0.54,autoServer,,
+2,CHASSIS,172.21.0.150,172.21.0.150,HVChasis,autoServer,autoIOM
+3,SWITCH,172.21.10.248,172.21.10.248,autoSwitch,,
+4,SWITCH,172.21.10.249,172.21.10.249,autoBrocade,,
+5,CHASSIS,172.31.60.175,172.31.60.175,Dell chassis default,Dell server default,Dell switch default
+5,VCENTER,172.31.32.195,172.31.32.195,autoVCenter,,
+6,STORAGE,172.31.32.108,172.31.32.108,StorageComp,,
+7,SCVMM,172.31.62.3,172.31.62.4,SCVMM12345,,
+8,EnterpriseManager,172.31.61.179,172.31.61.179,EMC12345,,

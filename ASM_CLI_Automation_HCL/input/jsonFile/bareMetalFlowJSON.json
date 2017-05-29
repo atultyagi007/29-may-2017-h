@@ -1,0 +1,139 @@
+{
+	"Template": 
+			{
+				"Name":"bareMetalTemplate1",
+				"Description":"Baremetal deployment on blade server with Centos7",
+				"Flow":"bareMetal"	
+			},
+	"Server": 
+			{
+				"Instances":1,
+				"target_boot_device_value":"SD",
+				"OS_Image_Type":"redhat7",
+				"OSImage_Value": ["red7"],
+				"Os_Image_Version":"",
+				"Product_Key":"",
+				"Install_EqualLogic_MEM":"false",
+				"HostNameTemplate":"server${num}",
+				"iSCSI_Initiator":"hardware",
+				"ServerPoolName":"HCLASMServerPool",
+				"ServersIPForPool": ["172.31.60.78", "172.31.60.79", "172.31.60.84", "172.31.60.85"]
+									
+			},
+
+	"Storage":
+		{
+			"Instances":0,
+			"Type":"Compellent",
+			"Size":["512MB","1024MB"],
+			"IPAdress":"172.31.32.117",
+			"Initiator_IQN_IP_Addresses":"172.31.39.227",
+			"Operating_SystemName_Compellent":"VMware ESX 5.5",
+			"PortType_Compellent":"FibreChannel"
+		},
+	"Cluster":
+		{
+			"Instances":0,
+			"Type":"HyperVCluster",	
+			"IPAdress":"172.31.62.3",	
+			"HA_Config":"true",
+			"DRS_Config":"false",
+			"VDS_Enabled":"false"	
+		},
+		
+	"VM":
+		{
+			"Instances":0,
+			"Type":"HyperVCloneVM",
+			"hostname":"Clone003",
+			"description":"Clone003",
+			"vm_template_name":"HCLCentos7",
+			"block_dynamic_optimization" : "false",
+			"highly_available":"true",
+			"cpu_count":"1",
+			"memory_mb":"1024",
+			"start_action":"always_auto_turn_on_vm",
+			"stop_action":"turn_off_vm",	
+			"path":"C:\\ClusterStorage\\Volume1"		
+				
+		},
+	"Application":
+		{
+			"Instances":0,
+			"Type":"SQLServer",
+			"install_packages":"",
+			"upload_share":"",
+			"upload_file":"",
+			"execute_file_command":"sh",
+			"yum_proxy":"",
+			"SQLServer_media":"\\172.31.41.1\\razor\\SQLServer2012",
+			"SQLServer_netfxsource":"\\172.31.41.1\\razor\\windows_install\\sources\\sxs"		
+				
+		},
+	"Scaleup":
+		{
+			"Server": 
+			{
+				"Sequence":1,
+				"Instances":0,
+				"target_boot_device_value":"SD",
+				"OS_Image_Type":"redhat7",
+				"OSImage_Value": ["red7"],
+				"Os_Image_Version":"",
+				"Product_Key":"",
+				"HostNameTemplate":"server${num}",
+				"iSCSI_Initiator":"hardware",
+				"Install_EqualLogic_MEM":"false"
+				
+			},
+			"Storage":
+			{
+				"Sequence":2,
+				"Instances":0,
+				"Type":"Compellent",
+				"Size":["512MB"],
+				"Initiator_IQN_IP_Addresses":"172.31.39.227",
+				"Operating_SystemName_Compellent":"VMware ESX 5.5",
+				"PortType_Compellent":"FibreChannel"
+								
+			},
+			"Cluster": 
+			{
+				"Sequence":3,
+				"Instances":0,
+				"Type":"HyperVCluster",	
+				"HA_Config":"true",
+				"DRS_Config":"false",
+				"VDS_Enabled":"false"	
+			},
+			"VM": 
+			{
+				"Sequence":4,
+				"Instances":0,
+				"Type":"HyperVCloneVM",
+				"hostname":"Clone003",
+				"description":"Clone003",
+				"vm_template_name":"HCLCentos7",
+				"block_dynamic_optimization" : "false",
+				"highly_available":"true",
+				"cpu_count":"1",
+				"memory_mb":"1024",
+				"start_action":"always_auto_turn_on_vm",
+				"stop_action":"turn_off_vm",	
+				"path":"C:\\ClusterStorage\\Volume1"
+			},
+			"Application": 
+			{
+				"Sequence":5,
+				"Instances":0,
+				"Type":"SQLServer",
+				"install_packages":"",
+				"upload_share":"",
+				"upload_file":"",
+				"execute_file_command":"sh",
+				"yum_proxy":"",
+				"SQLServer_media":"\\172.31.41.1\\razor\\SQLServer2012",
+				"SQLServer_netfxsource":"\\172.31.41.1\\razor\\windows_install\\sources\\sxs"			
+			}	
+		}
+}

@@ -1,0 +1,15 @@
+<entry>
+	<key>$Components_Id</key>
+
+	<value>
+		<entry>
+			<key>install_order</key>
+			<value>1</value>
+		</entry>
+		<entry>
+			<key>name</key>
+			<value>$Resource_Name</value>
+		</entry>
+	</value>
+
+</entry>

@@ -1,0 +1,21 @@
+<ServiceTemplate>
+     <templateName>$template_name</templateName>
+     <templateDescription>$template_description</templateDescription>
+     <draft>false</draft>
+     <createdBy>$login_user</createdBy>
+     <category>Automation</category>
+	 <enableApps>false</enableApps>
+	 <enableCluster>true</enableCluster>
+	 <enableServer>true</enableServer>
+	 <enableStorage>true</enableStorage>
+	 <enableVMs>true</enableVMs>
+	 <allUsersAllowed>true</allUsersAllowed>
+	 
+	 $StorageComponent
+	 $ServerComponent
+	 $ClusterComponent
+	 $VMComponent
+	 $ApplicationComponent
+	 
+	 
+ </ServiceTemplate>

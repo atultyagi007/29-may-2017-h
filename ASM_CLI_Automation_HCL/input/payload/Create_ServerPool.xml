@@ -1,0 +1,19 @@
+<DeviceGroup>
+	<groupName>$pool_name</groupName>
+	<groupDescription></groupDescription>
+	<managedDeviceList>
+		<ManagedDevice>
+			<refId>device_refid</refId>
+		</ManagedDevice>
+	</managedDeviceList>
+	<groupUserList>
+		<GroupUser>
+			<userSeqId>1</userSeqId>
+			<userName>login_user</userName>
+			<firstName></firstName>
+			<lastName></lastName>
+			<enabled>false</enabled>
+		</GroupUser>
+		<totalRecords>0</totalRecords>
+	</groupUserList>
+</DeviceGroup>

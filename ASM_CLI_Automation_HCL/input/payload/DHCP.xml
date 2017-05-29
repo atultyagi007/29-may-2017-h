@@ -1,0 +1,12 @@
+<dhcpSettings>
+	<enabled>false</enabled>
+	<subnet>172.31.41.0</subnet>
+	<netmask>255.255.255.0</netmask>
+	<startingIpAddress>172.31.41.150</startingIpAddress>
+	<endingIpAddress>172.31.41.175</endingIpAddress>
+	<defaultLeaseTime>3600</defaultLeaseTime>
+	<maxLeaseTime>10800</maxLeaseTime>
+	<dns>172.31.62.1</dns>
+	<gateway>172.31.41.254</gateway>
+	<domain>ess</domain>
+</dhcpSettings>

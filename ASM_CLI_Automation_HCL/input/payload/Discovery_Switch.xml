@@ -1,0 +1,10 @@
+<DiscoveryRequest>
+    <discoveryRequestList>
+      <DiscoverIPRangeDeviceRequest>
+        <deviceEndIp>$end_ip</deviceEndIp>
+        <deviceStartIp>$start_ip</deviceStartIp>
+        <unmanaged>manage_in_asm</unmanaged>
+        <deviceSwitchCredRef>$default_switch_cred_ref</deviceSwitchCredRef>
+      </DiscoverIPRangeDeviceRequest>
+    </discoveryRequestList>
+  </DiscoveryRequest>

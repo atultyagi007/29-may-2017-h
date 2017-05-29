@@ -1,0 +1,10 @@
+<FirmwareRepository>
+<bundleCount></bundleCount>
+<componentCount></componentCount>
+<defaultCatalog>True</defaultCatalog>
+<diskLocation>$diskLocation</diskLocation>
+<embedded>false</embedded>
+<filename>Catalog.xml</filename>
+<name>Catalog.xml</name>
+<sourceLocation>disk</sourceLocation>
+</FirmwareRepository>

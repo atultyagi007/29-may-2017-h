@@ -1,0 +1,88 @@
+{
+	"Template": 
+			{
+				"Name":"minimalTemplate1",
+				"Description":" deployment on blade server using minimal server component",
+				"Flow":"minimal"	
+			},
+	"Server": 
+			{
+				"Instances":1,
+				"OS_Image_Type":"vmware_esxi",
+				"OSImage_Value": ["esxi-5.5"],
+				"Os_Image_Version":"",
+				"Product_Key":"",
+				"ServerPoolName":"HCLASMServerPool",
+				"iSCSI_Initiator":"hardware",
+				"HostNameTemplate":"server${num}",
+				"ServersIPForPool": ["IP_Address_server1", "IP_Address_server2", "IP_Address_server3", "IP_Address_server4"]
+									
+			},
+
+	
+	"Scaleup":
+		{
+			"Server": 
+			{
+				"Sequence":1,
+				"Instances":0,
+				"OS_Image_Type":"redhat7",
+				"OSImage_Value": ["red7"],
+				"Os_Image_Version":"",
+				"iSCSI_Initiator":"hardware",
+				"HostNameTemplate":"server${num}",
+				"Product_Key":""
+				
+				
+			},
+			"Storage":
+			{
+				"Sequence":2,
+				"Instances":0,
+				"Type":"Compellent",
+				"Size":["512MB"],
+				"Initiator_IQN_IP_Addresses":"172.31.39.227",
+				"Operating_SystemName_Compellent":"VMware ESX 5.5",
+				"PortType_Compellent":"FibreChannel"
+								
+			},
+			"Cluster": 
+			{
+				"Sequence":3,
+				"Instances":0,
+				"Type":"HyperVCluster",	
+				"HA_Config":"true",
+				"DRS_Config":"false",
+				"VDS_Enabled":"false"	
+			},
+			"VM": 
+			{
+				"Sequence":4,
+				"Instances":0,
+				"Type":"HyperVCloneVM",
+				"hostname":"Clone003",
+				"description":"Clone003",
+				"vm_template_name":"HCLCentos7",
+				"block_dynamic_optimization" : "false",
+				"highly_available":"true",
+				"cpu_count":"1",
+				"memory_mb":"1024",
+				"start_action":"always_auto_turn_on_vm",
+				"stop_action":"turn_off_vm",	
+				"path":"C:\\ClusterStorage\\Volume1"
+			},
+			"Application": 
+			{
+				"Sequence":5,
+				"Instances":0,
+				"Type":"SQLServer",
+				"install_packages":"",
+				"upload_share":"",
+				"upload_file":"",
+				"execute_file_command":"sh",
+				"yum_proxy":"",
+				"SQLServer_media":"\\172.31.41.1\\razor\\SQLServer2012",
+				"SQLServer_netfxsource":"\\172.31.41.1\\razor\\windows_install\\sources\\sxs"			
+			}	
+		}
+}

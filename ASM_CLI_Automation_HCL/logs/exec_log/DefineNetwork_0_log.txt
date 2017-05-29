@@ -1,0 +1,72 @@
+####################################################################################################
+####################################################################################################
+tools\pscp.exe -pw delladmin tools\enable_debug.sh delladmin@172.31.53.1:/tmp
+
+ Status: The server's host key is not cached in the registry. You
+have no guarantee that the server is the computer you
+think it is.
+The server's rsa2 key fingerprint is:
+ssh-rsa 2048 c0:e6:e7:96:ee:52:7c:76:31:52:c2:d2:d9:aa:5c:f2
+If you trust this host, enter "y" to add the key to
+PuTTY's cache and carry on connecting.
+If you want to carry on connecting just once, without
+adding the key to the cache, enter "n".
+If you do not trust this host, press Return to abandon the
+connection.
+Store key in cache? (y/n) Connection abandoned.
+Lost connection
+ 
+
+Elapsed Time: 0:00:00.344000
+Start Time: 2017-01-20 16:48:03.320000
+End Time: 2017-01-20 16:48:03.664000
+####################################################################################################
+
+
+http://172.31.53.1:9080/AsmManager/authenticate
+Action: POST 
+Header: {'Content-Type': 'application/xml', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json'} 
+Payload: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><AuthenticateRequest>  <userName>admin</userName>  <domain>ASMLOCAL</domain>  <password>admin</password></AuthenticateRequest>
+Result: {"userName":"admin","domain":"ASMLOCAL","role":"Administrator","apiKey":"fc741aa7dfb35b37a9a2c96b","apiSecret":"538c352f600d6cfe4946ccd922d426d99bfe1f9672f980fa"}
+
+ Status: 201 
+
+Elapsed Time: 0:00:00.570000
+Start Time: 2017-01-20 16:48:03.688000
+End Time: 2017-01-20 16:48:04.258000
+####################################################################################################
+
+####################################################################################################
+Login  Respone : {'userName': 'admin', 'domain': 'ASMLOCAL', 'apiKey': 'fc741aa7dfb35b37a9a2c96b', 'role': 'Administrator', 'apiSecret': '538c352f600d6cfe4946ccd922d426d99bfe1f9672f980fa'}
+####################################################################################################
+
+####################################################################################################
+api key : fc741aa7dfb35b37a9a2c96b
+####################################################################################################
+
+####################################################################################################
+http://172.31.53.1:9080/VirtualServices/Network
+Action: GET 
+Header: {'Accept-Encoding': 'gzip, deflate', 'x-dell-auth-timestamp': '1484911353', 'Accept': 'application/json', 'User-Agent': 'REST API Client', 'x-dell-auth-key': 'fc741aa7dfb35b37a9a2c96b', 'x-dell-auth-signature': 'ki0uyhEeJuiIDl8pOYiRhTutvvbdlqa90PUT0ArSwb4=', 'Content-Type': 'application/json'} 
+Payload: 
+
+ Status: 200 
+
+Elapsed Time: 0:00:49.491000
+Start Time: 2017-01-20 16:51:57.936000
+End Time: 2017-01-20 16:52:47.427000
+####################################################################################################
+
+####################################################################################################
+http://172.31.53.1:9080/VirtualServices/Network/ff80808159bb79460159bb87267e0000
+Action: PUT 
+Header: {'Accept-Encoding': 'gzip, deflate', 'x-dell-auth-timestamp': '1484911511', 'Accept': 'application/json', 'User-Agent': 'REST API Client', 'x-dell-auth-key': 'fc741aa7dfb35b37a9a2c96b', 'x-dell-auth-signature': 'anaOk5XgVBdhx1HjaRtv8u1RSoCbM9Tbft8xQtoCNgA=', 'Content-Type': 'application/xml'} 
+Payload: <Network xmlns="http://pg.dell.com/asm/virtualservices/network"><Id>ff80808159bb79460159bb87267e0000</Id><Name>autoPublicLAN</Name><Description>Workload</Description><Type>PRIVATE_LAN</Type><VlanId>33</VlanId><Static>true</Static><StaticNetworkConfiguration><Gateway>172.31.33.254</Gateway><Subnet>255.255.255.0</Subnet><PrimaryDns>172.31.62.1</PrimaryDns><SecondaryDns>172.31.62.2</SecondaryDns><DnsSuffix></DnsSuffix><IpRange><Id/><StartingIp>172.31.33.76</StartingIp><EndingIp>172.31.33.80</EndingIp></IpRange></StaticNetworkConfiguration></Network>
+
+ Status: 204 
+
+Elapsed Time: 0:00:00.079000
+Start Time: 2017-01-20 16:55:11.575000
+End Time: 2017-01-20 16:55:11.654000
+####################################################################################################
+

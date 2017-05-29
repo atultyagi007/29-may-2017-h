@@ -1,0 +1,23 @@
+2017-01-20 11:18:03 INFO [dellunit] DellUnit v1.1.0
+2017-01-20 11:18:03 INFO [dellunit] Build: 2014-06-25_16-05-16
+2017-01-20 11:18:03 INFO [dellunit] Running product-level startup hook
+2017-01-20 11:18:03 INFO [dellunit] logfile is: logs\runtime.log
+2017-01-20 11:18:03 INFO [dellunit] Setting log level to: DEBUG
+2017-01-20 11:18:03 DBUG [dellunit] timestamp_report: False
+2017-01-20 11:18:03 DBUG [dellunit] tests: ('Testcase_DefineNetwork',)
+2017-01-20 11:18:03 DBUG [dellunit] buffer: True
+2017-01-20 11:18:03 DBUG [dellunit] separate_output: False
+2017-01-20 11:18:03 DBUG [dellunit] mail_users: ()
+2017-01-20 11:18:03 DBUG [dellunit] wipe_logs: False
+2017-01-20 11:18:03 DBUG [dellunit] verbosity: 10
+2017-01-20 11:18:03 DBUG [dellunit] catchbreak: False
+2017-01-20 11:18:03 DBUG [dellunit] retry_failed: False
+2017-01-20 11:18:03 DBUG [dellunit] mail_server: mail.delllabs.net
+2017-01-20 11:18:03 DBUG [dellunit] failfast: True
+2017-01-20 11:18:03 DBUG [dellunit] Discovery complete, running test(s)
+2017-01-20 11:18:03 INFO [libs.product.requests.packages.urllib3.connectionpool] Starting new HTTP connection (1): 172.31.53.1
+2017-01-20 11:18:04 DBUG [libs.product.requests.packages.urllib3.connectionpool] "POST /AsmManager/authenticate HTTP/1.1" 201 None
+2017-01-20 11:22:40 INFO [libs.product.requests.packages.urllib3.connectionpool] Starting new HTTP connection (1): 172.31.53.1
+2017-01-20 11:22:40 DBUG [libs.product.requests.packages.urllib3.connectionpool] "GET /VirtualServices/Network HTTP/1.1" 200 None
+2017-01-20 11:25:11 INFO [libs.product.requests.packages.urllib3.connectionpool] Starting new HTTP connection (1): 172.31.53.1
+2017-01-20 11:25:11 DBUG [libs.product.requests.packages.urllib3.connectionpool] "PUT /VirtualServices/Network/ff80808159bb79460159bb87267e0000 HTTP/1.1" 204 0

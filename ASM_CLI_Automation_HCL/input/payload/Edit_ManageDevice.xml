@@ -1,0 +1,20 @@
+<ManagedDevice>
+	<complianceCheckDate></complianceCheckDate>
+	<compliant>false</compliant>
+	<deviceType>device_type</deviceType>
+	<discoveredDate></discoveredDate>
+	<health>GREEN</health>
+	<healthMessage>no issues</healthMessage>
+	<infraTemplateDate></infraTemplateDate>
+	<infraTemplateName>test1</infraTemplateName>
+	<inventoryDate></inventoryDate>
+	<ipAddress>ip_address</ipAddress>
+	<mgmtTemplateDate></mgmtTemplateDate>
+	<mgmtTemplateName>test2</mgmtTemplateName>
+	<model>device_model</model>
+	<refId>device_refid</refId>
+	<serviceTag>device_serviceTag</serviceTag>
+	<manufacturer>device_vendor</manufacturer>
+	<memoryInGB></memoryInGB> 
+	<state>device_state</state>
+</ManagedDevice>	

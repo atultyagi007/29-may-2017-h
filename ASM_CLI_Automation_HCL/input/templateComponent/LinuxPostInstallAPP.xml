@@ -1,0 +1,93 @@
+
+<components>
+	<id>$Application_Components_Id</id>
+	<componentID>$Application_componentID</componentID>
+	<name>$Application_name</name>
+	<type>SERVICE</type>
+	<subType>CLASS</subType>
+	<teardown>false</teardown>
+
+
+	<relatedComponents>
+		$VMComponentsEntry
+	</relatedComponents>
+
+
+	<resources>
+		<id>linux_postinstall</id>
+		<displayName>Application Settings</displayName>
+
+
+		<parameters>
+			<id>install_packages</id>
+			<value>$installPackages</value>
+			<type>STRING</type>
+			<displayName>install_packages</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+
+		<parameters>
+			<id>upload_share</id>
+			<value>$uploadShare</value>
+			<type>STRING</type>
+			<displayName>upload_share</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+		<parameters>
+			<id>upload_file</id>
+			<value>$uploadFile</value>
+			<type>STRING</type>
+			<displayName>upload_file</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+		<parameters>
+			<id>upload_recursive</id>
+			<value>false</value>
+			<type>BOOLEAN</type>
+			<displayName>upload_recursive</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+		<parameters>
+			<id>execute_file_command</id>
+			<value>$executeFileCommand</value>
+			<type>STRING</type>
+			<displayName>execute_file_command</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+		<parameters>
+			<id>yum_proxy</id>
+			<value>$yumProxy</value>
+			<type>STRING</type>
+			<displayName>yum_proxy</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+	</resources>
+	<refId>BC5D2B18-260B-41A4-9BED-A90450E3649B</refId>
+	<cloned>false</cloned>
+	<manageFirmware>false</manageFirmware>
+	<brownfield>false</brownfield>
+</components>

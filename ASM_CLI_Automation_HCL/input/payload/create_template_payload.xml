@@ -1,0 +1,152 @@
+<ServiceTemplate>
+   <templateName>ServerServiceTemplate</templateName>
+   
+   <components>
+      
+      <name>Server 1</name>
+      <type>SERVER</type>
+
+      <resources>
+         <id>asm::idrac</id>
+         <displayName>Hardware Settings</displayName>
+         <parameters>
+            <id>target_boot_device</id>
+            <value>HD</value>
+            <type>ENUMERATED</type>
+            <displayName>Target Boot Device</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+             </parameters>
+         <parameters>
+            <id>server_pool</id>
+            <value>${#TestSuite#ServerPool}</value>
+            <type>ENUMERATED</type>
+            <displayName>Server Pool</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            
+         </parameters>
+      </resources>
+      <resources>
+         <id>asm::server</id>
+         <displayName>OS Settings</displayName>
+         <parameters>
+            <id>os_host_name</id>
+            
+            <type>STRING</type>
+            <displayName>Host Name</displayName>
+            <required>false</required>
+            <requiredAtDeployment>true</requiredAtDeployment>
+            <hideFromTemplate>true</hideFromTemplate>
+         
+         </parameters>
+         <parameters>
+            <id>admin_password</id>
+            <value>${#TestSuite#adminPassword}</value>
+            <type>PASSWORD</type>
+            <displayName>Administrator password</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            
+         </parameters>
+         <parameters>
+            <id>admin_confirm_password</id>
+            <value>${#TestSuite#adminPassword}</value>
+            <type>PASSWORD</type>
+            <displayName>Confirm administrator password</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+          
+         </parameters>
+         <parameters>
+            <id>razor_image</id>
+            <value>esxi-5.1</value>
+            <type>ENUMERATED</type>
+            <displayName>OS Image</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+           
+         </parameters>
+         <parameters>
+            <id>os_image_type</id>
+            <value>vmware_esxi</value>
+            <type>ENUMERATED</type>
+            <displayName>OS Image Type</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            
+         </parameters>
+         <parameters>
+            <id>custom_script</id>
+            <value/>
+            <type>TEXT</type>
+            <displayName>Custom OS Installation script</displayName>
+            <required>false</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            
+         </parameters>
+      </resources>
+      <resources>
+         <id>asm::esxiscsiconfig</id>
+         <displayName>Network Settings</displayName>
+         <parameters>
+            <id>identity_pool</id>
+            <value>-1</value>
+            <type>ENUMERATED</type>
+            <displayName>Identity Pool</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            
+         </parameters>
+         
+         <parameters>
+            <id>vmotion_network</id>
+            <value>${#TestSuite#dynamic_privlanGUID}</value>
+            <type>ENUMERATED</type>
+            <displayName>Hypervisor vMotion Network</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            
+         </parameters>
+         <parameters>
+            <id>storage_network</id>
+            <value>${create storage#Response#declare namespace ns1='http://pg.dell.com/asm/virtualservices/network'; //ns1:Network[1]/ns1:Id[1]}</value>
+            <type>ENUMERATED</type>
+            <displayName>Storage Network</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            
+         </parameters>
+         <parameters>
+            <id>pxe_network</id>
+            <value>${create pxenw#Response#declare namespace ns1='http://pg.dell.com/asm/virtualservices/network'; //ns1:Network[1]/ns1:Id[1]}</value>
+            <type>ENUMERATED</type>
+            <displayName>PXE Network</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+            
+         </parameters>
+         <parameters>
+            <id>workload_network</id>
+            <value>${create wrkloadnw#Response#declare namespace ns1='http://pg.dell.com/asm/virtualservices/network'; //ns1:Network[1]/ns1:Id[1]}</value>
+            <type>LIST</type>
+            <displayName>Workload Networks</displayName>
+            <required>true</required>
+            <requiredAtDeployment>false</requiredAtDeployment>
+            <hideFromTemplate>false</hideFromTemplate>
+           
+         </parameters>
+      </resources>
+   </components>
+</ServiceTemplate>

@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//libs/core/dellunit/case.py=utf-8
+encoding//libs/core/dellunit/main.py=utf-8
+encoding//libs/core/dellunit/runner.py=utf-8
+encoding//libs/product/requests/adapters.py=utf-8

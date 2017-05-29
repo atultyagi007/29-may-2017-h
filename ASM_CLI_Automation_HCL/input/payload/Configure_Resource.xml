@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceTemplate>
+	<draft>false</draft>
+	$Components
+	<enableApps>false</enableApps>
+	<enableCluster>false</enableCluster>
+	<enableServer>false</enableServer>
+	<enableStorage>false</enableStorage>
+	<enableVMs>false</enableVMs>
+	<allUsersAllowed>false</allUsersAllowed>
+	<manageFirmware>false</manageFirmware>
+</ServiceTemplate>

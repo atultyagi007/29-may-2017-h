@@ -1,0 +1,10 @@
+<DiscoveryRequest>
+	<discoveryRequestList>
+		<DiscoverIPRangeDeviceRequest>
+			<deviceEndIp>$end_IP</deviceEndIp>
+			<deviceServerCredRef>$Cred_RefID</deviceServerCredRef>
+			<deviceStartIp>$start_IP</deviceStartIp>
+			<bDiscoverDevicesInChassis>$enabled</bDiscoverDevicesInChassis>
+		</DiscoverIPRangeDeviceRequest>
+	</discoveryRequestList>
+</DiscoveryRequest>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DiscoveryRequest>
+	<discoveryRequestList>
+		<DiscoverIPRangeDeviceRequest>
+			<deviceStartIp>$start_ip</deviceStartIp>
+			<deviceEndIp>$end_ip</deviceEndIp>
+			<unmanaged>manage_in_asm</unmanaged> 
+			<deviceEMCredRef>$default_emc_cred_ref</deviceEMCredRef>
+			<deviceType>em</deviceType>
+		</DiscoverIPRangeDeviceRequest>
+	</discoveryRequestList>
+</DiscoveryRequest>

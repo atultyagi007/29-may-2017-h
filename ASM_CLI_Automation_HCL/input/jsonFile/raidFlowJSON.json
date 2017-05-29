@@ -1,0 +1,147 @@
+{
+	"Template": 
+			{
+				"Name":"raidTemplate1",
+				"Description":"Baremetal deployment with Raid6,60 on H710 controller with hotspare1",
+				"Flow":"bareMetal"	
+			},
+	"Server": 
+			{
+				"Instances":1,
+				"target_boot_device_value":"SD",
+				"OS_Image_Type":"redhat7",
+				"OSImage_Value": ["red7"],
+				"Os_Image_Version":"",
+				"Product_Key":"",
+				"Install_EqualLogic_MEM":"false",
+				"ServerPoolName":"HCLASMServerPool",
+				"ServersIPForPool": ["IP_Address_server1", "IP_Address_server2", "IP_Address_server3", "IP_Address_server4"],
+				"raid_Type":"advanced",
+				"iSCSI_Initiator":"hardware",
+				"HostNameTemplate":"server${num}",
+				"virtualdisks":[{"id":"5B52D7B5-23E0-4CCA-A7E5-C376AC973737","raidlevel":"raid6","comparator":"minimum","numberofdisks":"4","disktype":"requirehdd"},
+								{"id":"170C0583-C9A3-401F-BDEB-713B33135617","raidlevel":"raid60","comparator":"minimum","numberofdisks":"8","disktype":"requirehdd"}]
+				
+									
+			},
+
+	"Storage":
+		{
+			"Instances":0,
+			"Type":"Compellent",
+			"Size":["512MB","1024MB"],
+			"IPAdress":"172.31.32.117",
+			"Initiator_IQN_IP_Addresses":"172.31.39.227",
+			"Operating_SystemName_Compellent":"VMware ESX 5.5",
+			"PortType_Compellent":"FibreChannel"
+		},
+	"Cluster":
+		{
+			"Instances":0,
+			"Type":"HyperVCluster",	
+			"IPAdress":"172.31.62.3",	
+			"HA_Config":"true",
+			"DRS_Config":"false",
+			"VDS_Enabled":"false"	
+		},
+		
+	"VM":
+		{
+			"Instances":0,
+			"Type":"HyperVCloneVM",
+			"hostname":"Clone003",
+			"description":"Clone003",
+			"vm_template_name":"HCLCentos7",
+			"block_dynamic_optimization" : "false",
+			"highly_available":"true",
+			"cpu_count":"1",
+			"memory_mb":"1024",
+			"start_action":"always_auto_turn_on_vm",
+			"stop_action":"turn_off_vm",	
+			"path":"C:\\ClusterStorage\\Volume1"		
+				
+		},
+	"Application":
+		{
+			"Instances":0,
+			"Type":"SQLServer",
+			"install_packages":"",
+			"upload_share":"",
+			"upload_file":"",
+			"execute_file_command":"sh",
+			"yum_proxy":"",
+			"SQLServer_media":"\\172.31.41.1\\razor\\SQLServer2012",
+			"SQLServer_netfxsource":"\\172.31.41.1\\razor\\windows_install\\sources\\sxs"		
+				
+		},
+	"Scaleup":
+		{
+			"Server": 
+			{
+				"Sequence":1,
+				"Instances":0,
+				"target_boot_device_value":"SD",
+				"OS_Image_Type":"redhat7",
+				"OSImage_Value": ["red7"],
+				"Os_Image_Version":"",
+				"Product_Key":"",
+				"Install_EqualLogic_MEM":"false",
+				"raid_Type":"advanced",
+				"iSCSI_Initiator":"hardware",
+				"HostNameTemplate":"server${num}",
+				"virtualdisks":[{"id":"5B52D7B5-23E0-4CCA-A7E5-C376AC973737","raidlevel":"raid6","comparator":"minimum","numberofdisks":"4","disktype":"requirehdd"},
+								{"id":"170C0583-C9A3-401F-BDEB-713B33135617","raidlevel":"raid60","comparator":"minimum","numberofdisks":"8","disktype":"requirehdd"}]
+				
+				
+			},
+			"Storage":
+			{
+				"Sequence":2,
+				"Instances":0,
+				"Type":"Compellent",
+				"Size":["512MB"],
+				"Initiator_IQN_IP_Addresses":"172.31.39.227",
+				"Operating_SystemName_Compellent":"VMware ESX 5.5",
+				"PortType_Compellent":"FibreChannel"
+								
+			},
+			"Cluster": 
+			{
+				"Sequence":3,
+				"Instances":0,
+				"Type":"HyperVCluster",	
+				"HA_Config":"true",
+				"DRS_Config":"false",
+				"VDS_Enabled":"false"	
+			},
+			"VM": 
+			{
+				"Sequence":4,
+				"Instances":0,
+				"Type":"HyperVCloneVM",
+				"hostname":"Clone003",
+				"description":"Clone003",
+				"vm_template_name":"HCLCentos7",
+				"block_dynamic_optimization" : "false",
+				"highly_available":"true",
+				"cpu_count":"1",
+				"memory_mb":"1024",
+				"start_action":"always_auto_turn_on_vm",
+				"stop_action":"turn_off_vm",	
+				"path":"C:\\ClusterStorage\\Volume1"
+			},
+			"Application": 
+			{
+				"Sequence":5,
+				"Instances":0,
+				"Type":"SQLServer",
+				"install_packages":"",
+				"upload_share":"",
+				"upload_file":"",
+				"execute_file_command":"sh",
+				"yum_proxy":"",
+				"SQLServer_media":"\\172.31.41.1\\razor\\SQLServer2012",
+				"SQLServer_netfxsource":"\\172.31.41.1\\razor\\windows_install\\sources\\sxs"			
+			}	
+		}
+}

@@ -1,0 +1,126 @@
+<components>
+	<id>$Cluster_Components_Id</id>
+	<componentID>$Cluster_componentID</componentID>
+	<name>$Cluster_name</name>
+	<type>CLUSTER</type>
+
+	<relatedComponents>
+		$ServerComponentsEntry
+		$VMComponentsEntry
+	</relatedComponents>
+
+	<resources>
+		<id>asm::cluster</id>
+		<displayName>Cluster Settings</displayName>
+
+		<parameters>
+			<id>asm_guid</id>
+			<value>$VCenterRefId</value>
+			<type>ENUMERATED</type>
+			<displayName>Target Virtual Machine Manager</displayName>
+			<required>true</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+		<parameters>
+			<id>datacenter</id>
+			<value>$new$</value>
+			<type>ENUMERATED</type>
+			<displayName>Data Center Name</displayName>
+			<required>true</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+
+		<parameters>
+			<id>$new$datacenter</id>
+			<value>$newdatacenter</value>
+			<type>STRING</type>
+			<displayName>New datacenter name</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+			<min>0</min>
+			<max>0</max>
+			<dependencyTarget>datacenter</dependencyTarget>
+			<dependencyValue>$new$</dependencyValue>
+		</parameters>
+
+
+		<parameters>
+			<id>cluster</id>
+			<value>$ExistingCluster</value>
+			<type>ENUMERATED</type>
+			<displayName>Cluster Name</displayName>
+			<required>true</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+
+
+
+		<parameters>
+			<id>ha_config</id>
+			<value>$HA_Config</value>
+			<type>BOOLEAN</type>
+			<displayName>Cluster HA Enabled</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+		<parameters>
+			<id>drs_config</id>
+			<value>$DRS_Config</value>
+			<type>BOOLEAN</type>
+			<displayName>Cluster DRS Enabled</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+
+
+		<parameters>
+			<id>vds_enabled</id>
+			<value>$VDS_Enabled</value>
+			<type>BOOLEAN</type>
+			<displayName>
+				Enable Virtual Distributed Switches For Host Networks
+			</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+			<dependencyTarget>cluster</dependencyTarget>
+			<dependencyValue>$new$</dependencyValue>
+			<readOnly>false</readOnly>
+			<generated>false</generated>
+			<infoIcon>false</infoIcon>
+			<maxLength>256</maxLength>
+			<step>1</step>
+		</parameters>
+
+
+
+
+
+		<parameters>
+			<id>ensure</id>
+			<value>present</value>
+			<type>STRING</type>
+			<required>true</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>true</hideFromTemplate>
+		</parameters>
+
+	</resources>
+</components>
+

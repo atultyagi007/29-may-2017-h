@@ -1,0 +1,215 @@
+<components>
+	<id>$Application_Components_Id</id>
+	<componentID>$Application_componentID</componentID>
+	<name>$Application_name</name>
+	<type>SERVICE</type>
+	<teardown>false</teardown>
+
+
+	<relatedComponents>
+		$VMComponentsEntry
+	</relatedComponents>
+
+
+
+	<resources>
+		<id>mssql2012</id>
+		<displayName>Application Settings</displayName>
+
+
+
+		<parameters>
+			<id>media</id>
+			<value>$mediaLocation</value>
+			<type>STRING</type>
+			<displayName>media</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+		<parameters>
+			<id>instancename</id>
+			<value>MSSQLSERVER</value>
+			<type>STRING</type>
+			<displayName>instancename</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+		<parameters>
+			<id>features</id>
+			<value>SQLENGINE,CONN,SSMS,ADV_SSMS</value>
+			<type>STRING</type>
+			<displayName>features</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+		<parameters>
+			<id>sapwd</id>
+			<value>Dell1234</value>
+			<type>STRING</type>
+			<displayName>sapwd</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+
+		<parameters>
+			<id>agtsvcaccount</id>
+			<value>Dell1234</value>
+			<type>STRING</type>
+			<displayName>agtsvcaccount</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+		<parameters>
+			<id>agtsvcpassword</id>
+			<value>Dell1234</value>
+			<type>STRING</type>
+			<displayName>agtsvcpassword</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+		<parameters>
+			<id>assvcaccount</id>
+			<value>Dell1234</value>
+			<type>STRING</type>
+			<displayName>assvcaccount</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+
+		<parameters>
+			<id>assvcpassword</id>
+			<value>Dell1234</value>
+			<type>STRING</type>
+			<displayName>assvcpassword</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+		<parameters>
+			<id>rssvcaccount</id>
+			<value>Dell1234</value>
+			<type>STRING</type>
+			<displayName>rssvcaccount</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+		<parameters>
+			<id>rssvcpassword</id>
+			<value>Dell1234</value>
+			<type>STRING</type>
+			<displayName>rssvcpassword</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+
+		<parameters>
+			<id>sqlsvcaccount</id>
+			<value>Dell1234</value>
+			<type>STRING</type>
+			<displayName>sqlsvcaccount</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+		<parameters>
+			<id>sqlsvcpassword</id>
+			<value>Dell1234</value>
+			<type>STRING</type>
+			<displayName>sqlsvcpassword</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+		<parameters>
+			<id>instancedir</id>
+			<value>C:\Program Files\Microsoft SQL Server\\</value>
+			<type>STRING</type>
+			<displayName>instancedir</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+
+		<parameters>
+			<id>ascollation</id>
+			<value>Latin1_General_CI_AS</value>
+			<type>STRING</type>
+			<displayName>ascollation</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+
+		<parameters>
+			<id>sqlcollation</id>
+			<value>SQL_Latin1_General_CP1_CI_AS</value>
+			<type>STRING</type>
+			<displayName>sqlcollation</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+		<parameters>
+			<id>admin</id>
+			<value>Administrator</value>
+			<type>STRING</type>
+			<displayName>admin</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+
+		<parameters>
+			<id>netfxsource</id>
+			<value>$netFxSourceLocation</value>
+			<type>STRING</type>
+			<displayName>netfxsource</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+	</resources>
+	<manageFirmware>false</manageFirmware>
+</components>

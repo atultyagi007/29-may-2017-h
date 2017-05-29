@@ -1,0 +1,18 @@
+<ConfigurationRequest>
+	<configuration>
+		<chassisCredentialId>$credId_Chassis</chassisCredentialId>
+		<chassisNetworkIdentity>
+			<addressingMode>Static</addressingMode>
+			<networkId>$NetworkId</networkId>
+		</chassisNetworkIdentity>
+		<iomCredentialId>$credId_Switch</iomCredentialId>
+		<iomNetworkIdentity>
+			<addressingMode>Existing</addressingMode>		
+		</iomNetworkIdentity>
+		<serverCredentialId>$ServerCredId</serverCredentialId>
+		<serverNetworkIdentity>
+			<addressingMode>Existing</addressingMode>	
+		</serverNetworkIdentity>
+	</configuration>
+	<devices>$deviceRefId</devices>
+</ConfigurationRequest>

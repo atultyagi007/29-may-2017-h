@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<User>
+	<userName>user_name</userName>
+	<domainName>user_domain</domainName>
+	<role>user_role</role>
+	<password>user_pwd</password>
+	<firstName></firstName>
+	<lastName></lastName>
+	<enabled>true</enabled>
+	<systemUser>false</systemUser>
+	<createdBy>login_user</createdBy>
+</User> 
+ 

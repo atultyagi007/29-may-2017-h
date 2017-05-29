@@ -1,0 +1,80 @@
+<components>
+	<id>$Application_Components_Id</id>
+	<componentID>$Application_componentID</componentID>
+	<name>$Application_name</name>
+	<type>SERVICE</type>
+	<teardown>false</teardown>
+
+
+	<relatedComponents>
+		$VMComponentsEntry
+	</relatedComponents>
+
+
+
+	<resources>
+		<id>windows_postinstall</id>
+		<displayName>Application Settings</displayName>
+
+
+		<parameters>
+			<id>share</id>
+			<value>$windowsPostinstallShare</value>
+			<type>STRING</type>
+			<displayName>share</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+
+		<parameters>
+			<id>install_command</id>
+			<value>$installCommand</value>
+			<type>STRING</type>
+			<displayName>install_command</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+
+		<parameters>
+			<id>upload_file</id>
+			<value>$uploadFile</value>
+			<type>STRING</type>
+			<displayName>upload_file</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+		<parameters>
+			<id>upload_recurse</id>
+			<value>false</value>
+			<type>BOOLEAN</type>
+			<displayName>upload_recurse</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+
+		<parameters>
+			<id>execute_file_command</id>
+			<value>$executeFileCommand</value>
+			<type>STRING</type>
+			<displayName>execute_file_command</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+		</parameters>
+
+
+	</resources>
+	<manageFirmware>false</manageFirmware>
+</components>

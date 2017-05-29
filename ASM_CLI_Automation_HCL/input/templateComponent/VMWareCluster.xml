@@ -1,0 +1,719 @@
+<components>
+	<id>$Cluster_Components_Id</id>
+	<componentID>$Cluster_componentID</componentID>
+	<name>$Cluster_name</name>
+	<type>CLUSTER</type>
+
+	<relatedComponents>
+		$ServerComponentsEntry
+		$VMComponentsEntry
+	</relatedComponents>
+	<!--
+	<associatedComponents>
+		$ServerAssociatedComponentsEntry
+		$VMAssociatedComponentsEntry
+	</associatedComponents>
+	-->
+		<resources>
+			<id>asm::cluster</id>
+			<displayName>Cluster Settings</displayName>
+			<parameters>
+				<id>asm_guid</id>
+				<value>$VCenterRefId</value>
+				<type>ENUMERATED</type>
+				<displayName>Target Virtual Machine Manager</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>datacenter</id>
+				<value>$new$</value>
+				<type>ENUMERATED</type>
+				<displayName>Data Center Name</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>$new$datacenter</id>
+				<value>$newdatacenter</value>
+				<type>STRING</type>
+				<displayName>New datacenter name</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>datacenter</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>cluster</id>
+				<value>$new$</value>
+				<type>ENUMERATED</type>
+				<displayName>Cluster Name</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>$new$cluster</id>
+				<value>$NewClusterName</value>
+				<type>STRING</type>
+				<displayName>New cluster name</displayName>
+				<required>true</required>
+				<requiredAtDeployment>true</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>cluster</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>vds_enabled</id>
+				<value>standard</value>
+				<type>RADIO</type>
+				<displayName>Switch Type</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<options>
+					<value>distributed</value>
+					<name>Distributed</name>
+				</options>
+				<options>
+					<value>standard</value>
+					<name>Standard</name>
+				</options>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>ha_config</id>
+				<value>$HA_Config</value>
+				<type>BOOLEAN</type>
+				<displayName>Cluster HA Enabled</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>cluster</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<group>Enable VMWare Features</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>drs_config</id>
+				<value>$DRS_Config</value>
+				<type>BOOLEAN</type>
+				<displayName>Cluster DRS Enabled</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<dependencyTarget>cluster</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<group>Enable VMWare Features</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>vsan_enabled</id>
+				<value>$vSAN_Enabled</value>
+				<type>BOOLEAN</type>
+				<displayName>Enable VMWare vSAN</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<group>Enable VMWare Features</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>ensure</id>
+				<value>present</value>
+				<type>STRING</type>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<group>none</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+		</resources>
+		<resources>
+			<id>asm::cluster::vds</id>
+			<displayName>vSphere VDS Settings</displayName>
+			<parameters>
+				<id>vds_name</id>
+				<value></value>
+				<type>ENUMERATED</type>
+				<displayName>VDS Name</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>vds_enabled</dependencyTarget>
+				<dependencyValue>distributed</dependencyValue>
+				
+				<readOnly>false</readOnly>
+				<generated>true</generated>
+				<group>VDS</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>$new$vds_name</id>
+				<type>STRING</type>
+				<displayName>New VDS Name</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>vds_name</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>true</generated>
+				<group>VDS</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>vds_pg</id>
+				<value></value>
+				<type>ENUMERATED</type>
+				<displayName>Port Group</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>vds_enabled</dependencyTarget>
+				<dependencyValue>distributed</dependencyValue>
+				
+				<readOnly>false</readOnly>
+				<generated>true</generated>
+				<group>VDS</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>$new$vds_pg</id>
+				<type>STRING</type>
+				<displayName>New Port Group</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>vds_pg</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>true</generated>
+				<group>VDS</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>ensure</id>
+				<value>present</value>
+				<type>STRING</type>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>true</hideFromTemplate>
+				<readOnly>false</readOnly>
+				<generated>false</generated>
+				<group>none</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>vds_name::ff808081537928850153793831f300f9:ff808081537928850153793845d3010a
+				</id>
+				<value></value>
+				<type>ENUMERATED</type>
+				<displayName>VDS Name</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>vds_enabled</dependencyTarget>
+				<dependencyValue>distributed</dependencyValue>
+				
+				<readOnly>false</readOnly>
+				<generated>true</generated>
+				<group>VDS 1</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>$new$vds_name::ff808081537928850153793831f300f9:ff808081537928850153793845d3010a
+				</id>
+				<type>STRING</type>
+				<displayName>New VDS Name</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>vds_name::ff808081537928850153793831f300f9:ff808081537928850153793845d3010a
+				</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>true</generated>
+				<group>VDS 1</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>vds_pg::ff808081537928850153793831f300f9:ff808081537928850153793845d3010a::ff808081537928850153793831f300f9::1
+				</id>
+				<value></value>
+				<type>ENUMERATED</type>
+				<displayName>Hypervisor Management Port Group</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>vds_enabled</dependencyTarget>
+				<dependencyValue>distributed</dependencyValue>
+				
+				<readOnly>false</readOnly>
+				<generated>true</generated>
+				<group>VDS 1</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>$new$vds_pg::ff808081537928850153793831f300f9:ff808081537928850153793845d3010a::ff808081537928850153793831f300f9::1
+				</id>
+				<type>STRING</type>
+				<displayName>New Port Group</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>vds_pg::ff808081537928850153793831f300f9:ff808081537928850153793845d3010a::ff808081537928850153793831f300f9::1
+				</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>true</generated>
+				<group>VDS 1</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>vds_pg::ff808081537928850153793831f300f9:ff808081537928850153793845d3010a::ff808081537928850153793845d3010a::1
+				</id>
+				<value></value>
+				<type>ENUMERATED</type>
+				<displayName>PXE Port Group</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>vds_enabled</dependencyTarget>
+				<dependencyValue>distributed</dependencyValue>
+				
+				<readOnly>false</readOnly>
+				<generated>true</generated>
+				<group>VDS 1</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>$new$vds_pg::ff808081537928850153793831f300f9:ff808081537928850153793845d3010a::ff808081537928850153793845d3010a::1
+				</id>
+				<type>STRING</type>
+				<displayName>New Port Group</displayName>
+				<required>true</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>vds_pg::ff808081537928850153793831f300f9:ff808081537928850153793845d3010a::ff808081537928850153793845d3010a::1
+				</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>true</generated>
+				<group>VDS 1</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>vds_name::ff80808153792885015379381e0300e8</id>
+				<value></value>
+				<type>ENUMERATED</type>
+				<displayName>VDS Name</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>vds_enabled</dependencyTarget>
+				<dependencyValue>distributed</dependencyValue>
+				
+				<readOnly>false</readOnly>
+				<generated>true</generated>
+				<group>VDS 2</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>$new$vds_name::ff80808153792885015379381e0300e8</id>
+				<type>STRING</type>
+				<displayName>New VDS Name</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>vds_name::ff80808153792885015379381e0300e8
+				</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>true</generated>
+				<group>VDS 2</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>vds_pg::ff80808153792885015379381e0300e8::ff80808153792885015379381e0300e8::1
+				</id>
+				<value></value>
+				<type>ENUMERATED</type>
+				<displayName>VMotion Port Group</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>vds_enabled</dependencyTarget>
+				<dependencyValue>distributed</dependencyValue>
+				
+				<readOnly>false</readOnly>
+				<generated>true</generated>
+				<group>VDS 2</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>$new$vds_pg::ff80808153792885015379381e0300e8::ff80808153792885015379381e0300e8::1
+				</id>
+				<type>STRING</type>
+				<displayName>New Port Group</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>vds_pg::ff80808153792885015379381e0300e8::ff80808153792885015379381e0300e8::1
+				</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>true</generated>
+				<group>VDS 2</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>vds_name::ff808081537928850153793809c500d7</id>
+				<value></value>
+				<type>ENUMERATED</type>
+				<displayName>VDS Name</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>vds_enabled</dependencyTarget>
+				<dependencyValue>distributed</dependencyValue>
+				
+				<readOnly>false</readOnly>
+				<generated>true</generated>
+				<group>VDS 3</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>$new$vds_name::ff808081537928850153793809c500d7</id>
+				<type>STRING</type>
+				<displayName>New VDS Name</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>vds_name::ff808081537928850153793809c500d7
+				</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>true</generated>
+				<group>VDS 3</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>vds_pg::ff808081537928850153793809c500d7::ff808081537928850153793809c500d7::1
+				</id>
+				<value></value>
+				<type>ENUMERATED</type>
+				<displayName>Workload Port Group</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>vds_enabled</dependencyTarget>
+				<dependencyValue>distributed</dependencyValue>
+				
+				<readOnly>false</readOnly>
+				<generated>true</generated>
+				<group>VDS 3</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>$new$vds_pg::ff808081537928850153793809c500d7::ff808081537928850153793809c500d7::1
+				</id>
+				<type>STRING</type>
+				<displayName>New Port Group</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>vds_pg::ff808081537928850153793809c500d7::ff808081537928850153793809c500d7::1
+				</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>true</generated>
+				<group>VDS 3</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>vds_name::ff80808153792885015379386d53011c</id>
+				<value></value>
+				<type>ENUMERATED</type>
+				<displayName>VDS Name</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>vds_enabled</dependencyTarget>
+				<dependencyValue>distributed</dependencyValue>
+				
+				<readOnly>false</readOnly>
+				<generated>true</generated>
+				<group>VDS 4</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>$new$vds_name::ff80808153792885015379386d53011c</id>
+				<type>STRING</type>
+				<displayName>New VDS Name</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>vds_name::ff80808153792885015379386d53011c
+				</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>true</generated>
+				<group>VDS 4</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>vds_pg::ff80808153792885015379386d53011c::ff80808153792885015379386d53011c::1
+				</id>
+				<value></value>
+				<type>ENUMERATED</type>
+				<displayName>ISCSI Port Group 1</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>vds_enabled</dependencyTarget>
+				<dependencyValue>distributed</dependencyValue>
+				
+				<readOnly>false</readOnly>
+				<generated>true</generated>
+				<group>VDS 4</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>$new$vds_pg::ff80808153792885015379386d53011c::ff80808153792885015379386d53011c::1
+				</id>
+				<type>STRING</type>
+				<displayName>New Port Group</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>vds_pg::ff80808153792885015379386d53011c::ff80808153792885015379386d53011c::1
+				</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>true</generated>
+				<group>VDS 4</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>vds_pg::ff80808153792885015379386d53011c::ff80808153792885015379386d53011c::2
+				</id>
+				<value></value>
+				<type>ENUMERATED</type>
+				<displayName>ISCSI Port Group 2</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>vds_enabled</dependencyTarget>
+				<dependencyValue>distributed</dependencyValue>
+				
+				<readOnly>false</readOnly>
+				<generated>true</generated>
+				<group>VDS 4</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+			<parameters>
+				<id>$new$vds_pg::ff80808153792885015379386d53011c::ff80808153792885015379386d53011c::2
+				</id>
+				<type>STRING</type>
+				<displayName>New Port Group</displayName>
+				<required>false</required>
+				<requiredAtDeployment>false</requiredAtDeployment>
+				<hideFromTemplate>false</hideFromTemplate>
+				<min>0</min>
+				<max>0</max>
+				<dependencyTarget>vds_pg::ff80808153792885015379386d53011c::ff80808153792885015379386d53011c::2
+				</dependencyTarget>
+				<dependencyValue>$new$</dependencyValue>
+				<readOnly>false</readOnly>
+				<generated>true</generated>
+				<group>VDS 4</group>
+				<infoIcon>false</infoIcon>
+				<maxLength>256</maxLength>
+				<step>1</step>
+				<optionsSortable>true</optionsSortable>
+			</parameters>
+		</resources>
+		<cloned>false</cloned>
+		<manageFirmware>false</manageFirmware>
+		<brownfield>false</brownfield>
+	</components>

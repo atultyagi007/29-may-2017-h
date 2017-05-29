@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AuthenticateRequest>
+  <userName>$login_user</userName>
+  <domain>$login_domain</domain>
+  <password>$login_pwd</password>
+</AuthenticateRequest>

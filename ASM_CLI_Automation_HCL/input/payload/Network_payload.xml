@@ -1,0 +1,13 @@
+<Network xmlns="http://pg.dell.com/asm/virtualservices/network">
+	<Id/>
+	<Name>$nw_name</Name>
+	<Description>$nw_desc</Description>
+	<Type>$nw_type</Type>
+	<VlanId>$nw_vlan</VlanId>
+	<Static>$nw_static</Static>
+	<Gateway>$nw_gateway</Gateway>
+	<Subnet>$nw_subnet</Subnet>
+	<Start_ip>$nw_startip</Start_ip>
+	<End_ip>$nw_endip</End_ip>
+	<DNS>$nw_dns</DNS>
+</Network>

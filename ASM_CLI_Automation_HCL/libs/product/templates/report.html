@@ -1,0 +1,233 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <title>{{ info.name }}</title>
+    <meta http-equiv="x-ua-compatible" content="IE=10" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">{% include "bootstrap.min.css" %}</style>
+    <style type="text/css">{% include "style.css" %}</style>
+    <script type="text/javascript">
+
+function computedStyle(el, style) {
+    var cs;
+    if (typeof el.currentStyle != 'undefined') {
+        cs = el.currentStyle;
+    } else {
+        cs = document.defaultView.getComputedStyle(el, null);
+    }
+    return cs[style];
+}
+
+function toggleOutput(div_id, control){
+    var details_div = document.getElementById(div_id)
+    var displayState = computedStyle(details_div, 'display');
+    if (displayState != 'table-row') {
+        details_div.style.display = 'table-row';
+        control.innerHTML = '&minus;';
+        
+    } else {
+        details_div.style.display = 'none';
+        control.innerHTML = '+';
+    }
+}
+
+function toggleTests(div_id, control){
+    var details_div = document.getElementById(div_id)
+    var displayState = computedStyle(details_div, 'display');
+    if (displayState != 'table-row-group') {
+        details_div.style.display = 'table-row-group';
+        control.innerHTML = '&minus;';
+        
+    } else {
+        details_div.style.display = 'none';
+        control.innerHTML = '+';
+    }
+}
+
+function showPopup(url, name) {
+    var w = window.open(url, name, "resizeable,scrollbars,status,width=800,height=450");
+    }
+
+function showTable(name, data) {
+    var w = window.open("", name, "resizeable,scrollbars,status,width=800,height=450");
+    doc = w.document;
+    doc.write('<html><head>');
+    doc.write('<style type="text/css">{% include "style.step.css" %}</style>');
+    doc.write('</head><body>');
+    doc.write("<table width='100%' border='1'>");
+    doc.write("<tr><th>Step</th><th>Description</th><th>Message</th><th>Result</th></tr>");
+    for (var index=0; index < data.length; index++) {
+        doc.write("<tr>")
+        doc.write("<td>Step " + (index+1) + "</td>");
+        doc.write("<td>" + data[index].name + "</td>");
+        if (data[index].description === null) {
+            doc.write("<td>No Description</td>");
+        } else {
+            doc.write("<td>" + data[index].description + "</td>");
+        }
+        doc.write("<td>" + data[index].result.toUpperCase() + "</td>");
+        doc.write("</tr>");
+    }
+    doc.write("</table>");
+    doc.write('</body></html>');
+    doc.close();
+}
+    
+    </script>
+</head>
+<body>
+    <div class="jumbotron">
+    <span class="version">
+    <b>{% if info.version %}v{{ info.version }}{% endif %} {% if info.build_id %} -- Build: {{ info.build_id }}{% endif %}</b><br/>
+    <b>{{ info.author }}</b><br/>
+    <br/>
+    <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAxCAMAAABEQrEuAAAAM1BMVEUwnM7g8PhQq9aw2exwu93w+PsglMvQ6fSQyuWg0ukQjcdgs9pApNLA4fCAwuH///8AhcPz/CU+AAABhklEQVR42pWW22LDIAiGTaOJclDf/2kHxW5ZTef4L6hRv4J4DH0WxcqqGqnPeicAuV3FCH8SR2mzyvGRgDz+tyKpsA5/Ge6JR9LWHftVuGtletwR+RLBHGmeCNAATup3olNDhd8EaGWBfi9QNyf8ItQD9s9C9XIlsgELJP8QDwOWyONFQJIx9JWKJBkGkW1YC2lyshGH+KO+Fkm/40kUjWkt66gEGLqUBQNCYGt7/5/21lAIvmR2nWEWQlxNLQnvEe0bSLlem2qrMEbYqvzySGK1b6uhEPXLCGXCWJShHDOhpRjE4CBUJyWxUWyimUApBHVklRE3oxJVteGcCB3ChSCtUNEuhg9uawLat3IQh2sitqGEmNqa2M8mUmP23NQwZ23cmNmI91xlKKNUgK3Ar0bL1dt85N5HbLH3ibD5sDmn+pSt4aCTodm3SqRqsjm/XVdQ4PO68q9d//7w70H/PvefJf7zyn8m+s9d/9nuvz/8d5T/HvTftf773P9m8L9L/G8f//vqC4uRim3ewOSeAAAAAElFTkSuQmCC" /> 
+    </span>
+        <h1 >{{ info.name }}&nbsp;</h1>
+        <h3 >{{ info.description }}&nbsp;</h3>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="span6">
+                <b>Execution Statistics</b>
+                <table class="table table-condensed table-bordered">
+                    <tbody>
+                        <tr >
+                            <td>Start Time:</td>
+                            <td>{{start_time}}</td>
+                        </tr>
+                        <tr >
+                            <td>Stop Time:</td>
+                            <td>{{stop_time}}</td>
+                        </tr>
+                        <tr >
+                            <td>Duration:</td>
+                            <td>{{duration}}</td>
+                        </tr>
+                        <tr >
+                            <td>Status:</td>
+                            <td>
+                            {% for (level, count) in summary|dictsort|rejectattr(1, 'equals', 0)|reverse %}
+                            {{ level|title }} {{count}}{%if not loop.last %},{% endif %}
+                            {% endfor %}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="span6 float-right">
+                <b>Runtime Information</b> (<a href="{{ info.runtimelogfile }}">log</a>)
+                <table class="table table-condensed table-bordered">
+                    <tbody>
+                        {% for key, val in runtime|dictsort %}
+                        <tr >
+                            <td>{{key}}</td>
+                            <td>{{val}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container">
+{% if results %}
+    <div class="row">
+    <div class="span12">
+    <table class="table table-bordered" width="50%">
+        <thead>
+        <tr>
+            <th>Test Group/Test Case</th>
+            <th>Count</th>
+            <th>Pass</th>
+            <th>Fail</th>
+            <th>Omit</th>
+            <th>Block</th>
+            <th>Error</th>
+            <th colspan="2">Output</th>
+        </tr>
+        </thead>
+{% for result in results %}
+        <tbody>
+            {% set pass_count = result.tests|selectattr('status', 'equals', 'pass')|list|length %}
+            {% set fail_count = result.tests|selectattr('status', 'equals', 'fail')|list|length %}
+            {% set omit_count = result.tests|selectattr('status', 'equals', 'omit')|list|length %}
+            {% set block_count = result.tests|selectattr('status', 'equals', 'block')|list|length %}
+            {% set error_count = result.tests|selectattr('status', 'equals', 'error')|list|length %}
+            {% set class_id = loop.index0 %}
+
+            {% if pass_count == result.tests|length %}
+            <tr class="pass" >
+            {% else %}
+            <tr class="fail" >
+            {% endif %}
+                <td title="{{result.description}}">{{result.name.split(".").0}} : {{result.description}}</td>
+                <td>{{ result.tests|length }}</td>
+                <td>{{ pass_count }}</td>
+                <td>{{ fail_count }}</td>
+                <td>{{ omit_count }}</td>
+                <td>{{ block_count }}</td>
+                <td>{{ error_count }}</td>
+                <td>
+                {% for name, url in result.urls %}
+                <a href="{{url}}" onclick='javascript:showPopup("{{url}}", "{{name}}");return false'>{{name}}</a><br>
+                {% endfor %}
+                </td>
+                <td>
+            {% if pass_count == result.tests|length %}
+                <span onClick="javascript:toggleTests('tests_{{loop.index0}}', this);" class="close">+</span>
+            {% else %}
+                <span onClick="javascript:toggleTests('tests_{{loop.index0}}', this);" class="close">&minus;</span>
+            {% endif %}
+                </td>
+            </tr>
+        </tbody>
+        {% if pass_count == result.tests|length %}
+        <tbody id="tests_{{loop.index0}}" class="pass test_group">
+        {% else %}
+        <tbody id="tests_{{loop.index0}}" class="fail test_group">
+        {% endif %}
+{% for testresult in result.tests %}
+        {% set testcase_url = 'http://testdrive.us.dell.com/testdrive/SearchResult.asp?Str=%s&TCTitle=true&TCID=true&PrjName=true&PrjID=true&TPName=true&TPID=true&TRName=true&TRID=true&CName=true&CID=true'|format(testresult.testcase) %}
+        <tr parent_id="cl_{{class_id}}" class="{{testresult.status}} test">
+            <td title="{{testresult.description}}"><div class="testcase">{% if testresult.testcase %}<a target="_blank" href="{{ testcase_url }}">{{testresult.testcase}}</a> - {% endif %}{{ testresult.name }}</div></td>
+            <td colspan="6">
+                <div class="{{testresult.status}}">
+                {{ testresult.status|upper }}{% if testresult.status in ('omit', 'skip', 'block') %}: {{ testresult.stderr}}{% endif %}
+                ({{ ("%s" | format(testresult.end|datetime - testresult.start|datetime)).split(".").0 }})
+                </div>
+            </td>
+            <td>
+            {% for name, url in testresult.urls %}
+            <a href="{{url}}" onclick='javascript:showPopup("{{url}}", "{{name}}");return false'>{{name}}</a><br>
+            {% endfor %}
+            {% if testresult.step_results %}
+            <a href="#" onclick='javascript:showTable("Test Steps", {{testresult.step_results|tojson}})'>steps</a>
+            {% endif %}
+            </td>
+        </tr>
+{% endfor %}
+        </tbody>
+
+{% endfor %}
+    </table>
+
+    </div>
+{% endif %}
+
+        <div class="row">
+            <div class="span12 footer">
+                Generated by DellTestRunner
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+{
+	"Template": 
+			{
+				"Name":"TestCase_iSCSICompellentEsxi_Template",
+				"Description":"Deploy an server,storage,cluster,vm and scale an vm ",
+				"Flow":"iSCSICompellentEsxi"	
+			},
+	"Server": 
+			{
+				"Instances":1,
+				"target_boot_device_value":"HD",
+				"OSImage_Value": ["esxi-5.1"],
+				"iSCSI_Initiator":"hardware",
+				"HostNameTemplate":"server${num}",
+				"ServerPoolName":"autoPool",
+				"ServersIPForPool": ["172.31.64.106","172.31.64.107"],
+				"memEnabled":"false",
+				"Networks": "ESXI_EQL_CONVERGED_2PARTITION",			
+				"Install_EqualLogic_MEM":"false",
+				"Os_Image_Version":"windows2012r2datacenter",
+				"Product_Key":"FNY7W-693QP-VHGKR-6JPHH-R898Y",
+				"domain_name":"ess",
+				"Domain_Admin_Username":"hypervadmin",
+				"Domain_Admin_Password":"Dell1234",
+				"FQ_Domain_Name":"ess.delllabs.net"
+									
+			},
+
+	"Storage":
+		{
+			"Instances":1,
+			"Type":"Compellent",
+			"Size":["200GB"],
+			"IPAdress":"172.31.32.108",
+			"Initiator_IQN_IP_Addresses":"",
+			"Auth_Type":"chap",
+			"CHAP_User":"grpadmin",
+			"CHAP_Password":"dell1234",
+			"Operating_SystemName_Compellent":"VMware ESX 5.5",
+			"PortType_Compellent":"FibreChannel"
+		},
+	"Cluster":
+		{
+			"Instances":0,
+			"Type":"VMWareCluster",	
+			"IPAdress":"172.31.32.195",
+			"ExistingClusterName":"",		
+			"SwitchType":"Standard",	
+			"HA_Config":"false",
+			"DRS_Config":"false",
+			"VSAN_Enabled":"false",
+			"ClusterIP_HyperV":""	
+		},
+		
+	"VM":
+		{
+			"Instances":0,
+			"Type":"VMWareVM",
+			"AutogenerateHostName":"true",
+			"OS_Image":"red7",
+			"Os_Image_Version":"",
+			"OS_Image_Type" : "redhat7",
+			"Product_Key":"",
+			"Virtual_Disk_Size_GB":"2",	
+			"CPU_Count":"2",
+			"Memory_MB":"1024",			
+			"hostname_HyperVCloneVM":"Clone003",
+			"description_HyperVCloneVM":"Clone003",
+			"vm_template_name":"HCLCentos7",
+			"block_dynamic_optimization" : "false",
+			"highly_available":"true",
+			"start_action":"always_auto_turn_on_vm",
+			"stop_action":"turn_off_vm",	
+			"path":"C:\\ClusterStorage\\Volume1"		
+				
+		},
+	"Application":
+		{
+			"Instances":0,
+			"Type":"LinuxPostInstall",
+			"yum_proxy":"",	
+			"install_packages":"",
+			"upload_share":"",
+			"upload_file":"",
+			"execute_file_command":"sh",
+			"windows_postinstall_share":"",
+			"windows_install_command":""		
+				
+		},
+	"Scaleup":
+		{
+			"Server": 
+			{
+				
+				"Instances":0,
+				"target_boot_device_value":"SD",
+				"OSImage_Value": ["esxi-6.0"],
+				"iSCSI_Initiator":"hardware",
+				"HostNameTemplate":"server${num}",
+				"memEnabled":"false",
+				"Networks": "ESXI_EQL_CONVERGED_2PARTITION",			
+				"Install_EqualLogic_MEM":"false",
+				"Os_Image_Version":"windows2012r2datacenter",
+				"Product_Key":"FNY7W-693QP-VHGKR-6JPHH-R898Y",
+				"domain_name":"ess",
+				"Domain_Admin_Username":"hypervadmin",
+				"Domain_Admin_Password":"Dell1234",
+				"FQ_Domain_Name":"ess.delllabs.net"
+				
+				
+			},
+			"Storage":
+			{
+				
+				"Instances":1,
+				"Type":"Compellent",
+				"Size":["200GB"],
+				"IPAdress":"172.31.32.108",
+				"Initiator_IQN_IP_Addresses":"",
+				"Auth_Type":"chap",
+				"CHAP_User":"grpadmin",
+				"CHAP_Password":"dell1234",
+				"Operating_SystemName_Compellent":"VMware ESX 5.5",
+				"PortType_Compellent":"FibreChannel",
+				"Aggregate_Name_NetApp":"Aggregate1DP",
+				"Space_Reservation_Mode_NetApp":"file",
+				"NFS_Target_IP_NetApp":"172.31.32.81"
+								
+			},
+			"Cluster": 
+			{
+				
+				"Instances":0,
+				"Type":"VMWareCluster",	
+				"IPAdress":"172.31.32.195",
+				"ExistingClusterName":"",		
+				"SwitchType":"Standard",	
+				"HA_Config":"false",
+				"DRS_Config":"false",
+				"VSAN_Enabled":"false",
+				"ClusterIP_HyperV":""	
+			},
+			"VM": 
+			{
+				
+				"Instances":0,
+				"Type":"VMWareVM",
+				"AutogenerateHostName":"true",
+				"OS_Image":"red7",
+				"Os_Image_Version":"",
+				"OS_Image_Type" : "redhat7",
+				"Product_Key":"",
+				"Virtual_Disk_Size_GB":"2",	
+				"CPU_Count":"2",
+				"Memory_MB":"1024",			
+				"hostname_HyperVCloneVM":"Clone003",
+				"description_HyperVCloneVM":"Clone003",
+				"vm_template_name":"HCLCentos7",
+				"block_dynamic_optimization" : "false",
+				"highly_available":"true",
+				"start_action":"always_auto_turn_on_vm",
+				"stop_action":"turn_off_vm",	
+				"path":"C:\\ClusterStorage\\Volume1"	
+			},
+			"Application": 
+			{
+				
+				"Instances":0,
+				"Type":"LinuxPostInstall",
+				"yum_proxy":"",	
+				"install_packages":"",
+				"upload_share":"",
+				"upload_file":"",
+				"execute_file_command":"sh",
+				"windows_postinstall_share":"",
+				"windows_install_command":""			
+			}	
+		}
+}

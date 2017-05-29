@@ -1,0 +1,105 @@
+<components>
+	<id>$Cluster_Components_Id</id>
+	<componentID>$Cluster_componentID</componentID>
+	<name>$Cluster_name</name>
+	<type>CLUSTER</type>
+	<teardown>false</teardown>
+
+	<relatedComponents>
+		$ServerComponentsEntry
+		$VMComponentsEntry
+	</relatedComponents>
+	
+	<!-- 
+	<associatedComponents>
+		$ServerAssociatedComponentsEntry
+		$VMAssociatedComponentsEntry
+	</associatedComponents>
+   -->
+	<resources>
+		<id>asm::cluster::scvmm</id>
+		<displayName>Cluster Settings</displayName>
+
+		<parameters>
+			<id>asm_guid</id>
+			<value>$HyperMgmtClusterValue</value>
+			<type>ENUMERATED</type>
+			<displayName>Hypervisor Management Software</displayName>
+			<required>true</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+			<readOnly>false</readOnly>
+			<generated>false</generated>
+		</parameters>
+
+		<parameters>
+			<id>hostgroup</id>
+			<value>$new$</value>
+			<type>ENUMERATED</type>
+			<displayName>Host Group</displayName>
+			<required>true</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+			<dependencyTarget>name</dependencyTarget>
+			<dependencyValue>$new$</dependencyValue>
+			<readOnly>false</readOnly>
+			<generated>false</generated>
+		</parameters>
+
+		<parameters>
+			<id>$new$hostgroup</id>
+			<value>$NewHostGroup</value>
+			<type>STRING</type>
+			<displayName>New host group name</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+			<dependencyTarget>hostgroup</dependencyTarget>
+			<dependencyValue>$new$</dependencyValue>
+			<readOnly>false</readOnly>
+			<generated>false</generated>
+		</parameters>
+
+		<parameters>
+			<id>name</id>
+			<value>$new$</value>
+			<type>ENUMERATED</type>
+			<displayName>Cluster Name</displayName>
+			<required>true</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+			<readOnly>false</readOnly>
+			<generated>false</generated>
+		</parameters>
+
+		<parameters>
+			<id>$new$name</id>
+			<value>$NewClusterName</value>
+			<type>STRING</type>
+			<displayName>New cluster name</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+			<dependencyTarget>name</dependencyTarget>
+			<dependencyValue>$new$</dependencyValue>
+			<readOnly>false</readOnly>
+			<generated>false</generated>
+		</parameters>
+
+		<parameters>
+			<id>ipaddress</id>
+			<value>$ClusterIPHyperV</value>
+			<type>STRING</type>
+			<displayName>Cluster IP Address</displayName>
+			<required>false</required>
+			<requiredAtDeployment>false</requiredAtDeployment>
+			<hideFromTemplate>false</hideFromTemplate>
+			<dependencyTarget>name</dependencyTarget>
+			<dependencyValue>$new$</dependencyValue>
+			<readOnly>false</readOnly>
+			<generated>false</generated>
+		</parameters>
+
+	</resources>
+
+</components>

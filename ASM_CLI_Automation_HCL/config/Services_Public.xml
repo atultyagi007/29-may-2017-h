@@ -1,0 +1,37 @@
+<urls>
+	<url name="Configure" uri=""/>
+	<url name="Discovery" uri="/Api/V1/DiscoveryRequest"/>
+	<url name="ChassisListDiscovery" uri="/Api/V1/DiscoveryRequest/chassislist"/>
+	<url name="ChassisRADiscovery" uri=""/>
+	<url name="ChassisConfigureProcess" uri=""/>
+	<url name="ChassisConfigureDiscover" uri=""/>
+	<url name="Credential" uri = "/Api/V1/Credential"/>
+	<url name="ManagedDevice" uri = "/Api/V1/ManagedDevice"/>
+	<url name = "Network" uri = "/Api/V1/Network"/>
+	<url name="Timezone" uri = "/Api/V1/Timezone"/>
+	<url name="NTP" uri = "/Api/V1/NTP"/>
+	<url name="login" uri = "/Api/V1/Authenticate"/>
+	<url name="proxy" uri = "/Api/V1/Proxy"/>
+	<url name="Wizard" uri = "/Api/V1/WizardStatus"/>
+	<url name="ServerCred" uri = "/Api/V1/Credential"/>
+	<url name="Template" uri = "/Api/V1/ServiceTemplate"/>
+	<url name="ServerPool" uri = "/Api/V1/DeviceGroup"/>
+	<url name="Deploy" uri = "/Api/V1/Deployment"/>
+	<url name="User" uri = "/Api/V1/User"/>
+	<url name="DirectoryService" uri = ""/>
+	<url name="ValidateAD" uri = ""/>
+	<url name="osRepository" uri = ""/>
+	<url name="FirmwareRepository" uri = "/Api/V1/FirmwareRepository"/>
+	<url name="Chassis" uri = "/Api/V1/Chassis"/>
+	<url name="Server" uri = "/Api/V1/Server"/>
+	<url name="compliance" uri = "/Api/V1/FirmwareRepository/compliance"/>
+    <url name="updateFirmware" uri = "/Api/V1/ManagedDevice/firmware"/>
+    <url name="DHCP" uri = "/Api/V1/DHCP"/>
+    <url name="JobStatus" uri=""/>
+    <url name="backupNowWithSettings" uri = ""/>
+    <url name="backupSettings" uri = ""/>
+    <url name="backupSchedule" uri = ""/>
+    <url name="restore" uri = ""/>
+    <url name="reboot" uri = ""/>
+    
+</urls>

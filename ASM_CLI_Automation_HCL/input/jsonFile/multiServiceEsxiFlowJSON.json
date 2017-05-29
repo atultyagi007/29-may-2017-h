@@ -1,0 +1,122 @@
+{
+	"Template": 
+			{
+				"Name":"MultiServiceEsxiTemplate1",
+				"Description":"Multiple service deployments using vendor for auto generation of host names",
+				"Flow":"multiService"	
+			},
+	"Server": 
+			{
+				"Instances":1,
+				"target_boot_device_value":"SD",
+				"OSImage_Value": ["esxi-5.1","esxi-5.5"],
+				"ServerPoolName":"HCLASMServerPool",
+				"HostNameTemplate":"Server${service_tag}-${vendor}",
+				"iSCSI_Initiator":"hardware",
+				"ServersIPForPool": ["IP_Address_server1", "IP_Address_server2", "IP_Address_server3", "IP_Address_server4"]
+									
+			},
+
+	"Storage":
+		{
+			"Instances":0,
+			"Type":"Compellent",
+			"Size":["512MB","1024MB"],
+			"IPAdress":"172.31.32.117",
+			"Initiator_IQN_IP_Addresses":"172.31.39.227",
+			"Operating_SystemName_Compellent":"VMware ESX 5.5",
+			"PortType_Compellent":"FibreChannel"
+		},
+	"Cluster":
+		{
+			"Instances":0,
+			"Type":"VMWareCluster",	
+			"IPAdress":"172.31.32.195",	
+			"HA_Config":"true",
+			"DRS_Config":"false",
+			"VDS_Enabled":"false"	
+		},
+		
+	"VM":
+		{
+			"Instances":0,
+			"Type":"VMWareVM",
+			"AutogenerateHostName":"true",
+			"OS_Image":"red7",
+			"Os_Image_Version":"",
+			"OS_Image_Type" : "redhat7",
+			"Product_Key":""	
+				
+		},
+	"Application":
+		{
+			"Instances":0,
+			"Type":"LinuxPostInstall",
+			"yum_proxy":"",	
+			"install_packages":"",
+			"upload_share":"",
+			"upload_file":"",
+			"execute_file_command":"sh",
+			"windows_postinstall_share":"",
+			"windows_install_command":""		
+				
+		},
+	"Scaleup":
+		{
+			"Server": 
+			{
+				"Sequence":1,
+				"Instances":0,
+				"target_boot_device_value":"SD",
+				"iSCSI_Initiator":"hardware",
+				"HostNameTemplate":"server${num}",
+				"OSImage_Value": ["esxi-5.1"]
+				
+				
+			},
+			"Storage":
+			{
+				"Sequence":2,
+				"Instances":0,
+				"Type":"Compellent",
+				"Size":["512MB"],
+				"Initiator_IQN_IP_Addresses":"172.31.39.227",
+				"Operating_SystemName_Compellent":"VMware ESX 5.5",
+				"PortType_Compellent":"FibreChannel"
+								
+			},
+			"Cluster": 
+			{
+				"Sequence":3,
+				"Instances":0,
+				"Type":"VMWareCluster",	
+				"HA_Config":"true",
+				"DRS_Config":"false",
+				"VDS_Enabled":"false"	
+			},
+			"VM": 
+			{
+				"Sequence":4,
+				"Instances":0,
+				"Type":"VMWareVM",
+				"AutogenerateHostName":"true",
+				"OS_Image":"red7",
+				"Os_Image_Version":"",
+				"OS_Image_Type" : "redhat7",
+				"Product_Key":""
+			},
+			"Application": 
+			{
+				"Sequence":5,
+				"Instances":0,
+				"Type":"LinuxPostInstall",
+				"yum_proxy":"",	
+				"install_packages":"",
+				"upload_share":"",
+				"upload_file":"",
+				"execute_file_command":"sh",
+				"windows_postinstall_share":"",
+				"windows_install_command":""			
+			}	
+		}
+}

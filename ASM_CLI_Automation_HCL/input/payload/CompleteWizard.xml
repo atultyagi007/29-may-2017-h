@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<wizardStatus>
+   <isSetupCompleted>true</isSetupCompleted>
+	<showGettingStarted>true</showGettingStarted>
+	<isConfigureCompleted>true</isConfigureCompleted>
+	<isTemplateCompleted>false</isTemplateCompleted>
+	<isNetworkCompleted>true</isNetworkCompleted>
+	<isDeploymentCompleted>false</isDeploymentCompleted>
+</wizardStatus>

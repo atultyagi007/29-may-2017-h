@@ -1,0 +1,6 @@
+<FirmwareUpdateRequest>
+<exitMaintenanceMode>$exitMaintMode</exitMaintenanceMode>
+$idList
+<scheduleType>$scheduleUpdate</scheduleType>
+<updateType>DEVICE</updateType>
+</FirmwareUpdateRequest>
